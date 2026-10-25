@@ -11,6 +11,27 @@ export const CARD_GRADIENTS: Record<string, string> = {
       silver: 'radial-gradient(45% 55% at 95% 5%, rgba(170,170,170,.55) 0%, transparent 75%), radial-gradient(70% 60% at 85% 95%, rgba(150,150,150,.7) 0%, rgba(110,110,110,.35) 45%, transparent 80%), linear-gradient(160deg, #0c0c0c 0%, #141414 30%, #2c2c2c 52%, #4a4a4a 62%, #2a2a2a 75%, #5a5a5a 100%)',
     } as const;
 
+/**
+ * Кольори платформ для карток окремих послуг: [верхнє сяйво, нижнє сяйво].
+ * Ключ — `${категорія}|${назва}`, як у SERVICE_LOGOS. Без запису картка
+ * бере градієнт своєї категорії.
+ */
+export const PLATFORM_COLORS: Record<string, [string, string]> = {
+  'ads|Google Ads': ['#FBBC04', '#4285F4'],
+  'ads|Meta Ads': ['#00C6FF', '#0866FF'],
+  'ads|TikTok Ads': ['#25F4EE', '#FE2C55'],
+  'ads|Pinterest Ads': ['#FF5A6E', '#E60023'],
+  'ads|YouTube Ads': ['#FF6B6B', '#FF0000'],
+  'ads|GPT Ads': ['#74E0BE', '#10A37F'],
+  'ads|Маркетплейси': ['#FF9900', '#F1641E'],
+};
+
+/** Градієнт у кольорах платформи — та сама будова, що й у «silver». */
+export const platformGradient = ([top, bottom]: [string, string]) =>
+  `radial-gradient(45% 55% at 95% 5%, ${top}8c 0%, transparent 75%), ` +
+  `radial-gradient(70% 60% at 85% 95%, ${bottom}b3 0%, ${bottom}59 45%, transparent 80%), ` +
+  `linear-gradient(160deg, #0c0c0c 0%, #141414 35%, ${bottom}40 70%, ${top}59 100%)`;
+
 /** Контури іконок (атрибут d для <path>). */
 export const ICONS: Record<string, string> = {
       code: 'M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 6l-3 12',

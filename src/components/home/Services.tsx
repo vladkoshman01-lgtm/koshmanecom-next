@@ -7,6 +7,8 @@ import {
   CATEGORY_KEYS,
   CATEGORY_NAMES,
   ICONS,
+  PLATFORM_COLORS,
+  platformGradient,
   SERVICES,
   TASK_CHIPS,
 } from '@/data/services';
@@ -203,6 +205,9 @@ export default function Services() {
                 const slug = `${activeCategory}|${title}`;
                 const logo = SERVICE_LOGOS[slug];
                 const icon = SERVICE_ICONS[slug] ?? category.icon;
+                const colors = PLATFORM_COLORS[slug];
+                const gradient = colors ? platformGradient(colors) : category.gradient;
+                const backgroundSize = colors ? '135% 100%' : category.backgroundSize;
                 return (
                   <React.Fragment key={title}>
                   {/* Телефон: горизонтальний рядок із кольоровою смужкою зліва */}
@@ -213,7 +218,7 @@ export default function Services() {
                   >
                     <div
                       className="w-1.5 flex-none"
-                      style={{ background: category.gradient, backgroundSize: category.backgroundSize }}
+                      style={{ background: gradient, backgroundSize }}
                     />
                     <div className="flex min-w-0 flex-1 flex-col gap-1.5 p-3.5">
                       <span className="flex items-center justify-between gap-2.5">
@@ -240,7 +245,7 @@ export default function Services() {
                   >
                     <div
                       className="card-service-head flow-card flex h-[9.375rem] w-full flex-none flex-col justify-between p-5"
-                      style={{ background: category.gradient, backgroundSize: category.backgroundSize }}
+                      style={{ background: gradient, backgroundSize }}
                     >
                       <span className="flex items-center justify-between">
                         <span className="flex h-[1.875rem] w-[1.875rem] items-center justify-center rounded-md bg-white/20 md:h-[2.125rem] md:w-[2.125rem]">
