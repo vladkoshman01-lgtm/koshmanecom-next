@@ -2,10 +2,10 @@
 
 import React from 'react';
 import {
-  CARD_GRADIENTS,
   CATEGORY_CARDS,
   CATEGORY_KEYS,
   CATEGORY_NAMES,
+  categoryCardStyle,
   ICONS,
   SERVICES,
 } from '@/data/services';
@@ -50,9 +50,7 @@ const categories = CATEGORY_NAMES.map((title, i) => {
     title,
     n: String(i + 1).padStart(2, '0'),
     itemCount: items.length,
-    gradient: CARD_GRADIENTS[CATEGORY_CARDS[i][1]],
-    gradientKey: CATEGORY_CARDS[i][1],
-    backgroundSize: CATEGORY_CARDS[i][1] === 'silver2' ? '200% 100%' : '135% 100%',
+    ...categoryCardStyle(i),
     icon: ICONS[CATEGORY_CARDS[i][2]],
     logo: LOGOS[key],
     items,

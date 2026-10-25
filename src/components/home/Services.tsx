@@ -2,10 +2,10 @@
 
 import React, { useMemo, useState } from 'react';
 import {
-  CARD_GRADIENTS,
   CATEGORY_CARDS,
   CATEGORY_KEYS,
   CATEGORY_NAMES,
+  categoryCardStyle,
   ICONS,
   PLATFORM_COLORS,
   platformGradient,
@@ -46,12 +46,9 @@ export default function Services() {
         key: CATEGORY_KEYS[i],
         // Рахуємо самі, щоб число не розʼїжджалося з даними й відмінювалося за мовою
         count: serviceCount(locale, SERVICES.filter(([key]) => key === CATEGORY_KEYS[i]).length),
-        gradient: CARD_GRADIENTS[CATEGORY_CARDS[i][1]],
-        gradientKey: CATEGORY_CARDS[i][1],
+        ...categoryCardStyle(i),
         // У макеті три категорії показують логотип платформи замість іконки
         logo: CATEGORY_LOGOS[CATEGORY_KEYS[i]],
-        // запас по ширині, інакше градієнту нікуди «текти» на ховері
-        backgroundSize: CATEGORY_CARDS[i][1] === 'silver2' ? '200% 100%' : '135% 100%',
         icon: ICONS[CATEGORY_CARDS[i][2]],
       })),
     [locale],

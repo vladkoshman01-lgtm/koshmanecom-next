@@ -17,6 +17,55 @@ export const CARD_GRADIENTS: Record<string, string> = {
  * бере градієнт своєї категорії.
  */
 export const PLATFORM_COLORS: Record<string, [string, string]> = {
+  // Послуги без платформи — тематичні акценти, щоб картки не повторювались
+  'strategy|Аналіз бізнесу': ['#5B8CFF', '#0F5BFF'],
+  'strategy|Канали продажів': ['#FFB547', '#D24A20'],
+  'strategy|План розвитку': ['#7CE0A8', '#1F9D61'],
+  'strategy|Shopify CRO аудит': ['#C3E88D', '#5E8E3E'],
+  'strategy|CRO аудит інтернет-магазину': ['#FF8A5B', '#D24A20'],
+  'strategy|Аудит Etsy': ['#FFA36B', '#F1641E'],
+  'strategy|Консультація': ['#9DB8FF', '#3D63DD'],
+  'shopify-dev|Shopify': ['#C3E88D', '#95BF47'],
+  'shopify-dev|Доопрацювання': ['#95BF47', '#5E8E3E'],
+  'shopify-dev|B2B Shopify (опт)': ['#B6DB7A', '#4A7A2E'],
+  'shopify-dev|CRO аудит': ['#D7F0A8', '#7AA93C'],
+  'other-dev|Самописний сайт': ['#B49CFF', '#6E44FF'],
+  'other-dev|Frontend': ['#42B883', '#35495E'],
+  'other-dev|Backend': ['#FF7A70', '#FF2D20'],
+  'other-dev|Бази даних': ['#8FB2FF', '#336791'],
+  'web-dev|Хорошоп': ['#9BE06B', '#3FA34D'],
+  'web-dev|Wix / Webflow': ['#7FB0FF', '#146EF5'],
+  'web-dev|WordPress': ['#4FB3D9', '#21759B'],
+  'web-dev|Доопрацювання': ['#B49CFF', '#5B3FD9'],
+  'ltv|CRM': ['#5EEAD4', '#0F9488'],
+  'ltv|Email-маркетинг': ['#FFD166', '#E0A100'],
+  'seo|SEO аудит': ['#34A853', '#4285F4'],
+  'seo|SEO просування': ['#FBBC04', '#34A853'],
+  'seo|AI-пошук': ['#4796E3', '#8E75B2'],
+  'marketplaces|Etsy магазин': ['#FFA36B', '#F1641E'],
+  'marketplaces|Ведення Etsy': ['#F1641E', '#B8410E'],
+  'marketplaces|eBay магазин': ['#F5AF02', '#E53238'],
+  'marketplaces|Amazon Handmade': ['#FF9900', '#146EB4'],
+  'marketplaces|Ведення Amazon': ['#FFB84D', '#FF9900'],
+  'marketplaces|Агрегатори': ['#7FD1FF', '#2B8FD6'],
+  'marketplaces|Alibaba магазин': ['#FFA552', '#FF6A00'],
+  'marketplaces|Ведення Alibaba': ['#FF6A00', '#C24E00'],
+  'marketplaces|B2B каталоги': ['#A5B4FC', '#4F46E5'],
+  'pinterest|Ведення акаунта': ['#FF5A6E', '#E60023'],
+  'pinterest|Автоматизація': ['#FF8A98', '#BD081C'],
+  'pinterest|Pinterest Ads': ['#FF5A6E', '#E60023'],
+  'youtube|YouTube канал': ['#FF6B6B', '#FF0000'],
+  'youtube|Ведення каналу': ['#FF8A8A', '#CC0000'],
+  'branding|Брендбук базовий': ['#F0A6FF', '#B44CD9'],
+  'branding|Брендбук': ['#FF8AD8', '#C2187A'],
+  'branding|Логотип': ['#FFD166', '#EF476F'],
+  'branding|Ребрендинг': ['#9DE7FF', '#7B61FF'],
+  'branding|Виставки': ['#FFC38A', '#E2711D'],
+  'consulting|Консультації': ['#9DB8FF', '#3D63DD'],
+  'consulting|Аудит процесів': ['#FFB547', '#D24A20'],
+  'consulting|Конверсія': ['#7CE0A8', '#1F9D61'],
+  'consulting|Супровід': ['#A5B4FC', '#4F46E5'],
+  'consulting|AI-консультації': ['#74E0BE', '#10A37F'],
   'ads|Google Ads': ['#FBBC04', '#4285F4'],
   'ads|Meta Ads': ['#00C6FF', '#0866FF'],
   'ads|TikTok Ads': ['#25F4EE', '#FE2C55'],
@@ -31,6 +80,36 @@ export const platformGradient = ([top, bottom]: [string, string]) =>
   `radial-gradient(45% 55% at 95% 5%, ${top}8c 0%, transparent 75%), ` +
   `radial-gradient(70% 60% at 85% 95%, ${bottom}b3 0%, ${bottom}59 45%, transparent 80%), ` +
   `linear-gradient(160deg, #0c0c0c 0%, #141414 35%, ${bottom}40 70%, ${top}59 100%)`;
+
+/**
+ * Категорії, присвячені одній платформі, — у її кольорах.
+ * Решта лишається у фірмовій палітрі (CATEGORY_CARDS).
+ */
+export const CATEGORY_PLATFORM_COLORS: Record<string, [string, string]> = {
+  'shopify-dev': ['#C3E88D', '#95BF47'],
+  seo: ['#FBBC04', '#4285F4'],
+  pinterest: ['#FF5A6E', '#E60023'],
+  youtube: ['#FF6B6B', '#FF0000'],
+};
+
+/**
+ * Фон картки категорії за її індексом. Для платформних категорій
+ * gradientKey немає: телефонні перевизначення в globals.css чіпляються
+ * за data-grad і інакше перебили б колір платформи.
+ */
+export function categoryCardStyle(i: number) {
+  const colors = CATEGORY_PLATFORM_COLORS[CATEGORY_KEYS[i]];
+  if (colors) {
+    return { gradient: platformGradient(colors), gradientKey: undefined, backgroundSize: '135% 100%' };
+  }
+  const gradientKey = CATEGORY_CARDS[i][1];
+  return {
+    gradient: CARD_GRADIENTS[gradientKey],
+    gradientKey,
+    // запас по ширині, інакше градієнту нікуди «текти» на ховері
+    backgroundSize: gradientKey === 'silver2' ? '200% 100%' : '135% 100%',
+  };
+}
 
 /** Контури іконок (атрибут d для <path>). */
 export const ICONS: Record<string, string> = {
