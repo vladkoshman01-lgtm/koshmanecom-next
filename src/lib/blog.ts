@@ -32,6 +32,9 @@ export type TocItem = { id: string; text: string };
 
 export type FaqItem = { question: string; answer: string };
 
+/** Заклик до дії під тему статті; без нього — загальний зі словника. */
+export type ArticleCta = { title: string; text: string; button: string };
+
 export type Article = {
   slug: string;
   locale: Locale;
@@ -44,6 +47,9 @@ export type Article = {
   /** Тіло статті в markdown */
   content: string;
   cover: ArticleCover | null;
+  cta: ArticleCta | null;
+  /** Підзаголовок форми заявки внизу статті */
+  leadSubtitle: string | null;
   /** Картинка для соцмереж (JPG 1200×630); якщо немає — береться обкладинка */
   ogImage: string | null;
   publishedAt: string;
@@ -156,6 +162,11 @@ function parseFile(fileName: string): Article | null {
           height: data.coverHeight ? Number(data.coverHeight) : null,
         }
       : null,
+    cta:
+      data.cta && data.cta.title && data.cta.button
+        ? { title: String(data.cta.title), text: String(data.cta.text ?? ''), button: String(data.cta.button) }
+        : null,
+    leadSubtitle: data.leadSubtitle ? String(data.leadSubtitle) : null,
     ogImage: data.ogImage ? String(data.ogImage) : data.cover ? String(data.cover) : null,
     publishedAt,
     updatedAt: data.updated ? new Date(data.updated).toISOString() : publishedAt,

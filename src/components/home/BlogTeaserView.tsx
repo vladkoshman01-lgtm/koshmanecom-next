@@ -3,13 +3,13 @@
 import React from 'react';
 import { useT } from '@/i18n/LocaleProvider';
 import Link from '@/components/ui/LocaleLink';
-import type { Article } from '@/lib/blog';
+import type { ArticleSummary } from '@/lib/blog';
 
 /**
  * Представлення блоку блогу. Статті приходять зверху: їх читає серверний
  * `BlogTeaser`, бо `gray-matter` працює з файлами й у клієнта не збереться.
  */
-export default function BlogTeaserView({ articles }: { articles: Article[] }) {
+export default function BlogTeaserView({ articles }: { articles: ArticleSummary[] }) {
   const t = useT();
 
   if (articles.length === 0) return null;

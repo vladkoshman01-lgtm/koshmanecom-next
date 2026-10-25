@@ -2,8 +2,10 @@
 
 import React from 'react';
 import { useContactModal } from '@/components/ContactModalProvider';
-import { useT } from '@/i18n/LocaleProvider';
+import { useLocale, useT } from '@/i18n/LocaleProvider';
 import AnimatedButton from '@/components/ui/AnimatedButton';
+import Link from '@/components/ui/LocaleLink';
+import type { Locale } from '@/lib/i18n';
 import FunnelAnimation from './FunnelAnimation';
 
 /**
@@ -15,10 +17,21 @@ import FunnelAnimation from './FunnelAnimation';
  *
  * Елементи лежать прямо в контейнері: на телефоні це колонка, на десктопі
  * вони розкладаються по комірках сітки.
+ *
+ * Заголовок і кнопка ведуть на статтю-дослідження про покинуті кошики.
+ * Поки перекладу статті немає, кнопка цією мовою відкриває форму заявки.
  */
+const RESEARCH_ARTICLE: Partial<Record<Locale, string>> = {
+  uk: '/blog/pokynuti-koshyky-reklamnyi-trafik',
+  en: '/blog/abandoned-carts-lost-paid-traffic',
+  sk: '/blog/opustene-kosiky-stratena-reklamna-navstevnost',
+};
+
 export default function LostSales() {
   const { openModal } = useContactModal();
   const t = useT();
+  const locale = useLocale();
+  const articleHref = RESEARCH_ARTICLE[locale];
 
   return (
     <section className="sec-y bg-white">
@@ -42,7 +55,13 @@ export default function LostSales() {
             <span className="h-2 w-2 rounded-full border-2 border-brand-orange" />
           </span>
           <h2 className="fs-43 mob-27 font-bold text-[#222222]">
-            {t.home.lostSales.title}
+            {articleHref ? (
+              <Link href={articleHref} className="transition-colors hover:text-brand-orange">
+                {t.home.lostSales.title}
+              </Link>
+            ) : (
+              t.home.lostSales.title
+            )}
           </h2>
         </div>
 
@@ -51,7 +70,10 @@ export default function LostSales() {
         </p>
 
         <div className="order-5 mt-6 flex md:order-none md:col-start-2 md:row-start-4 md:mt-7">
-          <AnimatedButton variant="primary" onClick={openModal}>
+          <AnimatedButton
+            variant="primary"
+            {...(articleHref ? { href: articleHref } : { onClick: openModal })}
+          >
             {/* На телефоні коротка мітка — довга в макеті не вміщається */}
             <span className="md:hidden">{t.home.lostSales.ctaShort}</span>
             <span className="hidden md:inline">{t.home.lostSales.cta}</span>

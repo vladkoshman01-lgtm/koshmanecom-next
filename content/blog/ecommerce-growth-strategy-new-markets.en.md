@@ -11,9 +11,9 @@ authorBio: "Specialises in international e-commerce, sales-launch strategy and t
 category: Strategy
 tags: [strategy, new markets, scaling, e-commerce consulting]
 cover: /blog/ecommerce-growth-strategy-new-markets/cover.webp
-coverAlt: "E-commerce growth strategy and entering new markets — 90 days to validate a new market"
-coverWidth: 2400
-coverHeight: 1260
+coverAlt: "Expanding into new markets — how to choose your first market: a box with lines branching out to new markets"
+coverWidth: 2000
+coverHeight: 1050
 ogImage: /blog/ecommerce-growth-strategy-new-markets/cover-og.jpg
 keywords: [e-commerce growth strategy, e-commerce growth, e-commerce consultant, market-entry plan, international e-commerce strategy, e-commerce scaling, e-commerce marketing strategy]
 ---

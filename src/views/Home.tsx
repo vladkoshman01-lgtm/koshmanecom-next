@@ -13,13 +13,14 @@ import Resources from '@/components/home/Resources';
 import BlogTeaser from '@/components/home/BlogTeaser';
 import Faq from '@/components/home/Faq';
 import FinalCta from '@/components/home/FinalCta';
+import type { Locale } from '@/lib/i18n';
 
 /**
  * Головна сторінка. Складається з секцій у `src/components/home/`.
- * Під EN/SK тут зʼявиться проп локалі — сторінки `/en`, `/sk` будуть
- * тонкими обгортками над цим компонентом.
+ * Сторінки `/en`, `/sk` — тонкі обгортки над цим компонентом; мова потрібна
+ * лише блоку блогу, бо статті читаються з файлів на сервері.
  */
-export default function Home() {
+export default function Home({ locale = 'uk' }: { locale?: Locale }) {
   return (
     <div className="bg-white">
       <Hero />
@@ -33,7 +34,7 @@ export default function Home() {
       <Reviews />
       <LeadForm theme="dark" />
       <Resources />
-      <BlogTeaser />
+      <BlogTeaser locale={locale} />
       <Faq />
       <FinalCta />
     </div>

@@ -233,6 +233,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .blog-markdown > :first-child { margin-top: 0; }
 
+/* Посилання «#lead» (CTA у статтях) — форма не ховається під липкою шапкою */
+#lead { scroll-margin-top: 64px; }
+
 /* Ширина рядка ~65–75 знаків — як у журналах: око не губить початок
    наступного рядка. Картинки (figure) лишаються на всю ширину колонки. */
 .blog-markdown > :not(figure),
@@ -450,6 +453,7 @@ h1, h2, h3, h4, h5, h6 {
   .blog-markdown { font-size: calc(20 * var(--u)); line-height: 1.65; }
   .blog-markdown > :not(figure),
   .blog-measure { max-width: calc(680 * var(--u)); }
+  #lead { scroll-margin-top: calc(82 * var(--u)); }
   .blog-markdown h2 { margin-top: calc(72 * var(--u)); font-size: calc(34 * var(--u)); scroll-margin-top: calc(110 * var(--u)); }
   .blog-markdown h3 { margin-top: calc(44 * var(--u)); font-size: calc(24 * var(--u)); }
   .blog-markdown blockquote { margin-top: calc(44 * var(--u)); padding: calc(36 * var(--u)) calc(40 * var(--u)); font-size: calc(22 * var(--u)); }

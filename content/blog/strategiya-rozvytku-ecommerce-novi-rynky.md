@@ -10,9 +10,9 @@ authorBio: "Спеціалізується на міжнародному e-comme
 category: Стратегія
 tags: [стратегія, нові ринки, масштабування, e-commerce консалтинг]
 cover: /blog/strategiya-rozvytku-ecommerce-novi-rynky/cover.webp
-coverAlt: "Стратегія розвитку інтернет-магазину та вихід на нові ринки — 90 днів, щоб перевірити новий ринок"
-coverWidth: 2400
-coverHeight: 1260
+coverAlt: "Вихід на нові ринки — як обрати перший ринок: коробка, від якої розходяться лінії до нових ринків"
+coverWidth: 2000
+coverHeight: 1050
 ogImage: /blog/strategiya-rozvytku-ecommerce-novi-rynky/cover-og.jpg
 keywords: [стратегія розвитку інтернет-магазину, розвиток інтернет-магазину, e-commerce консультант, план виходу на нові ринки, міжнародна стратегія e-commerce, масштабування інтернет-магазину, маркетингова стратегія для інтернет-магазину]
 ---

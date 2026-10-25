@@ -25,7 +25,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   return (
     <>
       <JsonLd data={homeJsonLd(locale as Locale)} />
-      <Home />
+      <Home locale={locale as Locale} />
     </>
   );
 }

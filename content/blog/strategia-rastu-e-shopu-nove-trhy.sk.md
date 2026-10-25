@@ -11,9 +11,9 @@ authorBio: "Špecializuje sa na medzinárodný e-commerce, stratégie spustenia 
 category: Stratégia
 tags: [stratégia, nové trhy, škálovanie, e-commerce poradenstvo]
 cover: /blog/strategia-rastu-e-shopu-nove-trhy/cover.webp
-coverAlt: "Stratégia rastu e-shopu a vstup na nové trhy — 90 dní na overenie nového trhu"
-coverWidth: 2400
-coverHeight: 1260
+coverAlt: "Vstup na nové trhy — ako si vybrať prvý trh: krabica, z ktorej vychádzajú línie k novým trhom"
+coverWidth: 2000
+coverHeight: 1050
 ogImage: /blog/strategia-rastu-e-shopu-nove-trhy/cover-og.jpg
 keywords: [stratégia rastu e-shopu, rast e-shopu, e-commerce konzultant, plán vstupu na trh, medzinárodná e-commerce stratégia, škálovanie e-shopu, marketingová stratégia e-shopu]
 ---

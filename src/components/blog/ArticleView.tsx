@@ -51,6 +51,7 @@ export default async function ArticleView({ article, locale }: { article: Articl
     .slice(0, 3)
     .map(toSummary);
 
+  const cta = article.cta ?? { title: t.blog.ctaTitle, text: t.blog.ctaText, button: t.blog.ctaButton };
   const date = formatArticleDate(article.publishedAt, locale);
   const minutes = formatMinutes(t.blog.minutes, article.readingTimeMinutes);
 
@@ -66,7 +67,10 @@ export default async function ArticleView({ article, locale }: { article: Articl
       mainEntityOfPage: url,
       image: article.cover ? [`${siteUrl}${article.cover.url}`] : undefined,
       keywords: article.keywords.length ? article.keywords.join(', ') : undefined,
-      author: article.author
+      // Без посади й фото автор — це команда, а не людина: описуємо як агенцію
+      author: article.author && !article.author.role && !article.author.photo
+        ? { '@type': 'Organization', name: article.author.name, '@id': `${siteUrl}/#organization` }
+        : article.author
         ? {
             '@type': 'Person',
             name: article.author.name,
@@ -170,11 +174,13 @@ export default async function ArticleView({ article, locale }: { article: Articl
             {/* Текст і кнопка одне під одним: у ряд кнопка стискала текст у вузьку колонку */}
             <div className="blog-measure mt-12 flex flex-col items-start gap-7 bg-brand-orange px-6 py-8 text-white md:mt-16 md:gap-9 md:px-12 md:py-12">
               <div className="flex flex-col gap-3 md:gap-4">
-                <span className="text-2xl font-bold leading-[1.15] tracking-[-0.01em] md:text-[2rem]">{t.blog.ctaTitle}</span>
-                <span className="max-w-[34rem] text-base leading-[1.55] text-white/90 md:text-lg">{t.blog.ctaText}</span>
+                <span className="text-2xl font-bold leading-[1.15] tracking-[-0.01em] md:text-[2rem]">{cta.title}</span>
+                {cta.text ? (
+                  <span className="max-w-[34rem] text-base leading-[1.55] text-white/90 md:text-lg">{cta.text}</span>
+                ) : null}
               </div>
               <AnimatedButton variant="light" href="#lead" className="flex-none">
-                {t.blog.ctaButton}
+                {cta.button}
               </AnimatedButton>
             </div>
 
@@ -228,8 +234,19 @@ export default async function ArticleView({ article, locale }: { article: Articl
 
           {article.toc.length ? (
             <aside className="max-md:hidden">
-              <div className="sticky top-28">
+              <div className="sticky top-28 flex flex-col gap-4">
                 <ArticleToc items={article.toc} title={t.blog.toc} />
+                {/* Компактний заклик під змістом — завжди під рукою, поки людина читає */}
+                <a
+                  href="#lead"
+                  className="group flex flex-col gap-3 bg-brand-orange p-6 text-white transition-colors hover:bg-[#E64A1C]"
+                >
+                  <span className="text-lg font-semibold leading-[1.3]">{cta.title}</span>
+                  <span className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.02em]">
+                    {cta.button}
+                    <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+                  </span>
+                </a>
               </div>
             </aside>
           ) : null}
@@ -257,7 +274,7 @@ export default async function ArticleView({ article, locale }: { article: Articl
         </section>
       ) : null}
 
-      <LeadForm theme="dark" />
+      <LeadForm theme="dark" subtitle={article.leadSubtitle ?? undefined} />
     </div>
   );
 }
