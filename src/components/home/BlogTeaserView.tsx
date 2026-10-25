@@ -45,7 +45,8 @@ export default function BlogTeaserView({ articles }: { articles: ArticleSummary[
           href={`/blog/${lead.slug}`}
           className="group flex w-[17.5rem] flex-none snap-start flex-col overflow-hidden rounded bg-white text-[#222222] transition-colors md:w-auto md:rounded-none md:bg-[#141414] md:text-white md:hover:bg-[#1E1E1E]"
         >
-          <div className="relative aspect-square w-full bg-[#d9d9d9] md:aspect-auto md:min-h-[18.75rem] md:flex-1 md:bg-[#2A2A2A]">
+          {/* Обкладинки — банери 1200×630 з текстом: тримаємо їхню пропорцію, щоб нічого не обрізати */}
+          <div className="relative aspect-[40/21] w-full bg-[#141414]">
             {lead.cover ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
@@ -92,13 +93,14 @@ export default function BlogTeaserView({ articles }: { articles: ArticleSummary[
               href={`/blog/${article.slug}`}
               className="group flex w-[17.5rem] flex-none snap-start flex-col overflow-hidden rounded bg-white text-[#222222] transition-colors md:w-auto md:rounded-none md:bg-[#EEEEEE] md:flex-row md:hover:bg-[#E4E4E4]"
             >
-              <div className="relative aspect-square w-full bg-[#d9d9d9] md:aspect-auto md:min-h-[11.25rem] md:flex-1">
+              {/* На десктопі висоту задає рядок сітки — банер вписуємо цілим на темному тлі */}
+              <div className="relative aspect-[40/21] w-full bg-[#141414] md:aspect-auto md:min-h-[11.25rem] md:w-1/2 md:flex-none">
                 {article.cover ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={article.cover.url}
                     alt={article.cover.alternativeText ?? article.title}
-                    className="absolute inset-0 h-full w-full object-cover"
+                    className="absolute inset-0 h-full w-full object-cover md:object-contain"
                   />
                 ) : null}
               </div>

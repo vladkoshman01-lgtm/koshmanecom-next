@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import SiteDocument from '@/components/layout/SiteDocument';
 import NotFoundContent from '@/components/NotFoundContent';
@@ -10,6 +10,10 @@ import NotFoundContent from '@/components/NotFoundContent';
  * `not-found` усередині групи на невідомі URL не спрацьовував — Firebase віддавав
  * стандартну заглушку Next.js. Ця сторінка рендерить увесь документ сама.
  */
+// Мобільний браузер фарбує свою панель цим кольором — точно брендовий оранжевий,
+// а не відтінок, який він підбирає сам
+export const viewport: Viewport = { themeColor: '#FF5B2B' };
+
 export const metadata: Metadata = {
   title: 'Сторінку не знайдено — Koshman Ecom',
   description: 'Такої сторінки немає. Поверніться на головну чи оберіть потрібний розділ.',

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import '../../globals.css';
 import SiteDocument from '@/components/layout/SiteDocument';
 import { getDictionary } from '@/i18n/getDictionary';
@@ -10,6 +10,10 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 export function generateStaticParams() {
   return intlLocales.map((locale) => ({ locale }));
 }
+
+// Мобільний браузер фарбує свою панель цим кольором — точно брендовий оранжевий,
+// а не відтінок, який він підбирає сам
+export const viewport: Viewport = { themeColor: '#FF5B2B' };
 
 export async function generateMetadata({
   params,
