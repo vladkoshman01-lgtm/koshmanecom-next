@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Про нас — Koshman Ecom, e-commerce агенція</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="canonical" href="https://koshmanecom.com/about">
+<link rel="alternate" hreflang="uk" href="https://koshmanecom.com/about">
+<link rel="alternate" hreflang="en" href="https://koshmanecom.com/en/about">
+<link rel="alternate" hreflang="sk" href="https://koshmanecom.com/sk/about">
+<link rel="alternate" hreflang="x-default" href="https://koshmanecom.com/about">
+<meta property="og:url" content="https://koshmanecom.com/about">
+<meta property="og:site_name" content="Koshman Ecom">
+<meta property="og:locale" content="uk_UA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="Koshman Ecom — команда e-commerce маркетологів, розробників і менеджерів маркетплейсів з офісами в Києві та Кошицях. Допомагаємо брендам продавати онлайн у світі.">
+<meta property="og:title" content="Про нас — Koshman Ecom, e-commerce агенція">
+<meta property="og:description" content="Koshman Ecom — команда e-commerce маркетологів, розробників і менеджерів маркетплейсів з офісами в Києві та Кошицях. Допомагаємо брендам продавати онлайн у світі.">
+<meta property="og:type" content="website">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Головна","item":"https://koshmanecom.com/"},{"@type":"ListItem","position":2,"name":"Про нас","item":"https://koshmanecom.com/about"}]},{"@type":"AboutPage","name":"Про Koshman Ecom","url":"https://koshmanecom.com/about","about":{"@id":"https://koshmanecom.com/#org"}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<script src="./i18n.js"></script>
+<script src="./mobile.js"></script>
+<style>
+html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:82px}
+body{margin:0;background:#fff;font-family:'Onest',sans-serif;color:#222;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:hover{color:inherit;opacity:.8}
+a:hover [data-flow],[data-flow]:hover{animation:svcFlow 3.2s ease-in-out infinite}
+@keyframes svcFlow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes kcFade{from{opacity:0}to{opacity:1}}
+@keyframes kcRise{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes logos-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+header nav a{background:linear-gradient(#fff,#fff) 0 100%/0 2px no-repeat;padding:4px 0;transition:background-size .25s ease}
+header nav a:hover{background-size:100% 2px;opacity:1}
+footer a{transition:color .2s,background-color .2s}
+footer a:hover{color:#FF5B2B !important;opacity:1}
+footer a[aria-label]:hover{background:#FF5B2B !important}
+p a{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px;transition:text-decoration-color .2s}
+p a:hover{text-decoration-color:transparent;opacity:1}
+</style>
+</helmet>
+<div data-page="1" style="width:1440px;margin:0 auto;zoom:{{ zoom }};background:#fff;font-family:'Onest',sans-serif;overflow:clip">
+  <div data-mob="1" data-mob-head="1"><dc-import name="MHeader" hint-size="100%,64px"></dc-import></div>
+  <header data-desk="1" style="position:sticky;top:0;z-index:60;background:#FF5B2B;height:82px;padding:0 80px;display:flex;align-items:center;justify-content:space-between;box-sizing:border-box">
+    <a href="Hero.dc.html" style="color:#fff;font-weight:800;font-size:18px;line-height:1.05;letter-spacing:0.02em;text-transform:uppercase;display:flex;flex-direction:column"><span>Koshman</span><span>Ecom</span></a>
+    <nav style="display:flex;gap:23px;font-size:14px;font-weight:500;color:#fff">
+      <a href="Hero.dc.html" style="color:#fff">Головна</a>
+      <a href="Services.dc.html" style="color:#fff">Послуги</a>
+      <a href="Cases.dc.html" style="color:#fff">Кейси</a>
+      <a href="About.dc.html" style="color:#fff">Про нас</a>
+      <a href="Hero.dc.html#reviews" style="color:#fff">Відгуки</a>
+      <a href="Hero.dc.html#blog" style="color:#fff">Блог</a>
+      <a href="Tools.dc.html" style="color:#fff">Інструменти</a>
+      <a href="Contacts.dc.html" style="color:#fff">Контакти</a>
+    </nav>
+    <div style="display:flex;gap:18px;align-items:center">
+      <a href="Contacts.dc.html" style="background:#fff;color:#FF5B2B;height:41px;padding:0 24px;display:flex;align-items:center;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.02em">Зв'яжіться з нами</a>
+      <div style="position:relative">
+        <button onClick="{{ toggleLang }}" style="border:2px solid #fff;background:transparent;color:#fff;height:41px;width:72px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:6px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer">{{ langLabel }}<span style="font-size:10px;transform:{{ langCaret }};transition:transform .2s">▼</span></button>
+        <sc-if value="{{ langOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;top:49px;right:0;background:#fff;box-shadow:0 12px 32px rgba(0,0,0,.18);display:flex;flex-direction:column;min-width:170px">
+            <sc-for list="{{ langs }}" as="l" hint-placeholder-count="3">
+              <button onClick="{{ l.pick }}" style="height:46px;padding:0 18px;border:none;background:{{ l.bg }};color:{{ l.color }};font-family:inherit;font-size:15px;font-weight:600;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px" style-hover="background:#FFF1EB"><span>{{ l.name }}</span><span style="font-size:13px;letter-spacing:.06em">{{ l.code }}</span></button>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </header>
+
+
+  <section data-screen-label="About hero" style="background:#141414;padding:110px 86px 110px;box-sizing:border-box">
+    <div style="font-size:14px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#FF5B2B">Про нас</div>
+    <h1 style="margin:18px 0 0;font-size:64px;line-height:1.04;font-weight:700;letter-spacing:-0.015em;color:#fff;max-width:1000px;text-wrap:balance">Маркетингова агенція для e-commerce бізнесу</h1>
+    <div style="margin-top:40px;display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:80px;align-items:end">
+      <p style="margin:0;font-size:19px;line-height:1.55;color:#CFCFCF;max-width:760px;text-wrap:pretty">Koshman Ecom — команда повного циклу для онлайн-продажів. Створюємо сайти та інтернет-магазини, запускаємо рекламу на будь-якому майданчику, виводимо бренди на маркетплейси й автоматизуємо процеси за допомогою AI. Працюємо з B2C та B2B бізнесами на локальних і міжнародних ринках.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <sc-for list="{{ heroTags }}" as="t" hint-placeholder-count="4">
+          <span style="height:40px;padding:0 16px;border:1.5px solid #3A3A3A;color:#fff;font-size:14px;display:flex;align-items:center">{{ t }}</span>
+        </sc-for>
+      </div>
+    </div>
+    <div style="margin-top:44px;display:flex">
+      <a href="#lead" onMouseEnter="{{ heroBtn.enter }}" onMouseLeave="{{ heroBtn.leave }}" style="position:relative;display:inline-flex;align-items:center;align-self:flex-start;height:57px;padding:0 30px 0 72px;background:#FF5B2B;border:1.5px solid #FF5B2B;box-sizing:border-box;overflow:hidden;isolation:isolate;cursor:pointer;opacity:1">
+          <span style="position:absolute;top:4px;left:4px;bottom:4px;width:{{ heroBtn.w }};background:#fff;transition:width .55s cubic-bezier(.65,0,.25,1);z-index:-1"></span>
+          <span style="position:absolute;top:4px;left:4px;width:46px;height:46px;display:flex;align-items:center;justify-content:center;color:#FF5B2B"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform:translateX({{ heroBtn.ax }});transition:transform .55s cubic-bezier(.65,0,.25,1)"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+          <span style="font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.02em;white-space:nowrap;color:{{ heroBtn.text }};transition:color .35s ease .1s">Обговорити проєкт</span>
+        </a>
+    </div>
+  </section>
+
+  <section data-screen-label="Focus" style="background:#fff;padding:120px 86px;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) 600px;gap:80px;align-items:start">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="font-size:14px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#FF5B2B">Наш фокус</div>
+      <h2 style="margin:0;font-size:46px;line-height:1.1;font-weight:700;letter-spacing:-0.01em;color:#222;text-wrap:balance">Фокус на стабільні продажі, а не разові запуски</h2>
+      <p style="margin:0;font-size:17px;line-height:1.55;color:#555;max-width:560px;text-wrap:pretty">Ми об'єднуємо стратегію, операційну підтримку та AI‑автоматизацію в єдиний робочий процес, щоб бізнес зростає стабільно.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px">
+      <div style="background:#FF5B2B;color:#fff;padding:32px 28px;min-height:280px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between">
+        <span style="font-size:96px;line-height:.9;font-weight:700;letter-spacing:-0.03em">5+</span>
+        <span style="display:flex;flex-direction:column;gap:8px"><span style="font-size:20px;font-weight:600">років досвіду</span><span style="font-size:15px;line-height:1.45;opacity:.9">Міжнародні платформи та ринки.</span></span>
+      </div>
+      <div style="background:#141414;color:#fff;padding:32px 28px;min-height:280px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between">
+        <span style="font-size:96px;line-height:.9;font-weight:700;letter-spacing:-0.03em">10+</span>
+        <span style="display:flex;flex-direction:column;gap:8px"><span style="font-size:20px;font-weight:600">років розробки сайтів</span></span>
+      </div>
+      <div style="grid-column:1 / -1;background:#EEEEEE;color:#222;padding:28px;min-height:150px;box-sizing:border-box;display:flex;align-items:flex-end;justify-content:space-between;gap:24px">
+        <span style="font-size:96px;line-height:.9;font-weight:700;letter-spacing:-0.03em;color:#FF5B2B">AI</span>
+        <span style="display:flex;flex-direction:column;gap:8px;max-width:300px"><span style="font-size:20px;font-weight:600">Впроваджуємо AI у бізнес</span><span style="font-size:15px;line-height:1.45;color:#555">Автоматизуємо контент, рутину й аналітику, щоб команда працювала швидше.</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Mission" style="background:#FF5B2B;padding:110px 86px;box-sizing:border-box;display:grid;grid-template-columns:250px minmax(0,1fr);gap:40px;align-items:baseline">
+    <div style="font-size:14px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#fff">Наша місія</div>
+    <p style="margin:0;font-size:38px;line-height:1.3;font-weight:500;color:#fff;max-width:1000px;text-wrap:pretty">Наша місія — допомагати брендам і виробникам з будь-якої країни продавати по всьому світу. Ми віримо, що локальний бізнес може стати глобальним, якщо правильно побудувати продукт, маркетинг і систему продажів.</p>
+  </section>
+
+  <section data-screen-label="Approach" style="background:#EEEEEE;padding:110px 86px 120px;box-sizing:border-box">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 520px;gap:80px;align-items:end">
+      <h2 style="margin:0;font-size:46px;line-height:1.1;font-weight:700;letter-spacing:-0.01em;color:#222">Наш підхід</h2>
+      <p style="margin:0;font-size:17px;line-height:1.55;color:#555;text-wrap:pretty">Ми працюємо не як класична маркетингова агенція. Наша задача — побудувати робочу систему продажів, а не просто зробити сайт або рекламу.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:56px;border-top:2px solid #222">
+      <sc-for list="{{ approach }}" as="p" hint-placeholder-count="3">
+        <div style="padding:32px 32px 8px 0;display:flex;flex-direction:column;gap:14px;border-right:{{ p.border }};padding-left:{{ p.pl }}">
+          <span style="font-size:15px;font-weight:700;letter-spacing:.06em;color:#FF5B2B">{{ p.n }}</span>
+          <span style="font-size:32px;line-height:1.1;font-weight:700;color:#222">{{ p.t }}</span>
+          <span style="font-size:17px;line-height:1.5;color:#555">{{ p.d }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="What we do" style="background:#141414;padding:110px 86px 120px;box-sizing:border-box">
+    <div style="font-size:14px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#FF5B2B">Напрямки</div>
+    <h2 style="margin:16px 0 0;font-size:46px;line-height:1.1;font-weight:700;letter-spacing:-0.01em;color:#fff">Що ми робимо</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin-top:44px">
+      <sc-for list="{{ doing }}" as="d" hint-placeholder-count="6">
+        <a href="Services.dc.html" style="display:flex;flex-direction:column;min-height:240px;border-radius:3px;overflow:hidden;background:#232323;color:#fff;transition:transform .2s;opacity:1" style-hover="transform:translateY(-3px);opacity:1">
+          <div style="flex:1;background:{{ d.grad }};background-size:{{ d.bs }};background-position:0% 50%;padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:28px" data-flow="1">
+            <span style="font-size:14px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.7)">{{ d.n }}</span>
+            <span style="font-size:22px;font-weight:600;line-height:1.25;text-wrap:pretty">{{ d.t }}</span>
+          </div>
+          <div style="padding:16px 24px 18px;display:flex;align-items:flex-end;justify-content:space-between;gap:14px;font-size:14px;line-height:1.45">
+            <span style="color:#CFCFCF;text-wrap:pretty">{{ d.d }}</span><span style="font-size:16px;flex:none">→</span>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="Team" style="background:#fff;padding:120px 86px;box-sizing:border-box">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 520px;gap:80px;align-items:end">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="font-size:14px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#FF5B2B">Команда</div>
+        <h2 style="margin:0;font-size:46px;line-height:1.1;font-weight:700;letter-spacing:-0.01em;color:#222">Хто стоїть за агенцією</h2>
+      </div>
+      <p style="margin:0;font-size:17px;line-height:1.55;color:#555;text-wrap:pretty">Ми — команда засновників, яка поєднує стратегічний e-commerce та системний маркетинг. Нижче — коротко про ключових людей, які відповідають за результат.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:56px">
+      <sc-for list="{{ team }}" as="p" hint-placeholder-count="2">
+        <div data-m-team="1" style="display:grid;grid-template-columns:280px minmax(0,1fr);background:#EEEEEE;min-height:340px">
+          <div data-m-photo="1" style="background:#D9D9D9;position:relative;overflow:hidden"><sc-if value="{{ p.hasImg }}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="{{ p.name }}" style="position:absolute;inset:0;width:100%;height:100%;background-image:url({{ p.img }});background-size:cover;background-position:center top;display:block"></span></sc-if></div>
+          <div style="padding:32px 32px 30px;display:flex;flex-direction:column;gap:10px">
+            <span style="font-size:28px;line-height:1.15;font-weight:700;color:#222">{{ p.name }}</span>
+            <span style="font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#FF5B2B">{{ p.role }}</span>
+            <span style="margin-top:auto;font-size:16px;line-height:1.55;color:#555;text-wrap:pretty">{{ p.d }}</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="Join team" style="background:#EEEEEE;padding:110px 86px 120px;box-sizing:border-box">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 520px;gap:80px;align-items:end">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="font-size:14px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#FF5B2B">Кар'єра</div>
+        <h2 style="margin:0;font-size:46px;line-height:1.1;font-weight:700;letter-spacing:-0.01em;color:#222;text-wrap:balance">Станьте частиною Koshman Ecom</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:28px;align-items:flex-start">
+        <p style="margin:0;font-size:17px;line-height:1.55;color:#555;text-wrap:pretty">Шукаємо людей, яким цікаво запускати бренди на міжнародних ринках і рости разом із нами. Готові до нового кроку в кар'єрі?</p>
+        <a href="Careers.dc.html#jobs" onMouseEnter="{{ careersBtn.enter }}" onMouseLeave="{{ careersBtn.leave }}" style="position:relative;display:inline-flex;align-items:center;height:57px;padding:0 30px 0 72px;background:#FF5B2B;border:1.5px solid #FF5B2B;box-sizing:border-box;overflow:hidden;isolation:isolate;cursor:pointer;opacity:1">
+          <span style="position:absolute;top:4px;left:4px;bottom:4px;width:{{ careersBtn.w }};background:#fff;transition:width .55s cubic-bezier(.65,0,.25,1);z-index:-1"></span>
+          <span style="position:absolute;top:4px;left:4px;width:46px;height:46px;display:flex;align-items:center;justify-content:center;color:#FF5B2B"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform:translateX({{ careersBtn.ax }});transition:transform .55s cubic-bezier(.65,0,.25,1)"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+          <span style="font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.02em;white-space:nowrap;color:{{ careersBtn.text }};transition:color .35s ease .1s">Переглянути вакансії</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="lead" data-screen-label="Lead form" style="background:#141414;padding:100px 78px 104px 86px;box-sizing:border-box;border-bottom:1px solid #262626">
+    <div style="display:grid;grid-template-columns:420px minmax(0,1fr);gap:96px;align-items:start">
+      <div>
+        <div style="font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#FF5B2B">Заявка</div>
+        <h2 style="margin:16px 0 0;font-size:48px;line-height:1.1;font-weight:700;letter-spacing:-0.01em;color:#fff">Готові до старту?</h2>
+        <p style="margin:16px 0 0;font-size:17px;line-height:1.5;color:#CFCFCF;text-wrap:pretty">Якщо ви хочете запустити продажі на міжнародному ринку — напишіть нам. Ми допоможемо знайти попит, підготувати продукт і побудувати систему продажів.</p>
+        
+        <div style="display:flex;gap:18px;align-items:center;margin-top:44px">
+          <div style="flex:none;width:200px;height:200px;border-radius:0;overflow:hidden;background:#2A2A2A">
+            <image-slot id="lead-manager" shape="rect" placeholder="Фото менеджера"></image-slot>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px;min-width:0">
+            <span style="font-size:19px;font-weight:600;color:#fff">Лара Кирилова</span>
+            <span style="font-size:14px;color:#8A8A8A">Менеджер з роботи з клієнтами</span>
+            
+          </div>
+        </div>
+      </div>
+      <sc-if value="{{ fForm }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ fSubmit }}" style="display:flex;flex-direction:column;gap:20px">
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px">
+            <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;font-weight:600;color:#CFCFCF">Ім'я <input value="{{ fName }}" onChange="{{ onFName }}" placeholder="Як до вас звертатися" style="height:56px;padding:0 16px;border:1.5px solid {{ fNameBorder }};background:transparent;font-family:inherit;font-size:16px;color:#fff;outline:none;box-sizing:border-box;width:100%" style-focus="border-color:#fff"></label>
+            <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;font-weight:600;color:#CFCFCF">Телефон або Telegram <input value="{{ fContact }}" onChange="{{ onFContact }}" placeholder="+380 або @username" style="height:56px;padding:0 16px;border:1.5px solid {{ fContactBorder }};background:transparent;font-family:inherit;font-size:16px;color:#fff;outline:none;box-sizing:border-box;width:100%" style-focus="border-color:#fff"></label>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="font-size:13px;font-weight:600;color:#CFCFCF">Що вас цікавить</span>
+            <div style="display:flex;flex-wrap:wrap;gap:8px">
+              <sc-for list="{{ fTopics }}" as="t" hint-placeholder-count="13">
+                <button type="button" onClick="{{ t.onClick }}" style="flex:none;white-space:nowrap;height:40px;padding:0 14px;border:1.5px solid {{ t.border }};background:{{ t.bg }};color:#fff;font-family:inherit;font-size:14px;cursor:pointer">{{ t.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;font-weight:600;color:#CFCFCF">Коментар <textarea value="{{ fNote }}" onChange="{{ onFNote }}" rows="3" placeholder="Коротко про задачу або посилання на магазин" style="padding:14px 16px;border:1.5px solid #3A3A3A;background:transparent;font-family:inherit;font-size:16px;color:#fff;outline:none;resize:vertical;box-sizing:border-box;width:100%" style-focus="border-color:#fff"></textarea></label>
+          <sc-if value="{{ fErr }}" hint-placeholder-val="{{ false }}"><div style="font-size:14px;color:#FF5B2B">Вкажіть ім'я та контакт, щоб ми могли зв'язатися.</div></sc-if>
+          <div style="display:flex;align-items:center;gap:24px">
+            <button type="submit" style="background:#FF5B2B;color:#fff;height:57px;width:308px;border:none;font-family:inherit;font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:.02em;cursor:pointer;flex:none" style-hover="background:#E64A1C">Залишити заявку</button>
+            <span style="font-size:13px;line-height:1.45;color:#8A8A8A">Натискаючи кнопку, ви погоджуєтесь на обробку персональних даних.</span>
+          </div>
+        </form>
+      </sc-if>
+      <sc-if value="{{ fSent }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:16px;align-items:flex-start;padding:24px 0">
+          <div style="width:56px;height:56px;border-radius:50%;background:#FF5B2B;display:flex;align-items:center;justify-content:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg></div>
+          <div style="font-size:32px;line-height:1.15;font-weight:700;color:#fff">Заявку прийнято</div>
+          <div style="font-size:16px;line-height:1.55;color:#CFCFCF;max-width:520px">Дякуємо, {{ fName }}! Менеджер зв'яжеться з вами протягом робочого дня.</div>
+          <button onClick="{{ fReset }}" style="margin-top:4px;height:48px;padding:0 20px;border:1.5px solid #fff;background:transparent;color:#fff;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer">Надіслати ще одну</button>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <footer data-desk="1" style="background:#141414;padding:65px 71px 48px 79px;box-sizing:border-box;color:#fff">
+    <div style="display:grid;grid-template-columns:420px 198px 158px 319px minmax(0,1fr);align-items:start">
+      <div style="display:flex;flex-direction:column">
+        <dc-import name="FooterLogo" hint-size="279px,279px"></dc-import>
+        <p style="margin:27px 0 0;font-size:16px;line-height:1.4;color:#DADADA;max-width:300px">Маркетинг-агенція<br>для E-commerce бізнесів B2C<br>і B2B. Повний цикл, який допомагає продавати на локальному ринку та закордоном.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:28px;padding-top:5px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8A8A8A">Навігація</span>
+        <a href="Hero.dc.html" style="font-size:16px;color:#fff;margin-top:-2px">Головна</a>
+        <a href="Services.dc.html" style="font-size:16px;color:#fff">Послуги</a>
+        <a href="Cases.dc.html" style="font-size:16px;color:#fff">Кейси</a>
+        <a href="Hero.dc.html#about" style="font-size:16px;line-height:1.3;color:#fff">Як ми<br>працюємо</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:28px;padding-top:5px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8A8A8A">Компанія</span>
+        <a href="About.dc.html" style="font-size:16px;color:#fff;margin-top:-2px">Про нас</a>
+        <a href="Hero.dc.html#reviews" style="font-size:16px;color:#fff">Відгуки</a>
+        <a href="Hero.dc.html#blog" style="font-size:16px;color:#fff">Блог</a>
+        <a href="Contacts.dc.html" style="font-size:16px;color:#fff">Контакти</a>
+        <a href="Careers.dc.html" style="font-size:16px;color:#fff">Кар'єра</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:28px;padding-top:5px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8A8A8A">Інструменти</span>
+        <a href="Tools.dc.html" style="font-size:16px;color:#fff;margin-top:-2px">Калькулятор прибутку Etsy</a>
+        <a href="Tools.dc.html" style="font-size:16px;line-height:1.3;color:#fff">Калькулятор ціноутворення<br>Etsy</a>
+        <a href="Tools.dc.html" style="font-size:16px;color:#fff">Etsy vs Amazon vs Shopify</a>
+        <a href="Tools.dc.html" style="font-size:16px;color:#fff">Ресайзер зображень</a>
+        <a href="Tools.dc.html" style="font-size:16px;color:#fff">Etsy Фінансовий Дашборд</a>
+        <a href="Tools.dc.html" style="font-size:16px;color:#fff">SEOgenie</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:28px;padding-top:5px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8A8A8A">Контакти</span>
+        <a href="#" style="font-size:16px;color:#fff;margin-top:-2px">Telegram</a>
+        <a href="mailto:hello@koshmanecom.com" style="font-size:16px;color:#fff;white-space:nowrap">hello@koshmanecom.com</a>
+        <a href="tel:+380000000000" style="font-size:16px;color:#fff">+380 00 000 00 00</a>
+        <div style="display:flex;gap:11px">
+          <a href="#" aria-label="Telegram" style="width:39px;height:39px;border-radius:7px;background:#2A2A2A;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3L3 10.5l7 3 3 7.5L21 3zM10 13.5L21 3"></path></svg></a>
+          <a href="#" aria-label="Instagram" style="width:39px;height:39px;border-radius:7px;background:#2A2A2A;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5h.01"></path></svg></a>
+          <a href="#" aria-label="LinkedIn" style="width:39px;height:39px;border-radius:7px;background:#2A2A2A;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M8 10v7M8 7h.01M12 17v-7M12 13a3 3 0 0 1 6 0v4"></path></svg></a>
+          <a href="#" aria-label="YouTube" style="width:39px;height:39px;border-radius:7px;background:#2A2A2A;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"></rect><path d="M10 9l5 3-5 3z"></path></svg></a>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:42px;border-top:1px solid #5A5A5A;padding-top:22px;display:flex;justify-content:space-between;gap:20px;font-size:14px;color:#8A8A8A">
+      <span>© 2026 Koshman Ecom. Усі права захищені.</span>
+      <div style="display:flex;gap:28px;margin-right:10px"><a href="Privacy.dc.html" style="color:#8A8A8A">Політика конфіденційності</a><a href="Terms.dc.html" style="color:#8A8A8A">Умови використання</a></div>
+    </div>
+  </footer>
+  <div data-mob="1"><dc-import name="MFooter" hint-size="100%,900px"></dc-import></div>
+  <dc-import name="CookieBanner" hint-size="0px,0px"></dc-import>
+  <dc-import name="MarsRoamer" hint-size="0px,0px"></dc-import>
+  <sc-if value="{{ leadOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeLead }}" style="position:fixed;inset:0;z-index:120;background:rgba(15,15,15,.78);display:flex;align-items:center;justify-content:center;padding:20px;animation:kcFade .3s ease-out both">
+      <div onClick="{{ stopProp }}" style="position:relative;width:100%;max-width:480px;max-height:100%;overflow-y:auto;background:#fff;padding:40px 36px 36px;display:flex;flex-direction:column;gap:20px;box-sizing:border-box;animation:kcRise .45s cubic-bezier(.2,.8,.2,1) both">
+        <button onClick="{{ closeLead }}" aria-label="Закрити" style="position:absolute;top:10px;right:10px;width:44px;height:44px;border:none;background:transparent;color:#8A8A8A;font-size:24px;cursor:pointer;font-family:inherit" style-hover="color:#141414">×</button>
+        <sc-if value="{{ leadForm }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:10px;padding-right:32px">
+            <div style="font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FF5B2B">{{ leadCat }}</div>
+            <div style="font-size:28px;line-height:1.15;font-weight:700;color:#141414;text-wrap:pretty">{{ leadService }}</div>
+            <div style="font-size:15px;line-height:1.55;color:#555;text-wrap:pretty">Залиште контакти — менеджер зв'яжеться протягом робочого дня, уточнить задачу й назве вартість.</div>
+          </div>
+          <form onSubmit="{{ leadSubmit }}" style="display:flex;flex-direction:column;gap:12px">
+            <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:#141414">Ім'я
+              <input value="{{ leadName }}" onChange="{{ onLeadName }}" placeholder="Як до вас звертатися" style="height:52px;padding:0 16px;border:1.5px solid {{ leadNameBorder }};font-family:inherit;font-size:16px;color:#141414;outline:none;box-sizing:border-box" style-focus="border-color:#141414">
+            </label>
+            <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:#141414">Телефон або Telegram
+              <input value="{{ leadContact }}" onChange="{{ onLeadContact }}" placeholder="+380 або @username" style="height:52px;padding:0 16px;border:1.5px solid {{ leadContactBorder }};font-family:inherit;font-size:16px;color:#141414;outline:none;box-sizing:border-box" style-focus="border-color:#141414">
+            </label>
+            <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:#141414">Коментар <span style="font-weight:400;color:#8A8A8A">необов'язково</span>
+              <textarea value="{{ leadNote }}" onChange="{{ onLeadNote }}" rows="3" placeholder="Коротко про задачу або посилання на магазин" style="padding:14px 16px;border:1.5px solid #D9D9D9;font-family:inherit;font-size:16px;color:#141414;outline:none;resize:vertical;box-sizing:border-box" style-focus="border-color:#141414"></textarea>
+            </label>
+            <sc-if value="{{ leadErr }}" hint-placeholder-val="{{ false }}"><div style="font-size:13px;color:#FF5B2B">Вкажіть ім'я та контакт, щоб ми могли зв'язатися.</div></sc-if>
+            <button type="submit" style="margin-top:4px;background:#FF5B2B;color:#fff;height:56px;border:none;font-family:inherit;font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:.02em;cursor:pointer" style-hover="background:#E64A1C">Залишити заявку</button>
+          </form>
+        </sc-if>
+        <sc-if value="{{ leadSent }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:14px;padding:12px 32px 4px 0">
+            <div style="width:52px;height:52px;border-radius:50%;background:#FF5B2B;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg></div>
+            <div style="font-size:26px;line-height:1.15;font-weight:700;color:#141414">Заявку прийнято</div>
+            <div style="font-size:15px;line-height:1.55;color:#555;text-wrap:pretty">Дякуємо, {{ leadName }}! Зв'яжемося щодо послуги «{{ leadService }}» протягом робочого дня.</div>
+            <button onClick="{{ closeLead }}" style="margin-top:8px;background:#141414;color:#fff;height:52px;border:none;font-family:inherit;font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.02em;cursor:pointer">Закрити</button>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { hov: null, langOpen: false, lang: (() => { try { return localStorage.getItem('koshman-lang') || 'UA'; } catch (e) { return 'UA'; } })() };
+  componentDidMount() { this.onResize = () => this.forceUpdate(); window.addEventListener('resize', this.onResize); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); }
+  renderVals() {
+    const G = {
+      blue: "url('uploads/pasted-1792075263463-0.png') center / 100% 100% no-repeat, #0b0b0b",
+      orange: 'radial-gradient(38% 75% at 58% 18%, #0a0504 0%, rgba(16,7,4,.85) 40%, transparent 78%), radial-gradient(55% 95% at 100% 85%, #D24A20 0%, rgba(190,66,28,.6) 40%, transparent 75%), radial-gradient(60% 90% at 0% 100%, #B9431D 0%, transparent 75%), linear-gradient(170deg, #5a1e0c 0%, #3a1408 40%, #8a3014 100%)',
+      silver2: 'radial-gradient(22% 75% at 0% 100%, rgba(210,210,210,.8) 0%, rgba(120,120,120,.35) 35%, transparent 75%), radial-gradient(28% 70% at 100% 0%, rgba(200,200,200,.6) 0%, rgba(110,110,110,.25) 40%, transparent 75%), linear-gradient(160deg, #0d0d0d 0%, #080808 60%, #111 100%)',
+      silver: 'radial-gradient(45% 55% at 95% 5%, rgba(170,170,170,.55) 0%, transparent 75%), radial-gradient(70% 60% at 85% 95%, rgba(150,150,150,.7) 0%, rgba(110,110,110,.35) 45%, transparent 80%), linear-gradient(160deg, #0c0c0c 0%, #141414 30%, #2c2c2c 52%, #4a4a4a 62%, #2a2a2a 75%, #5a5a5a 100%)',
+    };
+    const I = {
+      code: 'M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 6l-3 12',
+      monitor: 'M3 4h18v12H3zM8 20h8M12 16v4',
+      globe: 'M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18',
+      repeat: 'M4 12a8 8 0 0 1 14-5.3M20 4v4h-4M20 12a8 8 0 0 1-14 5.3M4 20v-4h4',
+      chat: 'M4 5h16v11H9l-5 4z',
+      pen: 'M12 3l8 4.5v9L12 21l-8-4.5v-9z',
+      target: 'M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18M12 8a4 4 0 1 0 0 8a4 4 0 1 0 0-8',
+      store: 'M4 4h16v16H4zM4 9h16',
+      doc: 'M6 3h9l3 3v15H6zM9 11h6M9 15h6',
+      image: 'M4 5h16v14H4zM4 16l5-5 4 4 3-3 4 4M15 9h.01',
+      trend: 'M3 17l6-6 4 4 8-8M15 7h6v6',
+      search: 'M11 4a7 7 0 1 0 0 14a7 7 0 1 0 0-14M20 20l-4-4',
+      bag: 'M6 8h12l-1 12H7zM9 8a3 3 0 0 1 6 0',
+      play: 'M3 6h18v12H3zM10 9.5l5 2.5-5 2.5z',
+      spark: 'M12 3l2 7 7 2-7 2-2 7-2-7-7-2 7-2z',
+      mega: 'M4 10v4h3l7 4V6l-7 4zM18 9a4 4 0 0 1 0 6',
+      receipt: 'M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6M9 16h4',
+    };
+    const cats = ['Стратегія та план розвитку', 'Розробка Shopify', 'Інші розробки', 'Розробка сайтів', 'Повторні продажі та LTV', 'SEO', 'Міжнародні маркетплейси', 'Pinterest', 'YouTube', 'Брендинг та дизайн', 'Реклама', 'E-commerce консалтинг'];
+    const cards = [
+      ['7 послуг', 'blue', 'target'], ['4 послуги', 'orange', 'store'], ['4 послуги', 'silver', 'code'],
+      ['4 послуги', 'orange', 'monitor'], ['2 послуги', 'silver2', 'repeat'], ['3 послуги', 'blue', 'search'],
+      ['9 послуг', 'blue', 'globe'], ['3 послуги', 'orange', 'image'], ['2 послуги', 'silver', 'play'],
+      ['5 послуг', 'orange', 'pen'], ['6 послуг', 'silver', 'mega'], ['5 послуг', 'blue', 'chat'],
+    ];
+    const keys = ['strategy','shopify-dev','other-dev','web-dev','ltv','seo','marketplaces','pinterest','youtube','branding','ads','consulting'];
+    const svc = [
+      ['strategy','Аналіз бізнесу','Аналіз бізнесу, продукту та конкурентів: знаходимо точки росту онлайн-продажів.'],
+      ['strategy','Канали продажів','Підбір каналів продажів: сайт, маркетплейси, соцмережі та реклама під ваш продукт.'],
+      ['strategy','План розвитку','Покроковий план розвитку e-commerce напрямку з цілями, бюджетом і метриками.'],
+      ['strategy','Shopify CRO аудит','Аудит Shopify-магазину і план росту продажів без додаткових витрат на рекламу.'],
+      ['strategy','CRO аудит інтернет-магазину','CRO-аудит інтернет-магазину: знаходимо, де втрачаються покупці, і підвищуємо конверсію.'],
+      ['strategy','Аудит Etsy','Аудит Etsy-магазину та конкурентів, план системи продажів на Etsy.'],
+      ['strategy','Консультація','Консультація з розвитку онлайн-продажів для e-commerce бізнесу.'],
+      ['shopify-dev','Shopify','Розробка інтернет-магазину на Shopify під ключ: дизайн, тема, каталог, оплата й доставка.'],
+      ['shopify-dev','Доопрацювання','Доопрацювання Shopify-магазину: нові секції, інтеграції, швидкість і виправлення помилок.'],
+      ['shopify-dev','B2B Shopify (опт)','B2B-магазин на Shopify для оптових продажів: закриті каталоги та індивідуальні ціни.'],
+      ['shopify-dev','CRO аудит','CRO-аудит Shopify-магазину і план росту конверсії без збільшення рекламного бюджету.'],
+      ['other-dev','Самописний сайт','Розробка самописного сайту або інтернет-магазину під нестандартні задачі бізнесу.'],
+      ['other-dev','Frontend','Frontend-розробка на Vue.js: адаптивна верстка, швидкі та зручні інтерфейси.'],
+      ['other-dev','Backend','Backend-розробка на PHP (Laravel) та Node.js: API, інтеграції, бізнес-логіка.'],
+      ['other-dev','Бази даних','Проєктування та підтримка баз даних PostgreSQL, MySQL і MongoDB для e-commerce.'],
+      ['web-dev','Хорошоп','Розробка інтернет-магазину на Хорошоп: дизайн, налаштування каталогу й оплат.'],
+      ['web-dev','Wix / Webflow','Розробка сайту на Wix або Webflow: лендинги та сайти-візитки для бізнесу.'],
+      ['web-dev','WordPress','Сайт на WordPress і WooCommerce: на шаблоні або з індивідуальним дизайном.'],
+      ['web-dev','Доопрацювання','Доопрацювання сайту: нові сторінки, виправлення помилок, швидкість і SEO-основа.'],
+      ['ltv','CRM','Впровадження CRM та інтеграція з магазином: автоматизація заявок, замовлень і повторних продажів.'],
+      ['ltv','Email-маркетинг','Email-маркетинг і автоматичні розсилки: покинутий кошик, повторні покупки, ріст LTV.'],
+      ['seo','SEO аудит','SEO-аудит сайту: технічні помилки, контент, структура і план просування в Google.'],
+      ['seo','SEO просування','SEO-просування інтернет-магазину в Google: ріст органічного трафіку та продажів.'],
+      ['seo','AI-пошук','Оптимізація бренду для AI-пошуку, щоб ChatGPT, Perplexity і Gemini рекомендували вас.'],
+      ['marketplaces','Etsy магазин','Відкриття та налаштування магазину на Etsy: лістинги, SEO, оформлення та політики.','B2C'],
+      ['marketplaces','Ведення Etsy','Ведення Etsy-магазину: оптимізація лістингів, Etsy SEO, реклама та аналітика.','B2C'],
+      ['marketplaces','eBay магазин','Відкриття та ведення магазину на eBay для продажів у США та Європі.','B2C'],
+      ['marketplaces','Amazon Handmade','Відкриття магазину на Amazon Handmade для виробників товарів ручної роботи.','B2C'],
+      ['marketplaces','Ведення Amazon','Ведення Amazon Handmade: лістинги, Amazon SEO, реклама та контроль показників.','B2C'],
+      ['marketplaces','Агрегатори','Розміщення товарів на агрегаторах і прайс-площадках для додаткових продажів.','B2C'],
+      ['marketplaces','Alibaba магазин','Відкриття та налаштування B2B-магазину на Alibaba для пошуку оптових покупців.','B2B'],
+      ['marketplaces','Ведення Alibaba','Ведення Alibaba-магазину: каталог, запити покупців, реклама та аналітика.','B2B'],
+      ['marketplaces','B2B каталоги','Розміщення компанії в міжнародних B2B-каталогах для пошуку оптових клієнтів.','B2B'],
+      ['pinterest','Ведення акаунта','Створення та ведення бізнес-акаунта Pinterest: дошки, піни, трафік на магазин.'],
+      ['pinterest','Автоматизація','Автоматизація Pinterest: регулярний постинг пінів без ручної роботи.'],
+      ['pinterest','Pinterest Ads','Реклама в Pinterest для залучення покупців на сайт і маркетплейси.'],
+      ['youtube','YouTube канал','Створення та налаштування YouTube-каналу бренду для залучення покупців.'],
+      ['youtube','Ведення каналу','Ведення YouTube-каналу та підключення YouTube Shopping для продажу товарів.'],
+      ['branding','Брендбук базовий','Базовий брендбук: логотип, кольори, шрифти та правила використання.'],
+      ['branding','Брендбук','Повний брендбук для e-commerce бренду: айдентика, носії, гайдлайни.'],
+      ['branding','Логотип','Розробка логотипу, який працює на сайті, маркетплейсах і упаковці.'],
+      ['branding','Ребрендинг','Ребрендинг: оновлення айдентики та позиціонування для нових ринків.'],
+      ['branding','Виставки','Оформлення стенду та матеріалів для участі у міжнародних виставках.'],
+      ['ads','Google Ads','Google Ads для інтернет-магазину: пошукова, торгова та медійна реклама з фокусом на ROAS.'],
+      ['ads','Meta Ads','Реклама в Instagram і Facebook: запуск кампаній, креативи та оптимізація.'],
+      ['ads','TikTok Ads','Реклама в TikTok для e-commerce: кампанії та креативи під ваш продукт.'],
+      ['ads','Pinterest Ads','Реклама в Pinterest для трафіку на маркетплейси та власний сайт.'],
+      ['ads','YouTube Ads','Відеореклама на YouTube: таргетинг, креативи та аналітика конверсій.'],
+      ['ads','Маркетплейси','Реклама на маркетплейсах: Etsy Ads та Amazon Ads для росту видимості товарів.'],
+      ['consulting','Консультації','Консультації для e-commerce компаній з продажів, маркетингу та маркетплейсів.'],
+      ['consulting','Аудит процесів','Аудит e-commerce процесів: знаходимо, де бізнес втрачає час і гроші.'],
+      ['consulting','Конверсія','Покращення конверсії сайту та маркетплейсів для росту продажів.'],
+      ['consulting','Супровід','Погодинний супровід вашої команди з e-commerce та маркетингу.'],
+      ['consulting','AI-консультації','AI-консультації: впровадження AI-інструментів у маркетинг і продажі.'],
+    ];
+    const plural = (n) => n + ' ' + (n % 10 === 1 && n % 100 !== 11 ? 'послуга' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 'послуги' : 'послуг');
+    const F = this.state.form || { name: '', contact: '', note: '', topic: null, sent: false, tried: false };
+    const setF = (k) => (e) => { const v = e.target.value; this.setState((st) => ({ form: { ...(st.form || F), [k]: v } })); };
+    const fBad = (k) => F.tried && !F[k].trim();
+    const formVals = {
+      fForm: !F.sent, fSent: F.sent,
+      fName: F.name, fContact: F.contact, fNote: F.note,
+      onFName: setF('name'), onFContact: setF('contact'), onFNote: setF('note'),
+      fNameBorder: fBad('name') ? '#FF5B2B' : '#3A3A3A', fContactBorder: fBad('contact') ? '#FF5B2B' : '#3A3A3A',
+      fErr: fBad('name') || fBad('contact'),
+      fTopics: ['Не знаю, з чого почати', ...cats].map((t) => ({ label: t, bg: F.topic === t ? '#FF5B2B' : 'transparent', border: F.topic === t ? '#FF5B2B' : '#3A3A3A', onClick: () => this.setState((st) => ({ form: { ...(st.form || F), topic: (st.form || F).topic === t ? null : t } })) })),
+      fSubmit: (e) => { e.preventDefault(); const f = this.state.form || F; if (f.name.trim() && f.contact.trim()) { location.href = 'Thanks.dc.html?name=' + encodeURIComponent(f.name.trim()) + (f.topic ? '&service=' + encodeURIComponent(f.topic) : ''); return; } this.setState({ form: { ...f, tried: true } }); },
+      fReset: () => this.setState({ form: null }),
+    };
+    const L = this.state.lead || null;
+    const setLead = (k) => (e) => { const v = e.target.value; this.setState((st) => ({ lead: { ...st.lead, [k]: v } })); };
+    const leadVals = {
+      leadOpen: !!L, leadForm: !!L && !L.sent, leadSent: !!L && L.sent,
+      leadService: L ? L.service : '', leadCat: L ? L.cat : '',
+      leadName: L ? L.name : '', leadContact: L ? L.contact : '', leadNote: L ? L.note : '',
+      onLeadName: setLead('name'), onLeadContact: setLead('contact'), onLeadNote: setLead('note'),
+      leadNameBorder: L && L.tried && !L.name.trim() ? '#FF5B2B' : '#D9D9D9',
+      leadContactBorder: L && L.tried && !L.contact.trim() ? '#FF5B2B' : '#D9D9D9',
+      leadErr: !!(L && L.tried && (!L.name.trim() || !L.contact.trim())),
+      leadSubmit: (e) => { e.preventDefault(); const l = this.state.lead; if (l.name.trim() && l.contact.trim()) { location.href = 'Thanks.dc.html?name=' + encodeURIComponent(l.name.trim()) + '&service=' + encodeURIComponent(l.service); return; } this.setState({ lead: { ...l, tried: true } }); },
+      closeLead: () => this.setState({ lead: null }),
+    };
+    const taskMap = [
+      ['Не знаю, з чого почати', null], ['Хочу вийти на міжнародний ринок', 'Міжнародні маркетплейси'],
+      ['Хочу продавати на Etsy', 'Міжнародні маркетплейси'], ['Хочу сайт на Shopify', 'Розробка Shopify'],
+      ['Хочу оновити бренд', 'Брендинг та дизайн'], ['Хочу сайт', 'Розробка сайтів'],
+      ['Хочу з’являтися в AI-пошуку', 'SEO'], ['Хочу запустити рекламу', 'Реклама'],
+    ];
+
+    const hb = (key, onClick, t0, t1) => { const on = this.state.hov === key; return { w: on ? 'calc(100% - 8px)' : '46px', ax: on ? '4px' : '0px', text: on ? t1 : t0,
+      enter: () => this.setState({ hov: key }), leave: () => this.setState((s) => (s.hov === key ? { hov: null } : null)), click: onClick }; };
+    const open = (svc, cat) => (e) => { e.preventDefault(); this.setState({ lead: { service: svc, cat, name: '', contact: '', note: '', sent: false, tried: false } }); };
+    return {
+      ...leadVals,
+      ...formVals,
+      zoom: ((document.documentElement.clientWidth || window.innerWidth || 1440) / 1440),
+      stopProp: (e) => e.stopPropagation(),
+      langLabel: this.state.lang, langCaret: this.state.langOpen ? 'rotate(180deg)' : 'none', langOpen: this.state.langOpen,
+      toggleLang: () => this.setState((s) => ({ langOpen: !s.langOpen })),
+      langs: [['Українська', 'UA'], ['English', 'EN'], ['Slovenčina', 'SK']].map(([name, code]) => ({ name, code, bg: code === this.state.lang ? '#FFF1EB' : '#fff', color: code === this.state.lang ? '#FF5B2B' : '#141414', pick: () => { try { localStorage.setItem('koshman-lang', code); } catch (e) {} window.dispatchEvent(new CustomEvent('koshman-lang', { detail: code })); this.setState({ lang: code, langOpen: false }); } })),
+      careersBtn: hb('careers', null, '#fff', '#FF5B2B'),
+      heroBtn: hb('hero', open('Безкоштовна консультація', 'Послуги'), '#fff', '#FF5B2B'),
+      heroTags: ['Сайти та інтернет-магазини', 'Реклама', 'Маркетплейси', 'AI‑автоматизація', 'Брендинг'],
+      approach: [['Продукт', 'Позиціонування та цінність.'], ['Ринок', 'Попит і конкурентна стратегія.'], ['Система', 'Контент, трафік, AI, операційка.']].map(([t, d], i) => ({ t, d, n: String(i + 1).padStart(2, '0'), border: i < 2 ? '1px solid #CFCFCF' : 'none', pl: i ? '32px' : '0' })),
+      doing: [
+        ['Запускаємо продажі на маркетплейсах', 'Виходимо на Etsy, Amazon Handmade, eBay та інші платформи.', 'blue'],
+        ['Створюємо та оптимізуємо магазини на Etsy', 'Структура, SEO‑листинги, аналітика, регулярне оновлення.', 'orange'],
+        ['Окремо розробляємо сайти на Shopify', 'Дизайн, UX, інтеграції та готовність до масштабування.', 'silver'],
+        ['Знаходимо попит і ніші', 'Дані, тренди та аналіз конкурентів перед запуском.', 'orange'],
+        ['Інтегруємо AI у бізнес‑процеси', 'Автоматизація контенту, рутин та аналітики.', 'silver'],
+        ['Масштабуємо через рекламу та контент', 'Meta, TikTok, Pinterest, SEO та контент‑стратегії.', 'blue'],
+      ].map(([t, d, g], i) => ({ t, d, grad: G[g], bs: g === 'silver2' ? '200% 100%' : '135% 100%', n: String(i + 1).padStart(2, '0') })),
+      team: [
+        { name: 'Влад Кошман', role: 'Засновник', hasImg: true, img: 'https://koshmanecom.com/team/Vlad.png', d: 'Спеціаліст з міжнародного e-commerce. Відповідає за стратегію, запуск продажів та AI‑впровадження у бізнес‑процеси.' },
+        { name: 'Ліза Кошман', role: 'Співвласниця', hasImg: true, img: 'https://koshmanecom.com/team/Liza.png', d: 'Стратегічна менеджерка в роботі з брендами в Ecommerce. Керівниця відділу роботи з Shopify‑екосистемою.' },
+      ],
+      tasks: taskMap.map(([label, cat]) => ({ label, href: cat ? '#' + keys[cats.indexOf(cat)] : '#lead' })),
+      dirs: cats.map((title, i) => ({ title, n: String(i + 1).padStart(2, '0'), count: plural(svc.filter((x) => x[0] === keys[i]).length), href: '#' + keys[i], grad: G[cards[i][1]], bs: cards[i][1] === 'silver2' ? '200% 100%' : '135% 100%', icon: I[cards[i][2]] })),
+      sections: cats.map((title, i) => ({
+        id: keys[i], title, n: String(i + 1).padStart(2, '0'), count: plural(svc.filter((x) => x[0] === keys[i]).length),
+        bg: i % 2 ? '#EEEEEE' : '#fff', card: i % 2 ? '#fff' : '#F6F6F6',
+        btn: hb('s' + i, open(title, 'Послуги'), '#fff', '#fff'),
+        items: svc.filter((x) => x[0] === keys[i]).map(([, tag, name, sub], j) => ({ n: String(j + 1).padStart(2, '0'), hasDesc: name.trim() !== tag, tag, desc: name.trim() !== tag ? name : '', sub: sub || '', hasSub: !!sub, grad: G[cards[i][1]], bs: cards[i][1] === 'silver2' ? '200% 100%' : '135% 100%', icon: I[cards[i][2]], onClick: open(tag, title) })),
+      })),
+    };
+  }
+}
+</script>
+</body>
+</html>

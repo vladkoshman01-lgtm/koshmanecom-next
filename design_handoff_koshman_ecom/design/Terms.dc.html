@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Умови використання — Koshman Ecom</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="canonical" href="https://koshmanecom.com/terms">
+<link rel="alternate" hreflang="uk" href="https://koshmanecom.com/terms">
+<link rel="alternate" hreflang="en" href="https://koshmanecom.com/en/terms">
+<link rel="alternate" hreflang="sk" href="https://koshmanecom.com/sk/terms">
+<link rel="alternate" hreflang="x-default" href="https://koshmanecom.com/terms">
+<meta property="og:url" content="https://koshmanecom.com/terms">
+<meta property="og:site_name" content="Koshman Ecom">
+<meta property="og:locale" content="uk_UA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="Умови користування сайтом Koshman Ecom, безкоштовними інструментами та матеріалами сайту.">
+<meta property="og:title" content="Умови використання — Koshman Ecom">
+<meta property="og:description" content="Умови користування сайтом Koshman Ecom, безкоштовними інструментами та матеріалами сайту.">
+<meta property="og:type" content="website">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Головна","item":"https://koshmanecom.com/"},{"@type":"ListItem","position":2,"name":"Умови використання","item":"https://koshmanecom.com/terms"}]}]}</script>
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<script src="./i18n.js"></script>
+<script src="./mobile.js"></script>
+<style>
+html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:82px}
+body{margin:0;background:#fff;font-family:'Onest',sans-serif;color:#222;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:hover{color:inherit;opacity:.8}
+a:hover [data-flow],[data-flow]:hover{animation:svcFlow 3.2s ease-in-out infinite}
+@keyframes svcFlow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes kcFade{from{opacity:0}to{opacity:1}}
+@keyframes kcRise{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes logos-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+header nav a{background:linear-gradient(#fff,#fff) 0 100%/0 2px no-repeat;padding:4px 0;transition:background-size .25s ease}
+header nav a:hover{background-size:100% 2px;opacity:1}
+footer a{transition:color .2s,background-color .2s}
+footer a:hover{color:#FF5B2B !important;opacity:1}
+footer a[aria-label]:hover{background:#FF5B2B !important}
+p a{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px;transition:text-decoration-color .2s}
+p a:hover{text-decoration-color:transparent;opacity:1}
+</style>
+</helmet>
+<div data-page="1" style="width:1440px;margin:0 auto;zoom:{{ zoom }};background:#fff;font-family:'Onest',sans-serif;overflow:clip">
+  <div data-mob="1" data-mob-head="1"><dc-import name="MHeader" hint-size="100%,64px"></dc-import></div>
+  <header data-desk="1" style="position:sticky;top:0;z-index:60;background:#FF5B2B;height:82px;padding:0 80px;display:flex;align-items:center;justify-content:space-between;box-sizing:border-box">
+    <a href="Hero.dc.html" style="color:#fff;font-weight:800;font-size:18px;line-height:1.05;letter-spacing:0.02em;text-transform:uppercase;display:flex;flex-direction:column"><span>Koshman</span><span>Ecom</span></a>
+    <nav style="display:flex;gap:23px;font-size:14px;font-weight:500;color:#fff">
+      <a href="Hero.dc.html" style="color:#fff">Головна</a>
+      <a href="Services.dc.html" style="color:#fff">Послуги</a>
+      <a href="Cases.dc.html" style="color:#fff">Кейси</a>
+      <a href="About.dc.html" style="color:#fff">Про нас</a>
+      <a href="Hero.dc.html#reviews" style="color:#fff">Відгуки</a>
+      <a href="Hero.dc.html#blog" style="color:#fff">Блог</a>
+      <a href="Tools.dc.html" style="color:#fff">Інструменти</a>
+      <a href="Contacts.dc.html" style="color:#fff">Контакти</a>
+    </nav>
+    <div style="display:flex;gap:18px;align-items:center">
+      <a href="Contacts.dc.html" style="background:#fff;color:#FF5B2B;height:41px;padding:0 24px;display:flex;align-items:center;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.02em">Зв'яжіться з нами</a>
+      <div style="position:relative">
+        <button onClick="{{ toggleLang }}" style="border:2px solid #fff;background:transparent;color:#fff;height:41px;width:72px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:6px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer">{{ langLabel }}<span style="font-size:10px;transform:{{ langCaret }};transition:transform .2s">▼</span></button>
+        <sc-if value="{{ langOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;top:49px;right:0;background:#fff;box-shadow:0 12px 32px rgba(0,0,0,.18);display:flex;flex-direction:column;min-width:170px">
+            <sc-for list="{{ langs }}" as="l" hint-placeholder-count="3">
+              <button onClick="{{ l.pick }}" style="height:46px;padding:0 18px;border:none;background:{{ l.bg }};color:{{ l.color }};font-family:inherit;font-size:15px;font-weight:600;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px" style-hover="background:#FFF1EB"><span>{{ l.name }}</span><span style="font-size:13px;letter-spacing:.06em">{{ l.code }}</span></button>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </header>
+
+  <section data-screen-label="Terms hero" style="background:#141414;padding:110px 86px 96px;box-sizing:border-box">
+    <div style="font-size:14px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#FF5B2B">Документи</div>
+    <div style="margin-top:18px;display:grid;grid-template-columns:minmax(0,1fr) 440px;gap:80px;align-items:end">
+      <h1 style="margin:0;font-size:64px;line-height:1.04;font-weight:700;letter-spacing:-0.015em;color:#fff;text-wrap:balance">Умови використання</h1>
+      <p style="margin:0;font-size:18px;line-height:1.55;color:#CFCFCF;text-wrap:pretty">Правила користування сайтом Koshman Ecom, безкоштовними інструментами та матеріалами сайту.</p>
+    </div>
+    <div style="margin-top:48px;padding-top:24px;border-top:1px solid #2C2C2C;font-size:14px;color:#8A8A8A">Оновлено 15 жовтня 2026</div>
+  </section>
+  <section data-screen-label="Terms content" style="background:#fff;padding:56px 86px 120px;box-sizing:border-box;display:grid;grid-template-columns:300px minmax(0,1fr);gap:120px;align-items:start">
+    <nav style="position:sticky;top:122px;display:flex;flex-direction:column;padding-top:44px">
+      <span style="font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8A8A8A;padding-bottom:14px">Зміст</span>
+        <a href="#general" style="display:flex;gap:14px;padding:10px 0;border-top:1px solid #E4E4E4;font-size:15px;line-height:1.35;color:#222" style-hover="color:#FF5B2B;opacity:1"><span style="flex:none;width:22px;color:#8A8A8A;font-weight:600">01</span><span>Загальні положення</span></a>
+        <a href="#site" style="display:flex;gap:14px;padding:10px 0;border-top:1px solid #E4E4E4;font-size:15px;line-height:1.35;color:#222" style-hover="color:#FF5B2B;opacity:1"><span style="flex:none;width:22px;color:#8A8A8A;font-weight:600">02</span><span>Користування сайтом</span></a>
+        <a href="#tools" style="display:flex;gap:14px;padding:10px 0;border-top:1px solid #E4E4E4;font-size:15px;line-height:1.35;color:#222" style-hover="color:#FF5B2B;opacity:1"><span style="flex:none;width:22px;color:#8A8A8A;font-weight:600">03</span><span>Інструменти</span></a>
+        <a href="#ip" style="display:flex;gap:14px;padding:10px 0;border-top:1px solid #E4E4E4;font-size:15px;line-height:1.35;color:#222" style-hover="color:#FF5B2B;opacity:1"><span style="flex:none;width:22px;color:#8A8A8A;font-weight:600">04</span><span>Авторські права</span></a>
+        <a href="#orders" style="display:flex;gap:14px;padding:10px 0;border-top:1px solid #E4E4E4;font-size:15px;line-height:1.35;color:#222" style-hover="color:#FF5B2B;opacity:1"><span style="flex:none;width:22px;color:#8A8A8A;font-weight:600">05</span><span>Заявки та послуги</span></a>
+        <a href="#liability" style="display:flex;gap:14px;padding:10px 0;border-top:1px solid #E4E4E4;font-size:15px;line-height:1.35;color:#222" style-hover="color:#FF5B2B;opacity:1"><span style="flex:none;width:22px;color:#8A8A8A;font-weight:600">06</span><span>Обмеження відповідальності</span></a>
+        <a href="#links" style="display:flex;gap:14px;padding:10px 0;border-top:1px solid #E4E4E4;font-size:15px;line-height:1.35;color:#222" style-hover="color:#FF5B2B;opacity:1"><span style="flex:none;width:22px;color:#8A8A8A;font-weight:600">07</span><span>Посилання на інші сайти</span></a>
+        <a href="#changes" style="display:flex;gap:14px;padding:10px 0;border-top:1px solid #E4E4E4;font-size:15px;line-height:1.35;color:#222" style-hover="color:#FF5B2B;opacity:1"><span style="flex:none;width:22px;color:#8A8A8A;font-weight:600">08</span><span>Зміни умов</span></a>
+        <a href="#law" style="display:flex;gap:14px;padding:10px 0;border-top:1px solid #E4E4E4;font-size:15px;line-height:1.35;color:#222" style-hover="color:#FF5B2B;opacity:1"><span style="flex:none;width:22px;color:#8A8A8A;font-weight:600">09</span><span>Застосовне право</span></a>
+    </nav>
+    <div style="display:flex;flex-direction:column">
+      <section id="general" style="padding:44px 0;border-top:1px solid #E4E4E4;display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;align-items:baseline;gap:18px"><span style="font-size:14px;font-weight:700;letter-spacing:.12em;color:#FF5B2B">01</span><h2 style="margin:0;font-size:32px;line-height:1.15;font-weight:700;letter-spacing:-0.01em;color:#222">Загальні положення</h2></div>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#444;text-wrap:pretty;max-width:760px">Ці умови регулюють користування сайтом Koshman Ecom та безкоштовними інструментами на ньому. Відкриваючи сайт, ви погоджуєтесь з умовами.</p>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#444;text-wrap:pretty;max-width:760px">Якщо ви не згодні з умовами, будь ласка, не користуйтеся сайтом.</p>
+      </section>
+      <section id="site" style="padding:44px 0;border-top:1px solid #E4E4E4;display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;align-items:baseline;gap:18px"><span style="font-size:14px;font-weight:700;letter-spacing:.12em;color:#FF5B2B">02</span><h2 style="margin:0;font-size:32px;line-height:1.15;font-weight:700;letter-spacing:-0.01em;color:#222">Користування сайтом</h2></div>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#444;text-wrap:pretty;max-width:760px">Сайт містить інформацію про послуги агенції, кейси, статті блогу та інструменти для e-commerce.</p>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#444;text-wrap:pretty;max-width:760px">Заборонено втручатися в роботу сайту, автоматично збирати його вміст, намагатися отримати доступ до закритих розділів або використовувати сайт для незаконних дій.</p>
+      </section>
+      <section id="tools" style="padding:44px 0;border-top:1px solid #E4E4E4;display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;align-items:baseline;gap:18px"><span style="font-size:14px;font-weight:700;letter-spacing:.12em;color:#FF5B2B">03</span><h2 style="margin:0;font-size:32px;line-height:1.15;font-weight:700;letter-spacing:-0.01em;color:#222">Інструменти</h2></div>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#444;text-wrap:pretty;max-width:760px">Калькулятори, порівняння платформ, ресайзер зображень, SEOgenie та інші інструменти надаються безкоштовно і «як є».</p>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#444;text-wrap:pretty;max-width:760px">Результати розрахунків орієнтовні та залежать від введених даних і актуальних тарифів платформ. Вони не є фінансовою, податковою чи юридичною консультацією.</p>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#444;text-wrap:pretty;max-width:760px">Ми можемо змінювати, обмежувати або вимикати інструменти без попередження.</p>
+      </section>
+      <section id="ip" style="padding:44px 0;border-top:1px solid #E4E4E4;display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;align-items:baseline;gap:18px"><span style="font-size:14px;font-weight:700;letter-spacing:.12em;color:#FF5B2B">04</span><h2 style="margin:0;font-size:32px;line-height:1.15;font-weight:700;letter-spacing:-0.01em;color:#222">Авторські права</h2></div>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#444;text-wrap:pretty;max-width:760px">Тексти, дизайн, логотип, графіка, кейси та код сайту належать Koshman Ecom або використовуються за ліцензією.</p>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#444;text-wrap:pretty;max-width:760px">Цитування матеріалів дозволене з активним посиланням на сайт. Інше копіювання чи комерційне використання потребує нашої письмової згоди.</p>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#444;text-wrap:pretty;max-width:760px">Назви та логотипи Etsy, Amazon, Shopify, Pinterest, YouTube та інших платформ належать їхнім власникам.</p>
+      </section>
+      <section id="orders" style="padding:44px 0;border-top:1px solid #E4E4E4;display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;align-items:baseline;gap:18px"><span style="font-size:14px;font-weight:700;letter-spacing:.12em;color:#FF5B2B">05</span><h2 style="margin:0;font-size:32px;line-height:1.15;font-weight:700;letter-spacing:-0.01em;color:#222">Заявки та послуги</h2></div>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#444;text-wrap:pretty;max-width:760px">Інформація на сайті не є публічною офертою. Вартість, строки та обсяг робіт узгоджуються індивідуально й фіксуються в договорі.</p>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#444;text-wrap:pretty;max-width:760px">Надсилаючи заявку, ви підтверджуєте, що вказали достовірні дані та погоджуєтесь на їх обробку згідно з <a href="Privacy.dc.html" style="color:#FF5B2B">Політикою конфіденційності</a>.</p>
+      </section>
+      <section id="liability" style="padding:44px 0;border-top:1px solid #E4E4E4;display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;align-items:baseline;gap:18px"><span style="font-size:14px;font-weight:700;letter-spacing:.12em;color:#FF5B2B">06</span><h2 style="margin:0;font-size:32px;line-height:1.15;font-weight:700;letter-spacing:-0.01em;color:#222">Обмеження відповідальності</h2></div>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#444;text-wrap:pretty;max-width:760px">Ми докладаємо зусиль, щоб інформація на сайті була точною, але не гарантуємо її повноту й актуальність.</p>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#444;text-wrap:pretty;max-width:760px">Ми не відповідаємо за збитки, що виникли через використання сайту, інструментів або рішення, ухвалені на основі їхніх результатів.</p>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#444;text-wrap:pretty;max-width:760px">Результати кейсів залежать від продукту, ринку та бюджету клієнта і не гарантують таких самих результатів для інших бізнесів.</p>
+      </section>
+      <section id="links" style="padding:44px 0;border-top:1px solid #E4E4E4;display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;align-items:baseline;gap:18px"><span style="font-size:14px;font-weight:700;letter-spacing:.12em;color:#FF5B2B">07</span><h2 style="margin:0;font-size:32px;line-height:1.15;font-weight:700;letter-spacing:-0.01em;color:#222">Посилання на інші сайти</h2></div>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#444;text-wrap:pretty;max-width:760px">Сайт може містити посилання на сторонні ресурси. Ми не контролюємо їхній вміст і не відповідаємо за їхню роботу та політику конфіденційності.</p>
+      </section>
+      <section id="changes" style="padding:44px 0;border-top:1px solid #E4E4E4;display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;align-items:baseline;gap:18px"><span style="font-size:14px;font-weight:700;letter-spacing:.12em;color:#FF5B2B">08</span><h2 style="margin:0;font-size:32px;line-height:1.15;font-weight:700;letter-spacing:-0.01em;color:#222">Зміни умов</h2></div>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#444;text-wrap:pretty;max-width:760px">Ми можемо оновлювати ці умови. Нова редакція діє з моменту публікації на цій сторінці.</p>
+      </section>
+      <section id="law" style="padding:44px 0;border-top:1px solid #E4E4E4;display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;align-items:baseline;gap:18px"><span style="font-size:14px;font-weight:700;letter-spacing:.12em;color:#FF5B2B">09</span><h2 style="margin:0;font-size:32px;line-height:1.15;font-weight:700;letter-spacing:-0.01em;color:#222">Застосовне право</h2></div>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#444;text-wrap:pretty;max-width:760px">Умови регулюються законодавством України. Для користувачів з ЄС також застосовуються обов'язкові норми законодавства ЄС.</p>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#444;text-wrap:pretty;max-width:760px">Спори вирішуємо шляхом переговорів, а якщо домовитися не вдалося — у суді за місцем реєстрації виконавця.</p>
+      </section>
+      <div style="margin-top:20px;padding:32px;background:#EEEEEE;display:flex;justify-content:space-between;align-items:center;gap:32px">
+        <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:20px;font-weight:700;color:#222">Залишилися питання?</span><span style="font-size:15px;color:#555">Напишіть нам — відповімо протягом робочого дня.</span></div>
+        <a href="mailto:koshman.export@gmail.com" style="flex:none;background:#FF5B2B;color:#fff;height:57px;padding:0 32px;display:flex;align-items:center;font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:.02em" style-hover="background:#E64A1C;opacity:1">Написати</a>
+      </div>
+    </div>
+  </section>
+<footer data-desk="1" style="background:#141414;padding:65px 71px 48px 79px;box-sizing:border-box;color:#fff">
+    <div style="display:grid;grid-template-columns:420px 198px 158px 319px minmax(0,1fr);align-items:start">
+      <div style="display:flex;flex-direction:column">
+        <dc-import name="FooterLogo" hint-size="279px,279px"></dc-import>
+        <p style="margin:27px 0 0;font-size:16px;line-height:1.4;color:#DADADA;max-width:300px">Маркетинг-агенція<br>для E-commerce бізнесів B2C<br>і B2B. Повний цикл, який допомагає продавати на локальному ринку та закордоном.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:28px;padding-top:5px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8A8A8A">Навігація</span>
+        <a href="Hero.dc.html" style="font-size:16px;color:#fff;margin-top:-2px">Головна</a>
+        <a href="Services.dc.html" style="font-size:16px;color:#fff">Послуги</a>
+        <a href="Cases.dc.html" style="font-size:16px;color:#fff">Кейси</a>
+        <a href="Hero.dc.html#about" style="font-size:16px;line-height:1.3;color:#fff">Як ми<br>працюємо</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:28px;padding-top:5px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8A8A8A">Компанія</span>
+        <a href="About.dc.html" style="font-size:16px;color:#fff;margin-top:-2px">Про нас</a>
+        <a href="Hero.dc.html#reviews" style="font-size:16px;color:#fff">Відгуки</a>
+        <a href="Hero.dc.html#blog" style="font-size:16px;color:#fff">Блог</a>
+        <a href="Contacts.dc.html" style="font-size:16px;color:#fff">Контакти</a>
+        <a href="Careers.dc.html" style="font-size:16px;color:#fff">Кар'єра</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:28px;padding-top:5px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8A8A8A">Інструменти</span>
+        <a href="Tools.dc.html" style="font-size:16px;color:#fff;margin-top:-2px">Калькулятор прибутку Etsy</a>
+        <a href="Tools.dc.html" style="font-size:16px;line-height:1.3;color:#fff">Калькулятор ціноутворення<br>Etsy</a>
+        <a href="Tools.dc.html" style="font-size:16px;color:#fff">Etsy vs Amazon vs Shopify</a>
+        <a href="Tools.dc.html" style="font-size:16px;color:#fff">Ресайзер зображень</a>
+        <a href="Tools.dc.html" style="font-size:16px;color:#fff">Etsy Фінансовий Дашборд</a>
+        <a href="Tools.dc.html" style="font-size:16px;color:#fff">SEOgenie</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:28px;padding-top:5px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8A8A8A">Контакти</span>
+        <a href="#" style="font-size:16px;color:#fff;margin-top:-2px">Telegram</a>
+        <a href="mailto:hello@koshmanecom.com" style="font-size:16px;color:#fff;white-space:nowrap">hello@koshmanecom.com</a>
+        <a href="tel:+380000000000" style="font-size:16px;color:#fff">+380 00 000 00 00</a>
+        <div style="display:flex;gap:11px">
+          <a href="#" aria-label="Telegram" style="width:39px;height:39px;border-radius:7px;background:#2A2A2A;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3L3 10.5l7 3 3 7.5L21 3zM10 13.5L21 3"></path></svg></a>
+          <a href="#" aria-label="Instagram" style="width:39px;height:39px;border-radius:7px;background:#2A2A2A;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5h.01"></path></svg></a>
+          <a href="#" aria-label="LinkedIn" style="width:39px;height:39px;border-radius:7px;background:#2A2A2A;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M8 10v7M8 7h.01M12 17v-7M12 13a3 3 0 0 1 6 0v4"></path></svg></a>
+          <a href="#" aria-label="YouTube" style="width:39px;height:39px;border-radius:7px;background:#2A2A2A;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"></rect><path d="M10 9l5 3-5 3z"></path></svg></a>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:42px;border-top:1px solid #5A5A5A;padding-top:22px;display:flex;justify-content:space-between;gap:20px;font-size:14px;color:#8A8A8A">
+      <span>© 2026 Koshman Ecom. Усі права захищені.</span>
+      <div style="display:flex;gap:28px;margin-right:10px"><a href="Privacy.dc.html" style="color:#8A8A8A">Політика конфіденційності</a><a href="Terms.dc.html" style="color:#8A8A8A">Умови використання</a></div>
+    </div>
+  </footer>
+  <div data-mob="1"><dc-import name="MFooter" hint-size="100%,900px"></dc-import></div>
+  <dc-import name="CookieBanner" hint-size="0px,0px"></dc-import>
+  <dc-import name="MarsRoamer" hint-size="0px,0px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { langOpen: false, lang: (() => { try { return localStorage.getItem('koshman-lang') || 'UA'; } catch (e) { return 'UA'; } })() };
+  componentDidMount() { this.onResize = () => this.forceUpdate(); window.addEventListener('resize', this.onResize); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); }
+  renderVals() {
+    return {
+      zoom: ((document.documentElement.clientWidth || window.innerWidth || 1440) / 1440),
+      langLabel: this.state.lang, langCaret: this.state.langOpen ? 'rotate(180deg)' : 'none', langOpen: this.state.langOpen,
+      toggleLang: () => this.setState((s) => ({ langOpen: !s.langOpen })),
+      langs: [['Українська', 'UA'], ['English', 'EN'], ['Slovenčina', 'SK']].map(([name, code]) => ({ name, code, bg: code === this.state.lang ? '#FFF1EB' : '#fff', color: code === this.state.lang ? '#FF5B2B' : '#141414', pick: () => { try { localStorage.setItem('koshman-lang', code); } catch (e) {} window.dispatchEvent(new CustomEvent('koshman-lang', { detail: code })); this.setState({ lang: code, langOpen: false }); } })),
+    };
+  }
+}
+</script>
+</body>
+</html>

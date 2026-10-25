@@ -1,7 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
-import Navbar from './Navbar';
+import React from 'react';
 import Hero from './Hero';
 import TargetAudience from './TargetAudience';
 import About from './About';
@@ -10,19 +9,14 @@ import Services from './Services';
 import Cases from './Cases';
 import Reviews from './Reviews';
 import Contact from './Contact';
-import Footer from './Footer';
-import ContactModal from './ContactModal';
 import SeoGenie from './SeoGenie';
+import { useContactModal } from './ContactModalProvider';
 
 function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const { openModal } = useContactModal();
 
   return (
     <div className="min-h-screen font-sans text-slate-800 selection:bg-orange-100 selection:text-orange-900">
-      <Navbar onContactClick={openModal} />
       <main>
         <Hero onContactClick={openModal} />
         <TargetAudience />
@@ -34,8 +28,6 @@ function App() {
         <Contact />
         <SeoGenie />
       </main>
-      <Footer />
-      <ContactModal isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 }

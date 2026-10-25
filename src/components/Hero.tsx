@@ -23,7 +23,7 @@ const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
 
             <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 leading-[1.1]">
               Ми допомагаємо <br/>
-              <span className="text-brand-orange">українським брендам</span> <br/>
+              <span className="text-brand-orange">брендам</span> <br/>
               продавати <span className="text-brand-orange">більше</span>
             </h1>
 
@@ -40,19 +40,14 @@ const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
               <a 
-                href="#services" 
+                href="/services" 
                 className="px-8 py-4 bg-white text-slate-800 border border-slate-200 font-bold rounded-xl hover:border-brand-orange hover:text-brand-orange transition-all flex items-center justify-center"
               >
                 Наші послуги
               </a>
             </div>
 
-            {/* Trust Badges */}
-            <div className="pt-8 border-t border-slate-200 flex flex-wrap gap-6 md:gap-10 grayscale opacity-60">
-               <div className="font-bold text-xl">Shopify</div>
-               <div className="font-bold text-xl">Etsy</div>
-               <div className="font-bold text-xl">eBay</div>
-            </div>
+
           </div>
 
           {/* Visual Content - Abstract Globe/Commerce representation */}

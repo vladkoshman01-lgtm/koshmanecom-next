@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@keyframes marsBob{0%,100%{transform:translateY(8%)}50%{transform:translateY(2%)}}
+@keyframes marsBlink{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes marsFade{from{opacity:0}to{opacity:1}}
+@keyframes marsRise{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="zoom:{{ inv }}">
+<sc-if value="{{ on }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;z-index:105;left:{{ L }};top:{{ T }};width:96px;height:78px;transform:{{ wrapTf }};transition:{{ wrapTr }};pointer-events:none">
+    <div style="width:96px;height:78px;overflow:hidden">
+      <svg onClick="{{ pet }}" width="96" height="78" viewBox="0 0 160 130" style="display:block;pointer-events:auto;cursor:pointer;transform:{{ catTf }};transition:transform .5s cubic-bezier(.34,1.4,.5,1);animation:{{ bob }}">
+        <path d="M30 70 L38 12 L72 42 Z M130 70 L122 12 L88 42 Z" fill="#141414" stroke="#4A4A4A" stroke-width="3" stroke-linejoin="round"></path>
+        <path d="M40 52 L43 26 L60 42 Z M120 52 L117 26 L100 42 Z" fill="#FF5B2B"></path>
+        <ellipse cx="80" cy="80" rx="54" ry="46" fill="#141414" stroke="#4A4A4A" stroke-width="3"></ellipse>
+        <g style="animation:marsBlink 3.4s infinite;transform-box:fill-box;transform-origin:center">
+          <ellipse cx="60" cy="76" rx="10" ry="12" fill="#fff"></ellipse>
+          <ellipse cx="100" cy="76" rx="10" ry="12" fill="#fff"></ellipse>
+          <ellipse cx="{{ pupilL }}" cy="78" rx="4.5" ry="8" fill="#141414"></ellipse>
+          <ellipse cx="{{ pupilR }}" cy="78" rx="4.5" ry="8" fill="#141414"></ellipse>
+        </g>
+        <path d="M75 94 L85 94 L80 100 Z" fill="#FF8A5C"></path>
+        <path d="M80 100 Q74 106 68 103 M80 100 Q86 106 92 103" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"></path>
+        <path d="M48 94 L20 90 M48 100 L22 104 M112 94 L140 90 M112 100 L138 104" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".7"></path>
+        <rect x="42" y="110" width="30" height="24" rx="12" fill="#141414"></rect>
+        <rect x="88" y="110" width="30" height="24" rx="12" fill="#141414"></rect>
+        <path d="M52 112 V120 M62 112 V120 M98 112 V120 M108 112 V120" stroke="#FF5B2B" stroke-width="2" stroke-linecap="round"></path>
+      </svg>
+    </div>
+  </div>
+  <sc-if value="{{ bubble }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;z-index:106;left:{{ bL }};top:{{ bT }};transform:{{ bTf }};background:#fff;color:#141414;padding:10px 16px;font-family:'Onest',sans-serif;font-size:15px;font-weight:700;white-space:nowrap;pointer-events:none;box-shadow:0 10px 28px rgba(0,0,0,.18);animation:marsFade .2s ease-out both">{{ phrase }}</div>
+  </sc-if>
+</sc-if>
+<sc-if value="{{ promo }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ promoClose }}" style="position:fixed;inset:0;z-index:130;background:rgba(15,15,15,.78);display:flex;align-items:center;justify-content:center;padding:20px;font-family:'Onest',sans-serif;animation:marsFade .3s ease-out both">
+    <div onClick="{{ stop }}" style="position:relative;width:100%;max-width:440px;background:#fff;padding:40px 36px 36px;display:flex;flex-direction:column;gap:18px;box-sizing:border-box;animation:marsRise .45s cubic-bezier(.2,.8,.2,1) both">
+      <button onClick="{{ promoClose }}" aria-label="Закрити" style="position:absolute;top:10px;right:10px;width:44px;height:44px;border:none;background:transparent;color:#8A8A8A;font-size:24px;cursor:pointer;font-family:inherit" style-hover="color:#141414">×</button>
+      <div style="font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FF5B2B">Ви знайшли Марса</div>
+      <div style="font-size:96px;line-height:.9;font-weight:700;color:#FF5B2B">−15%</div>
+      <div style="font-size:20px;line-height:1.4;font-weight:600;color:#141414">на першу послугу агенції</div>
+      <div style="font-size:15px;line-height:1.55;color:#555;text-wrap:pretty">Марс рідко показується тричі. Назвіть код менеджеру під час консультації.</div>
+      <button onClick="{{ copy }}" style="height:56px;border:1.5px dashed #FF5B2B;background:#FFF1EB;color:#141414;font-family:inherit;font-size:20px;font-weight:700;letter-spacing:.12em;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:12px">MARS15<span style="font-size:13px;font-weight:600;letter-spacing:0;color:#FF5B2B">{{ copyLabel }}</span></button>
+      <a href="Contacts.dc.html" style="background:#FF5B2B;color:#fff;height:56px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:.02em" style-hover="background:#E64A1C;color:#fff;opacity:1">Записатися на консультацію</a>
+    </div>
+  </div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:500}}">
+class Component extends DCLogic {
+  state = { on: false, out: false, kind: 'bottom', L: 0, T: 0, bubble: false, phrase: '', promo: false, copied: false };
+  P = ['Мяу!', 'Мене звати Марс!', 'Я тут живу', 'Просто перевіряю, як ти', 'Шукаю кнопку «Замовити»', 'Не кажи нікому, що бачив мене'];
+  t = [];
+  rootRef = React.createRef();
+  pz() { let z = 1, e = this.rootRef.current && this.rootRef.current.parentElement; while (e && e.nodeType === 1) { const v = parseFloat(getComputedStyle(e).zoom); if (v && isFinite(v)) z *= v; e = e.parentElement; } return z || 1; }
+  PP = {
+    Hero: ['Привіт! Я Марс', 'Гортай далі, там кейси', 'Я охороняю цей сайт'],
+    Services: ['54 послуги, і я знаю всі', 'Etsy — моє улюблене', 'Не знаєш, що обрати? Пиши нам'],
+    Cases: ['Цей кейс мій улюблений', 'Результати рахував лапками'],
+    Blog: ['Я теж іноді читаю', 'Почни зі статті про Etsy'],
+    Tools: ['Калькулятор рахує краще за мене', 'Я тестую інструменти'],
+    Careers: ['Котів поки не наймаємо', 'Я тут працюю за корм'],
+    Contacts: ['Пиши в Telegram, я передам', 'Менеджери відповідають швидше за мене'],
+    About: ['Я теж частина команди', 'Тут про нас і трохи про мене'],
+    '404': ['Я теж загубився', 'Це не я зламав'],
+    Thanks: ['Заявку передав особисто', 'Тепер чекаємо разом'],
+    Privacy: ['Тут нудно, я пішов', 'Я все прочитав. Майже'],
+    Terms: ['Тут нудно, я пішов', 'Я все прочитав. Майже'],
+  };
+  pagePhrase() {
+    const m = (location.pathname.split('/').pop() || '').match(/^([^.]+)/);
+    const list = (this.PP[m ? decodeURIComponent(m[1]) : ''] || []).concat(this.P.slice(0, 2));
+    let p; do { p = list[Math.floor(Math.random() * list.length)]; } while (p === this.lastP && list.length > 1);
+    this.lastP = p; return p;
+  }
+  later(fn, ms) { const id = setTimeout(fn, ms); this.t.push(id); return id; }
+  ss(k, v) { try { if (v === undefined) return +(sessionStorage.getItem(k) || 0); sessionStorage.setItem(k, v); } catch (e) { return 0; } }
+  componentDidMount() {
+    this.lastScroll = 0;
+    this.onScroll = () => { this.lastScroll = Date.now(); if (this.state.on && this.state.kind === 'walk') this.hide(); };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.__mars = (k) => this.appear(k, true);
+    this.onCopy = () => {
+      const sel = String(window.getSelection ? window.getSelection() : '').trim();
+      if (sel.length < 12 || this.state.promo || Date.now() - (this.lastCopy || 0) < 20000) return;
+      this.lastCopy = Date.now(); if (this.state.on) this.hide();
+      this.later(() => this.appear('bottom', true, 'Бери, не шкода. Але краще напиши нам'), this.state.on ? 600 : 0);
+    };
+    document.addEventListener('copy', this.onCopy);
+    const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || window.innerWidth < 768) return;
+    this.later(() => this.tick(), /[?&]mars/.test(location.search) ? 1500 : 12000 + Math.random() * 8000);
+  }
+  componentWillUnmount() { this.t.forEach(clearTimeout); window.removeEventListener('scroll', this.onScroll); document.removeEventListener('copy', this.onCopy); delete window.__mars; }
+  tick() {
+    if (this.ss('mars-shown') >= 4 && !/[?&]mars/.test(location.search)) return;
+    const ae = document.activeElement, busy = ae && /INPUT|TEXTAREA|SELECT/.test(ae.tagName);
+    const since = Date.now() - this.lastScroll;
+    const calm = since > 800;
+    if (document.visibilityState !== 'visible' || busy || !calm || this.state.promo || this.state.on) { this.later(() => this.tick(), 5000); return; }
+    this.appear();
+    this.later(() => this.tick(), 60000 + Math.random() * 30000);
+  }
+  appear(force, manual, say) {
+    const pz = this.pz(), z = 1, W = innerWidth, H = innerHeight;
+    const foot = document.querySelector('footer'), fr = foot && foot.getBoundingClientRect();
+    const footVis = fr && fr.top > 120 && fr.top < innerHeight - 60;
+    const kinds = ['bottom', 'right', 'left', 'hang'].concat(footVis ? ['walk', 'walk'] : []);
+    const kind = typeof force === 'string' ? force : kinds[Math.floor(Math.random() * kinds.length)];
+    const rnd = (a, b) => a + Math.random() * (b - a);
+    let L = 0, T = 0;
+    if (kind === 'bottom') { L = say ? Math.min(W - 230, Math.max(150, W * .6)) : rnd(.35, .85) * W; T = H - 78; }
+    if (kind === 'hang') { L = rnd(.2, .8) * W; T = 82; }
+    if (kind === 'right') { L = W - 87; T = rnd(.3, .65) * H; }
+    if (kind === 'left') { L = -9; T = rnd(.3, .65) * H; }
+    if (kind === 'walk') { L = -130; T = (fr ? fr.top : H) - 64; }
+    if (!manual) this.ss('mars-shown', this.ss('mars-shown') + 1);
+    const sm = say ? .72 : 1;
+    if (say) { L = L / sm; T = (H - 78 * sm) / sm; }
+    this.setState({ on: true, out: false, kind, L, T, bubble: false, walkTo: W + 30, inv: sm / pz });
+    this.later(() => this.setState(kind === 'walk' ? { out: true, L: W + 30 } : { out: true }), 60);
+    if (kind !== 'walk') this.later(() => this.state.on && this.setState({ bubble: true, phrase: say || this.pagePhrase() }), 500);
+    this.hideAt = this.later(() => this.hide(), kind === 'walk' ? 8200 : say ? 4200 : 3200);
+  }
+  hide() { clearTimeout(this.hideAt); this.setState({ out: false, bubble: false }); this.later(() => this.setState({ on: false }), 550); }
+  renderVals() {
+    const { on, out, kind, L, T } = this.state;
+    const rot = { bottom: 'none', hang: 'rotate(180deg)', right: 'rotate(-90deg)', left: 'rotate(90deg)', walk: 'none' }[kind];
+    const B = { bottom: [L + 48, T - 54, 'translateX(-50%)'], hang: [L + 48, T + 92, 'translateX(-50%)'], right: [L - 4, T + 30, 'translate(-100%,-50%)'], left: [L + 100, T + 30, 'translateY(-50%)'], walk: [L + 48, T - 50, 'translateX(-50%)'] }[kind];
+    return {
+      on, inv: this.state.inv || 1, rootRef: this.rootRef, L: L + 'px', T: T + 'px', wrapTf: rot,
+      wrapTr: kind === 'walk' ? 'left 8s linear' : 'none',
+      catTf: kind === 'walk' ? 'translateY(8%)' : out ? 'translateY(0)' : 'translateY(100%)',
+      bob: kind === 'walk' && out ? 'marsBob .45s ease-in-out infinite' : 'none',
+      pupilL: kind === 'left' ? 63 : 57, pupilR: kind === 'left' ? 103 : 97,
+      bubble: this.state.bubble, phrase: this.state.phrase, bL: B[0] + 'px', bT: B[1] + 'px', bTf: B[2],
+      pet: () => {
+        const c = this.ss('mars-clicks') + 1; this.ss('mars-clicks', c);
+        if (c === 3) { this.hide(); this.setState({ promo: true }); return; }
+        const phrase = c === 2 ? 'Ще раз — і щось буде' : this.P[Math.floor(Math.random() * this.P.length)];
+        clearTimeout(this.hideAt);
+        this.setState({ bubble: true, phrase });
+        if (kind !== 'walk') this.hideAt = this.later(() => this.hide(), 2600);
+      },
+      promo: this.state.promo,
+      promoClose: () => this.setState({ promo: false, copied: false }),
+      stop: (e) => e.stopPropagation(),
+      copy: () => { navigator.clipboard && navigator.clipboard.writeText('MARS15').catch(() => {}); this.setState({ copied: true }); },
+      copyLabel: this.state.copied ? 'Скопійовано' : 'Копіювати',
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://koshmanecom.com/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://koshmanecom.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://koshmanecom.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://koshmanecom.com/sk/"/>
+  </url>
+  <url>
+    <loc>https://koshmanecom.com/services</loc>
+    <lastmod>2026-10-15</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://koshmanecom.com/services"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://koshmanecom.com/en/services"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://koshmanecom.com/sk/services"/>
+  </url>
+  <url>
+    <loc>https://koshmanecom.com/about</loc>
+    <lastmod>2026-10-15</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://koshmanecom.com/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://koshmanecom.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://koshmanecom.com/sk/about"/>
+  </url>
+  <url>
+    <loc>https://koshmanecom.com/contacts</loc>
+    <lastmod>2026-10-15</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://koshmanecom.com/contacts"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://koshmanecom.com/en/contacts"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://koshmanecom.com/sk/contacts"/>
+  </url>
+  <url>
+    <loc>https://koshmanecom.com/careers</loc>
+    <lastmod>2026-10-15</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://koshmanecom.com/careers"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://koshmanecom.com/en/careers"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://koshmanecom.com/sk/careers"/>
+  </url>
+  <url>
+    <loc>https://koshmanecom.com/tools</loc>
+    <lastmod>2026-10-15</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://koshmanecom.com/tools"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://koshmanecom.com/en/tools"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://koshmanecom.com/sk/tools"/>
+  </url>
+  <url>
+    <loc>https://koshmanecom.com/blog</loc>
+    <lastmod>2026-10-15</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://koshmanecom.com/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://koshmanecom.com/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://koshmanecom.com/sk/blog"/>
+  </url>
+  <url>
+    <loc>https://koshmanecom.com/privacy</loc>
+    <lastmod>2026-10-15</lastmod>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://koshmanecom.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://koshmanecom.com/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://koshmanecom.com/sk/privacy"/>
+  </url>
+  <url>
+    <loc>https://koshmanecom.com/terms</loc>
+    <lastmod>2026-10-15</lastmod>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://koshmanecom.com/terms"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://koshmanecom.com/en/terms"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://koshmanecom.com/sk/terms"/>
+  </url>
+</urlset>

@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "default": "koshman-ecom-landing-729-54b1a"
+  },
+  "targets": {
+    "koshman-ecom-landing-729-54b1a": {
+      "hosting": {
+        "staging": [
+          "koshman-ecom-staging"
+        ],
+        "production": [
+          "koshman-ecom-landing-729-54b1a"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

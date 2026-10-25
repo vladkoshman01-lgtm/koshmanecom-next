@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="canonical" href="https://koshmanecom.com/blog">
+<link rel="alternate" hreflang="uk" href="https://koshmanecom.com/blog">
+<link rel="alternate" hreflang="en" href="https://koshmanecom.com/en/blog">
+<link rel="alternate" hreflang="sk" href="https://koshmanecom.com/sk/blog">
+<link rel="alternate" hreflang="x-default" href="https://koshmanecom.com/blog">
+<meta property="og:url" content="https://koshmanecom.com/blog">
+<meta property="og:site_name" content="Koshman Ecom">
+<meta property="og:locale" content="uk_UA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="Статті про онлайн-продажі: як запустити магазин на Etsy і Amazon, Shopify, SEO, AI-пошук і реклама для e-commerce бізнесу.">
+<meta property="og:title" content="Блог про e-commerce, Etsy, Amazon і Shopify — Koshman Ecom">
+<meta property="og:description" content="Статті про онлайн-продажі: як запустити магазин на Etsy і Amazon, Shopify, SEO, AI-пошук і реклама для e-commerce бізнесу.">
+<meta property="og:type" content="website">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Головна","item":"https://koshmanecom.com/"},{"@type":"ListItem","position":2,"name":"Блог","item":"https://koshmanecom.com/blog"}]},{"@type":"Blog","name":"Блог Koshman Ecom","url":"https://koshmanecom.com/blog","publisher":{"@id":"https://koshmanecom.com/#org"},"inLanguage":"uk"}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<script src="./i18n.js"></script>
+<script src="./mobile.js"></script>
+<style>
+body{margin:0;background:#EEEEEE;font-family:'Onest',sans-serif;color:#222;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:hover{color:inherit;opacity:.85}
+header nav a{background:linear-gradient(#fff,#fff) 0 100%/0 2px no-repeat;padding:4px 0;transition:background-size .25s ease}
+header nav a:hover{background-size:100% 2px;opacity:1}
+footer a{transition:color .2s,background-color .2s}
+footer a:hover{color:#FF5B2B !important;opacity:1}
+footer a[aria-label]:hover{background:#FF5B2B !important}
+p a{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px;transition:text-decoration-color .2s}
+p a:hover{text-decoration-color:transparent;opacity:1}
+</style>
+</helmet>
+<div data-page="1" style="width:1440px;margin:0 auto;zoom:{{ zoom }};background:#EEEEEE;font-family:'Onest',sans-serif;overflow:hidden">
+
+  <div data-mob="1" data-mob-head="1"><dc-import name="MHeader" hint-size="100%,64px"></dc-import></div>
+  <header data-desk="1" style="background:#FF5B2B;height:82px;padding:0 80px;display:flex;align-items:center;justify-content:space-between;box-sizing:border-box">
+    <a href="Hero.dc.html" style="color:#fff;font-weight:800;font-size:18px;line-height:1.05;letter-spacing:0.02em;text-transform:uppercase;display:flex;flex-direction:column"><span>Koshman</span><span>Ecom</span></a>
+    <nav style="display:flex;gap:23px;font-size:14px;font-weight:500;color:#fff">
+      <a href="Hero.dc.html" style="color:#fff">Головна</a>
+      <a href="Services.dc.html" style="color:#fff">Послуги</a>
+      <a href="Cases.dc.html" style="color:#fff">Кейси</a>
+      <a href="About.dc.html" style="color:#fff">Про нас</a>
+      <a href="Hero.dc.html#reviews" style="color:#fff">Відгуки</a>
+      <a href="#" onClick="{{ goList }}" style="color:#fff;border-bottom:2px solid #fff;padding-bottom:2px">Блог</a>
+      <a href="Tools.dc.html" style="color:#fff">Інструменти</a>
+      <a href="Contacts.dc.html" style="color:#fff">Контакти</a>
+    </nav>
+    <div style="display:flex;gap:18px;align-items:center">
+      <a href="#" style="background:#fff;color:#FF5B2B;height:41px;padding:0 24px;display:flex;align-items:center;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.02em">Зв'яжіться з нами</a>
+      <div style="position:relative">
+        <button onClick="{{ toggleLang }}" style="border:2px solid #fff;background:transparent;color:#fff;height:41px;width:72px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:6px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer">{{ langLabel }}<span style="font-size:10px">▼</span></button>
+        <sc-if value="{{ langOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;top:49px;right:0;z-index:40;background:#fff;box-shadow:0 12px 32px rgba(0,0,0,.18);display:flex;flex-direction:column;min-width:170px">
+            <sc-for list="{{ langs }}" as="l" hint-placeholder-count="3">
+              <button onClick="{{ l.pick }}" style="height:46px;padding:0 18px;border:none;background:{{ l.bg }};color:{{ l.color }};font-family:inherit;font-size:15px;font-weight:600;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px"><span>{{ l.name }}</span><span style="font-size:13px">{{ l.code }}</span></button>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </header>
+
+  <sc-if value="{{ isList }}" hint-placeholder-val="{{ true }}">
+    <section data-screen-label="Blog list" style="padding:82px 71px 40px 79px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px">
+        <div>
+          <div style="font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#FF5B2B">Блог</div>
+          <h1 style="margin:20px 0 0;font-size:56px;line-height:1.05;font-weight:700;letter-spacing:0.005em;color:#222">Заходьте в нашу новинарню</h1>
+          <p style="margin:14px 0 0;font-size:18px;line-height:1.4;color:#222">Пишемо про новини бізнесу та міжнародний e-commerce.</p>
+        </div>
+        <label style="flex:none;width:340px;height:52px;background:#fff;display:flex;align-items:center;gap:10px;padding:0 18px;box-sizing:border-box">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A8A8A" stroke-width="2" stroke-linecap="round"><path d="M11 4a7 7 0 1 0 0 14a7 7 0 1 0 0-14M20 20l-4-4"></path></svg>
+          <input value="{{ query }}" onInput="{{ onQuery }}" placeholder="Пошук статей" style="flex:1;border:none;outline:none;background:transparent;font-family:inherit;font-size:16px;color:#222">
+        </label>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:40px">
+        <sc-for list="{{ cats }}" as="c" hint-placeholder-count="8">
+          <button onClick="{{ c.pick }}" style="flex:none;white-space:nowrap;height:44px;padding:0 20px;border:1.5px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }};font-family:inherit;font-size:15px;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:8px">{{ c.label }}<span style="font-size:12px;opacity:.6">{{ c.count }}</span></button>
+        </sc-for>
+      </div>
+    </section>
+
+    <sc-if value="{{ showFeatured }}" hint-placeholder-val="{{ true }}">
+      <section style="padding:0 71px 0 79px">
+        <a href="#" onClick="{{ featured.open }}" style="display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);background:#141414;border-radius:4px;overflow:hidden;color:#fff;min-height:440px">
+          <div style="position:relative;background:#2a2a2a"><image-slot id="{{ featured.slot }}" src="{{ featured.src }}" shape="rect" placeholder="Обкладинка статті"></image-slot></div>
+          <div style="padding:48px 48px 44px;display:flex;flex-direction:column">
+            <div style="display:flex;gap:12px;align-items:center">
+              <span style="background:#FF5B2B;color:#fff;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px">Головне</span>
+              <span style="font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#FF5B2B">{{ featured.tag }}</span>
+            </div>
+            <span style="margin-top:24px;font-size:36px;font-weight:700;line-height:1.12">{{ featured.title }}</span>
+            <span style="margin-top:16px;font-size:17px;line-height:1.5;color:#DADADA">{{ featured.lead }}</span>
+            <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:32px">
+              <span style="font-size:14px;color:#9A9A9A">{{ featured.date }} · {{ featured.read }}</span>
+              <span style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.02em;color:#FF5B2B">Читати <span>→</span></span>
+            </div>
+          </div>
+        </a>
+      </section>
+    </sc-if>
+
+    <section style="padding:40px 71px 100px 79px">
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px">
+        <sc-for list="{{ posts }}" as="p" hint-placeholder-count="6">
+          <a href="#" onClick="{{ p.open }}" style="display:flex;flex-direction:column;background:#fff;border-radius:4px;overflow:hidden;color:#222;transition:transform .3s ease,box-shadow .3s ease" style-hover="transform:translateY(-4px);box-shadow:0 18px 36px rgba(0,0,0,.14);opacity:1;color:#222">
+            <div style="aspect-ratio:4/3;background:#d9d9d9"><image-slot id="{{ p.slot }}" src="{{ p.src }}" shape="rect" placeholder="Обкладинка статті"></image-slot></div>
+            <div style="flex:1;padding:24px 24px 24px;display:flex;flex-direction:column">
+              <span style="font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#FF5B2B">{{ p.tag }}</span>
+              <span style="margin-top:13px;font-size:20px;font-weight:600;line-height:1.3">{{ p.title }}</span>
+              <span style="margin-top:10px;font-size:16px;line-height:1.45">{{ p.desc }}</span>
+              <span style="margin-top:auto;padding-top:20px;font-size:13px;color:#8A8A8A">{{ p.date }} · {{ p.read }}</span>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+      <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#fff;padding:60px;text-align:center;font-size:18px;color:#555">Нічого не знайдено. Спробуйте інший запит або категорію.</div>
+      </sc-if>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ isArticle }}" hint-placeholder-val="{{ false }}">
+    <section data-screen-label="Blog article" style="background:#fff;padding:48px 79px 72px">
+      <div style="display:flex;gap:10px;align-items:center;font-size:14px;color:#8A8A8A">
+        <a href="#" onClick="{{ goList }}" style="color:#8A8A8A">Блог</a><span>/</span><span style="color:#FF5B2B">{{ art.tag }}</span>
+      </div>
+      <div style="max-width:960px;margin-top:40px">
+        <div style="font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#FF5B2B">{{ art.tag }}</div>
+        <h1 style="margin:18px 0 0;font-size:56px;line-height:1.07;font-weight:700;letter-spacing:0.005em;color:#222;text-wrap:balance">{{ art.title }}</h1>
+        <p style="margin:22px 0 0;font-size:20px;line-height:1.5;color:#444;max-width:820px">{{ art.lead }}</p>
+        <div style="margin-top:30px;display:flex;align-items:center;gap:14px">
+          <span style="width:44px;height:44px;border-radius:50%;background:#FF5B2B;color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center">KE</span>
+          <div style="display:flex;flex-direction:column;gap:3px">
+            <span style="font-size:15px;font-weight:700">Команда Koshman Ecom</span>
+            <span style="font-size:14px;color:#8A8A8A">{{ art.date }} · {{ art.read }}</span>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:44px;width:100%;aspect-ratio:1282/560;background:#d9d9d9;border-radius:4px;overflow:hidden">
+        <image-slot id="{{ art.slot }}" src="{{ art.src }}" shape="rect" placeholder="Обкладинка статті"></image-slot>
+      </div>
+
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:100px;margin-top:64px;align-items:start">
+        <article style="max-width:780px">
+          <sc-for list="{{ art.blocks }}" as="b" hint-placeholder-count="8">
+            <sc-if value="{{ b.isH }}" hint-placeholder-val="{{ false }}">
+              <h2 id="{{ b.id }}" style="margin:48px 0 0;font-size:32px;line-height:1.15;font-weight:700;color:#222;scroll-margin-top:24px">{{ b.text }}</h2>
+            </sc-if>
+            <sc-if value="{{ b.isP }}" hint-placeholder-val="{{ true }}">
+              <p style="margin:20px 0 0;font-size:18px;line-height:1.7;color:#2a2a2a">{{ b.text }}</p>
+            </sc-if>
+            <sc-if value="{{ b.isList }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:20px;display:flex;flex-direction:column;gap:14px">
+                <sc-for list="{{ b.items }}" as="it" hint-placeholder-count="3">
+                  <div style="display:flex;gap:16px;align-items:flex-start;font-size:18px;line-height:1.6;color:#2a2a2a">
+                    <span style="flex:none;width:30px;height:30px;border-radius:50%;background:#FDE3D8;color:#FF5B2B;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px">{{ it.n }}</span>
+                    <span>{{ it.t }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{ b.isQuote }}" hint-placeholder-val="{{ false }}">
+              <div style="margin:40px 0 8px;background:#141414;color:#fff;padding:36px 40px;border-radius:4px">
+                <div style="font-size:64px;line-height:.6;color:#FF5B2B;font-weight:700">“</div>
+                <div style="margin-top:14px;font-size:24px;line-height:1.4;font-weight:500">{{ b.text }}</div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ b.isStat }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:28px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
+                <sc-for list="{{ b.items }}" as="s" hint-placeholder-count="3">
+                  <div style="background:#EEEEEE;padding:22px 22px 20px;display:flex;flex-direction:column;gap:6px">
+                    <span style="font-size:34px;font-weight:700;color:#FF5B2B">{{ s.v }}</span>
+                    <span style="font-size:15px;line-height:1.4;color:#222">{{ s.l }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+          </sc-for>
+
+          <div style="margin-top:56px;background:#FF5B2B;color:#fff;padding:36px 40px;display:flex;justify-content:space-between;align-items:center;gap:30px">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <span style="font-size:24px;font-weight:600;line-height:1.25">Хочете перевірити свою нішу?</span>
+              <span style="font-size:16px;line-height:1.45">Зробимо безкоштовний аудит і покажемо, з чого почати.</span>
+            </div>
+            <a href="#" style="flex:none;background:#fff;color:#FF5B2B;height:55px;padding:0 26px;display:flex;align-items:center;gap:12px;font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.02em">Безкоштовний аудит <span>→</span></a>
+          </div>
+
+          <div style="margin-top:40px;padding-top:24px;border-top:1px solid #DDD;display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+            <span style="font-size:14px;color:#8A8A8A;margin-right:6px">Поділитися:</span>
+            <a href="#" style="height:40px;padding:0 16px;border:1.5px solid #DDD;display:flex;align-items:center;font-size:14px;font-weight:500">Telegram</a>
+            <a href="#" style="height:40px;padding:0 16px;border:1.5px solid #DDD;display:flex;align-items:center;font-size:14px;font-weight:500">LinkedIn</a>
+            <button onClick="{{ copyLink }}" style="height:40px;padding:0 16px;border:1.5px solid #DDD;background:#fff;display:flex;align-items:center;font-family:inherit;font-size:14px;font-weight:500;cursor:pointer;color:#222">{{ copyLabel }}</button>
+          </div>
+        </article>
+
+        <aside style="position:sticky;top:24px;display:flex;flex-direction:column;gap:16px">
+          <div style="background:#EEEEEE;padding:28px">
+            <div style="font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#8A8A8A">Зміст</div>
+            <div style="margin-top:16px;display:flex;flex-direction:column">
+              <sc-for list="{{ art.toc }}" as="t" hint-placeholder-count="4">
+                <a href="{{ t.href }}" style="padding:11px 0;border-bottom:1px solid #DADADA;font-size:15px;line-height:1.35;color:#222;display:flex;gap:12px"><span style="color:#FF5B2B;font-weight:700">{{ t.n }}</span><span>{{ t.text }}</span></a>
+              </sc-for>
+            </div>
+          </div>
+          <div style="background:#141414;color:#fff;padding:28px;display:flex;flex-direction:column;gap:12px">
+            <div style="font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#FF5B2B">Телеграм канал</div>
+            <div style="font-size:19px;font-weight:500;line-height:1.35">Практичні розбори кейсів і новини маркетплейсів щотижня</div>
+            <a href="#" style="margin-top:8px;background:#fff;color:#FF5B2B;height:50px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.02em">Підписатися <span>→</span></a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section style="background:#EEEEEE;padding:80px 71px 96px 79px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end">
+        <h2 style="margin:0;font-size:40px;line-height:1.1;font-weight:700;color:#222">Читайте також</h2>
+        <a href="#" onClick="{{ goList }}" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.02em;color:#FF5B2B">Усі статті <span>→</span></a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:36px">
+        <sc-for list="{{ related }}" as="p" hint-placeholder-count="3">
+          <a href="#" onClick="{{ p.open }}" style="display:flex;flex-direction:column;background:#fff;border-radius:4px;overflow:hidden;color:#222;transition:transform .3s ease,box-shadow .3s ease" style-hover="transform:translateY(-4px);box-shadow:0 18px 36px rgba(0,0,0,.14);opacity:1;color:#222">
+            <div style="aspect-ratio:4/3;background:#d9d9d9"><image-slot id="{{ p.slot }}" src="{{ p.src }}" shape="rect" placeholder="Обкладинка статті"></image-slot></div>
+            <div style="flex:1;padding:24px;display:flex;flex-direction:column">
+              <span style="font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#FF5B2B">{{ p.tag }}</span>
+              <span style="margin-top:13px;font-size:20px;font-weight:600;line-height:1.3">{{ p.title }}</span>
+              <span style="margin-top:auto;padding-top:18px;font-size:13px;color:#8A8A8A">{{ p.date }} · {{ p.read }}</span>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+  </sc-if>
+
+  <section style="background:#FF5B2B;padding:76px 71px 70px 84px;display:flex;justify-content:space-between;align-items:flex-start;gap:40px">
+    <h2 style="margin:0;font-size:39px;line-height:1.33;font-weight:500;color:#fff">Давайте знайдемо точки<br>росту вашого бізнесу на дзвінку</h2>
+    <div style="flex:none;display:flex;flex-direction:column;gap:21px">
+      <a href="#" style="background:#fff;color:#FF5B2B;height:57px;width:308px;display:flex;align-items:center;justify-content:center;gap:12px;font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:0.02em">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF5B2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3L3 10.5l7 3 3 7.5L21 3zM10 13.5L21 3"></path></svg>Написати в Telegram</a>
+      <a href="mailto:hello@koshmanecom.com" style="display:flex;align-items:center;gap:12px;font-size:16px;color:#fff">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18v14H3zM3 6l9 7 9-7"></path></svg>hello@koshmanecom.com</a>
+    </div>
+  </section>
+
+  <footer data-desk="1" style="background:#141414;padding:65px 71px 48px 79px;box-sizing:border-box;color:#fff">
+    <div style="display:grid;grid-template-columns:420px 198px 158px 319px minmax(0,1fr);align-items:start">
+      <div style="display:flex;flex-direction:column">
+        <dc-import name="FooterLogo" hint-size="279px,279px"></dc-import>
+        <p style="margin:27px 0 0;font-size:16px;line-height:1.4;color:#DADADA;max-width:300px">Маркетинг-агенція<br>для E-commerce бізнесів B2C<br>і B2B. Повний цикл, який допомагає продавати на локальному ринку та закордоном.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:28px;padding-top:5px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8A8A8A">Навігація</span>
+        <a href="Hero.dc.html" style="font-size:16px;color:#fff;margin-top:-2px">Головна</a>
+        <a href="Services.dc.html" style="font-size:16px;color:#fff">Послуги</a>
+        <a href="Cases.dc.html" style="font-size:16px;color:#fff">Кейси</a>
+        <a href="Hero.dc.html#about" style="font-size:16px;line-height:1.3;color:#fff">Як ми<br>працюємо</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:28px;padding-top:5px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8A8A8A">Компанія</span>
+        <a href="About.dc.html" style="font-size:16px;color:#fff;margin-top:-2px">Про нас</a>
+        <a href="Hero.dc.html#reviews" style="font-size:16px;color:#fff">Відгуки</a>
+        <a href="Blog.dc.html" style="font-size:16px;color:#fff">Блог</a>
+        <a href="Contacts.dc.html" style="font-size:16px;color:#fff">Контакти</a>
+        <a href="Careers.dc.html" style="font-size:16px;color:#fff">Кар'єра</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:28px;padding-top:5px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8A8A8A">Інструменти</span>
+        <a href="Tools.dc.html" style="font-size:16px;color:#fff;margin-top:-2px">Калькулятор прибутку Etsy</a>
+        <a href="Tools.dc.html" style="font-size:16px;line-height:1.3;color:#fff">Калькулятор ціноутворення<br>Etsy</a>
+        <a href="Tools.dc.html" style="font-size:16px;color:#fff">Etsy vs Amazon vs Shopify</a>
+        <a href="Tools.dc.html" style="font-size:16px;color:#fff">Ресайзер зображень</a>
+        <a href="Tools.dc.html" style="font-size:16px;color:#fff">Etsy Фінансовий Дашборд</a>
+        <a href="Tools.dc.html" style="font-size:16px;color:#fff">SEOgenie</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:28px;padding-top:5px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8A8A8A">Контакти</span>
+        <a href="#" style="font-size:16px;color:#fff;margin-top:-2px">Telegram</a>
+        <a href="mailto:hello@koshmanecom.com" style="font-size:16px;color:#fff;white-space:nowrap">hello@koshmanecom.com</a>
+        <a href="tel:+380000000000" style="font-size:16px;color:#fff">+380 00 000 00 00</a>
+        <div style="display:flex;gap:11px">
+          <a href="#" aria-label="Telegram" style="width:39px;height:39px;border-radius:7px;background:#2A2A2A;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3L3 10.5l7 3 3 7.5L21 3zM10 13.5L21 3"></path></svg></a>
+          <a href="#" aria-label="Instagram" style="width:39px;height:39px;border-radius:7px;background:#2A2A2A;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5h.01"></path></svg></a>
+          <a href="#" aria-label="LinkedIn" style="width:39px;height:39px;border-radius:7px;background:#2A2A2A;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M8 10v7M8 7h.01M12 17v-7M12 13a3 3 0 0 1 6 0v4"></path></svg></a>
+          <a href="#" aria-label="YouTube" style="width:39px;height:39px;border-radius:7px;background:#2A2A2A;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"></rect><path d="M10 9l5 3-5 3z"></path></svg></a>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:42px;border-top:1px solid #5A5A5A;padding-top:22px;display:flex;justify-content:space-between;gap:20px;font-size:14px;color:#8A8A8A">
+      <span>© 2026 Koshman Ecom. Усі права захищені.</span>
+      <div style="display:flex;gap:28px;margin-right:10px"><a href="Privacy.dc.html" style="color:#8A8A8A">Політика конфіденційності</a><a href="Terms.dc.html" style="color:#8A8A8A">Умови використання</a></div>
+    </div>
+  </footer>
+  <div data-mob="1"><dc-import name="MFooter" hint-size="100%,900px"></dc-import></div>
+  <dc-import name="CookieBanner" hint-size="0px,0px"></dc-import>
+  <dc-import name="MarsRoamer" hint-size="0px,0px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { zoom: ((document.documentElement.clientWidth || window.innerWidth || 1440) / 1440), view: 'list', cat: 'Усі', q: '', slug: null };
+  componentDidMount() {
+    this.onResize = () => this.setState({ zoom: ((document.documentElement.clientWidth || window.innerWidth || 1440) / 1440) });
+    window.addEventListener('resize', this.onResize);
+    this._lang = () => this.forceUpdate();
+    window.addEventListener('koshman-lang', this._lang);
+    const h = location.hash.replace('#post-', '');
+    if (h && location.hash.startsWith('#post-')) this.setState({ view: 'article', slug: h });
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('koshman-lang', this._lang);
+  }
+  renderVals() {
+    const POSTS = [
+      ['etsy-niche', 'Etsy', 'Як обрати нішу для виходу на Etsy у 2026', 'Критерії вибору ніші та перевірки попиту перед стартом.', '12 жовтня 2026', '8 хв', 'blog-etsy-niche', ''],
+      ['trends-q4', 'Тренди', 'Тренди міжнародного e-commerce цього кварталу', 'Що змінилось на Amazon, eBay і Shopify — і як цим користатись.', '5 жовтня 2026', '6 хв', 'blog-trends', ''],
+      ['brand-mistakes', 'Помилки', '5 помилок при запуску бренду на маркетплейсі', 'Найчастіші провали початківців та як їх уникнути.', '28 вересня 2026', '7 хв', 'blog-mistakes', ''],
+      ['shopify-b2b', 'Shopify', 'Shopify B2B чи власна платформа: що вигідніше', 'Порахували, коли окреме рішення економить $20 000 на рік.', '21 вересня 2026', '9 хв', 'blog-shopify-b2b', 'assets/case-beauty.png'],
+      ['pinterest-ads', 'Реклама', 'Pinterest Ads для e-commerce: з чого почати', 'Налаштування, бюджети й креативи, які дають ROAS.', '14 вересня 2026', '6 хв', 'blog-pinterest', 'assets/case-annasposa.png'],
+      ['ai-search', 'SEO', 'Як потрапити у відповіді AI-пошуку', 'Що змінилось у SEO, коли покупці питають ChatGPT і Gemini.', '7 вересня 2026', '7 хв', 'blog-ai-search', ''],
+      ['etsy-fees', 'Etsy', 'Комісії Etsy у 2026: повний розбір', 'Усі платежі продавця й те, як закласти їх у ціну.', '31 серпня 2026', '5 хв', 'blog-etsy-fees', ''],
+      ['herbalife-case', 'Кейси', 'Як Herbalife USA перевірив попит лендінгами', 'Розбір запуску: гіпотези, тести й +30% до середнього чеку.', '24 серпня 2026', '6 хв', 'blog-herbalife', 'assets/case-herbalife.png'],
+      ['cart-abandon', 'Помилки', 'Чому 7 з 10 кладуть товар у кошик і йдуть', 'Три причини втрат на сайті й як їх закрити.', '17 серпня 2026', '8 хв', 'blog-cart', ''],
+    ].map(([slug, tag, title, desc, date, read, slot, src]) => ({ slug, tag, title, desc, date, read, slot, src }));
+    const open = (slug) => (e) => { e && e.preventDefault(); history.replaceState(null, '', '#post-' + slug); this.setState({ view: 'article', slug, copied: false }); window.scrollTo(0, 0); };
+    const withOpen = (p) => ({ ...p, open: open(p.slug) });
+    const CATS = ['Усі', 'Etsy', 'Shopify', 'Тренди', 'Реклама', 'SEO', 'Кейси', 'Помилки'];
+    const { cat, q } = this.state;
+    const ql = q.trim().toLowerCase();
+    const filtered = POSTS.filter((p) => (cat === 'Усі' || p.tag === cat) && (!ql || (p.title + ' ' + p.desc).toLowerCase().includes(ql)));
+    const showFeatured = cat === 'Усі' && !ql && filtered.length > 0;
+    const featured = withOpen({ ...POSTS[0], lead: 'Ніша вирішує більше, ніж реклама чи дизайн. Розбираємо, як за тиждень перевірити попит, конкуренцію і маржу — ще до першого листингу.' });
+    const grid = (showFeatured ? filtered.slice(1) : filtered).map(withOpen);
+
+    const art = POSTS.find((p) => p.slug === this.state.slug) || POSTS[0];
+    const blocks = [
+      { t: 'p', text: 'Найчастіше магазини на Etsy не злітають не через фото чи рекламу, а через нішу. Товар може бути гарним, але якщо попит малий, конкуренція щільна або маржа з’їдається комісіями, масштабуватись не вийде.' },
+      { t: 'h', text: 'Почніть з попиту, а не з товару' },
+      { t: 'p', text: 'Перевірте, скільки людей шукають товар зараз і як змінювався інтерес за останній рік. Нас цікавить стабільний або зростаючий попит без різкого падіння після сезону.' },
+      { t: 'list', items: ['Подивіться пошукові підказки Etsy і кількість результатів за ключовими запитами.', 'Порівняйте сезонність у Google Trends для США, Великої Британії та Німеччини.', 'Знайдіть 10–15 магазинів-лідерів і оцініть їхні продажі за відгуками.'] },
+      { t: 'h', text: 'Оцініть конкуренцію чесно' },
+      { t: 'p', text: 'Велика кількість продавців — не завжди погано. Погано, коли перші сторінки зайняті магазинами з тисячами відгуків, а ціни вже опущені до мінімуму.' },
+      { t: 'stat', items: [{ v: '6,5%', l: 'комісія Etsy з продажу' }, { v: '$0,20', l: 'за кожен листинг' }, { v: '3–4%', l: 'платіжна обробка' }] },
+      { t: 'h', text: 'Порахуйте маржу до запуску' },
+      { t: 'p', text: 'Закладіть у ціну всі комісії, доставку, рекламу й повернення. Якщо після цього маржа нижча за 30%, ніша підходить лише для великих обсягів.' },
+      { t: 'quote', text: 'Хороша ніша — це перетин стабільного попиту, помірної конкуренції та маржі, яка витримує рекламу.' },
+      { t: 'h', text: 'Перевірте гіпотезу малим тиражем' },
+      { t: 'p', text: 'Запустіть 5–10 листингів, протестуйте ціни та фото, дайте рекламі 2–3 тижні. Цифри конверсії й вартості замовлення покажуть, чи варто вкладатись далі.' },
+    ];
+    let hn = 0;
+    const artBlocks = blocks.map((b) => {
+      const o = { isH: b.t === 'h', isP: b.t === 'p', isList: b.t === 'list', isQuote: b.t === 'quote', isStat: b.t === 'stat', text: b.text || '' };
+      if (o.isH) { hn++; o.id = 'sec-' + hn; }
+      if (o.isList) o.items = b.items.map((t, i) => ({ n: String(i + 1), t }));
+      if (o.isStat) o.items = b.items;
+      return o;
+    });
+    const toc = artBlocks.filter((b) => b.isH).map((b, i) => ({ n: String(i + 1).padStart(2, '0'), text: b.text, href: '#' + b.id }));
+
+    const LANGS = [['UA', 'Українська'], ['EN', 'English'], ['SK', 'Slovenčina']];
+    let lang = 'UA'; try { lang = localStorage.getItem('koshman-lang') || 'UA'; } catch (e) {}
+    const pickLang = (code) => () => {
+      try { localStorage.setItem('koshman-lang', code); } catch (e) {}
+      window.dispatchEvent(new CustomEvent('koshman-lang', { detail: code }));
+      this.setState({ langOpen: false });
+    };
+    return {
+      zoom: this.state.zoom,
+      isList: this.state.view === 'list', isArticle: this.state.view === 'article',
+      goList: (e) => { e && e.preventDefault(); history.replaceState(null, '', location.pathname + location.search); this.setState({ view: 'list' }); window.scrollTo(0, 0); },
+      query: q, onQuery: (e) => this.setState({ q: e.target.value }),
+      cats: CATS.map((c) => ({
+        label: c, count: String(c === 'Усі' ? POSTS.length : POSTS.filter((p) => p.tag === c).length),
+        bg: c === cat ? '#FF5B2B' : 'transparent', border: c === cat ? '#FF5B2B' : '#C9C9C9', color: c === cat ? '#fff' : '#222',
+        pick: () => this.setState({ cat: c }),
+      })),
+      showFeatured, featured, posts: grid, empty: filtered.length === 0,
+      art: { ...art, lead: art.slug === 'etsy-niche' ? featured.lead : art.desc, blocks: artBlocks, toc },
+      related: POSTS.filter((p) => p.slug !== art.slug).sort((a, b) => (b.tag === art.tag) - (a.tag === art.tag)).slice(0, 3).map(withOpen),
+      copyLabel: this.state.copied ? 'Скопійовано' : 'Копіювати посилання',
+      copyLink: () => { navigator.clipboard && navigator.clipboard.writeText(location.href).catch(() => {}); this.setState({ copied: true }); },
+      langLabel: lang, langOpen: !!this.state.langOpen,
+      toggleLang: () => this.setState((s) => ({ langOpen: !s.langOpen })),
+      langs: LANGS.map(([code, name]) => ({ code, name, pick: pickLang(code), bg: code === lang ? '#FFF1EB' : '#fff', color: code === lang ? '#FF5B2B' : '#222' })),
+    };
+  }
+}
+</script>
+</body>
+</html>

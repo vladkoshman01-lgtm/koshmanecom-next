@@ -1,0 +1,50 @@
+# Koshman Ecom
+
+> Full-cycle marketing agency for B2C and B2B e-commerce businesses. We launch, run and scale online sales: Shopify stores and websites, Etsy, Amazon, eBay and Alibaba, SEO and AI-search optimisation, Google, Meta, TikTok, Pinterest and ChatGPT ads, branding, CRM and email marketing. Offices in Kyiv (Ukraine) and Košice (Slovakia); clients worldwide. Languages: Ukrainian, English, Slovak.
+
+Koshman Ecom helps manufacturers and brands from any country sell internationally. One team owns the whole path from strategy to sales, with clear goals, revenue-focused KPIs and regular reporting. The first consultation is free.
+
+## Services
+
+- Strategy and growth plan: Business analysis, Sales channels, Growth plan, Shopify CRO audit, Online store CRO audit, Etsy audit, Consultation
+- Shopify development: Shopify, Improvements, B2B Shopify (wholesale), CRO audit
+- Other development: Custom-built website, Frontend, Backend, Databases
+- Website development: Horoshop, Wix / Webflow, WordPress, Improvements
+- Repeat sales and LTV: CRM, Email marketing
+- SEO: SEO audit, SEO growth, AI search
+- International marketplaces: Etsy store setup, Etsy store management, eBay store setup, Amazon Handmade, Amazon management, Price aggregators, Alibaba store setup, Alibaba management, B2B directories
+- Pinterest: Account management, Automation, Pinterest Ads
+- YouTube: YouTube channel, Channel management
+- Branding and design: Basic brand book, Brand book, Logo, Rebranding, Trade shows
+- Advertising: Google Ads, Meta Ads, TikTok Ads, Pinterest Ads, YouTube Ads, GPT Ads, Marketplace ads
+- E-commerce consulting: Consulting, Process audit, Conversion rate, Ongoing support, AI consulting
+
+Full catalogue: https://koshmanecom.com/en/services
+
+## Key pages
+
+- [Home](https://koshmanecom.com/en): what the agency does, case studies, reviews, FAQ
+- [Services](https://koshmanecom.com/en/services): all services by direction
+- [About](https://koshmanecom.com/en/about): team, mission and approach
+- [Contacts](https://koshmanecom.com/en/contacts): Telegram, WhatsApp, phone, email
+- [Careers](https://koshmanecom.com/en/career): open positions
+
+## Free tools (Ukrainian interface)
+
+- [Etsy profit calculator](https://koshmanecom.com/kalkulyator-prybutku-etsy): net profit, Etsy fees, margin
+- [Etsy pricing calculator](https://koshmanecom.com/kalkulyator-tsinoutvorennya-etsy): minimum and recommended price
+- [Etsy vs Amazon vs Shopify](https://koshmanecom.com/porivnyannya-platform-etsy-amazon-shopify): fee and profit comparison
+- [Image resizer](https://koshmanecom.com/tools/image-resizer): presets for Instagram, Etsy, Pinterest
+- [Etsy finance dashboard](https://koshmanecom.com/tools/etsy-finance-dashboard): analytics from an Etsy CSV
+
+## Contact
+
+- Email: hello@koshmanecom.com
+- Phone / WhatsApp (Ukraine): +380 66 197 09 69
+- Phone (Slovakia): +421 952 208 617
+- Telegram: https://t.me/koshmanecom_channel
+
+## Other languages
+
+- Ukrainian: https://koshmanecom.com/
+- Slovak: https://koshmanecom.com/sk

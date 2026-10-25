@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight } from 'lucide-react';
 
 interface NavbarProps {
-  onContactClick: () => void;
+  onContactClick?: () => void;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
@@ -20,12 +20,14 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
   }, []);
 
   const navLinks = [
-    { name: 'Для кого', href: '#audience' },
-    { name: 'Послуги', href: '#services' },
-    { name: 'Кейси', href: '#cases' },
-    { name: 'Про нас', href: '#about' },
-    { name: 'Як ми працюємо', href: '#process' },
-    { name: 'Відгуки', href: '#reviews' },
+    { name: 'Для кого', href: '/#audience' },
+    { name: 'Послуги', href: '/services' },
+    { name: 'Кейси', href: '/#cases' },
+    { name: 'Про нас', href: '/about' },
+    { name: 'Як ми працюємо', href: '/#process' },
+    { name: 'Відгуки', href: '/#reviews' },
+    { name: 'Блог', href: '/blog' },
+    { name: 'Інструменти', href: '/tools' },
   ];
 
   return (
@@ -36,7 +38,7 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center">
+        <a href="/" className="flex items-center">
           <img src="/logo.png" alt="Koshman Ecom Logo" className="h-8 w-auto" />
         </a>
 
@@ -56,7 +58,7 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
         {/* CTA Button */}
         <div className="hidden lg:block">
           <button
-            onClick={onContactClick}
+            onClick={() => onContactClick?.()}
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-orange text-white text-sm font-bold rounded-full hover:bg-orange-700 transition-all shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40"
           >
             Залишити заявку
@@ -88,7 +90,7 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
           ))}
           <button
             onClick={() => {
-              onContactClick();
+              onContactClick?.();
               setIsMobileMenuOpen(false);
             }}
             className="w-full text-center py-3 bg-brand-orange text-white font-bold rounded-lg mt-4"

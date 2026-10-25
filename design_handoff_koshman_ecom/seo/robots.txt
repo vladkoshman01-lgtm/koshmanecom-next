@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+Disallow: /thanks
+
+# AI-пошук і асистенти
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://koshmanecom.com/sitemap.xml

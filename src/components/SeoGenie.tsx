@@ -36,20 +36,20 @@ const SeoGenie: React.FC = () => {
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/15 border border-indigo-400/30 text-indigo-200 text-sm font-semibold mb-6">
             <Bot size={16} />
-            Ваш повний SEO-інструментарій
+            Розробка Koshman Ecom
           </div>
 
           <h2 className="text-3xl md:text-5xl font-extrabold leading-tight">
-            Збільшуйте продажі на Etsy за допомогою
-            <span className="text-brand-orange"> штучного інтелекту</span>
+            SEOGenie — AI‑інструмент для
+            <span className="text-brand-orange"> зростання продажів на Etsy</span>
           </h2>
 
           <p className="mt-6 text-lg text-slate-300 max-w-2xl leading-relaxed">
-            Генеруйте оптимізовані описи товарів, знаходьте ключові слова з низькою конкуренцією
-            та проводьте аудит SEO за лічені хвилини.
+            Ми розробили SEOGenie всередині агенції, щоб швидко масштабувати Etsy‑листинги клієнтів.
+            Інструмент генерує описи, підбирає ключові слова та робить SEO‑аудит за лічені хвилини.
           </p>
           <p className="mt-3 text-slate-400 max-w-2xl">
-            Кожна функція створена, щоб допомогти вам заробляти більше.
+            Кожна функція створена командою Koshman Ecom для зростання прибутку продавців.
           </p>
         </div>
 

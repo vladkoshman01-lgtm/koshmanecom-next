@@ -30,16 +30,16 @@ const Services: React.FC = () => {
 
   const additionalServices = [
     {
-      category: 'AI-контент та автоматизація',
-      items: ['AI-фотосесії та відео товарів', 'AI-копірайтинг', 'Автоматизація бізнес-процесів і чат-боти'],
-    },
-    {
       category: 'Брендинг та дизайн',
       items: ['Дизайн візуалів бренду', 'Оформлення карток товарів', 'Пакети креативів для реклами'],
     },
     {
       category: 'Просування',
       items: ['SEO-оптимізація', 'Запуск і ведення іноземних соцмереж'],
+    },
+    {
+      category: 'AI-послуги',
+      items: ['AI-контент і автопостинг', 'Чат-боти та автоматизація', 'Аналітика і звітність'],
     },
     {
       category: 'Консалтинг',
@@ -89,13 +89,6 @@ const Services: React.FC = () => {
                 ))}
               </ul>
 
-              <a
-                href="#contact"
-                className="mt-7 inline-flex items-center gap-2 text-brand-orange font-bold group-hover:gap-3 transition-all"
-              >
-                Обговорити задачу
-                <ArrowRight size={17} />
-              </a>
             </article>
           ))}
         </div>
@@ -103,10 +96,6 @@ const Services: React.FC = () => {
         <div className="rounded-3xl border border-slate-200 bg-slate-50 p-7 md:p-9">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
             <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900">Додаткові напрямки</h3>
-            <a href="#contact" className="text-brand-orange font-bold inline-flex items-center gap-2 hover:gap-3 transition-all">
-              Отримати індивідуальний план
-              <ArrowRight size={17} />
-            </a>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
@@ -129,13 +118,16 @@ const Services: React.FC = () => {
             <p className="text-slate-600">
               Працюємо як зовнішня e-commerce команда або як підсилення вашого in-house відділу.
             </p>
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center px-7 py-3 rounded-xl bg-brand-orange text-white font-bold hover:bg-orange-700 transition-colors shadow-lg shadow-orange-500/30"
-            >
-              Безкоштовна консультація
-            </a>
           </div>
+
+        <div className="mt-10 flex justify-center">
+          <a
+            href="/services"
+            className="inline-flex items-center justify-center px-7 py-3 rounded-xl bg-brand-orange text-white font-bold hover:bg-orange-700 transition-colors shadow-lg shadow-orange-500/30"
+          >
+            Перейти до сторінки послуг
+          </a>
+        </div>
         </div>
       </div>
     </section>

@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.preview-shots/
+
+# firebase
+/.firebase/
+/functions/node_modules/
+# збірка функцій (tsc → lib), генерується з functions/src
+/functions/lib/

@@ -1,0 +1,27 @@
+# Koshman Ecom
+
+> Маркетингова агенція повного циклу для e-commerce бізнесів B2C і B2B. Допомагаємо брендам продавати онлайн на локальному ринку та закордоном: розробка Shopify-магазинів і сайтів, запуск і ведення магазинів на Etsy, Amazon, eBay та Alibaba, SEO та оптимізація для AI-пошуку, реклама, брендинг і e-commerce консалтинг.
+
+Офіси: Київ (Україна), Кошиці (Словаччина). Працюємо з клієнтами по всьому світу. Мови: українська, англійська, словацька.
+
+## Основні сторінки
+- [Послуги](https://koshmanecom.com/services): 54 послуги у 12 напрямах — стратегія, Shopify, інша розробка, сайти, LTV і CRM, SEO, міжнародні маркетплейси, Pinterest, YouTube, брендинг, реклама, консалтинг
+- [Про нас](https://koshmanecom.com/about): команда, підхід і принципи роботи
+- [Інструменти](https://koshmanecom.com/tools): безкоштовні калькулятори для продавців Etsy, порівняння Etsy vs Amazon vs Shopify, ресайзер зображень, SEOgenie
+- [Блог](https://koshmanecom.com/blog): статті про Etsy, Amazon, Shopify, SEO та рекламу
+- [Кар'єра](https://koshmanecom.com/careers): відкриті вакансії, віддалена робота
+- [Контакти](https://koshmanecom.com/contacts): Telegram, WhatsApp, телефон, email
+
+## Напрями
+- Міжнародні маркетплейси: відкриття та ведення Etsy, eBay, Amazon Handmade (B2C); Alibaba та B2B-каталоги (B2B)
+- Розробка: Shopify під ключ, B2B Shopify, Хорошоп, Wix, Webflow, WordPress, самописні сайти (Vue.js, Laravel, Node.js)
+- SEO: аудит, просування в Google, оптимізація бренду для ChatGPT, Perplexity і Gemini
+- Реклама: Google Ads, Meta Ads, TikTok Ads, Pinterest Ads, YouTube Ads, Etsy Ads, Amazon Ads
+- Стратегія та консалтинг: аудит бізнесу, CRO-аудит, план розвитку e-commerce, AI-консультації
+
+## Контакти
+- Телефон: +380 66 197 09 69
+- Email: koshman.export@gmail.com
+- Telegram: https://t.me/koshmanecom_channel
+- Instagram: https://www.instagram.com/koshman_ecom/
+- LinkedIn: https://linkedin.com/company/koshman-export/

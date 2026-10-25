@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@keyframes kcBlink{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+</style>
+</helmet>
+<div onMouseEnter="{{ enter }}" onMouseLeave="{{ leave }}" onClick="{{ click }}" style="position:relative;width:279px;height:279px;cursor:pointer;user-select:none;zoom:{{ z }}">
+  <div style="position:absolute;left:150px;bottom:calc(100% - 14px);width:96px;height:78px;overflow:hidden;pointer-events:none">
+    <svg width="96" height="78" viewBox="0 0 160 130" style="display:block;transform:{{ catTf }};transition:transform {{ catDur }} cubic-bezier(.34,1.4,.5,1)">
+      <path d="M30 70 L38 12 L72 42 Z M130 70 L122 12 L88 42 Z" fill="#141414"></path>
+      <path d="M40 52 L43 26 L60 42 Z M120 52 L117 26 L100 42 Z" fill="#FF5B2B"></path>
+      <ellipse cx="80" cy="80" rx="54" ry="46" fill="#141414"></ellipse>
+      <g style="animation:kcBlink 3.4s infinite;transform-box:fill-box;transform-origin:center">
+        <ellipse cx="60" cy="76" rx="10" ry="12" fill="#fff"></ellipse>
+        <ellipse cx="100" cy="76" rx="10" ry="12" fill="#fff"></ellipse>
+        <ellipse cx="{{ pupilL }}" cy="78" rx="4.5" ry="8" fill="#141414"></ellipse>
+        <ellipse cx="{{ pupilR }}" cy="78" rx="4.5" ry="8" fill="#141414"></ellipse>
+      </g>
+      <path d="M75 94 L85 94 L80 100 Z" fill="#FF8A5C"></path>
+      <path d="M80 100 Q74 106 68 103 M80 100 Q86 106 92 103" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"></path>
+      <path d="M48 94 L20 90 M48 100 L22 104 M112 94 L140 90 M112 100 L138 104" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".7"></path>
+      <rect x="42" y="110" width="30" height="24" rx="12" fill="#141414"></rect>
+      <rect x="88" y="110" width="30" height="24" rx="12" fill="#141414"></rect>
+      <path d="M52 112 V120 M62 112 V120 M98 112 V120 M108 112 V120" stroke="#FF5B2B" stroke-width="2" stroke-linecap="round"></path>
+    </svg>
+  </div>
+  <div ref="{{ boxRef }}" style="position:absolute;left:0;top:0;width:279px;height:279px;background:#FF5B2B;display:flex;align-items:flex-end;padding:0 23px 23px;box-sizing:border-box">
+    <span style="font-size:39px;font-weight:800;line-height:1.2;letter-spacing:0.02em;text-transform:uppercase;color:#fff;font-family:'Onest',sans-serif">Koshman<br>Ecom</span>
+  </div>
+  <div style="position:absolute;right:136px;bottom:calc(100% + 22px);background:#fff;color:#141414;padding:9px 14px;font-family:'Onest',sans-serif;font-size:14px;font-weight:700;white-space:nowrap;pointer-events:none;opacity:{{ bubbleOp }};transform:{{ bubbleTf }};transform-origin:100% 100%;transition:opacity .25s,transform .3s cubic-bezier(.34,1.4,.5,1)">{{ phrase }}<span style="position:absolute;right:-6px;bottom:8px;width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:7px solid #fff"></span></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:279,&quot;height&quot;:400}}">
+class Component extends DCLogic {
+  state = { hov: false, out: false, n: -1, rage: false };
+  boxRef = React.createRef();
+  clicks = [];
+  P = ['Мяу!', 'Мене звати Марс!', 'Мур-р-р…', 'Я тут відповідаю за конверсію', 'Лапки вгору — продажі теж', 'Ще раз погладиш?', 'Пиши менеджеру, я зайнятий'];
+  componentWillUnmount() { clearTimeout(this.t); clearTimeout(this.rt); cancelAnimationFrame(this.raf); this.cv && this.cv.remove(); }
+  burst() {
+    const box = this.boxRef.current; if (!box) return;
+    box.animate([{ transform: 'none' }, { transform: 'translate(-6px,2px) rotate(-3deg)' }, { transform: 'translate(6px,-2px) rotate(3deg)' }, { transform: 'translate(-4px,0) rotate(-2deg)' }, { transform: 'none' }], { duration: 420, iterations: 2 });
+    const r = box.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1, W = innerWidth, H = innerHeight;
+    if (!this.cv) { this.cv = document.createElement('canvas'); Object.assign(this.cv.style, { position: 'fixed', inset: '0', width: '100vw', height: '100vh', pointerEvents: 'none', zIndex: 9999 }); document.body.appendChild(this.cv); }
+    const cv = this.cv; cv.width = W * dpr; cv.height = H * dpr;
+    const ctx = cv.getContext('2d'); ctx.scale(dpr, dpr);
+    const ox = r.left + r.width / 2, oy = r.top + r.height / 3;
+    const balls = Array.from({ length: 70 }, () => { const a = -Math.PI / 2 + (Math.random() - 0.5) * 2.2, v = 500 + Math.random() * 700; return { x: ox, y: oy, vx: Math.cos(a) * v, vy: Math.sin(a) * v, r: 6 + Math.random() * 10, c: Math.random() < 0.8 ? '#FF5B2B' : '#fff' }; });
+    let t0 = performance.now(), last = t0;
+    cancelAnimationFrame(this.raf);
+    const tick = (now) => {
+      const dt = Math.min(0.033, (now - last) / 1000); last = now; const age = (now - t0) / 1000;
+      ctx.clearRect(0, 0, W, H); ctx.globalAlpha = Math.max(0, Math.min(1, 4.2 - age));
+      for (const b of balls) {
+        b.vy += 1900 * dt; b.x += b.vx * dt; b.y += b.vy * dt;
+        if (b.y > H - b.r) { b.y = H - b.r; b.vy *= -0.55; b.vx *= 0.85; }
+        if (b.x < b.r || b.x > W - b.r) { b.vx *= -0.7; b.x = Math.max(b.r, Math.min(W - b.r, b.x)); }
+        ctx.beginPath(); ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2); ctx.fillStyle = b.c; ctx.fill();
+      }
+      if (age < 4.2) this.raf = requestAnimationFrame(tick); else { ctx.clearRect(0, 0, W, H); }
+    };
+    this.raf = requestAnimationFrame(tick);
+  }
+  renderVals() {
+    const { hov, out } = this.state;
+    return {
+      z: (this.props.size ?? 279) / 279,
+      catTf: this.state.rage ? 'translateY(-6%) rotate(-8deg)' : out ? 'translateY(0)' : hov ? 'translateY(70%)' : 'translateY(100%)',
+      catDur: out ? '.55s' : '.35s',
+      pupilL: out ? 57 : 60, pupilR: out ? 97 : 100,
+      bubbleOp: out ? 1 : 0, bubbleTf: out ? 'scale(1)' : 'scale(.6)',
+      phrase: this.state.rage ? 'Ого, скільки уваги! Мур!' : this.P[Math.max(0, this.state.n) % this.P.length],
+      boxRef: this.boxRef,
+      enter: () => this.setState({ hov: true }),
+      leave: () => this.setState({ hov: false }),
+      click: () => {
+        const now = Date.now(); this.clicks = this.clicks.filter((c) => now - c < 1800); this.clicks.push(now);
+        if (this.clicks.length >= 6 && !this.state.rage) { this.clicks = []; clearTimeout(this.t); clearTimeout(this.rt); this.setState({ rage: true, out: true }); this.burst(); this.rt = setTimeout(() => this.setState({ rage: false, out: false }), 3600); return; }
+        if (this.state.rage) return;
+        clearTimeout(this.t); this.setState((s) => ({ out: true, n: s.n + 1 })); this.t = setTimeout(() => this.setState({ out: false }), 3200); },
+    };
+  }
+}
+</script>
+</body>
+</html>

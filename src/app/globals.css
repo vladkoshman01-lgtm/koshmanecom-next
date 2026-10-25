@@ -9,41 +9,529 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-brand-orange: #ef4406;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-brand-orange: #FF5B2B;
+  --font-sans: var(--font-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Токени нового дизайну (Figma: Site KE). Акцент, сітка, типографіка. */
+:root {
+  --brand-orange: #FF5B2B;
+  --site-max: 1440px;   /* ширина макета */
+  --pad-x: 86px;        /* бокові падінги секцій, десктоп */
+  --pad-x-m: 20px;      /* бокові падінги, мобайл */
+  --section-y: 100px;   /* вертикальні падінги секцій: 100-120 */
+  --section-y-lg: 120px;
+  --section-y-m: 48px;
 }
+
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-display), system-ui, sans-serif;
+}
+
+/* --- Масштаб макета ------------------------------------------------------
+   Дизайн намальований на 1440. Прототип масштабував сторінку через CSS zoom;
+   він ламає зум браузера, тож замість нього — власна одиниця --u.
+
+   1u = 1px на ширині 1440. Ширше — u росте, вужче — меншає, тож десктопний
+   макет на будь-якій ширині від 768px виглядає однаково, просто іншого
+   розміру. Стелі немає: на 1920 все ×1.333, на 2560 ×1.78.
+
+   Розміри в коді пишемо як calc(<число з макета> * var(--u)). */
+:root {
+  --u: calc(100vw / 1440);
+}
+
+/* Нижче 768 — окремий мобільний макет, намальований на 390px.
+   Він НЕ масштабується: реальні пікселі, гумова ширина. */
+@media (max-width: 767px) {
+  :root { --u: 1px; }
+}
+
+.shell {
+  width: 100%;
+  padding-inline: 20px;
+}
+
+/* Стрічка кейсів: лівий падінг як в оболонки, правий — нульовий.
+   У макеті картки йдуть до самого краю вікна й обрізаються об нього. */
+.cases-track {
+  padding-left: 20px;
+  padding-right: 0;
+  /* Без цього snap-прокрутка притискає першу картку до краю,
+     ігноруючи лівий падінг. */
+  scroll-padding-left: 20px;
+}
+
+/* Мобільні вертикальні падінги секцій (десктопні — у блоці масштабу нижче) */
+.sec-y {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+
+
+/* --- Типографіка --------------------------------------------------------
+   Значення з хендоффу: на 1440 отримуємо рівно те, що в макеті, на 390 —
+   мобільні розміри, між ними плавний перехід (макет вимагає плавні
+   колонки нижче 1200). */
+.fs-72 { font-size: clamp(34px, 5.00vw, 72px); line-height: 1.02; letter-spacing: -0.015em; }
+.fs-64 { font-size: clamp(32px, 4.45vw, 64px); line-height: 1.04; letter-spacing: -0.015em; }
+.fs-56 { font-size: clamp(30px, 3.89vw, 56px); line-height: 1.05; letter-spacing: -0.015em; }
+.fs-52 { font-size: clamp(27px, 3.62vw, 52px); line-height: 1.05; letter-spacing: -0.01em; }
+.fs-48 { font-size: clamp(30px, 3.34vw, 48px); line-height: 1.08; letter-spacing: -0.01em; }
+.fs-46 { font-size: clamp(27px, 3.20vw, 46px); line-height: 1.08; letter-spacing: -0.01em; }
+.fs-44 { font-size: clamp(26px, 3.06vw, 44px); line-height: 1.1;  letter-spacing: -0.01em; }
+.fs-43 { font-size: clamp(27px, 2.99vw, 43px); line-height: 0.93; letter-spacing: -0.01em; }
+.fs-39 { font-size: clamp(24px, 2.71vw, 39px); line-height: 1.33; letter-spacing: 0.005em; }
+.fs-37 { font-size: clamp(24px, 2.57vw, 37px); line-height: 1.32; letter-spacing: 0.005em; }
+.text-lead { font-size: clamp(15px, 1.19vw, 17px); }
+
+/* Градієнт карток «тече» на ховері — і в послугах, і в ресурсах.
+   У прототипі це атрибут data-flow, тут — клас .flow-card:
+   анімується або сама картка, або вкладений шар при ховері батька. */
+@keyframes svcFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.flow-card {
+  background-position: 0% 50%;
+}
+
+.flow-card:hover,
+.flow-parent:hover .flow-card {
+  animation: svcFlow 3.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-card:hover,
+  .flow-parent:hover .flow-card { animation: none; }
+}
+
+/* Картки «Наші ресурси». Кольорові плями градієнтів сидять праворуч унизу,
+   тож у спокої показуємо саме цю частину — інакше картка виглядала чорною,
+   доки на неї не наведуть. На ховері градієнт «перетікає» до центру й назад. */
+.resource-card {
+  /* градієнт приходить змінною: інлайновий shorthand скинув би позицію */
+  background: var(--res-bg);
+  background-size: 150% 150%;
+  background-position: 90% 90%;
+}
+@keyframes resourceFlow {
+  0%   { background-position: 90% 90%; }
+  50%  { background-position: 30% 45%; }
+  100% { background-position: 90% 90%; }
+}
+.resource-card:hover {
+  animation: resourceFlow 3.2s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .resource-card:hover { animation: none; }
+}
+
+/* Стрічка логотипів клієнтів */
+@keyframes logosMarquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.logos-marquee {
+  animation: logosMarquee 30s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logos-marquee { animation: none; }
+}
+
+/* Поява мобільного меню */
+@keyframes mobileMenuFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.mobile-menu-enter {
+  animation: mobileMenuFade .25s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu-enter { animation: none; }
+}
+
+/* Кіт Марс: похитування під час ходи та поява промо-вікна */
+@keyframes marsBob {
+  0%, 100% { transform: translateY(8%); }
+  50% { transform: translateY(2%); }
+}
+
+@keyframes marsFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes marsRise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.mars-fade { animation: marsFade .3s ease-out both; }
+.mars-rise { animation: marsRise .45s cubic-bezier(.2,.8,.2,1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .mars-fade, .mars-rise { animation: none; }
+}
+
+/* Моргання кота Марса */
+@keyframes marsBlink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  96% { transform: scaleY(.1); }
+}
+
+.mars-blink {
+  animation: marsBlink 3.4s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mars-blink { animation: none; }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display), system-ui, sans-serif;
 }
 
 @layer utilities {
   .text-brand-orange {
-    color: #ef4406;
+    color: #FF5B2B;
   }
   .bg-brand-orange {
-    background-color: #ef4406;
+    background-color: #FF5B2B;
   }
   .border-brand-orange {
-    border-color: #ef4406;
+    border-color: #FF5B2B;
   }
   .bg-brand-orange\/10 {
-    background-color: rgba(239, 68, 6, 0.1);
+    background-color: rgba(255, 91, 43, 0.1);
   }
   .bg-brand-orange\/20 {
-    background-color: rgba(239, 68, 6, 0.2);
+    background-color: rgba(255, 91, 43, 0.2);
   }
   .border-brand-orange\/50 {
-    border-color: rgba(239, 68, 6, 0.5);
+    border-color: rgba(255, 91, 43, 0.5);
+  }
+}
+
+/* --- Текст статті блогу (Blog.dc.html, екран «Blog article») -------------
+   Мобільні розміри тут, десктопні — у блоці масштабу нижче. */
+.blog-markdown {
+  color: #2a2a2a;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.blog-markdown > :first-child { margin-top: 0; }
+
+/* Ширина рядка ~65–75 знаків — як у журналах: око не губить початок
+   наступного рядка. Картинки (figure) лишаються на всю ширину колонки. */
+.blog-markdown > :not(figure),
+.blog-measure {
+  max-width: 680px;
+}
+
+.blog-markdown p,
+.blog-markdown li {
+  /* без «вдів» — одного слова в останньому рядку абзацу */
+  text-wrap: pretty;
+}
+
+.blog-markdown h2,
+.blog-markdown h3 {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 700;
+  color: #222222;
+  text-wrap: balance;
+}
+
+.blog-markdown h2 {
+  margin-top: 48px;
+  font-size: 26px;
+  line-height: 1.15;
+  /* липкий хедер не має перекривати заголовок після переходу зі змісту */
+  scroll-margin-top: 88px;
+}
+
+.blog-markdown h3 {
+  margin-top: 36px;
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+/* Відступ між абзацами ≈ один рядок; під заголовком — менший,
+   щоб заголовок «тримався» свого тексту, а не попереднього */
+.blog-markdown p { margin-top: 1.05em; }
+.blog-markdown h2 + p,
+.blog-markdown h3 + p,
+.blog-markdown h2 + ul,
+.blog-markdown h3 + ul { margin-top: 0.6em; }
+
+.blog-markdown ul,
+.blog-markdown ol {
+  margin-top: 1.05em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55em;
+}
+
+/* Маркери — помаранчеві квадрати, як у списках на сторінці вакансії */
+.blog-markdown ul > li {
+  position: relative;
+  padding-left: 26px;
+}
+.blog-markdown ul > li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 0.68em;
+  width: 8px;
+  height: 8px;
+  background: #FF5B2B;
+}
+
+/* Нумерація — помаранчеві кружечки з макета */
+.blog-markdown ol { counter-reset: blog-ol; }
+.blog-markdown ol > li {
+  counter-increment: blog-ol;
+  position: relative;
+  padding-left: 44px;
+  min-height: 30px;
+}
+.blog-markdown ol > li::before {
+  content: counter(blog-ol);
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #FDE3D8;
+  color: #FF5B2B;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 30px;
+  text-align: center;
+}
+
+/* Цитата — темна плашка з помаранчевою лапкою */
+.blog-markdown blockquote {
+  margin: 36px 0 8px;
+  background: #141414;
+  color: #ffffff;
+  padding: 28px 24px;
+  border-radius: 4px;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+.blog-markdown blockquote::before {
+  content: '\201C';
+  display: block;
+  height: 28px;
+  font-size: 56px;
+  line-height: 1;
+  font-weight: 700;
+  color: #FF5B2B;
+}
+.blog-markdown blockquote p { margin-top: 12px; }
+.blog-markdown blockquote a { color: #FF8A5C; }
+
+.blog-markdown a {
+  color: #FF5B2B;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s;
+}
+.blog-markdown a:hover { text-decoration-color: transparent; }
+
+.blog-markdown strong {
+  font-weight: 700;
+  color: #222222;
+}
+
+.blog-markdown em { font-style: italic; }
+
+.blog-markdown figure { margin: 36px 0; }
+.blog-markdown a.blog-figure-link { display: block; cursor: zoom-in; }
+.blog-markdown figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.blog-markdown code {
+  background: #EEEEEE;
+  padding: 0.15rem 0.35rem;
+  font-size: 0.9em;
+}
+
+/* Масштаб макета понад 1024px — тримаємо в кінці файлу, щоб ці правила
+   перебивали базові (мобільні) значення вище. */
+@media (min-width: 768px) {
+  /* Tailwind міряє шрифти, відступи й розміри в rem, тож прив'язка кореневого
+     розміру до --u масштабує разом із макетом усі його утиліти (text-*, p-*,
+     gap-*, w-*). Те, що задано явними пікселями, масштабують класи нижче. */
+  html {
+    font-size: calc(16 * var(--u));
+  }
+
+  .shell {
+    padding-inline: calc(86 * var(--u));
+  }
+
+  .cases-track {
+    padding-left: calc(86 * var(--u));
+    scroll-padding-left: calc(86 * var(--u));
+  }
+
+  /* Типографіка масштабується тим самим коефіцієнтом */
+  .fs-72 { font-size: calc(72 * var(--u)); }
+  .fs-64 { font-size: calc(64 * var(--u)); }
+  .fs-56 { font-size: calc(56 * var(--u)); }
+  .fs-52 { font-size: calc(52 * var(--u)); }
+  .fs-48 { font-size: calc(48 * var(--u)); }
+  .fs-46 { font-size: calc(46 * var(--u)); }
+  .fs-44 { font-size: calc(44 * var(--u)); }
+  .fs-43 { font-size: calc(43 * var(--u)); }
+  .fs-39 { font-size: calc(39 * var(--u)); }
+  .fs-37 { font-size: calc(37 * var(--u)); }
+  .text-lead { font-size: calc(17 * var(--u)); }
+
+  /* Хедер і кнопки — висоти з макета */
+  .h-header { height: calc(82 * var(--u)); }
+  .btn-cta {
+    min-height: calc(57 * var(--u));
+    padding-left: calc(74 * var(--u));
+    padding-right: calc(30 * var(--u));
+    font-size: calc(16 * var(--u));
+  }
+  .btn-cta-fill { inset-block: calc(4 * var(--u)); left: calc(4 * var(--u)); }
+  .btn-cta-arrow { width: calc(46 * var(--u)); }
+
+  /* Картки */
+  .card-category { height: calc(169 * var(--u)); }
+  .card-service  { height: calc(252 * var(--u)); }
+  .card-service-head { height: calc(150 * var(--u)); }
+  .card-case { width: calc(340 * var(--u)); height: calc(555 * var(--u)); }
+  .services-aside { width: calc(250 * var(--u)); }
+  .compass-box { width: calc(540 * var(--u)); max-width: 100%; }
+
+  /* Сітки з макета: ширини колонок теж мають масштабуватися, інакше
+     текстова колонка «з'їдається» і заголовки переносяться не там. */
+  .grid-lost    { grid-template-columns: calc(527 * var(--u)) minmax(0, 1fr); }
+  .grid-results { grid-template-columns: minmax(0, 1fr) calc(409 * var(--u)); }
+  .grid-lead    { grid-template-columns: calc(420 * var(--u)) minmax(0, 1fr); }
+  .grid-faq     { grid-template-columns: calc(400 * var(--u)) minmax(0, 1fr); }
+
+  /* Футер: колонки з макета, масштабовані тією ж одиницею */
+  .footer-grid {
+    grid-template-columns:
+      calc(420 * var(--u)) calc(198 * var(--u)) calc(158 * var(--u))
+      calc(319 * var(--u)) minmax(0, 1fr);
+  }
+
+  /* Вертикальний ритм секцій. У макеті 96–124px, беремо 100/104 —
+     різниця на око непомітна, зате пропорції тримаються на всіх ширинах. */
+  .sec-y { padding-top: calc(100 * var(--u)); padding-bottom: calc(104 * var(--u)); }
+
+  /* Текст статті блогу — розміри з макета */
+  .blog-markdown { font-size: calc(20 * var(--u)); line-height: 1.65; }
+  .blog-markdown > :not(figure),
+  .blog-measure { max-width: calc(680 * var(--u)); }
+  .blog-markdown h2 { margin-top: calc(72 * var(--u)); font-size: calc(34 * var(--u)); scroll-margin-top: calc(110 * var(--u)); }
+  .blog-markdown h3 { margin-top: calc(44 * var(--u)); font-size: calc(24 * var(--u)); }
+  .blog-markdown blockquote { margin-top: calc(44 * var(--u)); padding: calc(36 * var(--u)) calc(40 * var(--u)); font-size: calc(22 * var(--u)); }
+  .blog-markdown figure { margin: calc(48 * var(--u)) 0; }
+}
+
+/* --- Мобільний макет (390px) ---------------------------------------------
+   Хендофф має окремий ручний дизайн для телефона з власними розмірами —
+   вони не є просто зменшеними десктопними. Блок стоїть у кінці файлу, щоб
+   перебивати спільні класи .fs-*. */
+@media (max-width: 767px) {
+  /* Префікс mob-, бо m-30 у Tailwind це margin: 120px — назви збігалися */
+  .mob-34 { font-size: 34px; line-height: 1.05; letter-spacing: -0.015em; }
+  .mob-32 { font-size: 32px; line-height: 1.1;  letter-spacing: -0.015em; }
+  .mob-30 { font-size: 30px; line-height: 1.12; letter-spacing: -0.01em; }
+  .mob-27 { font-size: 27px; line-height: 1.12; letter-spacing: -0.01em; }
+  .mob-26 { font-size: 26px; line-height: 1.15; letter-spacing: 0; }
+  .mob-23 { font-size: 23px; line-height: 1.15; letter-spacing: -0.005em; }
+  .mob-24 { font-size: 24px; line-height: 1.3;  letter-spacing: 0; }
+  .mob-20 { font-size: 20px; line-height: 1.35; }
+  .mob-18 { font-size: 18px; line-height: 1.25; }
+  .mob-17 { font-size: 17px; line-height: 1.35; }
+  .mob-16 { font-size: 16px; line-height: 1.5; }
+  .mob-15 { font-size: 15px; line-height: 1.55; }
+  .mob-14 { font-size: 14px; line-height: 1.45; }
+
+  /* Секції на телефоні: 56px зверху й знизу, 20px з боків */
+  .sec-y { padding-top: 56px; padding-bottom: 56px; }
+  .shell { padding-inline: 20px; }
+}
+
+/* --- Кіт Марс на сторінці 404 (із прототипу 404.dc.html) ------------------ */
+.mars-404-digits {
+  background: linear-gradient(100deg, #FF8A5C 0%, #FF5B2B 45%, #C93E14 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.mars-404-peek { animation: m4Peek 1.2s cubic-bezier(.3, 1.4, .5, 1) .4s both; }
+.mars-404-bubble { animation: m4Fade .3s ease-out 1.4s both; }
+.mars-404-blink { animation: m4Blink 4.2s infinite; transform-box: fill-box; transform-origin: center; }
+.mars-404-look { animation: m4Look 7s ease-in-out infinite; }
+
+@keyframes m4Peek { from { transform: translateY(.25em); } to { transform: none; } }
+@keyframes m4Fade { from { opacity: 0; transform: translateX(-6px); } to { opacity: 1; transform: none; } }
+@keyframes m4Blink { 0%, 94%, 100% { transform: scaleY(1); } 97% { transform: scaleY(.1); } }
+@keyframes m4Look {
+  0%, 30% { transform: translateX(0); }
+  38%, 52% { transform: translateX(-4px); }
+  60%, 74% { transform: translateX(4px); }
+  82%, 100% { transform: translateX(0); }
+}
+
+/* Картки з градієнтом на телефоні: ховера немає, тож анімація не грає, а
+   градієнт, розтягнутий на 135% під неї, показувався лише шматком і
+   «обривався» посеред картки. Тут показуємо його повністю на весь блок.
+   !important — бо фон приходить інлайном з даних. */
+@media (max-width: 767px) {
+  .flow-card {
+    background-size: 100% 100% !important;
+    background-position: center !important;
+    animation: none !important;
+  }
+
+  /* Картки категорій на телефоні. Десктопні градієнти розраховані на
+     широку картку: синя текстура 650×238 у квадраті давала синю ліву
+     половину й різку чорну праву — виглядало обрізаним. Тут м'які
+     сяйва, що заливають усю картку. */
+  .flow-card[data-grad='blue'] {
+    background: radial-gradient(150% 120% at 0% 100%, #0F5BFF 0%, rgba(15, 91, 255, 0.7) 32%,
+        rgba(10, 45, 150, 0.3) 62%, transparent 88%), #0b0b0b !important;
+  }
+  .flow-card[data-grad='orange'] {
+    background: radial-gradient(150% 120% at 100% 100%, #D24A20 0%, rgba(190, 66, 28, 0.65) 35%,
+        rgba(120, 40, 15, 0.3) 62%, transparent 88%), linear-gradient(160deg, #2a0f06 0%, #120603 100%) !important;
+  }
+  .flow-card[data-grad='silver'] {
+    background: radial-gradient(150% 120% at 100% 100%, rgba(175, 175, 175, 0.75) 0%,
+        rgba(110, 110, 110, 0.35) 40%, transparent 85%), #141414 !important;
+  }
+  .flow-card[data-grad='silver2'] {
+    background: radial-gradient(150% 120% at 0% 100%, rgba(210, 210, 210, 0.65) 0%,
+        rgba(120, 120, 120, 0.3) 40%, transparent 85%), #0d0d0d !important;
   }
 }
