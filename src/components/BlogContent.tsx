@@ -37,7 +37,8 @@ export default function BlogContent({
         </a>
       );
     },
-    // Інфографіка на телефоні дрібна — тап відкриває її в повному розмірі
+    // Інфографіка на телефоні дрібна — тап відкриває її у вікні перегляду (ImageLightbox);
+    // посилання лишається на випадок, якщо JS не завантажився
     img: ({ src, alt }) => {
       const url = typeof src === 'string' ? src : '';
       const size = imageSizes[url];

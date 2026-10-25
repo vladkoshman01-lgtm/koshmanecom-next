@@ -226,6 +226,9 @@ const en: Dictionary = {
   },
   blog: {
     search: 'Search articles',
+    close: 'Close',
+    zoomIn: 'Tap to zoom in',
+    zoomOut: 'Tap to zoom out',
     more: 'Show more',
     all: 'All',
     featured: 'Featured',

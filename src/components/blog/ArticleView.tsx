@@ -9,6 +9,7 @@ import JsonLd from '@/components/JsonLd';
 import ArticleCard, { formatArticleDate, formatMinutes } from './ArticleCard';
 import ShareBar from './ShareBar';
 import ArticleToc from './ArticleToc';
+import ImageLightbox from './ImageLightbox';
 import { getArticles, toSummary, type Article } from '@/lib/blog';
 import { getDictionary } from '@/i18n/getDictionary';
 import { localePath, type Locale } from '@/lib/i18n';
@@ -90,6 +91,7 @@ export default async function ArticleView({ article, locale }: { article: Articl
   return (
     <div className="bg-white">
       <JsonLd data={jsonLd} />
+      <ImageLightbox />
 
       <section className="shell pb-14 pt-8 md:pb-[4.5rem] md:pt-12">
         <nav aria-label="breadcrumbs" className="flex flex-wrap items-center gap-2.5 text-sm text-[#8A8A8A]">

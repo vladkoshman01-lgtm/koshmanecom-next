@@ -228,6 +228,9 @@ const sk: Dictionary = {
   },
   blog: {
     search: 'Hľadať články',
+    close: 'Zavrieť',
+    zoomIn: 'Ťuknite pre priblíženie',
+    zoomOut: 'Ťuknite pre oddialenie',
     more: 'Zobraziť viac',
     all: 'Všetky',
     featured: 'Hlavný',
