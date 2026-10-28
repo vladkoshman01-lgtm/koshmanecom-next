@@ -29,13 +29,16 @@ Full catalogue: https://koshmanecom.com/en/services
 - [Contacts](https://koshmanecom.com/en/contacts): Telegram, WhatsApp, phone, email
 - [Careers](https://koshmanecom.com/en/career): open positions
 
-## Free tools (Ukrainian interface)
+## Free tools
 
-- [Etsy profit calculator](https://koshmanecom.com/kalkulyator-prybutku-etsy): net profit, Etsy fees, margin
-- [Etsy pricing calculator](https://koshmanecom.com/kalkulyator-tsinoutvorennya-etsy): minimum and recommended price
-- [Etsy vs Amazon vs Shopify](https://koshmanecom.com/porivnyannya-platform-etsy-amazon-shopify): fee and profit comparison
-- [Image resizer](https://koshmanecom.com/tools/image-resizer): presets for Instagram, Etsy, Pinterest
-- [Etsy finance dashboard](https://koshmanecom.com/tools/etsy-finance-dashboard): analytics from an Etsy CSV
+- [Etsy profit calculator](https://koshmanecom.com/en/etsy-profit-calculator): net profit after Etsy fees, VAT and taxes, margin, break-even price
+- [Etsy pricing calculator](https://koshmanecom.com/en/etsy-pricing-calculator): price for a target margin or profit per sale
+- [Etsy vs Amazon vs eBay vs Shopify](https://koshmanecom.com/en/etsy-vs-amazon-vs-shopify): fee and profit comparison
+- [Image resizer](https://koshmanecom.com/tools/image-resizer): presets for Instagram, Etsy, Pinterest (Ukrainian interface)
+
+## Apps
+
+- [SEOgenie](https://seogenie.app/): AI app for Etsy sellers — listing titles, tags and descriptions, SEO audit, publishing to the shop; 7-day free trial
 
 ## Contact
 

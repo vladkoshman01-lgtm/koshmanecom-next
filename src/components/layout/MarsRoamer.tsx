@@ -4,7 +4,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Link from '@/components/ui/LocaleLink';
 import { usePathname } from 'next/navigation';
 import { useT } from '@/i18n/LocaleProvider';
-import { locales, type Locale } from '@/lib/i18n';
+import { locales, localizedSlugs, type Locale } from '@/lib/i18n';
 import MarsCat from './MarsCat';
 
 /**
@@ -88,10 +88,16 @@ export default function MarsRoamer() {
   const pagePhrase = useCallback(() => {
     const parts = window.location.pathname.split('/').filter(Boolean);
     // На /en та /sk перший сегмент — код мови, сторінка йде наступною
-    const segment = (locales.includes(parts[0] as Locale) ? parts[1] : parts[0]) ?? '';
-    // Фрази сторінки й загальні — обидві мовою сторінки
+    const raw = (locales.includes(parts[0] as Locale) ? parts[1] : parts[0]) ?? '';
+    // Інструменти мають свою адресу в кожній мові, а фрази записані під українською
+    const segment =
+      Object.entries(localizedSlugs)
+        .find(([, paths]) => Object.values(paths).includes(`/${raw}`))?.[0]
+        .slice(1) ?? raw;
+    // Частіше — фраза саме цієї сторінки, інколи — будь-яка із загальних
     const pagePhrases: Record<string, string[]> = t.easter.pagePhrases;
-    const list = [...(pagePhrases[segment] ?? []), ...t.easter.marsPhrases.slice(0, 2)];
+    const own = pagePhrases[segment] ?? [];
+    const list = own.length && Math.random() < 0.6 ? own : t.easter.marsPhrases;
     let phrase = list[0];
     for (let i = 0; i < 6; i++) {
       phrase = list[Math.floor(Math.random() * list.length)];

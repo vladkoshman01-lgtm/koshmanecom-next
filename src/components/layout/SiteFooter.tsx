@@ -40,6 +40,7 @@ export default function SiteFooter() {
               <LocaleLink
                 key={link.key}
                 href={link.href}
+                {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {})}
                 className="text-base leading-[1.3] text-white transition-colors hover:text-brand-orange"
               >
                 {linkLabel(link.key)}

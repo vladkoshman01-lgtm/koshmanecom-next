@@ -57,17 +57,10 @@ const TOOLS: Tool[] = [
     tags: ['Контент'],
   },
   {
-    title: 'Etsy Фінансовий Дашборд',
-    description: 'Завантажте CSV з Etsy та отримайте швидку фінансову аналітику магазину.',
-    href: '/tools/etsy-finance-dashboard',
-    gradient: 'silver2',
-    icon: 'M4 16a8 8 0 0 1 16 0M12 16l3-4',
-    tags: ['Etsy'],
-  },
-  {
     title: 'SEOgenie',
-    description: 'Інструмент для автоматичної оптимізації Etsy листингів і SEO-підказок.',
-    href: 'https://seogenie.koshmanecom.com',
+    description:
+      'AI-додаток для продавців Etsy: заголовок, 13 тегів і опис за 30 секунд, SEO-аудит лістингів і публікація прямо в магазин. 7 днів безкоштовно.',
+    href: 'https://seogenie.app/',
     gradient: 'orange',
     icon: 'M12 3l2 7 7 2-7 2-2 7-2-7-7-2 7-2z',
     tags: ['Etsy', 'SEO'],

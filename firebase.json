@@ -88,6 +88,11 @@
           "source": "/etsy-vs-amazon-vs-shopify",
           "destination": "/en/etsy-vs-amazon-vs-shopify",
           "type": 301
+        },
+        {
+          "source": "/tools/etsy-finance-dashboard",
+          "destination": "/tools",
+          "type": 301
         }
       ]
     },
@@ -175,6 +180,11 @@
         {
           "source": "/etsy-vs-amazon-vs-shopify",
           "destination": "/en/etsy-vs-amazon-vs-shopify",
+          "type": 301
+        },
+        {
+          "source": "/tools/etsy-finance-dashboard",
+          "destination": "/tools",
           "type": 301
         }
       ]

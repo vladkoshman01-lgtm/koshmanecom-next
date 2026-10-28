@@ -71,12 +71,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.6,
     },
-    {
-      url: `${siteUrl}/tools/etsy-finance-dashboard`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    },
     // Інструменти з перекладеним slug: кожна мова — своя адреса
     ...Object.values(localizedSlugs).flatMap((paths) =>
       locales.map((locale) => ({

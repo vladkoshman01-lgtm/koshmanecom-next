@@ -252,12 +252,9 @@ const en: Record<string, string> = {
   'Ресайзер зображень': 'Image resizer',
   'Змінюйте розмір фото для Instagram, Etsy, Pinterest та інших платформ з пресетами.':
     'Resize photos for Instagram, Etsy, Pinterest and other platforms using presets.',
-  'Etsy Фінансовий Дашборд': 'Etsy finance dashboard',
-  'Завантажте CSV з Etsy та отримайте швидку фінансову аналітику магазину.':
-    'Upload a CSV from Etsy and get quick financial analytics for your shop.',
   SEOgenie: 'SEOgenie',
-  'Інструмент для автоматичної оптимізації Etsy листингів і SEO-підказок.':
-    'A tool that optimises Etsy listings automatically and suggests SEO improvements.',
+  'AI-додаток для продавців Etsy: заголовок, 13 тегів і опис за 30 секунд, SEO-аудит лістингів і публікація прямо в магазин. 7 днів безкоштовно.':
+    'An AI app for Etsy sellers: a title, 13 tags and a description in 30 seconds, an SEO audit of your listings and publishing straight to your shop. 7-day free trial.',
 
   // --- відгуки ---
   'Повідомлення від Ірини': 'A message from Iryna',

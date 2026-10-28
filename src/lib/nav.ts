@@ -38,7 +38,6 @@ export type ToolKey =
   | 'pricingCalculator'
   | 'comparison'
   | 'resizer'
-  | 'financeDashboard'
   | 'seogenie';
 
 export const footerColumns: {
@@ -70,8 +69,7 @@ export const footerColumns: {
       { key: 'pricingCalculator', href: '/kalkulyator-tsinoutvorennya-etsy' },
       { key: 'comparison', href: '/porivnyannya-platform-etsy-amazon-shopify' },
       { key: 'resizer', href: '/tools/image-resizer' },
-      { key: 'financeDashboard', href: '/tools/etsy-finance-dashboard' },
-      { key: 'seogenie', href: '/tools' },
+      { key: 'seogenie', href: 'https://seogenie.app/' },
     ],
   },
 ];

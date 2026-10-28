@@ -29,6 +29,7 @@ export default function Resources() {
           <Link
             key={tr(title)}
             href={RESOURCE_LINKS[i]}
+            {...(RESOURCE_LINKS[i].startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {})}
             className="resource-card group flex min-h-[16.25rem] flex-col rounded-[0.1875rem] p-7 text-white transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-[0_22px_44px_rgba(0,0,0,.6)]"
             style={{ '--res-bg': RESOURCE_GRADIENTS[gradient] } as React.CSSProperties}
           >
