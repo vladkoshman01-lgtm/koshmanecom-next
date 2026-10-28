@@ -11,10 +11,10 @@ import MarsCat from './MarsCat';
  * Кіт Марс — пасхалка сайту.
  *
  * Поводження з прототипу MarsRoamer.dc.html:
- * • випадкові появи лише на десктопі: перша через 12–20с, далі кожні 60–90с,
- *   максимум 4 на сторінку; не виходить, поки людина друкує або скролить;
- *   на кожній новій сторінці відлік починається заново, щоб у футері він
- *   поводився однаково скрізь, а не тільки на першій відкритій сторінці;
+ * • випадкові появи лише на десктопі: перша через 40–60с від початку сесії,
+ *   далі не частіше ніж раз на 3–5 хв, максимум 3 за сесію. Графік спільний
+ *   для всіх сторінок — перехід на іншу сторінку його не скидає, інакше кіт
+ *   вилазив би на кожній. Не виходить, поки людина друкує або скролить;
  * • п'ять видів появи: знизу, справа, зліва, звисає згори та проходжається
  *   по футеру (останнє — лише коли футер у полі зору);
  * • три кліки за сесію відкривають промокод MARS15;
@@ -25,6 +25,11 @@ import MarsCat from './MarsCat';
  */
 
 type Kind = 'bottom' | 'right' | 'left' | 'hang' | 'walk';
+
+const MAX_PER_SESSION = 3;
+const rand = (min: number, max: number) => min + Math.random() * (max - min);
+const FIRST_DELAY = () => rand(40_000, 60_000);
+const NEXT_DELAY = () => rand(180_000, 300_000);
 
 const COPY_PHRASE = 'Бери, не шкода. Але краще напиши нам';
 
@@ -160,12 +165,11 @@ export default function MarsRoamer() {
     [hide, later, pagePhrase],
   );
 
-  // Випадкові появи. Перезапускаємо на кожній сторінці.
+  // Випадкові появи. Час наступної появи лежить у sessionStorage,
+  // тож на новій сторінці продовжуємо той самий графік, а не починаємо заново.
   useEffect(() => {
-    session.set('mars-shown', 0);
-
     const tick = () => {
-      if (session.get('mars-shown') >= 4) return;
+      if (session.get('mars-shown') >= MAX_PER_SESSION) return;
 
       const active = document.activeElement;
       const typing = !!active && /INPUT|TEXTAREA|SELECT/.test(active.tagName);
@@ -183,7 +187,9 @@ export default function MarsRoamer() {
       }
 
       appear();
-      later(tick, 60000 + Math.random() * 30000);
+      const next = NEXT_DELAY();
+      session.set('mars-next', Date.now() + next);
+      later(tick, next);
     };
 
     const onScroll = () => {
@@ -193,8 +199,13 @@ export default function MarsRoamer() {
     window.addEventListener('scroll', onScroll, { passive: true });
 
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!reduced && window.innerWidth >= 768) {
-      later(tick, 12000 + Math.random() * 8000);
+    if (!reduced && window.innerWidth >= 768 && session.get('mars-shown') < MAX_PER_SESSION) {
+      let due = session.get('mars-next');
+      if (!due) {
+        due = Date.now() + FIRST_DELAY();
+        session.set('mars-next', due);
+      }
+      later(tick, Math.max(0, due - Date.now()));
     }
 
     const captured = timers.current;
