@@ -4,15 +4,14 @@ import React, { useMemo, useState } from 'react';
 import { fill, useLocale } from '@/i18n/LocaleProvider';
 import { contacts } from '@/lib/nav';
 import { PROFIT_CALC_COPY, PROFIT_CALC_PATHS } from '@/data/etsyProfitCalculator';
-import { localeNames, localePath, locales } from '@/lib/i18n';
+import { MESSENGER } from '@/data/toolPage';
+import { Block, Chips, Field, RatesNote, Switch, moneyFormatter, num, percentFormatter } from './calcUi';
 import { COUNTRY_RATES, calculateProfit, type Country, type OffsiteAds } from '@/lib/etsyProfit';
 
 /**
  * Інтерактивна частина сторінки калькулятора: поля зліва, липка картка
  * з результатом справа. Усе рахується в браузері, нічого не надсилається.
  */
-
-const NUMBER_LOCALE = { uk: 'uk-UA', en: 'en-US', sk: 'sk-SK' } as const;
 
 type Fields = {
   price: string;
@@ -38,147 +37,6 @@ function defaultsFor(country: Country): Fields {
     withdrawalRate: '0',
     monthlySales: '30',
   };
-}
-
-const num = (v: string) => {
-  const n = Number(v.replace(',', '.'));
-  return Number.isFinite(n) && n > 0 ? n : 0;
-};
-
-function Field({
-  label,
-  hint,
-  value,
-  onChange,
-  prefix,
-  suffix,
-  step = '0.01',
-}: {
-  label: string;
-  hint?: string;
-  value: string;
-  onChange: (v: string) => void;
-  prefix?: string;
-  suffix?: string;
-  step?: string;
-}) {
-  return (
-    <label className="flex flex-col gap-2">
-      <span className="text-sm font-semibold text-[#222222]">{label}</span>
-      <span className="relative block">
-        {prefix ? (
-          <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-base text-[#8A8A8A]">
-            {prefix}
-          </span>
-        ) : null}
-        <input
-          type="number"
-          inputMode="decimal"
-          min="0"
-          step={step}
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          className={`h-14 w-full border-[1.5px] border-[#DCDCDC] bg-white text-base text-[#222222] outline-none transition-colors focus:border-[#222222] ${
-            prefix ? 'pl-9' : 'pl-4'
-          } ${suffix ? 'pr-10' : 'pr-4'}`}
-        />
-        {suffix ? (
-          <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-base text-[#8A8A8A]">
-            {suffix}
-          </span>
-        ) : null}
-      </span>
-      {hint ? <span className="text-[0.8125rem] leading-[1.4] text-[#8A8A8A]">{hint}</span> : null}
-    </label>
-  );
-}
-
-function Chips<T extends string>({
-  options,
-  value,
-  onChange,
-  label,
-}: {
-  options: [T, string][];
-  value: T;
-  onChange: (v: T) => void;
-  label: string;
-}) {
-  return (
-    <div role="radiogroup" aria-label={label} className="flex flex-wrap gap-2">
-      {options.map(([key, text]) => (
-        <button
-          key={key}
-          type="button"
-          role="radio"
-          aria-checked={value === key}
-          onClick={() => onChange(key)}
-          className={`h-11 border-[1.5px] px-4 text-sm font-semibold transition-colors ${
-            value === key
-              ? 'border-brand-orange bg-brand-orange text-white'
-              : 'border-[#DCDCDC] bg-white text-[#222222] hover:border-brand-orange'
-          }`}
-        >
-          {text}
-        </button>
-      ))}
-    </div>
-  );
-}
-
-function Switch({
-  label,
-  hint,
-  checked,
-  onChange,
-}: {
-  label: string;
-  hint: string;
-  checked: boolean;
-  onChange: (v: boolean) => void;
-}) {
-  return (
-    <button
-      type="button"
-      role="switch"
-      aria-checked={checked}
-      onClick={() => onChange(!checked)}
-      className={`flex w-full items-start gap-3.5 border-[1.5px] bg-white p-4 text-left transition-colors ${
-        checked ? 'border-brand-orange' : 'border-[#DCDCDC] hover:border-[#8A8A8A]'
-      }`}
-    >
-      <span
-        className={`relative mt-0.5 h-6 w-10 flex-none rounded-full transition-colors ${
-          checked ? 'bg-brand-orange' : 'bg-[#DADADA]'
-        }`}
-        aria-hidden
-      >
-        <span
-          className={`absolute top-0.5 h-5 w-5 rounded-full bg-white transition-transform ${
-            checked ? 'translate-x-[1.125rem]' : 'translate-x-0.5'
-          }`}
-        />
-      </span>
-      <span className="flex flex-col gap-1">
-        <span className="text-[0.9375rem] font-semibold text-[#222222]">{label}</span>
-        <span className="text-[0.8125rem] leading-[1.4] text-[#8A8A8A]">{hint}</span>
-      </span>
-    </button>
-  );
-}
-
-function Block({ index, title, children }: { index: number; title: string; children: React.ReactNode }) {
-  return (
-    <fieldset className="rounded-[0.25rem] bg-white p-5 md:p-8">
-      <legend className="float-left flex w-full items-center gap-3.5">
-        <span className="text-sm font-bold tracking-[0.06em] text-brand-orange">
-          {String(index).padStart(2, '0')}
-        </span>
-        <span className="text-lg font-semibold text-[#222222] md:text-[1.375rem]">{title}</span>
-      </legend>
-      <div className="clear-both pt-5 md:pt-6">{children}</div>
-    </fieldset>
-  );
 }
 
 export default function EtsyProfitCalculator() {
@@ -221,15 +79,8 @@ export default function EtsyProfitCalculator() {
     [country, fields, offsiteAds, vatOnFees, conversion],
   );
 
-  const money = (v: number, digits = 2) =>
-    new Intl.NumberFormat(NUMBER_LOCALE[locale], {
-      style: 'currency',
-      currency: rates.currency,
-      minimumFractionDigits: digits,
-      maximumFractionDigits: digits,
-    }).format(v);
-  const pct = (v: number) =>
-    new Intl.NumberFormat(NUMBER_LOCALE[locale], { maximumFractionDigits: 1 }).format(v);
+  const money = moneyFormatter(locale, rates.currency);
+  const pct = percentFormatter(locale);
   const symbol = rates.currency === 'EUR' ? '€' : '$';
 
   const loss = r.profit < 0;
@@ -264,33 +115,19 @@ export default function EtsyProfitCalculator() {
   return (
     <div className="grid grid-cols-1 items-start gap-4 lg:grid-cols-[minmax(0,1fr)_26rem] lg:gap-[0.9375rem]">
       <form className="flex flex-col gap-2.5 md:gap-[0.9375rem]" onSubmit={(e) => e.preventDefault()}>
-        <div className="rounded-[0.25rem] bg-white p-5 md:p-8">
-          <div className="text-lg font-semibold text-[#222222] md:text-[1.375rem]">{c.form.country}</div>
-          <p className="mt-2 text-[0.8125rem] leading-[1.4] text-[#8A8A8A]">{c.form.countryHint}</p>
-          <p className="mt-4 border-l-2 border-brand-orange bg-[#FFF1EB] px-4 py-3 text-sm font-semibold leading-[1.45] text-[#222222]">
-            {fill(rates.vatRate > 0 ? c.form.countrySummary : c.form.countryNoVat, {
-              fee: c.processingFee,
-              currency: rates.currency,
-              vat: String(rates.vatRate),
-            })}
-          </p>
-          {/* Інша країна — інша мовна версія з її ставками */}
-          <p className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm text-[#555555]">
-            <span>{c.form.otherCountries}</span>
-            {locales
-              .filter((l) => l !== locale)
-              .map((l) => (
-                <a
-                  key={l}
-                  href={localePath(l, PROFIT_CALC_PATHS[l])}
-                  hrefLang={l}
-                  className="font-semibold text-brand-orange transition-opacity hover:opacity-80"
-                >
-                  {c.countries[PROFIT_CALC_COPY[l].defaultCountry]} · {localeNames[l].code} →
-                </a>
-              ))}
-          </p>
-        </div>
+        <RatesNote
+          locale={locale}
+          title={c.form.country}
+          hint={c.form.countryHint}
+          summary={fill(rates.vatRate > 0 ? c.form.countrySummary : c.form.countryNoVat, {
+            fee: c.processingFee,
+            currency: rates.currency,
+            vat: String(rates.vatRate),
+          })}
+          otherLabel={c.form.otherCountries}
+          paths={PROFIT_CALC_PATHS}
+          countryName={(l) => c.countries[PROFIT_CALC_COPY[l].defaultCountry]}
+        />
 
         <Block index={1} title={c.form.order}>
           <div className="grid gap-5 sm:grid-cols-2">
@@ -462,12 +299,12 @@ export default function EtsyProfitCalculator() {
             {c.result.cta} <span aria-hidden>→</span>
           </a>
           <a
-            href={c.messenger.kind === 'whatsapp' ? contacts.whatsapp : contacts.telegramManager}
+            href={MESSENGER[locale].kind === 'whatsapp' ? contacts.whatsapp : contacts.telegramManager}
             target="_blank"
             rel="noreferrer"
             className="mt-3 flex h-12 w-full items-center justify-center gap-2 border-[1.5px] border-[#3A3A3A] text-sm font-bold uppercase tracking-[0.02em] text-white transition-colors hover:border-white"
           >
-            {c.messenger.label}
+            {MESSENGER[locale].label}
           </a>
         </div>
 

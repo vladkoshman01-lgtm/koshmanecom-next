@@ -77,37 +77,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.6,
     },
-    // Калькулятор прибутку: slug свій для кожної мови
-    ...locales.map((locale) => ({
-      url: `${siteUrl}${localePath(locale, localizedSlugs["/kalkulyator-prybutku-etsy"][locale])}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    })),
-    {
-      url: `${siteUrl}/kalkulyator-tsinoutvorennya-etsy`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
-    {
-      url: `${siteUrl}/etsy-pricing-calculator`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    },
-    {
-      url: `${siteUrl}/porivnyannya-platform-etsy-amazon-shopify`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
-    {
-      url: `${siteUrl}/etsy-vs-amazon-vs-shopify`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    },
+    // Інструменти з перекладеним slug: кожна мова — своя адреса
+    ...Object.values(localizedSlugs).flatMap((paths) =>
+      locales.map((locale) => ({
+        url: `${siteUrl}${localePath(locale, paths[locale])}`,
+        lastModified: now,
+        changeFrequency: "monthly" as const,
+        priority: 0.8,
+      })),
+    ),
   ];
   // Статті всіма мовами: у кожного перекладу свій slug
   const blogPages: MetadataRoute.Sitemap = locales.flatMap((locale) =>

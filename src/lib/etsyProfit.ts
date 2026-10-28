@@ -123,3 +123,58 @@ export function calculateProfit(input: ProfitInput): ProfitResult {
 
   return { ...result, breakEvenPrice: hi };
 }
+
+/* --- Ціноутворення ------------------------------------------------------ */
+
+export type PriceTarget = { kind: 'margin'; percent: number } | { kind: 'profit'; amount: number };
+
+export type PriceResult = {
+  /** Нижче — збиток. */
+  breakEvenPrice: number;
+  /** Найменша ціна, що дає цільову маржу чи прибуток; Infinity — ціль недосяжна. */
+  targetPrice: number;
+  /** Цільова ціна, округлена до «гарної» (.99) — завжди не нижча за цільову. */
+  recommendedPrice: number;
+  /** Повний розрахунок за рекомендованою ціною. */
+  atRecommended: ProfitResult;
+};
+
+/** Округлення до ціни, яку звично бачити покупцю: 41.99, 104.99. */
+export function charmPrice(price: number): number {
+  if (!Number.isFinite(price) || price <= 0) return 0;
+  const step = price < 100 ? 1 : 5;
+  let charm = Math.ceil(price / step) * step - 0.01;
+  if (charm < price) charm += step;
+  return Math.round(charm * 100) / 100;
+}
+
+export function solvePrice(input: Omit<ProfitInput, 'price'>, target: PriceTarget): PriceResult {
+  const at = (price: number) => compute({ ...input, price });
+  const gap = (price: number) => {
+    const r = at(price);
+    return target.kind === 'margin' ? r.profit - (r.orderTotal * target.percent) / 100 : r.profit - target.amount;
+  };
+
+  // Комісії й податки — відсоток від ціни, тож надто висока маржа недосяжна ні за якої ціни
+  const LIMIT = 1e7;
+  let targetPrice = Infinity;
+  if (gap(LIMIT) >= 0) {
+    let lo = 0;
+    let hi = LIMIT;
+    for (let i = 0; i < 80; i++) {
+      const mid = (lo + hi) / 2;
+      if (gap(mid) < 0) lo = mid;
+      else hi = mid;
+    }
+    targetPrice = hi;
+  }
+
+  const recommendedPrice = charmPrice(targetPrice);
+  const { breakEvenPrice } = calculateProfit({ ...input, price: 0 });
+  return {
+    breakEvenPrice,
+    targetPrice,
+    recommendedPrice,
+    atRecommended: calculateProfit({ ...input, price: Number.isFinite(recommendedPrice) ? recommendedPrice : 0 }),
+  };
+}

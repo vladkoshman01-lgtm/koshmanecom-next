@@ -56,10 +56,20 @@ export const localizedSlugs: Record<string, Record<Locale, string>> = {
     en: '/etsy-profit-calculator',
     sk: '/kalkulacka-zisku-etsy',
   },
+  '/kalkulyator-tsinoutvorennya-etsy': {
+    uk: '/kalkulyator-tsinoutvorennya-etsy',
+    en: '/etsy-pricing-calculator',
+    sk: '/kalkulacka-ceny-etsy',
+  },
+  '/porivnyannya-platform-etsy-amazon-shopify': {
+    uk: '/porivnyannya-platform-etsy-amazon-shopify',
+    en: '/etsy-vs-amazon-vs-shopify',
+    sk: '/porovnanie-etsy-amazon-shopify',
+  },
 };
 
 /**
- * Сторінки, що мають версії іншими мовами. Решта калькуляторів і дашборди поки
+ * Сторінки, що мають версії іншими мовами. Дашборд і ресайзер поки
  * лише українські — посилання на них не префіксуємо, інакше буде 404.
  */
 const TRANSLATED = /^\/(?:services|about|contacts|tools|terms|privacy|thanks|blog(?:\/[a-z0-9-]+)?|career(?:\/[a-z0-9-]+)?)?\/?$/;

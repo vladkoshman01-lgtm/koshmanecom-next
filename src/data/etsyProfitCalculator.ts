@@ -1,5 +1,6 @@
 import { localizedSlugs, type Locale } from '@/lib/i18n';
 import type { Country } from '@/lib/etsyProfit';
+import type { ToolPageCopy } from './toolPage';
 
 /**
  * Тексти сторінки «Калькулятор прибутку Etsy» трьома мовами.
@@ -8,14 +9,7 @@ import type { Country } from '@/lib/etsyProfit';
 
 export const PROFIT_CALC_PATHS = localizedSlugs['/kalkulyator-prybutku-etsy'];
 
-/** Коли ставки востаннє звіряли з довідкою Etsy. */
-export const RATES_CHECKED = '2026-10-28';
-
-export type ProfitCalcCopy = {
-  meta: { title: string; description: string; ogTitle: string; ogSubtitle: string };
-  crumbs: { home: string; tools: string; page: string };
-  hero: { eyebrow: string; title: string; subtitle: string; checked: string };
-  chips: [string, string][];
+export type ProfitCalcCopy = ToolPageCopy & {
   defaultCountry: Country;
   /** Комісія за обробку платежу у форматі мови сторінки */
   processingFee: string;
@@ -82,25 +76,6 @@ export type ProfitCalcCopy = {
     net: string;
     cta: string;
   };
-  guide: {
-    eyebrow: string;
-    title: string;
-    intro: string;
-    table: { head: [string, string, string]; rows: [string, string, string][] };
-    formulaTitle: string;
-    formula: string;
-    exampleTitle: string;
-    example: string[];
-    tipsTitle: string;
-    tips: string[];
-  };
-  faq: { eyebrow: string; title: string; text: string; cta: string; items: [string, string][] };
-  /** Кнопки: перша на першому екрані й помаранчева смуга після гайду */
-  cta: { calculate: string; bandTitle: string; bandText: string };
-  /** Месенджер у кнопках: в Україні пишуть у Telegram, за кордоном — у WhatsApp */
-  messenger: { kind: 'telegram' | 'whatsapp'; label: string };
-  lead: { title: string; subtitle: string };
-  app: { name: string; features: string[] };
 };
 
 const uk: ProfitCalcCopy = {
@@ -262,7 +237,6 @@ const uk: ProfitCalcCopy = {
     bandTitle: 'Хочете, щоб магазин на Etsy заробляв більше?',
     bandText: 'Запускаємо магазини під ключ, переписуємо лістинги під пошук Etsy і налаштовуємо рекламу так, щоб вона окупалась. Покажемо, як підняти маржу саме у вашій ніші.',
   },
-  messenger: { kind: 'telegram', label: 'Написати в Telegram' },
   lead: {
     title: 'Хочете більше прибутку з Etsy?',
     subtitle: 'Розберемо ціни, комісії та рекламу вашого магазину і покажемо, де ви втрачаєте гроші. Перша консультація безкоштовна.',
@@ -437,7 +411,6 @@ const en: ProfitCalcCopy = {
     bandTitle: 'Want your Etsy shop to earn more?',
     bandText: 'We launch shops end to end, rewrite listings for Etsy search and set up ads that pay for themselves. We will show you how to raise the margin in your niche.',
   },
-  messenger: { kind: 'whatsapp', label: 'Message us on WhatsApp' },
   lead: {
     title: 'Want more profit from Etsy?',
     subtitle: 'We will review your pricing, fees and ads and show you where the money leaks. The first consultation is free.',
@@ -613,7 +586,6 @@ const sk: ProfitCalcCopy = {
     bandTitle: 'Chcete, aby váš obchod na Etsy zarábal viac?',
     bandText: 'Spúšťame obchody na kľúč, prepisujeme listingy pre vyhľadávanie Etsy a nastavujeme reklamu, ktorá sa zaplatí. Ukážeme, ako zvýšiť maržu práve vo vašej nike.',
   },
-  messenger: { kind: 'whatsapp', label: 'Napíšte nám na WhatsApp' },
   lead: {
     title: 'Chcete z Etsy viac zisku?',
     subtitle: 'Rozoberieme ceny, poplatky a reklamu vášho obchodu a ukážeme, kde strácate peniaze. Prvá konzultácia je zadarmo.',
