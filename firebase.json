@@ -72,6 +72,13 @@
             }
           ]
         }
+      ],
+      "redirects": [
+        {
+          "source": "/etsy-profit-calculator",
+          "destination": "/en/etsy-profit-calculator",
+          "type": 301
+        }
       ]
     },
     {
@@ -142,6 +149,13 @@
               "value": "noindex, nofollow"
             }
           ]
+        }
+      ],
+      "redirects": [
+        {
+          "source": "/etsy-profit-calculator",
+          "destination": "/en/etsy-profit-calculator",
+          "type": 301
         }
       ]
     }

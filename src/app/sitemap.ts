@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 import { getArticles } from "@/lib/blog";
-import { intlLocales, localePath, locales } from "@/lib/i18n";
+import { intlLocales, localePath, localizedSlugs, locales } from "@/lib/i18n";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -77,18 +77,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.6,
     },
-    {
-      url: `${siteUrl}/kalkulyator-prybutku-etsy`,
+    // Калькулятор прибутку: slug свій для кожної мови
+    ...locales.map((locale) => ({
+      url: `${siteUrl}${localePath(locale, localizedSlugs["/kalkulyator-prybutku-etsy"][locale])}`,
       lastModified: now,
       changeFrequency: "monthly" as const,
-      priority: 0.6,
-    },
-    {
-      url: `${siteUrl}/etsy-profit-calculator`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.5,
-    },
+      priority: 0.8,
+    })),
     {
       url: `${siteUrl}/kalkulyator-tsinoutvorennya-etsy`,
       lastModified: now,

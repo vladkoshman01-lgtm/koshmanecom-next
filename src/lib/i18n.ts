@@ -47,7 +47,19 @@ export function pathWithoutLocale(pathname: string): string {
 }
 
 /**
- * Сторінки, що мають версії іншими мовами. Калькулятори й дашборди поки
+ * Сторінки з перекладеним slug: адреса в кожній мові своя.
+ * Ключ — українська адреса, як вона записана в посиланнях.
+ */
+export const localizedSlugs: Record<string, Record<Locale, string>> = {
+  '/kalkulyator-prybutku-etsy': {
+    uk: '/kalkulyator-prybutku-etsy',
+    en: '/etsy-profit-calculator',
+    sk: '/kalkulacka-zisku-etsy',
+  },
+};
+
+/**
+ * Сторінки, що мають версії іншими мовами. Решта калькуляторів і дашборди поки
  * лише українські — посилання на них не префіксуємо, інакше буде 404.
  */
 const TRANSLATED = /^\/(?:services|about|contacts|tools|terms|privacy|thanks|blog(?:\/[a-z0-9-]+)?|career(?:\/[a-z0-9-]+)?)?\/?$/;

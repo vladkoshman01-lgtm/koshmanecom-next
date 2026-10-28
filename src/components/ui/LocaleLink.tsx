@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useLocale } from '@/i18n/LocaleProvider';
-import { hasTranslation, localePath } from '@/lib/i18n';
+import { hasTranslation, localePath, localizedSlugs } from '@/lib/i18n';
 
 /**
  * Посилання, що тримається поточної мови: '/services' на англійській
@@ -17,8 +17,13 @@ export default function LocaleLink({
   const locale = useLocale();
   const raw = typeof href === 'string' ? href : '';
   // Префіксуємо лише внутрішні сторінки, які мають переклад
+  const slugs = localizedSlugs[raw];
   const shouldPrefix = raw.startsWith('/') && hasTranslation(raw);
-  const target = shouldPrefix ? localePath(locale, raw) : href;
+  const target = slugs
+    ? localePath(locale, slugs[locale])
+    : shouldPrefix
+      ? localePath(locale, raw)
+      : href;
 
   return (
     <Link href={target} {...rest}>

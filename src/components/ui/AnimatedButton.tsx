@@ -17,17 +17,18 @@ type Props = {
   href?: string;
   onClick?: () => void;
   variant?: 'primary' | 'outline' | 'light' | 'dark';
-  /** 'arrow' — стрілка (за замовчуванням), 'telegram' — паперовий літачок. */
-  icon?: 'arrow' | 'telegram';
+  /** 'arrow' — стрілка (за замовчуванням), 'telegram' — паперовий літачок, 'whatsapp' — хмарка чату. */
+  icon?: 'arrow' | 'telegram' | 'whatsapp';
   /** 'submit' — для кнопки у формі. */
   type?: 'button' | 'submit';
   disabled?: boolean;
   className?: string;
 };
 
-const ICON_PATHS: Record<'arrow' | 'telegram', string> = {
+const ICON_PATHS: Record<'arrow' | 'telegram' | 'whatsapp', string> = {
   arrow: 'M5 12h14M13 6l6 6-6 6',
   telegram: 'M21 3L3 10.5l7 3 3 7.5L21 3zM10 13.5L21 3',
+  whatsapp: 'M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5z',
 };
 
 const STYLES = {
