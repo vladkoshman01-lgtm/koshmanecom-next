@@ -13,6 +13,8 @@ import {
   TASK_CHIPS,
 } from '@/data/services';
 import { SERVICE_ICONS, SERVICE_LOGOS } from '@/data/service-icons';
+import { SERVICE_PAGE_BY_ITEM } from '@/data/servicePages';
+import Link from '@/components/ui/LocaleLink';
 import { useServiceLead } from '@/components/ServiceLeadProvider';
 import { useLocale, useT, useTr } from '@/i18n/LocaleProvider';
 import { serviceCount } from '@/i18n/plural';
@@ -29,8 +31,31 @@ const CATEGORY_LOGOS: Record<string, string | undefined> = {
  * і сітка карток праворуч. Поки категорію не обрано, показуємо картки
  * категорій; після вибору — конкретні послуги цієї категорії.
  *
- * Сторінок окремих послуг поки немає, тож картки послуг не є посиланнями.
+ * Послуга з власною сторінкою (мапа `SERVICE_PAGE_BY_ITEM`) — посилання на неї,
+ * решта карток відкриває попап заявки, як у каталозі /services.
  */
+function ServiceItem({
+  href,
+  onClick,
+  className,
+  children,
+}: {
+  href?: string;
+  onClick: () => void;
+  className: string;
+  children: React.ReactNode;
+}) {
+  return href ? (
+    <Link href={href} className={className}>
+      {children}
+    </Link>
+  ) : (
+    <button type="button" onClick={onClick} className={className}>
+      {children}
+    </button>
+  );
+}
+
 export default function Services() {
   const { openLead } = useServiceLead();
   const t = useT();
@@ -205,12 +230,15 @@ export default function Services() {
                 const colors = PLATFORM_COLORS[slug];
                 const gradient = colors ? platformGradient(colors) : category.gradient;
                 const backgroundSize = colors ? '135% 100%' : category.backgroundSize;
+                const pageSlug = SERVICE_PAGE_BY_ITEM[slug];
+                const href = pageSlug ? `/services/${pageSlug}` : undefined;
+                const open = () => openLead(title, category.name);
                 return (
                   <React.Fragment key={title}>
                   {/* Телефон: горизонтальний рядок із кольоровою смужкою зліва */}
-                  <button
-                    type="button"
-                    onClick={() => openLead(title, category.name)}
+                  <ServiceItem
+                    href={href}
+                    onClick={open}
                     className="flex min-h-24 overflow-hidden rounded-[0.1875rem] bg-[#232323] text-left text-white md:hidden"
                   >
                     <div
@@ -233,11 +261,11 @@ export default function Services() {
                     <span className="flex-none self-center px-3.5 text-sm" aria-hidden>
                       →
                     </span>
-                  </button>
+                  </ServiceItem>
 
-                  <button
-                    type="button"
-                    onClick={() => openLead(title, category.name)}
+                  <ServiceItem
+                    href={href}
+                    onClick={open}
                     className="card-service flow-parent hidden h-[15.75rem] flex-col overflow-hidden rounded-[0.1875rem] bg-[#232323] text-left text-white transition-transform duration-200 md:flex md:hover:-translate-y-[0.1875rem]"
                   >
                     <div
@@ -285,7 +313,7 @@ export default function Services() {
                         →
                       </span>
                     </div>
-                  </button>
+                  </ServiceItem>
                   </React.Fragment>
                 );
               })}
