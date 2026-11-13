@@ -201,6 +201,14 @@ const en: Record<string, string> = {
     'A B2B sales platform built on Shopify. An approach that saves over $20,000 a year.',
   'Висококонверсійні лендінги для перевірки попиту на продукт':
     'High-converting landing pages to validate product demand',
+  'Pinterest Ads для B2B-бренду весільних суконь у Франції': 'Pinterest Ads for a B2B wedding dress brand in France',
+  '17 000': '17,000',
+  'переходів на сайт щомісяця': 'website visits per month',
+  Франція: 'France',
+  'Pinterest Ads для інтернет-магазину декору в Німеччині та Польщі': 'Pinterest Ads for a home decor online store in Germany and Poland',
+  '4,1x': '4.1x',
+  'ROAS, 1 050 замовлень за 6 місяців': 'ROAS, 1,050 orders in 6 months',
+  'Декор для дому': 'Home decor',
   'Запуск реклами Pinterest Ads': 'Pinterest Ads launch',
   'Інтернет-магазин для продажу власних і партнерських продуктів':
     'An online store selling own and partner products',

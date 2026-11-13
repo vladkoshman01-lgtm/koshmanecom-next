@@ -9,12 +9,16 @@ export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://koshmanecom.
  * `path` — шлях без префікса мови ('/services'). Українська лишається
  * в корені, тож вона ж і x-default.
  */
-export function alternatesFor(locale: Locale, path: string): Metadata['alternates'] {
+export function alternatesFor(
+  locale: Locale,
+  path: string,
+  only: readonly Locale[] = activeLocales,
+): Metadata['alternates'] {
   const languages: Record<string, string> = {};
-  for (const l of activeLocales) {
+  for (const l of activeLocales.filter((x) => only.includes(x))) {
     languages[l] = `${siteUrl}${localePath(l, path)}`;
   }
-  languages['x-default'] = `${siteUrl}${localePath('uk', path)}`;
+  if (only.includes('uk')) languages['x-default'] = `${siteUrl}${localePath('uk', path)}`;
 
   return {
     canonical: `${siteUrl}${localePath(locale, path)}`,
@@ -35,6 +39,8 @@ export function buildMetadata({
   description,
   noindex = false,
   type = 'website',
+  translated = true,
+  locales: only,
 }: {
   locale: Locale;
   path: string;
@@ -42,20 +48,29 @@ export function buildMetadata({
   description: string;
   noindex?: boolean;
   type?: 'website' | 'article';
+  /** false — сторінка є лише цією мовою: тільки canonical, без hreflang на неіснуючі версії. */
+  translated?: boolean;
+  /** Мови, якими сторінка існує, — hreflang лише на них. Без поля — усі активні. */
+  locales?: readonly Locale[];
 }): Metadata {
   const url = `${siteUrl}${localePath(locale, path)}`;
+  const langs = only ?? activeLocales;
+  // Одна мова — то й перекладу немає: лише canonical
+  if (only && only.length < 2) translated = false;
   return {
     // absolute — щоб шаблон з layout не дописував нічого зайвого
     title: { absolute: title },
     description,
-    alternates: alternatesFor(locale, path),
+    alternates: translated ? alternatesFor(locale, path, langs) : { canonical: url },
     openGraph: {
       title,
       description,
       url,
       siteName: 'Koshman Ecom',
       locale: OG_LOCALE[locale],
-      alternateLocale: activeLocales.filter((l) => l !== locale).map((l) => OG_LOCALE[l]),
+      ...(translated
+        ? { alternateLocale: langs.filter((l) => l !== locale).map((l) => OG_LOCALE[l]) }
+        : {}),
       type,
     },
     twitter: { card: 'summary_large_image', title, description },

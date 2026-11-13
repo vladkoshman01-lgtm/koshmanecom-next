@@ -123,7 +123,7 @@ const uk = {
     },
     cases: {
       eyebrow: 'Кейси',
-      title: 'Результати, які отримують наші клієнтам',
+      title: 'Результати, які отримують наші клієнти',
     },
     reviews: {
       eyebrow: 'Відгуки',
@@ -318,6 +318,38 @@ const uk = {
     homeSubtitle: 'Shopify та сайти, Etsy й Amazon, SEO та AI-пошук, реклама і брендинг',
     documents: 'Документи',
   },
+  casePage: {
+    breadcrumbs: 'Хлібні крихти',
+    tldr: 'Коротко',
+    discuss: 'Обговорити проєкт',
+    toResults: 'До результатів',
+    wantResult: 'Хочу такий результат',
+    creatives: 'Приклади креативів',
+    faq: 'FAQ',
+    related: 'Схожі кейси',
+    allCases: 'Усі кейси',
+    eyebrow: 'Кейс',
+  },
+
+  servicePage: {
+    breadcrumbs: 'Хлібні крихти',
+    tldr: 'Коротко',
+    updated: 'Оновлено {date}',
+    forWhom: 'Для кого',
+    included: 'Що входить',
+    process: 'Як ми працюємо',
+    compare: 'Порівняння',
+    price: 'Вартість',
+    priceCta: 'Розрахувати вартість',
+    priceLink: 'Вартість',
+    expert: 'Експерт послуги',
+    expertCta: 'Обговорити задачу',
+    faq: 'Питання',
+    related: 'Також допоможемо',
+    stack: 'Що підключаємо',
+    allServices: 'Усі послуги',
+  },
+
   pages: {
     career: {
       subtitle: 'Відкриті вакансії Koshman Ecom: маркетплейси, реклама, розробка сайтів і AI-автоматизація.',

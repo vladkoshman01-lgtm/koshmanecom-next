@@ -1,4 +1,5 @@
 import { careerRoles } from '@/lib/careers';
+import { getServicePage } from '@/data/servicePages';
 import { getContent } from '@/i18n/content';
 import { getDictionary } from '@/i18n/getDictionary';
 import type { Locale } from '@/lib/i18n';
@@ -11,6 +12,7 @@ export type OgKey =
   | 'contacts'
   | 'career'
   | 'vacancy'
+  | 'service'
   | 'tools'
   | 'terms'
   | 'privacy';
@@ -53,6 +55,14 @@ export function ogContent(locale: Locale, key: OgKey, slug?: string) {
         eyebrow: t.nav.career,
         title: role?.title ?? t.nav.career,
         subtitle: role ? tr(role.shortDescription) : undefined,
+      };
+    }
+    case 'service': {
+      const page = slug ? getServicePage(locale, slug) : undefined;
+      return {
+        eyebrow: page?.category ?? t.nav.services,
+        title: page?.short ?? t.pages.services.title,
+        subtitle: page?.leadText,
       };
     }
     case 'tools':

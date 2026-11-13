@@ -72,9 +72,23 @@ export const localizedSlugs: Record<string, Record<Locale, string>> = {
  * Сторінки, що мають версії іншими мовами. Дашборд і ресайзер поки
  * лише українські — посилання на них не префіксуємо, інакше буде 404.
  */
-const TRANSLATED = /^\/(?:services|about|contacts|tools|terms|privacy|thanks|blog(?:\/[a-z0-9-]+)?|career(?:\/[a-z0-9-]+)?)?\/?$/;
+const TRANSLATED = /^\/(?:services(?:\/[a-z0-9-]+)?|cases\/[a-z0-9-]+|about|contacts|tools|terms|privacy|thanks|blog(?:\/[a-z0-9-]+)?|career(?:\/[a-z0-9-]+)?)?\/?$/;
 
-export function hasTranslation(path: string): boolean {
+/**
+ * Адреси, перекладені не всіма мовами: шлях → мови з префіксом, де сторінка є.
+ * Українська є завжди. Для решти мов посилання не префіксуємо — інакше 404.
+ *
+ * Список тримається вручну й має збігатися з даними сторінок послуг:
+ * перевірку робить `src/data/servicePages/index.ts`.
+ */
+// Зараз порожньо: Google Ads перекладена всіма мовами. Формат запису:
+// '/services/<slug>': ['en'] — сторінка є українською й англійською.
+export const PARTIAL_TRANSLATIONS: Readonly<Record<string, readonly Locale[]>> = {};
+
+/** Чи є в сторінки версія мовою `locale` (без мови — чи перекладена вона взагалі). */
+export function hasTranslation(path: string, locale?: Locale): boolean {
   const clean = path.split('#')[0].split('?')[0] || '/';
+  const partial = PARTIAL_TRANSLATIONS[clean];
+  if (partial) return locale ? locale === 'uk' || partial.includes(locale) : false;
   return TRANSLATED.test(clean);
 }

@@ -181,14 +181,15 @@ export default function LeadForm({
               </div>
             </div>
 
-            <label className={`flex flex-col gap-2 text-sm font-semibold ${textColor}`}>
+            {/* Коментар забирає вільну висоту форми на десктопі — без порожнечі над кнопкою */}
+            <label className={`flex flex-col gap-2 text-sm font-semibold md:flex-1 ${textColor}`}>
               {t.lead.comment}
               <textarea
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
-                rows={3}
+                rows={4}
                 placeholder={t.lead.commentPlaceholder}
-                className={`border-[1.5px] p-4 text-base font-normal outline-none transition-colors ${fieldClass}`}
+                className={`min-h-[8rem] border-[1.5px] p-4 text-base font-normal outline-none transition-colors md:flex-1 ${fieldClass}`}
               />
             </label>
 

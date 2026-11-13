@@ -18,7 +18,7 @@ export default function LocaleLink({
   const raw = typeof href === 'string' ? href : '';
   // Префіксуємо лише внутрішні сторінки, які мають переклад
   const slugs = localizedSlugs[raw];
-  const shouldPrefix = raw.startsWith('/') && hasTranslation(raw);
+  const shouldPrefix = raw.startsWith('/') && hasTranslation(raw, locale);
   const target = slugs
     ? localePath(locale, slugs[locale])
     : shouldPrefix

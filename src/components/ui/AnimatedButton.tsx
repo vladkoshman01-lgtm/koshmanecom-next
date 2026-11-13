@@ -106,7 +106,7 @@ export default function AnimatedButton({
         </svg>
       </span>
       <span
-        className="whitespace-nowrap text-center text-[0.875rem] font-bold uppercase leading-[1.25] tracking-[0.02em] md:text-[0.9375rem] transition-colors delay-100 duration-[350ms] md:text-left md:whitespace-nowrap md:text-[length:inherit]"
+        className="text-center text-[0.875rem] font-bold uppercase leading-[1.25] tracking-[0.02em] md:text-[0.9375rem] transition-colors delay-100 duration-[350ms] md:text-left md:whitespace-nowrap md:text-[length:inherit]"
         style={{ color: hovered ? s.textHover : s.textIdle }}
       >
         {children}

@@ -15,7 +15,7 @@ export const ogContentType = 'image/png';
 
 const fontDir = join(process.cwd(), 'src/og/fonts');
 
-async function loadFonts() {
+export async function loadFonts() {
   const [medium, bold, extraBold] = await Promise.all([
     readFile(join(fontDir, 'Onest-500.ttf')),
     readFile(join(fontDir, 'Onest-700.ttf')),

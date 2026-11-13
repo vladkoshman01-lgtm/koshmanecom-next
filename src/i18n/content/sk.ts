@@ -201,6 +201,14 @@ const sk: Record<string, string> = {
     'B2B predajná platforma na Shopify. Riešenie, ktoré ušetrí viac než 20 000 $ ročne.',
   'Висококонверсійні лендінги для перевірки попиту на продукт':
     'Landing pages s vysokou konverziou na overenie dopytu po produkte',
+  'Pinterest Ads для B2B-бренду весільних суконь у Франції': 'Pinterest Ads pre B2B značku svadobných šiat vo Francúzsku',
+  '17 000': '17 000',
+  'переходів на сайт щомісяця': 'návštev webu mesačne',
+  Франція: 'Francúzsko',
+  'Pinterest Ads для інтернет-магазину декору в Німеччині та Польщі': 'Pinterest Ads pre e-shop s dekoráciami v Nemecku a Poľsku',
+  '4,1x': '4,1x',
+  'ROAS, 1 050 замовлень за 6 місяців': 'ROAS, 1 050 objednávok za 6 mesiacov',
+  'Декор для дому': 'Bytové doplnky',
   'Запуск реклами Pinterest Ads': 'Spustenie reklamy Pinterest Ads',
   'Інтернет-магазин для продажу власних і партнерських продуктів':
     'E-shop na predaj vlastných aj partnerských produktov',

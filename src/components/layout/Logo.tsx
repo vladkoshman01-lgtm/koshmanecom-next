@@ -1,7 +1,11 @@
 import React from 'react';
 import Link from '@/components/ui/LocaleLink';
 
-/** Текстовий логотип «KOSHMAN / ECOM» у два рядки, як у макеті. */
+/**
+ * Логотип «KOSHMAN / ECOM» — білий PNG із прозорим фоном (545×190).
+ * Звичайний <img>, бо next/image на статичному експорті дає 404.
+ * Висота підібрана під два рядки колишнього текстового логотипа.
+ */
 export default function Logo({
   className = '',
   size = 'desktop',
@@ -9,15 +13,18 @@ export default function Logo({
   className?: string;
   size?: 'desktop' | 'mobile';
 }) {
-  const fs = size === 'desktop' ? 'text-[1.125rem]' : 'text-[0.9375rem]';
+  const h = size === 'desktop' ? 'h-[2.375rem]' : 'h-[1.875rem]';
   return (
-    <Link
-      href="/"
-      aria-label="Koshman Ecom — на головну"
-      className={`flex flex-col font-extrabold uppercase leading-[1.05] tracking-[0.02em] text-white ${fs} ${className}`}
-    >
-      <span>Koshman</span>
-      <span>Ecom</span>
+    <Link href="/" aria-label="Koshman Ecom — на головну" className={`flex items-center ${className}`}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/logo-koshman-ecom.png"
+        alt="Koshman Ecom"
+        width={545}
+        height={190}
+        className={`block w-auto ${h}`}
+        fetchPriority="high"
+      />
     </Link>
   );
 }

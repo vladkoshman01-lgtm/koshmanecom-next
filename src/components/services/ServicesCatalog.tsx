@@ -9,6 +9,8 @@ import {
   ICONS,
   SERVICES,
 } from '@/data/services';
+import { SERVICE_PAGE_BY_ITEM } from '@/data/servicePages';
+import Link from '@/components/ui/LocaleLink';
 import { useServiceLead } from '@/components/ServiceLeadProvider';
 import { scrollToLead } from '@/lib/leadAnchor';
 import { useRouter } from 'next/navigation';
@@ -218,13 +220,12 @@ export default function ServicesCatalog() {
             <div className="mt-6 flex flex-col border-t border-[#CFCFCF] md:mt-0">
               {c.items.map(([, title, description, segment], j) => {
                 const hasDesc = description.trim() !== title;
-                return (
-                  <button
-                    key={title}
-                    type="button"
-                    onClick={() => openLead(title, c.title)}
-                    className="group grid grid-cols-[2rem_minmax(0,1fr)_auto] items-center gap-3 border-b border-[#CFCFCF] py-5 text-left text-[#222222] transition-[background,padding,color] duration-[350ms] hover:bg-[#141414] hover:text-white md:grid-cols-[3.5rem_minmax(0,1fr)_auto_3.25rem] md:gap-6 md:py-7 md:pr-5 md:hover:px-6"
-                  >
+                const pageSlug = SERVICE_PAGE_BY_ITEM[`${c.key}|${title}`];
+                const rowClass =
+                  'group grid grid-cols-[2rem_minmax(0,1fr)_auto] items-center gap-3 border-b border-[#CFCFCF] py-5 text-left text-[#222222] transition-[background,padding,color] duration-[350ms] hover:bg-[#141414] hover:text-white md:grid-cols-[3.5rem_minmax(0,1fr)_auto_3.25rem] md:gap-6 md:py-7 md:pr-5 md:hover:px-6';
+                // Послуга з власною сторінкою — звичайне посилання; решта відкриває попап заявки
+                const inner = (
+                  <>
                     <span className="text-[0.8125rem] font-bold tracking-[0.06em] text-brand-orange md:text-[0.9375rem]">
                       {String(j + 1).padStart(2, '0')}
                     </span>
@@ -248,6 +249,20 @@ export default function ServicesCatalog() {
                     <span className="hidden h-[3.25rem] w-[3.25rem] items-center justify-center bg-brand-orange text-white md:flex">
                       <Arrow />
                     </span>
+                  </>
+                );
+                return pageSlug ? (
+                  <Link key={title} href={`/services/${pageSlug}`} className={rowClass}>
+                    {inner}
+                  </Link>
+                ) : (
+                  <button
+                    key={title}
+                    type="button"
+                    onClick={() => openLead(title, c.title)}
+                    className={rowClass}
+                  >
+                    {inner}
                   </button>
                 );
               })}

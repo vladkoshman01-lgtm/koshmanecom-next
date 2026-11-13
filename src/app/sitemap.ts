@@ -1,6 +1,8 @@
 import { MetadataRoute } from "next";
 import { getArticles } from "@/lib/blog";
 import { intlLocales, localePath, localizedSlugs, locales } from "@/lib/i18n";
+import { hasServicePage, servicePageSlugs } from "@/data/servicePages";
+import { caseStudySlugs } from "@/data/caseStudies";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -71,6 +73,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.6,
     },
+    // Сторінки окремих послуг — ті мови, у яких сторінка вже перекладена
+    ...servicePageSlugs.flatMap((slug) =>
+      locales
+        .filter((locale) => hasServicePage(locale, slug))
+        .map((locale) => ({
+          url: `${siteUrl}${localePath(locale, `/services/${slug}`)}`,
+          lastModified: now,
+          changeFrequency: "monthly" as const,
+          priority: 0.8,
+        })),
+    ),
+    // Кейси — усіма мовами, slug однаковий
+    ...caseStudySlugs.flatMap((slug) =>
+      locales.map((locale) => ({
+        url: `${siteUrl}${localePath(locale, `/cases/${slug}`)}`,
+        lastModified: now,
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+      })),
+    ),
     // Інструменти з перекладеним slug: кожна мова — своя адреса
     ...Object.values(localizedSlugs).flatMap((paths) =>
       locales.map((locale) => ({

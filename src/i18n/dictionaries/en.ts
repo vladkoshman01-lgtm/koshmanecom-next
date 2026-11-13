@@ -316,6 +316,38 @@ const en: Dictionary = {
     homeSubtitle: 'Shopify and websites, Etsy and Amazon, SEO and AI search, ads and branding',
     documents: 'Documents',
   },
+  casePage: {
+    breadcrumbs: 'Breadcrumbs',
+    tldr: 'In short',
+    discuss: 'Discuss your project',
+    toResults: 'See the results',
+    wantResult: 'I want results like these',
+    creatives: 'Creative examples',
+    faq: 'FAQ',
+    related: 'Similar case studies',
+    allCases: 'All case studies',
+    eyebrow: 'Case study',
+  },
+
+  servicePage: {
+    breadcrumbs: 'Breadcrumbs',
+    tldr: 'In short',
+    updated: 'Updated {date}',
+    forWhom: 'Who it fits',
+    included: "What's included",
+    process: 'How we work',
+    compare: 'Comparison',
+    price: 'Price',
+    priceCta: 'Get a quote',
+    priceLink: 'Price',
+    expert: 'Service lead',
+    expertCta: 'Discuss the project',
+    faq: 'Questions',
+    related: 'We can also help with',
+    stack: 'Tools we connect',
+    allServices: 'All services',
+  },
+
   pages: {
     career: {
       subtitle: 'Open roles at Koshman Ecom: marketplaces, advertising, web development and AI automation.',
