@@ -50,6 +50,9 @@ const session = {
   },
 };
 
+/** Сторінки, де кіт заважає працювати (ресайзер: тягнеш фото — а він перекриває кнопки). */
+const QUIET_PAGES = /^(?:\/(?:en|sk))?\/tools\/image-resizer(?:\.html)?\/?$/;
+
 export default function MarsRoamer() {
   const pathname = usePathname();
   const t = useT();
@@ -205,7 +208,8 @@ export default function MarsRoamer() {
     window.addEventListener('scroll', onScroll, { passive: true });
 
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!reduced && window.innerWidth >= 768 && session.get('mars-shown') < MAX_PER_SESSION) {
+    const quiet = QUIET_PAGES.test(pathname ?? '');
+    if (!reduced && !quiet && window.innerWidth >= 768 && session.get('mars-shown') < MAX_PER_SESSION) {
       let due = session.get('mars-next');
       if (!due) {
         due = Date.now() + FIRST_DELAY();
@@ -229,6 +233,7 @@ export default function MarsRoamer() {
   // Реакція на копіювання тексту — працює на всіх пристроях
   useEffect(() => {
     const onCopy = () => {
+      if (QUIET_PAGES.test(window.location.pathname)) return;
       const selection = String(window.getSelection() ?? '').trim();
       if (selection.length < 12) return;
       if (state.current.promo || Date.now() - lastCopy.current < 20000) return;
