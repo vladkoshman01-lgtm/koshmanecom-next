@@ -1,5 +1,20 @@
 import { onRequest } from 'firebase-functions/v2/https';
 import { defineSecret } from 'firebase-functions/params';
+import { createHash } from 'node:crypto';
+import { getApps, initializeApp } from 'firebase-admin/app';
+import { getFirestore, type Firestore } from 'firebase-admin/firestore';
+import {
+  FLOOD_PER_HOUR,
+  IP_DAY_MS,
+  checkIpLimit,
+  clientIp,
+  hourKey,
+  isDuplicate,
+  normalizeContact,
+  parseLead,
+  type CleanLead,
+  type IpCounter,
+} from './leadGuard';
 
 const pinterestToken = defineSecret('PINTEREST_ACCESS_TOKEN');
 const telegramToken = defineSecret('TELEGRAM_BOT_TOKEN');
@@ -173,17 +188,75 @@ function getFirstOfMonth() {
  *   firebase functions:secrets:set TELEGRAM_CHAT_ID
  * ------------------------------------------------------------------------ */
 
-type Lead = {
-  name?: string;
-  phone?: string;
-  telegram?: string;
-  siteOrNiche?: string;
-  page?: string;
-};
+/* Захист від спаму — див. leadGuard.ts. Ліміти тримаємо у Firestore,
+ * бо лічильник у пам'яті в кожного інстансу функції свій. Якщо Firestore
+ * недоступний, заявку все одно пропускаємо: втратити ліда гірше, ніж спам. */
+
+let db: Firestore | null = null;
+function firestore(): Firestore {
+  if (!db) {
+    if (getApps().length === 0) initializeApp();
+    db = getFirestore();
+  }
+  return db;
+}
 
 /** Екранування під parse_mode=HTML, щоб імʼя з «<» не ламало повідомлення. */
 function escapeHtml(text: string) {
   return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function sha256(text: string) {
+  return createHash('sha256').update(`koshman-leads:${text}`).digest('hex');
+}
+
+/** true — ліміт IP вичерпано. */
+async function ipLimited(ip: string, now: number): Promise<boolean> {
+  const ref = firestore().collection('leadRateLimits').doc(sha256(ip));
+  return firestore().runTransaction(async (tx) => {
+    const snap = await tx.get(ref);
+    const decision = checkIpLimit(snap.data() as Partial<IpCounter> | undefined, now);
+    if (!decision.allowed) return true;
+    tx.set(ref, { ...decision.next, expireAt: new Date(now + 2 * IP_DAY_MS) });
+    return false;
+  });
+}
+
+/** Скільки заявок уже було за цю годину (з поточною) і чи треба слати алерт про атаку. */
+async function countHour(now: number): Promise<{ count: number; sendAlert: boolean }> {
+  const ref = firestore().collection('leadStats').doc(hourKey(now));
+  return firestore().runTransaction(async (tx) => {
+    const snap = await tx.get(ref);
+    const count = Number(snap.get('count') ?? 0) + 1;
+    const alerted = Boolean(snap.get('alerted'));
+    const sendAlert = count > FLOOD_PER_HOUR && !alerted;
+    tx.set(ref, {
+      count,
+      alerted: alerted || sendAlert,
+      expireAt: new Date(now + 7 * IP_DAY_MS),
+    });
+    return { count, sendAlert };
+  });
+}
+
+async function sendTelegram(text: string): Promise<boolean> {
+  const tgRes = await fetch(`https://api.telegram.org/bot${telegramToken.value()}/sendMessage`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      chat_id: telegramChat.value(),
+      text,
+      parse_mode: 'HTML',
+      disable_web_page_preview: true,
+    }),
+  });
+  if (!tgRes.ok) console.error('telegram error', tgRes.status, await tgRes.text());
+  return tgRes.ok;
+}
+
+/** Заявку, яку не відправили в Telegram (атака або збій), зберігаємо, щоб не загубити. */
+async function saveLead(lead: CleanLead, reason: string, now: number) {
+  await firestore().collection('leads').add({ ...lead, reason, createdAt: new Date(now) });
 }
 
 export const contact = onRequest(
@@ -191,6 +264,8 @@ export const contact = onRequest(
     secrets: [telegramToken, telegramChat],
     cors: ['https://koshmanecom.com', 'https://koshman-ecom-staging.web.app', 'http://localhost:3000'],
     timeoutSeconds: 30,
+    // Під атакою функція не розростеться і не накрутить рахунок
+    maxInstances: 3,
   },
   async (req, res) => {
     if (req.method !== 'POST') {
@@ -198,45 +273,75 @@ export const contact = onRequest(
       return;
     }
 
-    const body = (req.body ?? {}) as Lead;
-    const name = (body.name ?? '').trim();
-    const contactValue = (body.phone ?? body.telegram ?? '').trim();
-
-    if (!name || !contactValue) {
-      res.status(400).json({ ok: false, error: 'name_and_contact_required' });
+    const parsed = parseLead(req.body);
+    if (parsed.kind === 'invalid') {
+      res.status(400).json({ ok: false, error: parsed.error });
+      return;
+    }
+    if (parsed.kind === 'silent_drop') {
+      console.warn('lead dropped', parsed.reason);
+      res.json({ ok: true });
       return;
     }
 
-    const lines = [
-      '<b>Нова заявка з сайту</b>',
-      `Імʼя: ${escapeHtml(name)}`,
-      `Контакт: ${escapeHtml(contactValue)}`,
-    ];
-    if (body.siteOrNiche) lines.push(`Задача: ${escapeHtml(body.siteOrNiche)}`);
-    if (body.page) lines.push(`Сторінка: ${escapeHtml(body.page)}`);
+    const lead = parsed.lead;
+    const now = Date.now();
+    const ip = clientIp(req.headers['x-forwarded-for'], req.ip);
+    const dedupRef = () => firestore().collection('leadDedup').doc(sha256(normalizeContact(lead.contact)));
+
+    let floodCount = 0;
+    let floodAlert = false;
+    try {
+      if (await ipLimited(ip, now)) {
+        res.status(429).json({ ok: false, error: 'too_many_requests' });
+        return;
+      }
+      const dedupSnap = await dedupRef().get();
+      if (isDuplicate(dedupSnap.get('lastAt') as number | undefined, now)) {
+        // Людина натиснула ще раз — перша заявка вже в Telegram
+        res.json({ ok: true });
+        return;
+      }
+      const hour = await countHour(now);
+      floodCount = hour.count;
+      floodAlert = hour.sendAlert;
+    } catch (error) {
+      console.error('lead guard unavailable, letting lead through', error);
+    }
 
     try {
-      const tgRes = await fetch(
-        `https://api.telegram.org/bot${telegramToken.value()}/sendMessage`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            chat_id: telegramChat.value(),
-            text: lines.join('\n'),
-            parse_mode: 'HTML',
-            disable_web_page_preview: true,
-          }),
-        },
-      );
+      if (floodCount > FLOOD_PER_HOUR) {
+        await saveLead(lead, 'flood', now);
+        if (floodAlert) {
+          await sendTelegram(
+            `<b>Схоже на спам-атаку</b>\nЗа годину понад ${FLOOD_PER_HOUR} заявок. ` +
+              'Нові заявки до кінця години не приходять сюди, вони збережені у Firestore → leads.',
+          );
+        }
+        res.json({ ok: true });
+        return;
+      }
 
-      if (!tgRes.ok) {
+      const lines = [
+        '<b>Нова заявка з сайту</b>',
+        `Імʼя: ${escapeHtml(lead.name)}`,
+        `Контакт: ${escapeHtml(lead.contact)}`,
+      ];
+      if (lead.siteOrNiche) lines.push(`Задача: ${escapeHtml(lead.siteOrNiche)}`);
+      if (lead.page) lines.push(`Сторінка: ${escapeHtml(lead.page)}`);
+
+      if (!(await sendTelegram(lines.join('\n')))) {
         // Не ковтаємо помилку: краще показати людині «спробуйте ще раз»,
         // ніж втратити заявку з написом «дякуємо».
-        console.error('telegram error', tgRes.status, await tgRes.text());
+        await saveLead(lead, 'telegram_failed', now).catch(() => undefined);
         res.status(502).json({ ok: false, error: 'telegram_failed' });
         return;
       }
+
+      // Дубль відмічаємо лише після успіху, щоб повторна спроба після збою дійшла
+      await dedupRef()
+        .set({ lastAt: now, expireAt: new Date(now + IP_DAY_MS) })
+        .catch((error) => console.error('dedup write failed', error));
 
       res.json({ ok: true });
     } catch (error) {

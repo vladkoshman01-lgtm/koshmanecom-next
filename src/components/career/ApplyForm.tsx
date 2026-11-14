@@ -5,7 +5,8 @@ import { careerRoles } from '@/lib/careers';
 import { contacts } from '@/lib/nav';
 import AnimatedButton from '@/components/ui/AnimatedButton';
 import { useT, useTr } from '@/i18n/LocaleProvider';
-import { sendLead } from '@/lib/contact';
+import { readHoneypot, sendLead } from '@/lib/contact';
+import HoneypotField from '@/components/HoneypotField';
 
 /**
  * Форма відгуку на вакансію за прототипом Careers.dc.html:
@@ -39,6 +40,7 @@ export default function ApplyForm({ defaultRole }: { defaultRole?: string }) {
         contact,
         topic: ['Вакансія', role].filter(Boolean).join(': '),
         comment: note,
+        honeypot: readHoneypot(e.currentTarget),
       });
       setSent(true);
     } catch {
@@ -91,10 +93,12 @@ export default function ApplyForm({ defaultRole }: { defaultRole?: string }) {
           </div>
         ) : (
           <form onSubmit={submit} className="flex flex-col gap-5">
+            <HoneypotField />
             <div className="grid gap-5 md:grid-cols-2">
               <label className="flex flex-col gap-2 text-[0.8125rem] font-semibold text-[#CFCFCF]">{tr('Імʼя')}<input
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  maxLength={100}
                   placeholder="Як до вас звертатися"
                   className={fieldClass}
                 />
@@ -102,6 +106,7 @@ export default function ApplyForm({ defaultRole }: { defaultRole?: string }) {
               <label className="flex flex-col gap-2 text-[0.8125rem] font-semibold text-[#CFCFCF]">{tr('Телефон або Telegram')}<input
                   value={contact}
                   onChange={(e) => setContact(e.target.value)}
+                  maxLength={100}
                   placeholder="+380 або @username"
                   className={fieldClass}
                 />
@@ -131,6 +136,7 @@ export default function ApplyForm({ defaultRole }: { defaultRole?: string }) {
             <label className="flex flex-col gap-2 text-[0.8125rem] font-semibold text-[#CFCFCF]">{tr('Резюме або портфоліо')}<textarea
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
+                  maxLength={1500}
                 rows={3}
                 placeholder="Посилання на резюме, LinkedIn або портфоліо"
                 className="w-full resize-y border-[1.5px] border-[#3A3A3A] bg-transparent px-4 py-3.5 text-base text-white outline-none placeholder:text-[#6A6A6A] focus:border-white"

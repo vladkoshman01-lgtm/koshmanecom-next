@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import AnimatedButton from '@/components/ui/AnimatedButton';
 import { CATEGORY_NAMES } from '@/data/services';
 import { fill, useT, useTr } from '@/i18n/LocaleProvider';
-import { sendLead } from '@/lib/contact';
+import { readHoneypot, sendLead } from '@/lib/contact';
+import HoneypotField from '@/components/HoneypotField';
 
 /**
  * Лід-форма. Повторюється на більшості сторінок, тому винесена окремо
@@ -56,7 +57,7 @@ export default function LeadForm({
     setSending(true);
 
     try {
-      await sendLead({ name, contact, topic: topic ?? undefined, comment: note });
+      await sendLead({ name, contact, topic: topic ?? undefined, comment: note, honeypot: readHoneypot(e.currentTarget) });
       setSent(true);
     } catch {
       // Заявка не дійшла — кажемо про це чесно, а не «дякуємо»
@@ -137,6 +138,7 @@ export default function LeadForm({
           </div>
         ) : (
           <form onSubmit={submit} className="flex flex-col gap-6 md:gap-7">
+            <HoneypotField />
             {/* Форма тягнеться на висоту лівої колонки, а рядок із кнопкою
                 притиснутий донизу — низ кнопки на одній лінії з підписом під відео */}
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
@@ -145,6 +147,7 @@ export default function LeadForm({
                 <input
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  maxLength={100}
                   placeholder={t.lead.namePlaceholder}
                   autoComplete="name"
                   className={`h-14 border-[1.5px] px-4 text-base font-normal outline-none transition-colors ${fieldClass}`}
@@ -155,6 +158,7 @@ export default function LeadForm({
                 <input
                   value={contact}
                   onChange={(e) => setContact(e.target.value)}
+                  maxLength={100}
                   placeholder={t.lead.contactPlaceholder}
                   className={`h-14 border-[1.5px] px-4 text-base font-normal outline-none transition-colors ${fieldClass}`}
                 />
@@ -187,6 +191,7 @@ export default function LeadForm({
               <textarea
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
+                  maxLength={1500}
                 rows={4}
                 placeholder={t.lead.commentPlaceholder}
                 className={`min-h-[8rem] border-[1.5px] p-4 text-base font-normal outline-none transition-colors md:flex-1 ${fieldClass}`}

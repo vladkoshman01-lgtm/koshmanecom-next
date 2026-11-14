@@ -2,7 +2,8 @@
 
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { fill, useT, useTr } from '@/i18n/LocaleProvider';
-import { sendLead } from '@/lib/contact';
+import { readHoneypot, sendLead } from '@/lib/contact';
+import HoneypotField from '@/components/HoneypotField';
 
 /**
  * Попап заявки на конкретну послугу (як у хендоффі).
@@ -71,6 +72,7 @@ function LeadDialog({ target, onClose }: { target: Target; onClose: () => void }
         contact,
         topic: `${target.category} — ${target.service}`,
         comment: note,
+        honeypot: readHoneypot(e.currentTarget),
       });
       setSent(true);
     } catch {
@@ -140,11 +142,13 @@ function LeadDialog({ target, onClose }: { target: Target; onClose: () => void }
             </div>
 
             <form onSubmit={submit} className="flex flex-col gap-3">
+            <HoneypotField />
               <label className="flex flex-col gap-1.5 text-[0.8125rem] font-semibold text-[#141414]">
                 {t.lead.name}
                 <input
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  maxLength={100}
                   placeholder={t.lead.namePlaceholder}
                   className={fieldClass}
                 />
@@ -154,6 +158,7 @@ function LeadDialog({ target, onClose }: { target: Target; onClose: () => void }
                 <input
                   value={contact}
                   onChange={(e) => setContact(e.target.value)}
+                  maxLength={100}
                   placeholder={t.lead.contactPlaceholder}
                   className={fieldClass}
                 />
@@ -164,6 +169,7 @@ function LeadDialog({ target, onClose }: { target: Target; onClose: () => void }
                 <textarea
                   value={note}
                   onChange={(e) => setNote(e.target.value)}
+                  maxLength={1500}
                   rows={3}
                   placeholder={t.lead.commentPlaceholder}
                   className="resize-y border-[1.5px] border-[#D9D9D9] px-4 py-3.5 text-base text-[#141414] outline-none focus:border-[#141414]"
