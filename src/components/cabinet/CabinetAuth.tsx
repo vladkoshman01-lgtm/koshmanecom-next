@@ -59,7 +59,13 @@ function authErrorText(error: unknown) {
   if (code === 'auth/invalid-email') return 'Перевірте email — схоже, в ньому помилка.';
   if (code === 'auth/too-many-requests') return 'Забагато спроб. Спробуйте за кілька хвилин.';
   if (code === 'auth/popup-blocked') return 'Браузер заблокував вікно входу. Дозвольте спливні вікна для цього сайту.';
-  return 'Не вдалося увійти. Спробуйте ще раз.';
+  if (code === 'auth/unauthorized-domain' || code === 'auth/unauthorized-continue-uri') {
+    return 'Вхід на цьому сайті ще не налаштовано. Напишіть, будь ласка, вашому менеджеру.';
+  }
+  if (code === 'auth/operation-not-allowed') return 'Цей спосіб входу вимкнено. Спробуйте інший або напишіть менеджеру.';
+  if (code === 'auth/network-request-failed') return 'Немає з’єднання з інтернетом. Перевірте мережу й спробуйте ще раз.';
+  // Код помилки в кінці — щоб менеджер міг швидко зрозуміти причину
+  return `Не вдалося увійти. Спробуйте ще раз.${code ? ` (${code})` : ''}`;
 }
 
 export function CabinetAuthProvider({ children }: { children: React.ReactNode }) {
