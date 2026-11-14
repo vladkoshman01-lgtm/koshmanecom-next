@@ -46,3 +46,10 @@ next-env.d.ts
 /functions/node_modules/
 # збірка функцій (tsc → lib), генерується з functions/src
 /functions/lib/
+
+# локальна розробка кабінету
+/functions/.secret.local
+/.cabinet-emulator-data/
+firestore-debug.log
+ui-debug.log
+firebase-debug.log

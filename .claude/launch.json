@@ -9,6 +9,14 @@
         "dev"
       ],
       "port": 3000
+    },
+    {
+      "name": "cabinet-emulators",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "scripts/cabinet-dev.sh"
+      ],
+      "port": 4000
     }
   ]
 }

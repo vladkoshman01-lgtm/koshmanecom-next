@@ -12,7 +12,11 @@ import SocialLinks from './SocialLinks';
  * Футер. Десктоп — п'ять колонок (логотип + Навігація, Компанія,
  * Інструменти, Контакти), мобільний — логотип і сітка посилань у дві колонки.
  */
-export default function SiteFooter() {
+/**
+ * showConsentSettings — кнопка «Налаштування cookies». У кабінеті клієнта
+ * банера cookies й аналітики немає, тож там кнопку ховаємо.
+ */
+export default function SiteFooter({ showConsentSettings = true }: { showConsentSettings?: boolean } = {}) {
   const t = useT();
   const locale = useLocale();
 
@@ -148,13 +152,15 @@ export default function SiteFooter() {
             </LocaleLink>
           ))}
           {/* Відкликати чи змінити згоду має бути так само просто, як дати (GDPR) */}
-          <button
-            type="button"
-            onClick={openConsentSettings}
-            className="text-left text-[#8A8A8A] hover:text-white"
-          >
-            {t.cookie.settings}
-          </button>
+          {showConsentSettings ? (
+            <button
+              type="button"
+              onClick={openConsentSettings}
+              className="text-left text-[#8A8A8A] hover:text-white"
+            >
+              {t.cookie.settings}
+            </button>
+          ) : null}
         </div>
       </div>
     </div>

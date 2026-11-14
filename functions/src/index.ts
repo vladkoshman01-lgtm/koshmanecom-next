@@ -1,8 +1,7 @@
 import { onRequest } from 'firebase-functions/v2/https';
-import { defineSecret } from 'firebase-functions/params';
 import { createHash } from 'node:crypto';
-import { getApps, initializeApp } from 'firebase-admin/app';
-import { getFirestore, type Firestore } from 'firebase-admin/firestore';
+import { firestore } from './db';
+import { pinterestToken, telegramChat, telegramToken, windsorToken } from './secrets';
 import {
   FLOOD_PER_HOUR,
   IP_DAY_MS,
@@ -16,10 +15,7 @@ import {
   type IpCounter,
 } from './leadGuard';
 
-const pinterestToken = defineSecret('PINTEREST_ACCESS_TOKEN');
-const telegramToken = defineSecret('TELEGRAM_BOT_TOKEN');
-const telegramChat = defineSecret('TELEGRAM_CHAT_ID');
-const windsorToken = defineSecret('WINDSOR_API_KEY');
+export { cabinet, cabinetPinterestCallback, cabinetSync } from './cabinet';
 
 const AD_ACCOUNT_ID = '549766804372';
 const BASE_URL = 'https://api.pinterest.com/v5';
@@ -191,15 +187,6 @@ function getFirstOfMonth() {
 /* Захист від спаму — див. leadGuard.ts. Ліміти тримаємо у Firestore,
  * бо лічильник у пам'яті в кожного інстансу функції свій. Якщо Firestore
  * недоступний, заявку все одно пропускаємо: втратити ліда гірше, ніж спам. */
-
-let db: Firestore | null = null;
-function firestore(): Firestore {
-  if (!db) {
-    if (getApps().length === 0) initializeApp();
-    db = getFirestore();
-  }
-  return db;
-}
 
 /** Екранування під parse_mode=HTML, щоб імʼя з «<» не ламало повідомлення. */
 function escapeHtml(text: string) {
