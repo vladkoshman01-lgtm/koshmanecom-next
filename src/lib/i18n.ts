@@ -66,11 +66,17 @@ export const localizedSlugs: Record<string, Record<Locale, string>> = {
     en: '/etsy-vs-amazon-vs-shopify',
     sk: '/porovnanie-etsy-amazon-shopify',
   },
+  // Адреса однакова всіма мовами: стара українська вже проіндексована
+  '/tools/image-resizer': {
+    uk: '/tools/image-resizer',
+    en: '/tools/image-resizer',
+    sk: '/tools/image-resizer',
+  },
 };
 
 /**
- * Сторінки, що мають версії іншими мовами. Дашборд і ресайзер поки
- * лише українські — посилання на них не префіксуємо, інакше буде 404.
+ * Сторінки, що мають версії іншими мовами. Дашборд поки
+ * лише український — посилання на нього не префіксуємо, інакше буде 404.
  */
 const TRANSLATED = /^\/(?:services(?:\/[a-z0-9-]+)?|cases\/[a-z0-9-]+|about|contacts|tools|terms|privacy|thanks|blog(?:\/[a-z0-9-]+)?|career(?:\/[a-z0-9-]+)?)?\/?$/;
 

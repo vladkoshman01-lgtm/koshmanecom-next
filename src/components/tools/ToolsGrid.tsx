@@ -50,7 +50,7 @@ const TOOLS: Tool[] = [
   {
     title: 'Ресайзер зображень',
     description:
-      'Змінюйте розмір фото для Instagram, Etsy, Pinterest та інших платформ з пресетами.',
+      '26 актуальних розмірів для Instagram, Etsy, Pinterest, TikTok, YouTube та інших — з кадруванням, безпечними зонами і ZIP.',
     href: '/tools/image-resizer',
     gradient: 'blue',
     icon: 'M4 5h16v14H4zM4 16l5-5 4 4 3-3 4 4M15 9h.01',

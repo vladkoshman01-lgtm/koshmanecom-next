@@ -53,7 +53,7 @@ function jsonLd(locale: Locale, c: ToolPageCopy, paths: Paths) {
       browserRequirements: 'Requires JavaScript',
       inLanguage: locale,
       isAccessibleForFree: true,
-      dateModified: RATES_CHECKED,
+      dateModified: c.checkedDate ?? RATES_CHECKED,
       featureList: c.app.features,
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
       publisher: { '@id': `${siteUrl}/#organization` },
@@ -113,7 +113,7 @@ export default function ToolPage({
             ))}
           </ul>
           <p className="mt-4 text-[0.8125rem] text-[#8A8A8A]">
-            <time dateTime={RATES_CHECKED}>{c.hero.checked}</time>
+            <time dateTime={c.checkedDate ?? RATES_CHECKED}>{c.hero.checked}</time>
           </p>
 
           <div className="mt-8 flex flex-col gap-3 md:mt-10 md:flex-row md:gap-4">

@@ -40,7 +40,7 @@ Full catalogue: https://koshmanecom.com/en/services
 - [Etsy profit calculator](https://koshmanecom.com/en/etsy-profit-calculator): net profit after Etsy fees, VAT and taxes, margin, break-even price
 - [Etsy pricing calculator](https://koshmanecom.com/en/etsy-pricing-calculator): price for a target margin or profit per sale
 - [Etsy vs Amazon vs eBay vs Shopify](https://koshmanecom.com/en/etsy-vs-amazon-vs-shopify): fee and profit comparison
-- [Image resizer](https://koshmanecom.com/tools/image-resizer): presets for Instagram, Etsy, Pinterest (Ukrainian interface)
+- [Image resizer](https://koshmanecom.com/en/tools/image-resizer): 26 sizes for Instagram, Pinterest, Etsy, TikTok, Facebook, YouTube, LinkedIn, X, Amazon, Shopify; crop, safe zones, ZIP; runs in the browser
 
 ## Apps
 

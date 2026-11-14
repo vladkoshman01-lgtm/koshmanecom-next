@@ -29,6 +29,8 @@ export type ToolPageCopy = {
   faq: { eyebrow: string; title: string; text: string; cta: string; items: [string, string][] };
   lead: { title: string; subtitle: string };
   app: { name: string; features: string[] };
+  /** Дата звірки цієї сторінки, якщо відрізняється від RATES_CHECKED. */
+  checkedDate?: string;
 };
 
 /** Месенджер у кнопках: в Україні пишуть у Telegram, за кордоном — у WhatsApp. */

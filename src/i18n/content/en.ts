@@ -258,8 +258,8 @@ const en: Record<string, string> = {
   'Порівняйте комісії та прибуток на трьох платформах — введіть параметри товару і дізнайтесь, як вигідніше продавати.':
     'Compare fees and profit across three platforms — enter your product data and see which one pays off.',
   'Ресайзер зображень': 'Image resizer',
-  'Змінюйте розмір фото для Instagram, Etsy, Pinterest та інших платформ з пресетами.':
-    'Resize photos for Instagram, Etsy, Pinterest and other platforms using presets.',
+  '26 актуальних розмірів для Instagram, Etsy, Pinterest, TikTok, YouTube та інших — з кадруванням, безпечними зонами і ZIP.':
+    '26 up-to-date sizes for Instagram, Etsy, Pinterest, TikTok, YouTube and more — with cropping, safe zones and ZIP.',
   SEOgenie: 'SEOgenie',
   'AI-додаток для продавців Etsy: заголовок, 13 тегів і опис за 30 секунд, SEO-аудит лістингів і публікація прямо в магазин. 7 днів безкоштовно.':
     'An AI app for Etsy sellers: a title, 13 tags and a description in 30 seconds, an SEO audit of your listings and publishing straight to your shop. 7-day free trial.',

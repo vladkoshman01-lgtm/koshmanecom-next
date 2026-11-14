@@ -67,12 +67,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.7,
     },
-    {
-      url: `${siteUrl}/tools/image-resizer`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    },
     // Сторінки окремих послуг — ті мови, у яких сторінка вже перекладена
     ...servicePageSlugs.flatMap((slug) =>
       locales

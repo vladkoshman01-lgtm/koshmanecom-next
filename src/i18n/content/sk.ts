@@ -258,8 +258,8 @@ const sk: Record<string, string> = {
   'Порівняйте комісії та прибуток на трьох платформах — введіть параметри товару і дізнайтесь, як вигідніше продавати.':
     'Porovnajte poplatky a zisk na troch platformách — zadajte parametre produktu a zistite, kde sa oplatí predávať.',
   'Ресайзер зображень': 'Zmena veľkosti obrázkov',
-  'Змінюйте розмір фото для Instagram, Etsy, Pinterest та інших платформ з пресетами.':
-    'Zmeňte veľkosť fotiek pre Instagram, Etsy, Pinterest a ďalšie platformy pomocou predvolieb.',
+  '26 актуальних розмірів для Instagram, Etsy, Pinterest, TikTok, YouTube та інших — з кадруванням, безпечними зонами і ZIP.':
+    '26 aktuálnych rozmerov pre Instagram, Etsy, Pinterest, TikTok, YouTube a ďalšie — s orezaním, bezpečnými zónami a ZIP.',
   SEOgenie: 'SEOgenie',
   'AI-додаток для продавців Etsy: заголовок, 13 тегів і опис за 30 секунд, SEO-аудит лістингів і публікація прямо в магазин. 7 днів безкоштовно.':
     'AI aplikácia pre predajcov na Etsy: názov, 13 tagov a popis za 30 sekúnd, SEO audit listingov a publikovanie priamo do obchodu. 7 dní zadarmo.',
