@@ -37,7 +37,8 @@ export function pageMeta(locale: Locale, key: MetaKey): Metadata {
     path: PATHS[key],
     title: m.title,
     description: m.description,
-    // Подяка — службова; список блогу не індексуємо, поки цією мовою немає статей
-    noindex: key === 'thanks' || (key === 'blog' && getArticles(locale).length === 0),
+    // Подяка, політика й умови — службові; список блогу не індексуємо, поки цією мовою немає статей
+    noindex:
+      key === 'thanks' || key === 'privacy' || key === 'terms' || (key === 'blog' && getArticles(locale).length === 0),
   });
 }

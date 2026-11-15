@@ -50,18 +50,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
     {
-      url: `${siteUrl}/privacy`,
-      lastModified: now,
-      changeFrequency: "yearly" as const,
-      priority: 0.3,
-    },
-    {
-      url: `${siteUrl}/terms`,
-      lastModified: now,
-      changeFrequency: "yearly" as const,
-      priority: 0.3,
-    },
-    {
       url: `${siteUrl}/tools`,
       lastModified: now,
       changeFrequency: "monthly" as const,
@@ -117,8 +105,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/tools",
     "/career",
     "/blog",
-    "/terms",
-    "/privacy",
+    // Політика й умови закриті від індексу (noindex) — у sitemap їх немає
   ];
   const intlPages: MetadataRoute.Sitemap = intlLocales.flatMap((locale) =>
     translatedPaths.map((path) => ({
