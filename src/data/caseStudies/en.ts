@@ -10,6 +10,7 @@ import { ukCaseStudies } from './uk';
 
 const wed = ukCaseStudies['pinterest-ads-wedding-dresses'];
 const decor = ukCaseStudies['pinterest-ads-home-decor'];
+const etsy = ukCaseStudies['etsy-jewelry-shop-seo'];
 
 /** Same pins in the same order, with alt text in English. */
 function withAlts(pins: CaseStudy['solution']['pins'], alts: string[]) {
@@ -320,5 +321,128 @@ export const enCaseStudies: Record<string, CaseStudy> = {
     ],
     leadTitle: 'Get a Pinterest Ads audit for your store',
     leadText: 'We’ll review your product range and markets and show how Pinterest can become a standalone sales channel.',
+  },
+
+  'etsy-jewelry-shop-seo': {
+    ...etsy,
+    metaTitle: 'Etsy Case Study: $14,300 in Jewellery Sales in 7 Months | Koshman Ecom',
+    metaDescription:
+      'How we doubled traffic for an existing Etsy jewellery shop: +103% visits, 161 orders and $14,300 in revenue in 7 months. Etsy SEO, listings, automated uploads.',
+    keywords:
+      'Etsy SEO, Etsy case study, Etsy listing optimisation, Etsy jewellery shop, Etsy shop management, Etsy marketing agency, automated Etsy listings',
+    client: 'Jewellery brand',
+    breadcrumb: 'Etsy SEO for a jewellery shop',
+    h1: 'Etsy Case Study: How We Doubled Traffic for an Existing Jewellery Shop and Grew It to $14,300 in Sales in 7 Months',
+    lead: 'How systematic Etsy SEO and automated listing uploads turned a stalled jewellery shop into steady growth.',
+    tags: ['Etsy', 'Jewellery', 'US & Europe'],
+    summary:
+      'The jewellery shop was already live on Etsy, but sales had stalled. Instead of starting from scratch, we rebuilt what was there: settings, listings, keywords and branding. Then we automated listing uploads, added 102 new listings and handed the shop over to the client’s team with a ready-made growth plan. Seven months later, traffic had doubled and the shop had received 161 orders.',
+    facts: [
+      ['Client', 'Jewellery brand (gold-plated, silver)'],
+      ['Platform', 'Etsy'],
+      ['Scope', 'SEO, listings, branding, shop setup, automated uploads'],
+      ['Period', 'January – July 2025'],
+    ],
+    cover: {
+      ...etsy.cover,
+      alt: 'Etsy jewellery shop: $14,300 in revenue, monthly traffic up from ≈2,600 to ≈5,500 visits, January – July 2025',
+    },
+    // Перший екран — картка-дашборд: виручка, крива візитів з Etsy Stats і ключові показники
+    heroVisual: {
+      type: 'stats',
+      total: '$14,300',
+      label: 'shop revenue in 7 months',
+      badge: '×2',
+      seriesLabel: 'Monthly visits',
+      series: [['Jan', 2600], ['Feb', 2900], ['Mar', 3300], ['Apr', 3800], ['May', 4400], ['Jun', 5000], ['Jul', 5500]],
+      approx: true,
+      rows: [['orders', '161'], ['average order', '≈ $89'], ['conversion', '2.1%']],
+    },
+    og: { title: '$14,300 in sales in 7 months', subtitle: 'Etsy jewellery shop · +103% visits · 161 orders' },
+    metrics: [
+      ['$14,300', 'revenue, January – July 2025'],
+      ['+103%', 'visits year over year'],
+      ['80', 'reworked listings'],
+      ['102', 'new SEO-optimised listings'],
+    ],
+    task: {
+      title: 'How to grow an existing Etsy shop',
+      paragraphs: [
+        'The shop had products, reviews and a sales history, but it was lost among hundreds of similar pieces in Etsy search. Listings were formatted inconsistently, tags didn’t match how buyers actually search, and the branding didn’t explain what set the brand apart.',
+        'The range grew slowly because the team prepared every new listing by hand. The goal was to turn a scattered shop into a system that Etsy is happy to show — and that the client’s team can keep growing on its own.',
+      ],
+    },
+    solution: {
+      ...etsy.solution,
+      title: 'What we did',
+      steps: {
+        ...etsy.solution.steps,
+        title: '8 steps from audit to handover',
+        items: [
+          ['Shop audit and setup', 'We reviewed shipping, policies, sections, payments and order processing, and fixed everything that affects ranking and buyer trust: dispatch times, returns, section structure.', 'settings'],
+          ['Keyword research', 'Instead of expensive high-volume terms, we focused on long-tail and gifting searches: “gift for girlfriend”, “anniversary jewellery”, “bridal jewellery”. Keywords were mapped to products and seasons.', 'key'],
+          ['80 listings reworked', 'For every product we updated the title, all 13 tags, attributes and description, and added answers to common questions: size, material, care, packaging.', 'edit'],
+          ['Automation and 102 new listings', 'We set up uploads that create listings with titles, tags and descriptions straight from the keyword map, so every new product goes into search with the right keywords.', 'bolt'],
+          ['Photos and search CTR', 'New main photos: macro details, on-model shots, slides with sizes and materials. The photo has to answer the buyer’s question before the click.', 'photo'],
+          ['Shop branding', 'We redesigned the banner, logo, About section, welcome message and FAQ. The shop started to look like a brand, not a collection of separate products.', 'brush'],
+          ['Service and rating', 'Quick replies, message templates and a review process kept the rating high as orders grew.', 'star'],
+          ['Handover to the team', 'With a growth plan: keyword map, seasonal update calendar, guides and the automated upload set up and running.', 'handoff'],
+        ],
+        badge: 'run in-house',
+      },
+    },
+    results: {
+      title: 'Results in 7 months',
+      items: [
+        ['27,500 shop visits', 'in 7 months.'],
+        ['+103% visits', 'year over year.'],
+        ['161 orders and $14,300 in revenue,', 'average order ≈ $89, conversion rate 2.1%.'],
+        ['80 reworked and 102 new listings', 'in Etsy search.'],
+        ['Monthly traffic doubled:', 'from ~2,600 visits in January to ~5,500 in July, with no dips.'],
+        ['The client’s team', 'now runs the shop on its own, following the plan.'],
+      ],
+      screenshot: {
+        ...etsy.results.screenshot!,
+        alt: 'Etsy Stats screenshot for the jewellery shop: 27,500 visits, 161 orders, 2.1% conversion rate, $14,300 revenue, January – July 2025',
+        caption: 'Etsy Stats, January – July 2025: visits up 103% year over year',
+      },
+      chart: {
+        ...etsy.results.chart,
+        label: 'Etsy shop visits by month, 2025',
+        alt: 'Etsy jewellery shop traffic grew from ≈2,600 visits in January to ≈5,500 in July 2025',
+        months: [
+          ['January', 2600, 'Jan'],
+          ['February', 2900, 'Feb'],
+          ['March', 3300, 'Mar'],
+          ['April', 3800, 'Apr'],
+          ['May', 4400, 'May'],
+          ['June', 5000, 'Jun'],
+          ['July', 5500, 'Jul'],
+        ],
+        table: ['Month', 'Visits'],
+      },
+    },
+    insights: {
+      title: 'What we learned',
+      intro: 'Four takeaways we now build into every Etsy project.',
+      items: [
+        ['An existing shop scales faster than a new one', 'Sales history and reviews already help ranking, so it’s enough to remove whatever stops Etsy from showing the products.', 'store'],
+        ['Long-tail brings buyers, not just views', 'Narrow gifting searches get fewer impressions, but the people behind them arrive ready to buy.', 'search'],
+        ['Range size is SEO too', 'The more quality listings, the more searches the shop covers. Automation let us add products fast without cutting corners on optimisation.', 'scale'],
+        ['Plan for seasons in advance', 'Valentine’s Day and wedding-season listings were updated 4–6 weeks before the peak so Etsy had time to index them.', 'clock'],
+      ],
+    },
+    faqTitle: 'Etsy SEO and shop growth: FAQ',
+    faq: [
+      ['Can you grow a shop that has been running for a long time?', 'Yes, and it’s often even faster. Reviews and sales history are already there, so the work is usually in the listings, keywords and branding.'],
+      ['How soon will we see results?', 'The first changes in traffic show up 3–6 weeks after listings are updated. Steady growth usually comes within 2–3 months.'],
+      ['Do we have to run Etsy Ads?', 'No. In this case, most of the growth came from organic search. We add ads once the listings are already converting.'],
+      ['Can listing uploads be automated?', 'Yes. We set up uploads that create listings with SEO-optimised titles, tags and descriptions. It saves hours of work on every batch of products.'],
+      ['Can we run the shop ourselves afterwards?', 'Yes. We hand over the shop with a growth plan, keyword map, guides and configured tools so your team can carry on without us.'],
+      ['Does this work for niches other than jewellery?', 'Yes. The approach works for any visual handmade product: home decor, clothing, accessories, gifts.'],
+      ['What do you need from us to start?', 'Access to the shop and a 30-minute call about your products, audience and goals. We do the audit ourselves.'],
+    ],
+    leadTitle: 'Want to grow your Etsy shop the same way?',
+    leadText: 'We’ll look at your shop, listings and niche and show you what’s stopping Etsy from showing your products.',
   },
 };

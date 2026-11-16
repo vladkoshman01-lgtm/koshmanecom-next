@@ -24,7 +24,15 @@ export type CaseIcon =
   | 'data'
   | 'clock'
   | 'bookmark'
-  | 'globe';
+  | 'globe'
+  | 'settings'
+  | 'key'
+  | 'edit'
+  | 'bolt'
+  | 'photo'
+  | 'brush'
+  | 'star'
+  | 'handoff';
 
 /** Пін у колажі першого екрана. ratio — пропорції фото, щоб нічого не обрізалось. */
 export type FeedPinSpec = {
@@ -55,6 +63,10 @@ export type CaseStudy = {
   /** Логотип клієнта для темного фону. Немає — показуємо назву текстом. */
   logo?: { src: string; width: number; height: number };
   channel: string;
+  /** Категорія заявки з кнопки «Обговорити проєкт» (за замовчуванням 'Pinterest'). */
+  leadCategory?: string;
+  /** id карток для «Схожих кейсів» у потрібному порядку. Немає — підбираємо самі. */
+  related?: string[];
   h1: string;
   /** Один рядок під H1 на першому екрані. */
   lead: string;
@@ -75,10 +87,25 @@ export type CaseStudy = {
         parts: [string, number, string][];
         /** Рекламний пін поруч із цифрами, якщо є фото. */
         pin?: FeedPinSpec;
+      }
+    | {
+        /** Картка-дашборд: велика цифра, крива зростання по місяцях і 2–3 показники під нею. */
+        type: 'stats';
+        total: string;
+        label: string;
+        /** Плашка біля кривої, напр. «×2». */
+        badge: string;
+        seriesLabel: string;
+        /** [короткий підпис місяця, значення]. */
+        series: [string, number][];
+        /** «≈» перед підписами крайніх точок. */
+        approx?: boolean;
+        rows: [string, string][];
       };
   /** OG-картинка: з колажем (4 файли з src/og/images) або текстова. */
   /** 4 файли — колаж, 1 файл — один пін праворуч. */
   og: { title: string; subtitle: string; images?: [string, string, string, string] | [string]; tall?: boolean };
+  /** 3 або 4 цифри під першим екраном. */
   metrics: [string, string][];
   task: { title: string; paragraphs: string[] };
   solution: {
@@ -86,7 +113,8 @@ export type CaseStudy = {
     /** Картки рішення показати перед кроками (за порядком тексту кейсу). */
     cardsFirst?: boolean;
     /** Кроки з іконками: воронка або етапи роботи. Останній крок виділений. */
-    steps: { title: string; text?: string; items: [string, string, CaseIcon][]; badge?: string };
+    /** layout 'grid' — нумеровані картки сіткою (для 5+ кроків), без стрілок. */
+    steps: { title: string; text?: string; items: [string, string, CaseIcon][]; badge?: string; layout?: 'flow' | 'grid' };
     cards: [string, string][];
     /** Приклади рекламних пінів. Немає — блок не показуємо. */
     /** ratio — пропорції фото (за замовчуванням 2/3), щоб текст на піні не обрізався. */
@@ -99,6 +127,8 @@ export type CaseStudy = {
   results: {
     title: string;
     items: [string, string][];
+    /** Скріншот статистики клієнта. Є — показуємо його замість графіка (дані графіка лишаються таблицею для пошуковиків). */
+    screenshot?: { src: string; width: number; height: number; alt: string; caption: string };
     chart: {
       /** Підпис над графіком. */
       label: string;
@@ -112,6 +142,8 @@ export type CaseStudy = {
       format: 'int' | 'x';
       /** «≈» перед першим значенням (воно округлене). */
       approxFirst?: boolean;
+      /** «≈» перед усіма значеннями. */
+      approxAll?: boolean;
       /** Заголовки таблиці-дубля графіка (для пошуковиків і скрінрідерів). */
       table: [string, string];
     };
@@ -119,7 +151,8 @@ export type CaseStudy = {
   insights: { title: string; intro: string; items: [string, string, CaseIcon][] };
   /** null — цитати ще немає, блок не показуємо (заглушку на сайт не виносимо). */
   quote: { text: string; author: string; role: string } | null;
-  conclusion: { title: string; text: string; ctaLabel: string };
+  /** Немає — блок «Висновок» не показуємо, а форма заявки стає на його місце. */
+  conclusion?: { title: string; text: string; ctaLabel: string };
   faqTitle: string;
   faq: [string, string][];
   leadTitle: string;

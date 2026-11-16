@@ -39,6 +39,14 @@ const ICONS: Record<CaseIcon, string> = {
   clock: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 7v5l3 2',
   bookmark: 'M6 3h12v18l-6-4-6 4z',
   globe: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM3 12h18M12 3c2.5 2.5 3.8 5.5 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.5-3.8-9S9.5 5.5 12 3z',
+  settings: 'M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1',
+  key: 'M3 12V4h8l10 10-8 8zM7.5 8.5a1 1 0 1 0 0-.01',
+  edit: 'M4 20h4L19 9l-4-4L4 16zM13.5 6.5l4 4',
+  bolt: 'M13 2L4 14h7l-1 8 9-12h-7z',
+  photo: 'M3 5h18v14H3zM3 16l5-5 4 4 3-3 6 6M15.5 9a1 1 0 1 0 0-.01',
+  brush: 'M20 4l-9 9M11 13c-2-.5-4 .5-4.5 2.5C6 18 4 19 3 19c2 2 6 2 8-.5 1.2-1.5 1-3.5 0-5.5z',
+  star: 'M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z',
+  handoff: 'M8 7a3 3 0 1 0 0-.01M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 9h6M18 6l3 3-3 3',
 };
 
 /** Стиль появи елемента: зсув і прозорість, із затримкою для черговості. */
@@ -153,7 +161,96 @@ function SplitVisual({
   );
 }
 
-export default function CaseStudyView({ study }: { study: CaseStudy }) {
+/** Картка-дашборд першого екрана: головна цифра, крива зростання і показники під нею. */
+function StatsVisual({
+  total,
+  label: caption,
+  badge,
+  seriesLabel,
+  series,
+  approx,
+  rows,
+  alt,
+  locale,
+}: Extract<CaseStudy['heroVisual'], { type: 'stats' }> & { alt: string; locale: Locale }) {
+  const W = 320;
+  const H = 110;
+  const pad = 8;
+  const max = Math.max(...series.map(([, v]) => v));
+  const pts = series.map(([, v], i) => [
+    pad + (i * (W - pad * 2)) / (series.length - 1),
+    // Вісь від нуля, як у статистиці клієнта: подвоєння видно чесно, без обрізаної шкали
+    pad + (1 - v / max) * (H - pad * 2),
+  ]);
+  const line = pts.map(([x, y], i) => `${i ? 'L' : 'M'}${x.toFixed(1)} ${y.toFixed(1)}`).join(' ');
+  const area = `${line} L${pts[pts.length - 1][0].toFixed(1)} ${H} L${pts[0][0].toFixed(1)} ${H} Z`;
+  const fmt = (v: number) => `${approx ? '≈\u00a0' : ''}${v.toLocaleString(NUMBER_LOCALE[locale])}`;
+  const [first, last] = [series[0], series[series.length - 1]];
+  return (
+    <figure role="img" aria-label={alt} className="m-0 mx-auto w-full max-w-[26rem]">
+      <div className="border border-[#2C2C2C] bg-[#1F1F1F] px-6 py-7 shadow-[0_24px_50px_rgba(0,0,0,0.45)] md:px-8 md:py-9">
+        <div className="text-[3.25rem] font-bold leading-none text-white md:text-[4.25rem]">{total}</div>
+        <div className="mt-3 text-[0.9375rem] text-[#BDBDBD] md:text-base">{caption}</div>
+
+        <div className="mt-8 flex items-center justify-between gap-4">
+          <span className="text-[0.75rem] font-bold uppercase tracking-[0.1em] text-[#8A8A8A]">{seriesLabel}</span>
+          <span className="rounded-full px-3 py-1 text-[0.9375rem] font-bold leading-none text-white" style={{ background: PINTEREST_BG }}>
+            {badge}
+          </span>
+        </div>
+        <svg viewBox={`0 0 ${W} ${H}`} className="mt-4 block h-auto w-full overflow-visible" aria-hidden>
+          <defs>
+            <linearGradient id="stats-area" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor={PINTEREST_BG} stopOpacity="0.35" />
+              <stop offset="100%" stopColor={PINTEREST_BG} stopOpacity="0" />
+            </linearGradient>
+            <style>{`@keyframes stats-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}@keyframes stats-fade{from{opacity:0}to{opacity:1}}
+.stats-line{stroke-dasharray:1;animation:stats-draw 1.4s cubic-bezier(.22,1,.36,1) .2s both}
+.stats-fade{animation:stats-fade .8s ease-out .9s both}
+@media (prefers-reduced-motion:reduce){.stats-line,.stats-fade{animation:none}}`}</style>
+          </defs>
+          <path d={area} fill="url(#stats-area)" className="stats-fade" />
+          <path d={line} pathLength={1} fill="none" stroke={PINTEREST_BG} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="stats-line" />
+          {pts.map(([x, y], i) => (
+            <circle
+              key={i}
+              cx={x}
+              cy={y}
+              r={i === pts.length - 1 ? 5 : 2.5}
+              fill={i === pts.length - 1 ? '#FFFFFF' : PINTEREST_BG}
+              stroke={i === pts.length - 1 ? PINTEREST_BG : 'none'}
+              strokeWidth="3"
+              className="stats-fade"
+            />
+          ))}
+        </svg>
+        <div className="mt-3 flex justify-between text-[0.8125rem] text-[#8A8A8A]">
+          <span>
+            {first[0]} · <span className="font-semibold text-[#CFCFCF]">{fmt(first[1])}</span>
+          </span>
+          <span>
+            {last[0]} · <span className="font-semibold text-white">{fmt(last[1])}</span>
+          </span>
+        </div>
+
+        <dl className="m-0 mt-7 grid grid-cols-3 border-t border-[#2C2C2C] pt-5">
+          {rows.map(([name, value], i) => (
+            <div key={name} className={`flex flex-col gap-1 ${i ? 'border-l border-[#2C2C2C] pl-3 md:pl-4' : ''}`}>
+              <dd className="m-0 text-[1.25rem] font-bold leading-none text-white md:text-[1.5rem]">{value}</dd>
+              <dt className="text-[0.75rem] leading-[1.3] text-[#A8A8A8] md:text-[0.8125rem]">{name}</dt>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </figure>
+  );
+}
+
+/**
+ * leadForm — форма заявки від сторінки. Стоїть на місці «Висновку», якщо його немає,
+ * інакше одразу після FAQ; в обох випадках — вище «Схожих кейсів».
+ */
+export default function CaseStudyView({ study, leadForm }: { study: CaseStudy; leadForm?: React.ReactNode }) {
   const { openLead } = useServiceLead();
   const t = useT();
   const locale = useLocale();
@@ -163,7 +260,7 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
   const [funnelRef, funnelState] = useReveal<HTMLOListElement>(0.15);
   const [chartRef, chartState] = useReveal<HTMLDivElement>(0.2);
   const [open, setOpen] = useState(0);
-  const ask = () => openLead(study.channel, 'Pinterest');
+  const ask = () => openLead(study.channel, study.leadCategory ?? 'Pinterest');
   /** Прокрутка до лід-форми внизу сторінки — без переходу на інші сторінки. */
   const toLead = () => document.getElementById('lead')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   const { chart } = study.results;
@@ -180,6 +277,44 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
           {steps.text}
         </p>
       ) : null}
+      {steps.layout === 'grid' ? (
+        <ol ref={funnelRef} className="m-0 mt-9 grid list-none gap-3 p-0 sm:grid-cols-2 md:mt-12 md:gap-4 lg:grid-cols-4">
+          {steps.items.map(([title, text, icon], i, all) => {
+            const last = i === all.length - 1;
+            return (
+              <li
+                key={title}
+                className={`flex flex-col gap-5 rounded-md px-5 py-6 transition-[opacity,transform] duration-500 ease-out md:px-6 md:py-8 ${
+                  last ? 'text-white' : 'border border-[#333333] bg-[#1F1F1F] text-white'
+                }`}
+                style={{ ...(last ? { background: PINTEREST_BG } : {}), ...revealStyle(funnelState, i * 90) }}
+              >
+                <span className="flex items-center justify-between">
+                  <span
+                    className={`flex h-12 w-12 flex-none items-center justify-center rounded-full ${
+                      last ? 'bg-white text-brand-orange' : 'bg-[#141414] text-brand-orange'
+                    }`}
+                  >
+                    <StepIcon d={ICONS[icon]} />
+                  </span>
+                  <span className={`text-[0.875rem] font-bold tabular-nums ${last ? 'text-white/70' : 'text-[#5C5C5C]'}`}>
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                </span>
+                <span className="flex flex-col gap-2">
+                  <span className="text-[1.0625rem] font-bold leading-[1.25] md:text-xl">{title}</span>
+                  <span className={`text-[0.875rem] leading-[1.55] ${last ? 'text-white/85' : 'text-[#A8A8A8]'}`}>{text}</span>
+                  {last && steps.badge ? (
+                    <span className="mt-1.5 self-start bg-white/20 px-2 py-1 text-[0.6875rem] font-bold uppercase tracking-[0.08em]">
+                      {steps.badge}
+                    </span>
+                  ) : null}
+                </span>
+              </li>
+            );
+          })}
+        </ol>
+      ) : (
       <ol ref={funnelRef} className="m-0 mt-9 flex list-none flex-col items-stretch gap-3 p-0 md:mt-12 md:flex-row md:items-stretch md:gap-0">
         {steps.items.map(([title, text, icon], i, all) => {
           const last = i === all.length - 1;
@@ -226,10 +361,11 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
           );
         })}
       </ol>
+      )}
     </div>
   );
   // Картки рішення — окремі блоки з повітрям
-  const cardsBlock = (
+  const cardsBlock = cards.length ? (
     <div className={`grid gap-5 md:grid-cols-2 md:gap-8 ${study.solution.cardsFirst ? 'mt-12 md:mt-16' : 'mt-16 md:mt-24'}`}>
       {cards.map(([title, text]) => (
         <div key={title} className="flex flex-col border border-[#2C2C2C] bg-[#1F1F1F] px-6 py-8 md:px-10 md:py-10">
@@ -238,7 +374,7 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
         </div>
       ))}
     </div>
-  );
+  ) : null;
 
   return (
     <>
@@ -313,6 +449,8 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
                   ))}
                 </div>
               </figure>
+            ) : hero.type === 'stats' ? (
+              <StatsVisual {...hero} alt={study.cover.alt} locale={locale} />
             ) : (
               <SplitVisual locale={locale} total={hero.total} label={hero.label} parts={hero.parts} alt={study.cover.alt} pin={hero.pin} />
             )}
@@ -321,13 +459,21 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
 
         {/* Головні цифри */}
         <div style={{ background: PINTEREST_BG }}>
-          <div ref={metricsRef} className="shell grid md:grid-cols-3">
+          <div ref={metricsRef} className={`shell grid ${study.metrics.length === 4 ? 'grid-cols-2 md:grid-cols-4' : 'md:grid-cols-3'}`}>
             {study.metrics.map(([value, text], i) => (
               <div
                 key={value}
-                className={`flex flex-col gap-2 py-7 md:py-11 md:pl-10 ${i ? 'border-t border-white/20 md:border-l md:border-t-0' : 'md:pl-0'}`}
+                className={
+                  study.metrics.length === 4
+                    ? `flex flex-col gap-2 py-6 md:py-11 ${i % 2 ? 'border-l border-white/20 pl-5' : ''} ${i > 1 ? 'border-t border-white/20 md:border-t-0' : ''} ${i ? 'md:border-l md:pl-8' : 'md:pl-0'} ${i === 2 ? 'md:border-l' : ''}`
+                    : `flex flex-col gap-2 py-7 md:py-11 md:pl-10 ${i ? 'border-t border-white/20 md:border-l md:border-t-0' : 'md:pl-0'}`
+                }
               >
-                <span className="text-[2.75rem] font-bold leading-none text-white md:text-[3.75rem]">
+                <span
+                  className={`font-bold leading-none text-white ${
+                    study.metrics.length === 4 ? 'text-[2rem] md:text-[3rem]' : 'text-[2.75rem] md:text-[3.75rem]'
+                  }`}
+                >
                   <CountUp value={value} state={metricsState} locale={locale} />
                 </span>
                 <span className="text-[0.9375rem] leading-[1.4] text-white/85 md:text-base">{text}</span>
@@ -485,6 +631,17 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
           {/* Графік результату. Осі Y немає; цифри — на всіх стовпчиках або лише на крайніх
               (як задано в кейсі). Під графіком — та сама інформація таблицею для пошуковиків. */}
           <figure className="m-0 bg-white px-6 py-7 md:px-10 md:py-10">
+            {study.results.screenshot ? (
+              // eslint-disable-next-line @next/next/no-img-element -- next/image не працює на статичному експорті
+              <img
+                src={study.results.screenshot.src}
+                alt={study.results.screenshot.alt}
+                width={study.results.screenshot.width}
+                height={study.results.screenshot.height}
+                loading="lazy"
+                className="block h-auto w-full"
+              />
+            ) : (
             <div role="img" aria-label={chart.alt}>
               <div className="flex items-start justify-between gap-4">
                 <span className="text-[0.8125rem] font-bold uppercase tracking-[0.12em] text-[#8A8A8A]">{chart.label}</span>
@@ -512,7 +669,7 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
                             transitionDelay: chartState === 'shown' ? `${i * 110 + 700}ms` : '0ms',
                           }}
                         >
-                          {first && chart.approxFirst ? '≈\u00a0' : ''}
+                          {(first && chart.approxFirst) || chart.approxAll ? '≈\u00a0' : ''}
                           {formatValue(value, chart.format, locale)}
                         </span>
                       ) : null}
@@ -537,6 +694,7 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
                 ))}
               </div>
             </div>
+            )}
             {/* Таблиця-дубль графіка для пошуковиків і скрінрідерів. sr-only — на обгортці:
                 сама <table> ігнорує ширину 1px і розтягувала сторінку на телефоні */}
             <div className="sr-only">
@@ -553,7 +711,7 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
                     <tr key={month}>
                       <th scope="row">{month}</th>
                       <td>
-                        {i === 0 && chart.approxFirst ? '≈ ' : ''}
+                        {(i === 0 && chart.approxFirst) || chart.approxAll ? '≈ ' : ''}
                         {formatValue(value, chart.format, locale)}
                       </td>
                     </tr>
@@ -561,7 +719,9 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
                 </tbody>
               </table>
             </div>
-            <figcaption className="mt-6 text-[0.9375rem] font-semibold text-[#222222]">{chart.alt}</figcaption>
+            <figcaption className="mt-6 text-[0.9375rem] font-semibold text-[#222222]">
+              {study.results.screenshot?.caption ?? chart.alt}
+            </figcaption>
           </figure>
         </div>
       </section>
@@ -609,6 +769,7 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
       </section>
 
       {/* Висновок */}
+      {study.conclusion ? (
       <section className="bg-[#141414]">
         <div className="shell grid gap-8 py-16 md:grid-cols-[25rem_minmax(0,1fr)] md:items-start md:gap-24 md:py-28">
           <div>
@@ -622,6 +783,9 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
           </div>
         </div>
       </section>
+      ) : (
+        leadForm
+      )}
 
       {/* FAQ */}
       <section id="faq" className="scroll-mt-16 bg-[#EEEEEE] md:scroll-mt-[5.125rem]">
@@ -687,6 +851,8 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
           </div>
         </div>
       </section>
+
+      {study.conclusion ? leadForm : null}
 
       {/* Схожі кейси — ті самі картки, що на головній; ведуть далі по сайту перед формою */}
       <section className="overflow-hidden bg-white">

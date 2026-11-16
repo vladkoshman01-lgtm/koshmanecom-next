@@ -36,8 +36,10 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   return (
     <div className="bg-white">
       <JsonLd data={caseStudyJsonLd('uk', study)} />
-      <CaseStudyView study={study} />
-      <LeadForm theme="dark" title={study.leadTitle} subtitle={study.leadText} />
+      <CaseStudyView
+        study={study}
+        leadForm={<LeadForm theme="dark" title={study.leadTitle} subtitle={study.leadText} />}
+      />
     </div>
   );
 }

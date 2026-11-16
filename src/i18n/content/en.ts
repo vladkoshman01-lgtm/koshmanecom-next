@@ -209,6 +209,12 @@ const en: Record<string, string> = {
   '4,1x': '4.1x',
   'ROAS, 1 050 замовлень за 6 місяців': 'ROAS, 1,050 orders in 6 months',
   'Декор для дому': 'Home decor',
+  // Кейс Etsy
+  'ETSY · ПРИКРАСИ': 'ETSY · JEWELLERY',
+  'Просування чинного магазину прикрас на Etsy: SEO, лістинги, автоматизація викладки': 'Growing an existing Etsy jewellery shop: SEO, listings, automated uploads',
+  '$14 300': '$14,300',
+  'продажів за 7 місяців, трафік ×2': 'in sales in 7 months, traffic ×2',
+  'Прикраси': 'Jewellery',
   'Запуск реклами Pinterest Ads': 'Pinterest Ads launch',
   'Інтернет-магазин для продажу власних і партнерських продуктів':
     'An online store selling own and partner products',

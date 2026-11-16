@@ -32,6 +32,13 @@ export function caseHrefForCard(cardId: string) {
  * Спершу ті, що мають власну сторінку, далі решта в порядку головної.
  */
 export function relatedCaseCards(slug: string, limit = 3): CaseCard[] {
+  const picked = ukCaseStudies[slug]?.related;
+  if (picked?.length) {
+    return picked
+      .map((id) => CASES.find((c) => c.id === id))
+      .filter((c): c is CaseCard => Boolean(c))
+      .slice(0, limit);
+  }
   const current = ukCaseStudies[slug]?.cardId;
   const withPage = new Set(Object.values(ukCaseStudies).map((c) => c.cardId));
   return CASES.filter((c) => c.id !== current)

@@ -10,6 +10,7 @@ import { ukCaseStudies } from './uk';
 
 const wed = ukCaseStudies['pinterest-ads-wedding-dresses'];
 const decor = ukCaseStudies['pinterest-ads-home-decor'];
+const etsy = ukCaseStudies['etsy-jewelry-shop-seo'];
 
 /** Rovnaké piny v rovnakom poradí, s alt textom po slovensky. */
 function withAlts(pins: CaseStudy['solution']['pins'], alts: string[]) {
@@ -318,5 +319,128 @@ export const skCaseStudies: Record<string, CaseStudy> = {
     ],
     leadTitle: 'Získajte audit Pinterest Ads pre váš e-shop',
     leadText: 'Pozrieme sa na váš sortiment a trhy a ukážeme, ako sa Pinterest môže stať samostatným predajným kanálom.',
+  },
+
+  'etsy-jewelry-shop-seo': {
+    ...etsy,
+    metaTitle: 'Prípadová štúdia Etsy: 14 300 $ predajov šperkov za 7 mesiacov | Koshman Ecom',
+    metaDescription:
+      'Ako sme zdvojnásobili návštevnosť existujúceho Etsy obchodu so šperkami: +103 % návštev, 161 objednávok a 14 300 $ tržieb za 7 mesiacov. SEO, listingy, automatizácia.',
+    keywords:
+      'propagácia na Etsy, Etsy SEO, prípadová štúdia Etsy, optimalizácia listingov Etsy, obchod so šperkami na Etsy, správa Etsy obchodu, automatizácia listingov Etsy',
+    client: 'Značka šperkov',
+    breadcrumb: 'Propagácia obchodu so šperkami na Etsy',
+    h1: 'Prípadová štúdia Etsy: ako sme zdvojnásobili návštevnosť existujúceho obchodu so šperkami a dostali ho na 14 300 $ predajov za 7 mesiacov',
+    lead: 'Ako systematické Etsy SEO a automatizované pridávanie listingov dostali stagnujúci obchod so šperkami do stabilného rastu.',
+    tags: ['Etsy', 'Šperky', 'USA a Európa'],
+    summary:
+      'Obchod so šperkami na Etsy už fungoval, ale predaje stáli na mieste. Nezačínali sme od nuly, ale prestavali to, čo už existovalo: nastavenia, listingy, kľúčové slová a vizuál. Potom sme zautomatizovali pridávanie produktov, pridali 102 nových listingov a odovzdali obchod tímu klienta s hotovým plánom rozvoja. Po 7 mesiacoch sa návštevnosť zdvojnásobila a obchod získal 161 objednávok.',
+    facts: [
+      ['Klient', 'Značka šperkov (pozlátené, striebro)'],
+      ['Platforma', 'Etsy'],
+      ['Čo sme robili', 'SEO, listingy, vizuál, nastavenie obchodu, automatizácia pridávania'],
+      ['Obdobie', 'január – júl 2025'],
+    ],
+    cover: {
+      ...etsy.cover,
+      alt: 'Obchod so šperkami na Etsy: 14 300 $ tržieb, návštevnosť vzrástla z ≈2 600 na ≈5 500 návštev mesačne, január – júl 2025',
+    },
+    // Перший екран — картка-дашборд: виручка, крива візитів з Etsy Stats і ключові показники
+    heroVisual: {
+      type: 'stats',
+      total: '14 300 $',
+      label: 'tržby obchodu za 7 mesiacov',
+      badge: '×2',
+      seriesLabel: 'Návštevy za mesiac',
+      series: [['Jan', 2600], ['Feb', 2900], ['Mar', 3300], ['Apr', 3800], ['Máj', 4400], ['Jún', 5000], ['Júl', 5500]],
+      approx: true,
+      rows: [['objednávok', '161'], ['priem. objednávka', '≈ 89 $'], ['konverzia', '2,1 %']],
+    },
+    og: { title: '14 300 $ predajov za 7 mesiacov', subtitle: 'Obchod so šperkami na Etsy · +103 % návštev · 161 objednávok' },
+    metrics: [
+      ['14 300 $', 'tržby za január – júl 2025'],
+      ['+103 %', 'návštev oproti minulému roku'],
+      ['80', 'prepracovaných listingov'],
+      ['102', 'nových SEO listingov'],
+    ],
+    task: {
+      title: 'Ako rozbehnúť existujúci obchod na Etsy',
+      paragraphs: [
+        'Obchod mal produkty, recenzie aj históriu predajov, no strácal sa medzi stovkami podobných šperkov vo vyhľadávaní Etsy. Listingy boli spracované rôzne, tagy nezodpovedali tomu, ako zákazníci hľadajú, a vizuál nevysvetľoval, čím sa značka líši od ostatných.',
+        'Sortiment rástol pomaly, pretože tím pripravoval každý nový listing ručne. Bolo treba premeniť roztrieštený obchod na systém, ktorý Etsy rád zobrazuje a ktorý tím klienta dokáže rozvíjať sám.',
+      ],
+    },
+    solution: {
+      ...etsy.solution,
+      title: 'Čo sme urobili',
+      steps: {
+        ...etsy.solution.steps,
+        title: '8 krokov od auditu po odovzdanie obchodu',
+        items: [
+          ['Audit a nastavenie obchodu', 'Skontrolovali sme dopravu, podmienky, sekcie, platby a spracovanie objednávok. Opravili sme všetko, čo ovplyvňuje poradie a dôveru: termíny odoslania, vrátenie tovaru, štruktúru sekcií.', 'settings'],
+          ['Sémantické jadro', 'Namiesto drahých frekventovaných dopytov sme stavili na long-tail a darčekové scenáre: „darček pre priateľku“, „šperk k výročiu“, „šperky pre nevestu“. Kľúčové slová sme rozdelili podľa produktov a sezón.', 'key'],
+          ['Prepracovali sme 80 listingov', 'Pri každom produkte sme aktualizovali názov, 13 tagov, atribúty a popis. Do popisov sme pridali odpovede na časté otázky: veľkosť, materiál, starostlivosť, balenie.', 'edit'],
+          ['Automatizácia a 102 nových listingov', 'Nastavili sme pridávanie, pri ktorom sa listingy hneď vytvárajú s názvami, tagmi a popismi zo sémantického jadra. Každý nový produkt sa tak hneď dostane do vyhľadávania so správnymi kľúčovými slovami.', 'bolt'],
+          ['Fotky a CTR vo vyhľadávaní', 'Nové hlavné fotky: makrodetaily, fotky na modelke, slajdy s veľkosťami a materiálmi. Fotka musí odpovedať na otázku zákazníka ešte pred kliknutím.', 'photo'],
+          ['Vizuál obchodu', 'Prerobili sme banner, logo, sekciu About, uvítaciu správu a FAQ. Obchod začal vyzerať ako značka, nie ako súbor samostatných produktov.', 'brush'],
+          ['Servis a hodnotenie', 'Rýchle odpovede, šablóny správ a práca s recenziami udržali hodnotenie aj pri raste objednávok.', 'star'],
+          ['Odovzdanie obchodu tímu', 'S plánom rozvoja: sémantikou, sezónnym kalendárom aktualizácií, návodmi a nastavenou automatizáciou pridávania.', 'handoff'],
+        ],
+        badge: 'tím ho vedie sám',
+      },
+    },
+    results: {
+      title: 'Výsledky za 7 mesiacov',
+      items: [
+        ['27 500 návštev obchodu', 'za 7 mesiacov.'],
+        ['+103 % návštev', 'medziročne.'],
+        ['161 objednávok a 14 300 $ tržieb,', 'priemerná objednávka ≈ 89 $, konverzia 2,1 %.'],
+        ['80 prepracovaných a 102 nových listingov', 'vo vyhľadávaní Etsy.'],
+        ['Mesačná návštevnosť sa zdvojnásobila:', 'z ~2 600 návštev v januári na ~5 500 v júli, bez poklesov.'],
+        ['Tím klienta', 'samostatne vedie obchod podľa hotového plánu.'],
+      ],
+      screenshot: {
+        ...etsy.results.screenshot!,
+        alt: 'Snímka Etsy Stats obchodu so šperkami: 27 500 návštev, 161 objednávok, konverzia 2,1 %, tržby 14 300 $ za január – júl 2025',
+        caption: 'Etsy Stats, január – júl 2025: návštevy vzrástli o 103 % medziročne',
+      },
+      chart: {
+        ...etsy.results.chart,
+        label: 'Návštevy obchodu na Etsy po mesiacoch, 2025',
+        alt: 'Návštevnosť obchodu so šperkami na Etsy vzrástla z ≈2 600 návštev v januári na ≈5 500 v júli 2025',
+        months: [
+          ['Január', 2600, 'Jan'],
+          ['Február', 2900, 'Feb'],
+          ['Marec', 3300, 'Mar'],
+          ['Apríl', 3800, 'Apr'],
+          ['Máj', 4400, 'Máj'],
+          ['Jún', 5000, 'Jún'],
+          ['Júl', 5500, 'Júl'],
+        ],
+        table: ['Mesiac', 'Návštevy'],
+      },
+    },
+    insights: {
+      title: 'Čo sme zistili',
+      intro: 'Štyri postrehy, ktoré teraz uplatňujeme v každom projekte na Etsy.',
+      items: [
+        ['Existujúci obchod sa škáluje rýchlejšie ako nový', 'História predajov a recenzie už pomáhajú poradiu, takže stačí odstrániť to, čo Etsy bráni zobrazovať produkty.', 'store'],
+        ['Long-tail prináša zákazníkov, nielen zobrazenia', 'Úzke darčekové dopyty majú menej zobrazení, no ľudia za nimi prichádzajú s jasným úmyslom kúpiť.', 'search'],
+        ['Rozsah sortimentu je tiež SEO', 'Čím viac kvalitných listingov, tým viac dopytov obchod pokrýva. Automatizácia umožnila pridávať produkty rýchlo bez straty kvality optimalizácie.', 'scale'],
+        ['Sezónnosť treba plánovať vopred', 'Listingy na Valentína a svadobnú sezónu sme aktualizovali 4–6 týždňov pred vrcholom, aby ich Etsy stihol zaindexovať.', 'clock'],
+      ],
+    },
+    faqTitle: 'Časté otázky o propagácii na Etsy',
+    faq: [
+      ['Dá sa rozbehnúť obchod, ktorý funguje už dlho?', 'Áno, a často je to dokonca rýchlejšie. Recenzie a história predajov už existujú, takže zvyčajne treba prerobiť listingy, sémantiku a vizuál.'],
+      ['Za aký čas uvidíme prvé výsledky?', 'Prvé zmeny v návštevnosti sú viditeľné 3–6 týždňov po aktualizácii listingov. Stabilný rast zvyčajne prichádza za 2–3 mesiace.'],
+      ['Je nutné spustiť Etsy Ads?', 'Nie. V tomto prípade hlavný rast priniesla organika. Reklamu pridávame, keď listingy už konvertujú.'],
+      ['Dá sa pridávanie listingov zautomatizovať?', 'Áno. Nastavíme pridávanie, pri ktorom sa listingy vytvárajú s SEO názvami, tagmi a popismi. Šetrí to hodiny práce pri každej várke produktov.'],
+      ['Môžeme po spolupráci viesť obchod sami?', 'Áno. Odovzdáme obchod s plánom rozvoja, sémantikou, návodmi a nastavenými nástrojmi, aby váš tím mohol pokračovať bez nás.'],
+      ['Hodí sa to aj pre iné niky okrem šperkov?', 'Áno. Prístup funguje pre akýkoľvek vizuálny ručne vyrábaný produkt: dekorácie, oblečenie, doplnky, darčeky.'],
+      ['Čo od nás potrebujete na začiatok?', 'Prístup k obchodu a 30-minútový hovor o produkte, publiku a cieľoch. Audit urobíme sami.'],
+    ],
+    leadTitle: 'Chcete takto rozbehnúť aj svoj Etsy obchod?',
+    leadText: 'Pozrieme sa na váš obchod, listingy a niku a ukážeme, čo bráni Etsy zobrazovať vaše produkty.',
   },
 };

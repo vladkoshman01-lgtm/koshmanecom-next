@@ -88,6 +88,18 @@ export const CASES: CaseCard[] = [
     imageHeight: null,
   },
   {
+    id: 'etsy',
+    name: 'ETSY · ПРИКРАСИ',
+    description: 'Просування чинного магазину прикрас на Etsy: SEO, лістинги, автоматизація викладки',
+    metric: '$14 300',
+    metricSub: 'продажів за 7 місяців, трафік ×2',
+    tags: ['B2C', 'Etsy', 'Прикраси', 'SEO'],
+    tint: '#6B5536',
+    cover: '/cases/case-etsy.webp',
+    imageTop: 0,
+    imageHeight: null,
+  },
+  {
     id: 'mgd',
     name: 'MICHAEL GRAVES DESIGN',
     description: 'Інтернет-магазин для продажу власних і партнерських продуктів',

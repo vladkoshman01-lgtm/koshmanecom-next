@@ -43,8 +43,10 @@ export default async function Page({
   return (
     <div className="bg-white">
       <JsonLd data={caseStudyJsonLd(lang, study)} />
-      <CaseStudyView study={study} />
-      <LeadForm theme="dark" title={study.leadTitle} subtitle={study.leadText} />
+      <CaseStudyView
+        study={study}
+        leadForm={<LeadForm theme="dark" title={study.leadTitle} subtitle={study.leadText} />}
+      />
     </div>
   );
 }

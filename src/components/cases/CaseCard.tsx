@@ -44,7 +44,7 @@ export default function CaseCard({
           backgroundImage: `url("${item.cover}")`,
         }}
         role="img"
-        aria-label={`${t.home.cases.eyebrow}: ${item.name}`}
+        aria-label={`${t.home.cases.eyebrow}: ${tr(item.name)}`}
       />
       <div
         className="pointer-events-none absolute inset-0"
@@ -54,7 +54,8 @@ export default function CaseCard({
       />
       <div className="pointer-events-none absolute inset-0 flex flex-col px-[1.625rem] pb-7 pt-[1.875rem] text-white">
         <div className="text-[1.375rem] font-semibold uppercase leading-[1.15] tracking-[0.01em]">
-          {item.name}
+          {/* Назви-бренди лишаються як є; описові (напр. «ETSY · ПРИКРАСИ») перекладаються */}
+          {tr(item.name)}
         </div>
         <div className="mt-3.5 text-[1.0625rem] font-medium leading-[1.3]">{tr(item.description)}</div>
 

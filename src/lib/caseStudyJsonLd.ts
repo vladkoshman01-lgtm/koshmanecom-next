@@ -34,7 +34,7 @@ export function caseStudyJsonLd(locale: Locale, study: CaseStudy) {
         { '@type': 'Organization', name: study.client },
       ],
       keywords: study.keywords,
-      contentLocation: study.countries.map((name) => ({ '@type': 'Country', name })),
+      contentLocation: study.countries.map((name) => ({ '@type': name === 'Europe' ? 'Continent' : 'Country', name })),
     },
     breadcrumbs(locale, [
       [t.nav.home, '/'],

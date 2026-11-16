@@ -209,6 +209,12 @@ const sk: Record<string, string> = {
   '4,1x': '4,1x',
   'ROAS, 1 050 замовлень за 6 місяців': 'ROAS, 1 050 objednávok za 6 mesiacov',
   'Декор для дому': 'Bytové doplnky',
+  // Кейс Etsy
+  'ETSY · ПРИКРАСИ': 'ETSY · ŠPERKY',
+  'Просування чинного магазину прикрас на Etsy: SEO, лістинги, автоматизація викладки': 'Propagácia existujúceho obchodu so šperkami na Etsy: SEO, listingy, automatizácia',
+  '$14 300': '14 300 $',
+  'продажів за 7 місяців, трафік ×2': 'predajov za 7 mesiacov, návštevnosť ×2',
+  'Прикраси': 'Šperky',
   'Запуск реклами Pinterest Ads': 'Spustenie reklamy Pinterest Ads',
   'Інтернет-магазин для продажу власних і партнерських продуктів':
     'E-shop na predaj vlastných aj partnerských produktov',
