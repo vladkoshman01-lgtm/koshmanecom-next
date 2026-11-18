@@ -6,6 +6,7 @@
  */
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { ExternalLink, Eye, History, Pencil, Plus, RefreshCw, Trash2, X } from 'lucide-react';
 import { cabinetCall, errorMessage, type AdminOverview, type AuditEntry, type Me, type SourceAccount } from '@/lib/cabinet/api';
 import { Spinner } from './CabinetShell';
@@ -627,6 +628,11 @@ function AdminsAndAudit({ me, admins, onChanged }: { me: Me; admins: string[]; o
 }
 
 export default function AdminPanel({ me }: { me: Me }) {
+  const router = useRouter();
+  // Клієнт міг потрапити сюди, увійшовши з вкладки, де була адмінка, — ведемо до його звітів
+  useEffect(() => {
+    if (!me.isAdmin) router.replace('/cabinet');
+  }, [me.isAdmin, router]);
   const [data, setData] = useState<AdminOverview | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [selected, setSelected] = useState<string | 'new' | null>(null);
@@ -649,7 +655,7 @@ export default function AdminPanel({ me }: { me: Me }) {
   const client = useMemo(() => data?.clients.find((c) => c.id === selected) ?? null, [data, selected]);
   const clientDashboards = useMemo(() => data?.dashboards.filter((d) => d.clientId === selected) ?? [], [data, selected]);
 
-  if (!me.isAdmin) return <p className="py-16 text-center font-semibold text-[#141414]">Ця сторінка лише для адмінів.</p>;
+  if (!me.isAdmin) return <Spinner label="Відкриваємо ваші звіти…" />;
   if (error) return <p className="py-16 text-center font-semibold text-[#141414]">{error}</p>;
   if (!data) return <Spinner />;
 
