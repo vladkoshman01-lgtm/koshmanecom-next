@@ -10,6 +10,6 @@ export default function Image() {
   return renderOg({
     eyebrow: 'Кабінет клієнта',
     title: 'Звіти по вашій рекламі в одному місці',
-    subtitle: 'Pinterest, ChatGPT та інші платформи — цифри оновлюються щодня',
+    subtitle: 'Цифри по всіх кампаніях оновлюються щодня',
   });
 }

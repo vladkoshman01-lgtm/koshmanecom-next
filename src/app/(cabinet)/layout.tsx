@@ -14,7 +14,7 @@ export const viewport: Viewport = { themeColor: '#FF5B2B' };
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 const title = 'Кабінет клієнта — Koshman Ecom';
-const description = 'Звіти по вашій рекламі в Pinterest, ChatGPT та інших платформах. Цифри оновлюються щодня.';
+const description = 'Звіти по вашій рекламі в одному місці. Цифри оновлюються щодня.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
