@@ -20,10 +20,13 @@ export default function LeadForm({
   theme = 'dark',
   title,
   subtitle,
+  submitLabel,
 }: {
   theme?: 'dark' | 'light';
   title?: string;
   subtitle?: string;
+  /** Власний підпис кнопки відправки — напр. «Обговорити Shopify-магазин». */
+  submitLabel?: string;
 }) {
   const t = useT();
   const tr = useTr();
@@ -212,12 +215,12 @@ export default function LeadForm({
                 disabled={sending}
                 className="flex h-14 w-full items-center justify-center bg-brand-orange text-base font-bold uppercase tracking-[0.02em] text-white transition-colors hover:bg-orange-600 disabled:opacity-60 md:hidden"
               >
-                {sending ? t.lead.sending : t.lead.submit}
+                {sending ? t.lead.sending : (submitLabel ?? t.lead.submit)}
               </button>
 
               <div className="hidden md:block">
                 <AnimatedButton variant="primary" type="submit" disabled={sending}>
-                  {sending ? t.lead.sending : t.lead.submit}
+                  {sending ? t.lead.sending : (submitLabel ?? t.lead.submit)}
                 </AnimatedButton>
               </div>
               <span className={`text-[0.8125rem] leading-[1.4] ${mutedColor}`}>

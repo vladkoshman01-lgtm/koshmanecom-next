@@ -2,182 +2,575 @@ import type { ServicePage } from './types';
 
 /**
  * Slovenské texty stránok jednotlivých služieb.
- * Koncept — pred publikovaním treba korektúra od native speakera.
+ *
+ * Tvorba Shopify e-shopu — slovenská verzia UA stránky (rovnaké poradie a id sekcií,
+ * aby ikony v icons.ts sedeli). Bez prípadových štúdií, cien, termínov a záruk;
+ * konkrétnych poskytovateľov platieb, dopravy a CRM nemenujeme.
  */
 const shopify: ServicePage = {
   slug: 'shopify',
   category: 'Vývoj na Shopify',
   categoryKey: 'shopify-dev',
-  short: 'Tvorba e-shopu na Shopify',
-  metaTitle: 'Tvorba e-shopu na Shopify na kľúč — Koshman Ecom',
+  short: 'Tvorba Shopify e-shopu',
+  metaTitle: 'Tvorba Shopify e-shopu | Koshman Ecom',
   metaDescription:
-    'Tvorba e-shopu na Shopify na kľúč: katalóg, vlastná téma, platby, doprava, integrácie a spustenie. Pre značky zo Slovenska, Česka a celej EÚ.',
-  h1: 'Tvorba e-shopu na Shopify na kľúč',
-  lead: 'Koshman Ecom stavia e-shopy na Shopify pre značky zo Slovenska, Česka a ďalších trhov EÚ: od štruktúry katalógu a dizajnu témy po platby, dopravu, integrácie a analytiku. Dostanete e-shop pripravený prijímať objednávky a tím, ktorý vie, čo má nasledovať.',
+    'Tvorba a vývoj Shopify e-shopu pre značky a firmy. Dizajn, nastavenie, témy na mieru, integrácie, migrácia a spustenie.',
+  h1: 'Tvorba Shopify e-shopu pre e-commerce značky',
+  lead: 'Vytvoríme e-shop na Shopify podľa vašich produktov, zákazníkov a spôsobu predaja. Od štruktúry a dizajnu až po nastavenie objednávok a prípravu na spustenie.',
+  leadExtra:
+    'Navrhneme navigáciu, upravíme tému, usporiadame produktový katalóg, nastavíme vhodné platobné možnosti a dopravu, prepojíme potrebné systémy a otestujeme nákupný proces. Koshman Ecom je medzinárodná e-commerce agentúra s pôsobením v Košiciach. Pracujeme s klientmi v Európe a USA a pomáhame e-shopom, D2C značkám, výrobcom a B2B firmám spúšťať, zlepšovať a rozvíjať online predaj.',
+  sectionLabels: false,
+  stepsAccent: true,
+  stepsCta: 'Prebrať váš Shopify projekt',
+  heroCta: { primary: 'Prebrať váš Shopify projekt', secondary: 'Dohodnúť konzultáciu' },
   facts: [
-    ['Formát', 'Na kľúč'],
-    ['Čas spustenia', 'od 4 týždňov'],
-    ['Platforma', 'Shopify a Shopify Plus'],
-    ['Trhy', 'Slovensko, Česko, EÚ'],
-    ['Po spustení', 'podpora a rozvoj'],
+    ['Realizácia', 'Od návrhu po spustenie v dohodnutom rozsahu'],
+    ['Platforma', 'Shopify'],
+    ['Pre koho', 'B2C, B2B a D2C firmy'],
+    ['Základné nastavenie', 'Produktový katalóg, platby, doprava, analytika a integrácie'],
   ],
   areaServed: ['SK', 'CZ', 'EU'],
-  updated: '28. októbra 2026',
-  tldr: [
-    'Shopify je platforma pre e-shop, kde hosting, bezpečnosť, platby aj aktualizácie zabezpečuje služba.',
-    'Preberáme štruktúru katalógu, dizajn a vývoj témy, platby, dopravu, integrácie a spustenie.',
-    'E-shop staviame s ohľadom na konverziu: rýchlosť, jasná cesta do košíka, mobilná verzia.',
-    'Po spustení si e-shop môžete spravovať sami v administrácii Shopify, alebo rozvoj necháte na nás.',
-  ],
-  forTitle: 'Komu Shopify vyhovuje',
+  updated: '18. novembra 2026',
+  forTitle: 'Pre koho je tvorba Shopify e-shopu vhodná?',
   forWhom: [
     [
-      'Značkám s vlastným produktom',
-      'Keď potrebujete e-shop, ktorý vyzerá ako značka, nie ako šablóna z marketplace.',
+      'Nové značky',
+      'Pre firmy, ktoré chcú spustiť prvý e-shop s prehľadnou štruktúrou, usporiadaným katalógom a základom pre ďalší marketing.',
     ],
     [
-      'Predajcom z marketplaceov',
-      'Predaj na Etsy či Amazone už funguje a je čas mať vlastný kanál bez provízií platformy.',
+      'Existujúce e-shopy',
+      'Pre e-shopy, ktoré plánujú prechod na Shopify, nový dizajn, lepší nákupný zážitok alebo rozvoj existujúceho riešenia bez kompletnej prestavby.',
     ],
     [
-      'E-shopom na starej platforme',
-      'Web je pomalý, neaktualizuje sa a stráca návštevnosť — katalóg a objednávky prenesieme na Shopify.',
+      'Výrobcovia a D2C značky',
+      'Pre značky, ktoré chcú predávať priamo zákazníkom, budovať vlastné zákaznícke vzťahy a znížiť závislosť od online trhovísk.',
     ],
     [
-      'Veľkoobchodným firmám',
-      'B2B e-shop so zatvoreným katalógom, individuálnymi cenami a platbou na faktúru.',
+      'B2B firmy a distribútori',
+      'Pre firmy, ktoré potrebujú veľkoobchodné objednávky, individuálne katalógy a ceny, firemné účty alebo prepojenie s internými systémami. Vhodné riešenie pre B2B Shopify e-shop závisí od požiadaviek, programu Shopify a dostupných možností.',
+    ],
+    [
+      'Firmy vstupujúce na nové trhy',
+      'Pre podniky, ktoré pripravujú predaj na Slovensku, v ďalších krajinách EÚ alebo mimo nej. Posúdime jazykové verzie, meny, obsah a prevádzkové nastavenia vrátane možností Shopify Markets. Vhodnosť riešenia overíme podľa cieľových krajín, sídla firmy, platieb a logistiky.',
+    ],
+    [
+      'Firmy pripravujúce ďalší rast',
+      'Pre e-shopy, ktoré potrebujú základ pre reklamu, SEO, opakované nákupy, meranie výsledkov a ďalší vývoj.',
     ],
   ],
-  includedTitle: 'Čo zahŕňa tvorba e-shopu',
+  forWhomNote:
+    'Shopify nenahrádza kvalitný produkt, jasnú ponuku ani marketingovú stratégiu. Pred začiatkom projektu si preto prejdeme váš sortiment, trhy, logistiku a ciele, aby sme navrhli funkcie, ktoré skutočne potrebujete.',
+  includedTitle: 'Čo zahŕňa tvorba a vývoj Shopify e-shopu?',
+  includedIntro:
+    'Prepájame zákaznícku časť e-shopu s nastaveniami a systémami potrebnými na jeho prevádzku. Konkrétne výstupy a rozsah prác dohodneme v rámci projektu.',
   included: [
-    ['Štruktúra a katalóg', 'Kategórie, filtre, varianty produktov, kolekcie a navigácia podľa vášho sortimentu.'],
-    ['Dizajn e-shopu', 'Dizajn v štýle značky: domovská stránka, katalóg, produkt, košík a pokladňa.'],
-    ['Vývoj témy', 'Téma Shopify s vlastnými sekciami, ktoré neskôr upravíte bez programátora.'],
-    ['Platby', 'Shopify Payments, Stripe, PayPal, lokálne platobné brány a platba pri doručení.'],
-    ['Doprava', 'Zóny a tarify dopravy, prepravcovia, výpočet ceny priamo v košíku.'],
-    ['Integrácie', 'CRM, skladový systém, ERP, prepravcovia, e-mailové nástroje, Pinterest a Google Merchant Center.'],
-    ['Rýchlosť a mobil', 'Optimalizácia obrázkov a skriptov, Core Web Vitals, testovanie na telefónoch.'],
-    ['Analytika a spustenie', 'GA4, Consent Mode, udalosti košíka a nákupu, prenos domény, finálne testy.'],
+    [
+      'Analýza podnikania a požiadaviek',
+      'Prejdeme si vaše produkty, zákazníkov, katalóg, predajný model, cieľové trhy, konkurenciu a priority.',
+    ],
+    [
+      'Štruktúra e-shopu',
+      'Navrhneme navigáciu, úvodnú stránku, kolekcie, produktové a informačné stránky aj cestu od výberu produktu po dokončenie objednávky.',
+    ],
+    [
+      'Shopify dizajn a úprava témy',
+      'Vyberieme a nastavíme vhodnú tému, prispôsobíme ju vašej značke alebo vyvinieme potrebné prvky na mieru. Postup závisí od požiadaviek, rozpočtu a náročnosti projektu.',
+    ],
+    [
+      'Produktový katalóg a dáta',
+      'Nastavíme produkty, varianty, kolekcie, filtre, ceny a skladové údaje. Podľa dohody môžeme zahrnúť aj import produktov a naplnenie e-shopu obsahom.',
+    ],
+    [
+      'Produktové stránky',
+      'Usporiadame informácie tak, aby zákazník rozumel ponuke, parametrom a dostupným variantom. Podmienky nákupu, dopravy a vrátenia tovaru umiestnime tak, aby ich vedel ľahko nájsť.',
+    ],
+    [
+      'Platby a doprava',
+      'Posúdime vhodné platobné služby, spôsoby dopravy, sadzby a nastavenia pokladne. Pre predaj na Slovensku a v EÚ overíme dostupnosť konkrétnych riešení podľa sídla firmy, programu Shopify a podmienok poskytovateľov.',
+    ],
+    [
+      'Aplikácie a integrácie',
+      'Posúdime a zrealizujeme dohodnuté Shopify integrácie, napríklad prepojenia s CRM, ERP, skladom, účtovníctvom alebo marketingovými nástrojmi. Pred implementáciou overíme kompatibilitu, dátové toky a technické obmedzenia.',
+    ],
+    [
+      'Analytika',
+      'Nastavíme dohodnuté nástroje a udalosti, napríklad zobrazenie produktu, pridanie do košíka, začatie objednávky a nákup. Rozsah merania závisí od technického riešenia, súhlasov používateľov a možností platformy.',
+    ],
+    [
+      'Použiteľnosť na mobile',
+      'Skontrolujeme navigáciu, kolekcie, produktové stránky, košík, formuláre a pokladňu na relevantných veľkostiach obrazoviek mobilov a tabletov.',
+    ],
+    [
+      'Testovanie a spustenie',
+      'Pred spustením otestujeme produkty, ceny, navigáciu, dohodnuté scenáre platieb a dopravy, formuláre, analytiku a spracovanie objednávok.',
+    ],
+    [
+      'Odovzdanie a zaškolenie',
+      'Odovzdáme dohodnuté prístupy, vysvetlíme základnú správu produktov a objednávok a odporučíme priority pre ďalší rozvoj.',
+    ],
   ],
-  stepsTitle: 'Etapy tvorby e-shopu na Shopify',
+  // Sedem etáp tvorby je samostatná sekcia vyššie; tu je krátky začiatok spolupráce
+  stepsTitle: 'Ako začať spoluprácu s Koshman Ecom?',
   steps: [
-    ['1. týždeň', 'Brief a štruktúra', 'Rozoberieme produkt, zákazníkov a konkurenciu, zostavíme štruktúru katalógu.'],
-    ['2. týždeň', 'Dizajn', 'Navrhneme kľúčové stránky a odsúhlasíme vzhľad e-shopu.'],
-    ['3.–4. týždeň', 'Vývoj', 'Postavíme tému, naplníme katalóg, nastavíme platby a dopravu.'],
-    ['5. týždeň', 'Integrácie a testy', 'Pripojíme služby, otestujeme objednávky od začiatku do konca, doladíme detaily.'],
-    ['Spustenie', 'Publikovanie', 'Prenesieme doménu, zapneme analytiku a e-shop odovzdáme s návodom.'],
-  ],
-  compareTitle: 'Šablóna svojpomocne alebo e-shop s agentúrou',
-  compareColumns: ['Svojpomocne na šablóne', 'S Koshman Ecom'],
-  compare: [
     [
-      'Čas do spustenia',
-      'Mesiace učenia platformy a aplikácií',
-      'Jasný plán a funkčný e-shop za niekoľko týždňov',
+      'Krok 1',
+      'Predstavte nám svoj projekt',
+      'Napíšte nám o vašej firme, produktoch, trhoch a o tom, s čím potrebujete pomôcť.',
     ],
     [
-      'Vzhľad e-shopu',
-      'Štandardná téma podobná stovkám iných',
-      'Dizajn podľa značky a téma postavená naň',
+      'Krok 2',
+      'Dohodnite si krátku konzultáciu',
+      'Spresníme, či je prioritou nový e-shop, migrácia, úpravy existujúceho riešenia, B2B predaj alebo audit.',
     ],
     [
-      'Konverzia',
-      'Cesta do košíka „ako vyšla“',
-      'Produkt, košík a pokladňa postavené na nákup',
+      'Krok 3',
+      'Prejdite si odhad a plán',
+      'Navrhneme rozsah, etapy realizácie, priority, predpokladaný harmonogram a odhad nákladov.',
     ],
     [
-      'Aplikácie a náklady',
-      'Desiatka platených aplikácií pre každý prípad',
-      'Len potrebné služby, ostatné je v kóde témy',
-    ],
-    [
-      'SEO a AI vyhľadávanie',
-      'Duplicitné stránky, prázdne meta tagy, žiadne štruktúrované dáta',
-      'Štruktúra, meta tagy, Schema.org a sitemap od prvého dňa',
+      'Krok 4',
+      'Vývoj a spustenie',
+      'Vytvoríme alebo upravíme e-shop, otestujeme dohodnuté nákupné scenáre a pripravíme ho na prevádzku.',
     ],
   ],
-  priceTitle: 'Koľko stojí e-shop na Shopify',
+  priceTitle: 'Koľko stojí tvorba Shopify e-shopu?',
   priceText:
-    'Cena závisí od počtu produktov, náročnosti dizajnu a rozsahu integrácií. Presnú cenu povieme po krátkom briefe, zvyčajne do jedného pracovného dňa. Prvá konzultácia je bezplatná.',
-  priceFactorsTitle: 'Od čoho závisí cena',
+    'Cena závisí od spôsobu realizácie dizajnu, počtu stránok a produktov, zložitosti katalógu, integrácií, cieľových trhov, migrácie a funkcií na mieru. Práce agentúry oddeľujeme od nákladov na platformu a externé služby, aby ste mali prehľad o celkovom rozpočte. Po úvodnom zadaní pripravíme odhad podľa konkrétnych požiadaviek, nie podľa univerzálnej štartovacej ceny.',
+  priceCta: 'Získať odhad projektu',
+  priceFactorsTitle: 'Z čoho sa skladá rozpočet',
   priceFactors: [
-    'Počet produktov, variantov a kategórií',
-    'Dizajn od nuly alebo úprava témy',
-    'Integrácie: CRM, sklad, prepravcovia, platby',
-    'Počet jazykov a mien e-shopu',
-    'Podpora a rozvoj po spustení',
+    'Program Shopify: predplatné sa platí samostatne, mimo ceny našich služieb; zohľadnite aj poplatky platformy, spracovania platieb a transakcií',
+    'Služby agentúry: dohodnutá analýza, plánovanie, dizajn, vývoj, nastavenie, integrácie, testovanie a spustenie',
+    'Platené témy a aplikácie: jednorazové či pravidelné poplatky, ktoré identifikujeme pri plánovaní',
+    'Integrácie a technická náročnosť: CRM, ERP, externé API, migrácia, B2B procesy a úpravy pokladne môžu rozšíriť rozsah prác',
+    'Práce po spustení: ďalší vývoj, údržbu, CRO, SEO a správu reklamy si môžete objednať samostatne',
   ],
   expert: {
     name: 'Liza Koshman',
-    role: 'Vedúca oddelenia Shopify',
-    bio: 'Spolumajiteľka Koshman Ecom a vedúca oddelenia Shopify. Vedie projekty tvorby a rozvoja e-shopov pre značky zo Slovenska a ďalších trhov EÚ.',
+    role: 'Spolumajiteľka Koshman Ecom',
+    bio: 'Strategická manažérka pre prácu so značkami v e-commerce a vedúca tímu pre ekosystém Shopify. Pomáha určiť, čo váš e-shop potrebuje, a vedie projekt od zadania po spustenie.',
     image: '/team/Liza.png',
   },
-  faqTitle: 'Časté otázky o Shopify',
+  faqTitle: 'Často kladené otázky',
   faq: [
     [
-      'Koľko stojí samotné Shopify mesačne?',
-      'Shopify je predplatné s niekoľkými tarifmi, od základnej až po Shopify Plus pre veľké e-shopy. Aktuálne ceny sú na stránke taríf Shopify a závisia od krajiny a fakturačného obdobia. Táto platba ide platforme a nie je súčasťou vývoja — pomôžeme vybrať tarif podľa objemu objednávok.',
+      'Koľko stojí tvorba Shopify e-shopu?',
+      'Cena závisí od dizajnu, katalógu, integrácií, migrácie, trhov a funkcií. Odhad pripravíme po posúdení zadania. Predplatné Shopify, platené témy, aplikácie a externé služby sa platia samostatne, mimo služieb agentúry.',
     ],
     [
-      'Aké platobné metódy viete pripojiť?',
-      'Na Slovensku pripájame Shopify Payments alebo lokálne platobné brány, k tomu Apple Pay, Google Pay, platbu na dobierku a prevodom. Pre zákazníkov z iných krajín EÚ dopĺňame Stripe a PayPal. Výber závisí od toho, kde je firma registrovaná a kde sú vaši zákazníci.',
+      'Ako dlho trvá vytvorenie Shopify e-shopu?',
+      'Termín závisí od rozsahu, pripravenosti obsahu a produktových dát, integrácií a schvaľovania. Realistický plán dohodneme po úvodnej konzultácii.',
     ],
     [
-      'Ako dlho trvá tvorba e-shopu?',
-      'Zvyčajne od štyroch týždňov. Závisí od počtu produktov, pripravenosti fotiek a textov a od rozsahu integrácií. Presný termín povieme po briefe.',
+      'Viete vytvoriť Shopify e-shop od nuly?',
+      'Áno. V dohodnutom rozsahu zabezpečíme návrh, dizajn, nastavenie témy alebo vývoj na mieru, katalóg, vhodné platby a dopravu, analytiku, testovanie a spustenie.',
     ],
     [
-      'Dá sa e-shop preniesť z inej platformy?',
-      'Áno. Prenesieme produkty, kategórie, zákazníkov a objednávky zo Shoptetu, WooCommerce, PrestaShopu, OpenCartu či vlastného riešenia a staré adresy zachováme presmerovaniami, aby ste nestratili pozície v Google.',
+      'Viete migrovať existujúci e-shop na Shopify?',
+      'Áno, po posúdení pôvodnej platformy a dát. Preveríme produkty, zákazníkov, objednávky, obsah, URL adresy, SEO požiadavky a integrácie. Následne určíme, čo sa dá preniesť a akým spôsobom.',
     ],
     [
-      'Budem si môcť e-shop upravovať sám?',
-      'Áno, to je hlavný dôvod voľby Shopify. Produkty, ceny, texty aj bloky domovskej stránky sa menia v administrácii bez programátora — sekcie témy robíme editovateľné a odovzdáme krátky videonávod.',
+      'Je Shopify vhodný na predaj na Slovensku a v EÚ?',
+      'Môže byť. Vhodnosť závisí od sídla firmy, cieľových krajín, platobných služieb, logistiky a lokalizácie. Pre konkrétny projekt posúdime Shopify Markets, jazyky, meny a potrebné prepojenia. Dostupnosť platieb a dopravy overujeme individuálne.',
     ],
     [
-      'Robíte viacjazyčné e-shopy?',
-      'Áno. Shopify Markets umožňuje viac jazykov a mien v jednom e-shope: zákazník vidí ceny vo svojej mene a každý jazyk má vlastné adresy a hreflang pre Google.',
+      'Viete vytvoriť B2B Shopify e-shop?',
+      'Áno. Posúdime firemné účty, individuálne katalógy a ceny, veľkoobchodné podmienky, pravidlá objednávania a integrácie. Dostupné funkcie závisia od programu Shopify a zvoleného riešenia.',
     ],
     [
-      'Hodí sa Shopify na veľkoobchod B2B?',
-      'Áno. Nastavíme zatvorený katalóg pre schválených zákazníkov, individuálne cenníky, minimálne objednávky a platbu na faktúru. Shopify Plus má na B2B aj samostatnú funkcionalitu.',
+      'Potrebujem Shopify tému na mieru?',
+      'Nie vždy. Správne nastavená existujúca téma môže pokryť vaše potreby. Vývoj na mieru odporúčame, keď štandardné možnosti nestačia na dôležité požiadavky značky alebo predaja.',
     ],
     [
-      'Riešite po spustení aj SEO a reklamu?',
-      'Áno. E-shop odovzdávame s technickým SEO základom a ďalej môžeme prevziať SEO, optimalizáciu pre AI vyhľadávanie, Google Ads a Meta Ads — sú to samostatné služby, ktoré často nasledujú hneď po vývoji.',
+      'Viete upraviť existujúci Shopify e-shop?',
+      'Áno. Môžeme dohodnúť úpravy témy, nové funkcie, integrácie, opravy chýb, zlepšenie rýchlosti alebo údržbu bez kompletnej prestavby.',
+    ],
+    [
+      'Pripravujete Shopify e-shopy na reklamu a SEO?',
+      'Pri vývoji riešime štruktúru katalógu, produktové stránky, používanie na mobile, dohodnutú analytiku a základné technické SEO. Prípravu feedov možno zahrnúť do zadania. Priebežné SEO a správa reklamy sú samostatné služby.',
+    ],
+    [
+      'Dostanem po spustení prístupy a zaškolenie?',
+      'Áno. Odovzdáme dohodnuté prístupy a vysvetlíme základnú správu e-shopu, produktov a objednávok. Rozšírené školenie alebo ďalšiu podporu dohodneme v rozsahu projektu.',
     ],
   ],
   relatedTitle: 'Súvisiace služby',
   related: [
     [
+      'Reklama',
+      'Google Ads pre e-shopy',
+      'Search, Shopping a Performance Max pre e-shop s nastaveným meraním nákupov.',
+      '/services/google-ads',
+    ],
+    [
       'Vývoj na Shopify',
-      'Úpravy Shopify',
-      'Nové sekcie, integrácie, rýchlosť a oprava chýb v existujúcom e-shope.',
+      'Úpravy Shopify e-shopu',
+      'Nové sekcie, integrácie, rýchlosť a opravy chýb v e-shope, ktorý už funguje.',
       '/services#shopify-dev',
     ],
     [
-      'Stratégia a plán rozvoja',
-      'CRO audit Shopify',
-      'Nájdeme, kde e-shop stráca zákazníkov, a zostavíme plán rastu konverzie.',
+      'Vývoj na Shopify',
+      'B2B Shopify',
+      'Veľkoobchodný predaj: firemné katalógy, individuálne ceny a pravidlá objednávania.',
+      '/services#shopify-dev',
+    ],
+    [
+      'Stratégia a plán rastu',
+      'Shopify CRO audit',
+      'Posúdenie nákupného procesu, UX a pokladne: kde e-shop stráca zákazníkov.',
       '/services#strategy',
     ],
     [
       'SEO',
-      'SEO služby',
-      'Rast organickej návštevnosti v Google a viditeľnosti v AI vyhľadávaní.',
+      'SEO pre e-shopy',
+      'Organická viditeľnosť katalógu, kolekcií a produktov v Google.',
       '/services#seo',
     ],
     [
-      'Reklama',
-      'Google Ads a Meta Ads',
-      'Návštevnosť nového e-shopu so zameraním na návratnosť rozpočtu.',
-      '/services#ads',
+      'Kontakty',
+      'Kontaktujte nás',
+      'Telegram, WhatsApp, telefón alebo e-mail — vyberte si, ako vám to vyhovuje.',
+      '/contacts',
     ],
   ],
-  leadTitle: 'Postavíme váš e-shop na Shopify',
+  extraSections: [
+    {
+      id: 'what-is-shopify',
+      tone: 'light',
+      placement: 'after-tldr',
+      title: 'Čo je e-shop na Shopify?',
+      intro:
+        'Shopify je e-commerce platforma na tvorbu e-shopu a správu produktov, objednávok, zákazníkov a predaja z jedného administračného rozhrania.\n\nPlatforma poskytuje technický základ. Konkrétny Shopify e-shop však potrebuje štruktúru, produktový katalóg, dizajn a prevádzkové nastavenia prispôsobené vášmu podnikaniu. Zákazník musí vedieť nájsť produkt, pochopiť ponuku a dokončiť objednávku s dostupnou platbou a dopravou.\n\nPri tvorbe e-shopu na Shopify tieto časti prepájame: od obchodných požiadaviek a návrhu cez vývoj až po testovanie, spustenie a dohodnuté ďalšie kroky.',
+      variant: 'cards',
+    },
+    {
+      id: 'ready-to-sell',
+      tone: 'grey',
+      placement: 'after-tldr',
+      title: 'Čo potrebuje Shopify e-shop, aby bol pripravený predávať?',
+      variant: 'cards',
+      items: [
+        [
+          'Správne nastavenú platformu',
+          'Shopify obsahuje nástroje na správu produktov, kolekcií, objednávok a zákazníkov. Nastavíme ich podľa vášho predajného modelu, cieľových trhov a každodennej prevádzky.',
+        ],
+        [
+          'E-shop prispôsobený vášmu podnikaniu',
+          'Téma, navigácia, obsah, filtre, produktové stránky a integrácie majú vychádzať z vašej ponuky a spôsobu, akým zákazníci nakupujú. Možnosti nastavenia a úprav pokladne závisia od programu Shopify a dostupných funkcií.',
+        ],
+        [
+          'Ucelený nákupný proces',
+          'Zákazník potrebuje pohodlne prehliadať produkty aj na mobile, rozumieť cenám a doprave a dokončiť objednávku bez zbytočných prekážok. Analytika a správne technické nastavenie vám pomôžu nákupný proces po spustení vyhodnocovať a zlepšovať.',
+        ],
+      ],
+    },
+    {
+      id: 'process',
+      marker: 'numbered',
+      tone: 'light',
+      placement: 'after-included',
+      title: 'Ako prebieha tvorba e-shopu na Shopify?',
+      intro:
+        'Sedem etáp od prvého dopytu po spustenie. Každá sa končí dohodnutým výsledkom, takže viete, čo je hotové a čo nasleduje.',
+      variant: 'list',
+      items: [
+        [
+          'Úvodný dopyt',
+          'Napíšte nám o vašej firme, produktoch, cieľových trhoch, aktuálnom webe alebo platforme a o tom, čo chcete dosiahnuť.',
+        ],
+        [
+          'Konzultácia a zadanie',
+          'Spresníme katalóg, požadované funkcie, integrácie, rozpočet, termíny a vhodný spôsob realizácie.',
+        ],
+        [
+          'Štruktúra a plán projektu',
+          'Dohodneme architektúru e-shopu, výstupy, prioritné stránky, technický postup a kroky potrebné na spustenie.',
+        ],
+        [
+          'Dizajn a nastavenie témy',
+          'Pripravíme vizuálny štýl, rozloženie stránok, navigáciu, prezentáciu produktov a hlavné nákupné scenáre.',
+        ],
+        [
+          'Vývoj a integrácie',
+          'Nastavíme Shopify, produkty, kolekcie, platby, dopravu, aplikácie, analytiku a dohodnuté prepojenia so systémami.',
+        ],
+        [
+          'Testovanie',
+          'Overíme nákupný proces na relevantných zariadeniach. Otestujeme objednávky, platby, dopravu a prenos dát.',
+        ],
+        [
+          'Spustenie a ďalšie kroky',
+          'Spustíme e-shop, vykonáme dohodnuté kontroly a odovzdanie. Následne určíme priority, napríklad reklamu, SEO, optimalizáciu konverzií, e-mail marketing, CRM alebo rozšírenie na ďalšie trhy.',
+        ],
+      ],
+      cta: 'Prebrať váš Shopify projekt',
+    },
+    {
+      id: 'variants',
+      tone: 'grey',
+      placement: 'after-included',
+      title: 'Možnosti realizácie Shopify e-shopu',
+      variant: 'cards',
+      items: [
+        [
+          'E-shop na existujúcej téme',
+          'Praktická možnosť pre jednoduchší katalóg alebo menší rozpočet. Nastavíme farby, typografiu, sekcie, stránky a prezentáciu produktov tak, aby zodpovedali vašej značke.',
+        ],
+        [
+          'Úpravy Shopify témy',
+          'Riešenie pre e-shopy, ktorým nestačia štandardné možnosti témy. Môžeme doplniť sekcie, upraviť rozloženie, zlepšiť ovládanie na mobile a vyvinúť konkrétne prvky rozhrania.',
+        ],
+        [
+          'Shopify e-shop na mieru',
+          'Pre náročnejšie požiadavky, napríklad špecifický nákupný proces, produktový konfigurátor, rozsiahlejší katalóg alebo vlastné integrácie. Pred návrhom riešenia posúdime realizovateľnosť a obmedzenia platformy.',
+        ],
+      ],
+      outro:
+        'Nie každý projekt potrebuje tému vyvinutú od základu. Zároveň nemusí hotová téma pokryť všetky vaše požiadavky. Vhodný postup odporučíme po posúdení zadania.',
+    },
+    {
+      id: 'ecommerce',
+      marker: 'check',
+      tone: 'dark',
+      placement: 'after-included',
+      title: 'Shopify pre každodenný predaj a prevádzku e-shopu',
+      intro:
+        'Dobrý Shopify web potrebuje viac než kvalitne navrhnutú úvodnú stránku.\n\nKatalóg, produktové stránky, skladové údaje, doprava, platby a objednávky musia fungovať spoločne.',
+      variant: 'list',
+      items: [
+        [
+          'Katalóg a kolekcie',
+          'Produkty usporiadame podľa toho, ako ich zákazníci hľadajú a vyberajú. Cieľom je jednoduchšia orientácia v kategóriách, variantoch a konkrétnych produktoch.',
+        ],
+        [
+          'Produktové feedy a príprava na reklamu',
+          'Ak sú súčasťou zadania, pripravíme produktové dáta a posúdime požiadavky na feedy pre kanály, ako sú Google Shopping a Meta. Nastavenie predajných kanálov a schválenie produktov závisia od pravidiel platforiem a podmienok účtov.',
+        ],
+        [
+          'Meranie nákupov a tržieb',
+          'Nastavíme dohodnuté e-commerce udalosti, aby ste mohli vyhodnocovať objednávky a tržby spolu s návštevnosťou. Zohľadníme nastavenie súhlasov aj technické obmedzenia.',
+        ],
+        [
+          'Zrozumiteľné informácie o doprave a platbách',
+          'Spôsoby doručenia, náklady, termíny a platobné možnosti sprístupníme tak, aby sa zákazník vedel rozhodnúť ešte pred dokončením objednávky.',
+        ],
+        [
+          'Nakupovanie na mobile',
+          'Skontrolujeme menu, vyhľadávanie, filtre, produktové stránky, košík a pokladňu na mobilných zariadeniach, nielen vzhľad na počítači.',
+        ],
+        [
+          'Základ pre optimalizáciu konverzií',
+          'Navrhneme štruktúru, ktorú môžete po spustení merať a postupne zlepšovať — od nájdenia produktu až po dokončený nákup.',
+        ],
+      ],
+      cta: 'Prebrať váš Shopify projekt',
+      actions: [{ label: 'Google Ads pre e-shopy', href: '/services/google-ads' }],
+    },
+    {
+      id: 'b2b',
+      marker: 'check',
+      tone: 'light',
+      placement: 'after-included',
+      title: 'Shopify pre B2B a veľkoobchod',
+      intro:
+        'Shopify môže slúžiť aj na veľkoobchodný predaj a firemné nákupy, nielen na predaj koncovým zákazníkom.\n\nPre výrobcov, distribútorov a veľkoobchodné firmy posúdime požiadavky, ako sú tieto.',
+      variant: 'list',
+      items: [
+        ['Katalógy prispôsobené konkrétnym zákazníkom', ''],
+        ['Individuálne alebo zmluvné ceny', ''],
+        ['Veľkoobchodné cenníky', ''],
+        ['Firemné účty', ''],
+        ['Viacerí nákupcovia v rámci jednej firmy', ''],
+        ['Minimálne odberné množstvá a množstevné pravidlá', ''],
+        ['Platobné podmienky a splatnosť', ''],
+        ['Rýchle opakovanie objednávok', ''],
+        ['Prepojenia s CRM a ERP', ''],
+      ],
+      outro:
+        'Tieto funkcie nie sú dostupné rovnakým spôsobom v každom programe Shopify. Riešenie môže využívať vstavané B2B funkcie, aplikácie alebo vývoj na mieru podľa konkrétnych požiadaviek.\n\nAk plánujete samostatný veľkoobchodný e-shop alebo spoločný predaj pre B2C a B2B zákazníkov, preberieme s vami špecializované B2B riešenie na Shopify.',
+      actions: [{ label: 'Prebrať B2B Shopify e-shop', service: 'B2B Shopify' }],
+    },
+    {
+      id: 'existing-store',
+      marker: 'check',
+      tone: 'grey',
+      placement: 'after-included',
+      title: 'Už máte Shopify e-shop?',
+      intro:
+        'Nový e-shop nemusí byť potrebný.\n\nPosúdime existujúce riešenie a navrhneme konkrétne úpravy podľa vašich priorít. Môže ísť napríklad o tieto.',
+      variant: 'list',
+      items: [
+        ['Doplnenie nových funkcií', ''],
+        ['Aktualizáciu alebo výmenu témy', ''],
+        ['Pridanie nových sekcií', ''],
+        ['Zapojenie ďalšej integrácie', ''],
+        ['Odstránenie technických chýb', ''],
+        ['Zlepšenie používania na mobile', ''],
+        ['Riešenie problémov s rýchlosťou načítania', ''],
+        ['Redizajn dôležitých stránok alebo celého e-shopu', ''],
+        ['Prípravu na reklamné kampane', ''],
+        ['Identifikáciu prekážok v nákupnom procese', ''],
+      ],
+      outro:
+        'Samostatný Shopify CRO audit môže podrobnejšie zhodnotiť nákupný proces, používateľský zážitok a pokladňu.',
+      actions: [
+        { label: 'Prebrať úpravy Shopify e-shopu', service: 'Úpravy Shopify e-shopu' },
+        { label: 'Požiadať o Shopify CRO audit', service: 'Shopify CRO audit' },
+      ],
+    },
+    {
+      id: 'migration',
+      marker: 'check',
+      tone: 'light',
+      placement: 'after-included',
+      title: 'Migrácia e-shopu na Shopify',
+      intro:
+        'Ak používate inú platformu, posúdime, či je prechod na Shopify vhodným ďalším krokom, a pripravíme plán migrácie.\n\nShopify migrácia nezahŕňa iba presun produktov. Môže sa týkať aj zákazníkov, objednávok, obsahu, URL adries, metadát, integrácií, analytiky a existujúcej SEO štruktúry. Podľa pôvodnej platformy a dohodnutého rozsahu môžeme zabezpečiť nasledovné.',
+      variant: 'list',
+      items: [
+        ['Posúdenie súčasnej platformy a dát', ''],
+        ['Prípravu migračného plánu', ''],
+        ['Presun produktov a katalógových údajov', ''],
+        ['Prenos zákazníkov a objednávok', 'Ak ho dostupné riešenie podporuje.'],
+        ['Priradenie pôvodných URL adries k novým', ''],
+        ['Nastavenie vhodných presmerovaní 301', ''],
+        ['Prenos metadát a obsahu stránok', ''],
+        ['Nastavenie novej témy alebo redizajn', ''],
+        ['Testovanie platieb a dopravy', ''],
+        ['Kontrolu analytiky', ''],
+        ['Spustenie a dohodnuté kontroly po migrácii', ''],
+      ],
+      outro:
+        'Pred migráciou identifikujeme obmedzenia vrátane údajov, ktoré sa nedajú preniesť priamo alebo si vyžadujú iný postup.\n\nPríprava migrácie môže znížiť SEO riziká, nezaručuje však zachovanie všetkých pozícií ani nezmenenú návštevnosť. Výsledok závisí od pôvodného webu, kvality dát, mapovania URL, technickej realizácie a spracovania zmien vyhľadávačmi.',
+      cta: 'Prebrať migráciu na Shopify',
+    },
+    {
+      id: 'integrations',
+      marker: 'dot',
+      tone: 'grey',
+      placement: 'after-included',
+      title: 'Shopify integrácie',
+      intro:
+        'E-shop často potrebuje spolupracovať s ďalšími firemnými systémami. Pri návrhu integrácií preto riešime nielen samotné prepojenie, ale aj to, aké dáta sa majú prenášať a ako ich budete používať.\n\nPosúdime možnosti prepojenia s týmito systémami.',
+      variant: 'list',
+      items: [
+        ['CRM platformy', ''],
+        ['ERP systémy', ''],
+        ['Účtovné programy', ''],
+        ['Skladové systémy', ''],
+        ['Systémy na správu produktových informácií (PIM)', ''],
+        ['E-mail marketingové nástroje', ''],
+        ['Platobné služby', ''],
+        ['Dopravné a fulfillment služby', ''],
+        ['Analytické nástroje', ''],
+        ['Externé API', ''],
+      ],
+      outro:
+        'Spôsob implementácie závisí od konkrétnej služby, krajiny, dokumentácie, prístupu k API, predplatného a obmedzení platformy.\n\nPred vývojom preveríme kompatibilitu, potrebné dátové toky, pravidlá synchronizácie a riešenie chýb. Dostupnosť konkrétnych platobných či dopravných služieb pre Slovensko a ďalšie trhy overujeme pri každom projekte.',
+    },
+    {
+      id: 'readiness',
+      marker: 'tiles',
+      tone: 'light',
+      placement: 'after-included',
+      title: 'Ako overujeme pripravenosť na spustenie?',
+      intro:
+        'Nestačí, aby sa stránky správne načítali.\n\nPred spustením kontrolujeme dohodnutý rozsah z pohľadu zákazníka aj každodennej prevádzky.',
+      variant: 'list',
+      items: [
+        ['Produktový katalóg', 'Overíme zobrazenie produktov, variantov, cien, skladových údajov, obrázkov a kolekcií.'],
+        [
+          'Navigácia',
+          'Skontrolujeme, či zákazník dokáže nájsť relevantné produkty bez zbytočných krokov a neprehľadného členenia.',
+        ],
+        [
+          'Produktové stránky',
+          'Overíme dostupnosť dôležitých informácií o produkte, podmienkach nákupu, doprave a vrátení tovaru.',
+        ],
+        [
+          'Košík a pokladňa',
+          'Otestujeme pridanie produktov, zmenu množstva a dostupné kroky dokončenia objednávky. Kontrolujeme polia a nastavenia relevantné pre projekt.',
+        ],
+        ['Platby a doprava', 'V dohodnutých scenároch preveríme zobrazenie dostupných metód, sadzieb a podmienok.'],
+        [
+          'Použiteľnosť na mobile',
+          'Skontrolujeme katalóg, produktové stránky, košík a formuláre na zariadeniach a veľkostiach obrazoviek zahrnutých do testovania.',
+        ],
+        [
+          'Analytika',
+          'Overíme dohodnuté udalosti a údaje o nákupoch vrátane správania pri relevantných nastaveniach súhlasov.',
+        ],
+        [
+          'Základné SEO nastavenia',
+          'Skontrolujeme dostupnosť kľúčových stránok, základné metadáta, nastavenia indexácie a zjavné technické problémy. Pri migrácii aj dohodnuté presmerovania.',
+        ],
+      ],
+    },
+    {
+      id: 'after-launch',
+      marker: 'check',
+      tone: 'grey',
+      placement: 'after-included',
+      title: 'Čo nasleduje po spustení?',
+      intro: 'Ďalší rozvoj e-shopu sa môže zamerať na tieto oblasti.',
+      variant: 'list',
+      items: [
+        ['Google Ads', ''],
+        ['Meta Ads', ''],
+        ['SEO', ''],
+        ['E-mail marketing', ''],
+        ['CRM', ''],
+        ['Shopify CRO audit', ''],
+        ['Opakované nákupy a dlhodobá hodnota zákazníka', ''],
+        ['Vstup na ďalšie trhy', ''],
+        ['B2B predaj', ''],
+        ['Analytika a optimalizácia konverzií', ''],
+      ],
+      outro:
+        'Spustenie vytvorí funkčný základ pre predaj. Získavanie zákazníkov, marketing a zlepšovanie e-shopu sú ďalšou etapou, nie automatickým výsledkom vývoja.\n\nPriebežnú podporu, správu, údržbu a rozvojové služby môžeme dohodnúť samostatne podľa vašich priorít.',
+      actions: [
+        { label: 'Google Ads pre e-shopy', href: '/services/google-ads' },
+        { label: 'E-commerce služby', href: '/services' },
+      ],
+    },
+    {
+      id: 'why-no-sales',
+      marker: 'problem',
+      tone: 'dark',
+      placement: 'after-included',
+      title: 'Prečo Shopify e-shop nemusí premieňať návštevy na objednávky?',
+      intro:
+        'Aj technicky funkčný e-shop môže strácať zákazníkov medzi prvou návštevou a dokončením nákupu.\n\nPri plánovaní a konzultácii sa zameriavame napríklad na tieto problémy.',
+      variant: 'list',
+      items: [
+        ['Štruktúra katalógu nezodpovedá spôsobu vyhľadávania zákazníkov', ''],
+        ['Produktové stránky nevysvetľujú ponuku a jej hodnotu', ''],
+        ['Náročná orientácia na mobile', ''],
+        ['Nejasné ceny, náklady na dopravu alebo podmienky vrátenia', ''],
+        ['Zbytočné prekážky pri dokončení objednávky', ''],
+        ['Reklama smeruje na nevhodnú stránku', ''],
+        ['Chýbajúce alebo nepresné meranie nákupov', ''],
+        ['Produktové dáta nie sú pripravené na produktové kampane', ''],
+        ['Pomalé načítanie stránok', ''],
+        ['Dizajn alebo obsah oslabuje dôveru', ''],
+        ['Chýba podpora opakovaných nákupov', ''],
+        ['B2B zákazníci nevidia svoje ceny alebo podmienky', ''],
+      ],
+      outro:
+        'Ako Shopify agentúra vnímame e-shop ako súčasť celého predajného procesu — od príchodu zákazníka až po objednávku a ďalší nákup.',
+      cta: 'Prebrať váš Shopify projekt',
+    },
+  ],
+  schema: {
+    name: 'Tvorba Shopify e-shopu pre e-commerce značky',
+    serviceType: 'Shopify store development',
+    // Na stránke nie je potvrdená cena — bez Offer a hasOfferCatalog
+    offers: false,
+  },
+  leadTitle: 'Pripravme váš Shopify e-shop na prijímanie objednávok',
   leadText:
-    'Napíšte nám o produkte a trhu — navrhneme štruktúru e-shopu, termín a cenu.',
+    'Napíšte nám o vašich produktoch, cieľových trhoch a plánoch. Pomôžeme vám vybrať vhodný spôsob realizácie, určiť rozsah a navrhnúť praktický prvý krok.',
+  leadSubmit: 'Prebrať váš Shopify projekt',
 };
 
 /**
@@ -462,14 +855,8 @@ const googleAds: ServicePage = {
   },
 };
 
-/**
- * Сторінку Shopify знято з сайту (рішення від 13.11.2026). Текст лишається тут
- * чернеткою: щоб повернути — додати `[draftShopify.slug]: draftShopify` у мапу нижче
- * і `'shopify-dev|Shopify': 'shopify'` у SERVICE_PAGE_BY_ITEM (index.ts).
- */
-export const draftShopify = shopify;
-
 export const skServicePages: Record<string, ServicePage> = {
+  [shopify.slug]: shopify,
   [googleAds.slug]: googleAds,
 };
 

@@ -52,7 +52,7 @@ export default async function Page({
       <JsonLd data={servicePageJsonLd(lang, page)} />
       <ServicePageView
         page={page}
-        lead={<LeadForm theme="light" title={page.leadTitle} subtitle={page.leadText} />}
+        lead={<LeadForm theme="light" title={page.leadTitle} subtitle={page.leadText} submitLabel={page.leadSubmit} />}
       />
     </div>
   );

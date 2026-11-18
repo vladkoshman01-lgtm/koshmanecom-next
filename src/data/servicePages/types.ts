@@ -20,7 +20,9 @@ export type ServicePageExtraSection = {
   title: string;
   /** Перший абзац після заголовка — відповідає на питання прямо. */
   intro?: string;
-  /** Пункти секції: [назва, опис]. */
+  /** Підзаголовок (H3) над картками — коли в пунктів своя тема. */
+  itemsTitle?: string;
+  /** Пункти секції: [назва, опис]. Порожній опис — пункт-рядок без пояснення. */
   items?: [string, string][];
   /** Як показувати пункти: картками чи списком. */
   variant?: 'cards' | 'list';
@@ -39,6 +41,11 @@ export type ServicePageExtraSection = {
   outroSteps?: string[];
   /** Кнопка в секції — відкриває форму заявки. */
   cta?: string;
+  /**
+   * Додаткові кнопки секції. З `href` — посилання на іншу сторінку;
+   * без нього — попап заявки, де `service` підставляється назвою послуги.
+   */
+  actions?: { label: string; href?: string; service?: string }[];
   /** Де стояти секції на сторінці. */
   placement?: 'after-tldr' | 'after-included';
 };
@@ -95,6 +102,8 @@ export type ServicePage = {
   compareColumns?: [string, string];
   priceTitle: string;
   priceText: string;
+  /** Підпис кнопки в блоці вартості; без поля — загальний зі словника. */
+  priceCta?: string;
   priceFactorsTitle: string;
   priceFactors: string[];
   expert?: { name: string; role: string; bio: string; image: string };
@@ -116,4 +125,6 @@ export type ServicePage = {
   };
   leadTitle: string;
   leadText: string;
+  /** Підпис кнопки відправки лід-форми; без поля — загальний. */
+  leadSubmit?: string;
 };

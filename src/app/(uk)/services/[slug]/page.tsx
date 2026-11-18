@@ -39,7 +39,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
       <JsonLd data={servicePageJsonLd('uk', page)} />
       <ServicePageView
         page={page}
-        lead={<LeadForm theme="light" title={page.leadTitle} subtitle={page.leadText} />}
+        lead={<LeadForm theme="light" title={page.leadTitle} subtitle={page.leadText} submitLabel={page.leadSubmit} />}
       />
     </div>
   );

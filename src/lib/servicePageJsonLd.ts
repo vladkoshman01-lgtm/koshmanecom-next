@@ -6,6 +6,9 @@ import { siteUrl } from './seo';
 
 const ORG_ID = `${siteUrl}/#organization`;
 
+/** Мова сторінки у форматі BCP 47 — так її читає Schema.org. */
+const LANG_TAG: Record<Locale, string> = { uk: 'uk-UA', en: 'en', sk: 'sk' };
+
 /**
  * Розмітка сторінки окремої послуги: Service, HowTo (етапи), FAQPage
  * і крихти. Саме ці типи читають Google і AI-асистенти, коли вирішують,
@@ -17,7 +20,21 @@ export function servicePageJsonLd(locale: Locale, page: ServicePage) {
   // Сторінки без підтвердженої ціни не мають ні Offer, ні каталогу пропозицій
   const withOffers = page.schema?.offers !== false;
 
+  const inLanguage = LANG_TAG[locale];
+
   return [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      '@id': `${url}#webpage`,
+      url,
+      name: page.metaTitle,
+      description: page.metaDescription,
+      inLanguage,
+      isPartOf: { '@type': 'WebSite', '@id': `${siteUrl}/#website`, url: siteUrl, name: 'Koshman Ecom' },
+      about: { '@id': `${url}#service` },
+      publisher: { '@id': ORG_ID },
+    },
     breadcrumbs(locale, [
       [t.nav.home, '/'],
       [t.nav.services, '/services'],
@@ -32,7 +49,7 @@ export function servicePageJsonLd(locale: Locale, page: ServicePage) {
       serviceType: page.schema?.serviceType ?? page.short,
       description: page.metaDescription,
       url,
-      inLanguage: locale,
+      inLanguage,
       category: page.category,
       areaServed: page.areaServed,
       provider: { '@id': ORG_ID },
@@ -69,7 +86,7 @@ export function servicePageJsonLd(locale: Locale, page: ServicePage) {
       '@type': 'HowTo',
       name: page.stepsTitle,
       description: page.lead,
-      inLanguage: locale,
+      inLanguage,
       step: page.steps.map(([, title, text], i) => ({
         '@type': 'HowToStep',
         position: i + 1,

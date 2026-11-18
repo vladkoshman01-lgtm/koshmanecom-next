@@ -60,34 +60,57 @@ const PATHS = {
   phone: 'M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z',
   user: 'M12 4a4 4 0 1 0 0 8a4 4 0 1 0 0-8M4 21a8 8 0 0 1 16 0',
   percent: 'M19 5L5 19M7 5a2 2 0 1 0 0 4a2 2 0 1 0 0-4M17 15a2 2 0 1 0 0 4a2 2 0 1 0 0-4',
+  sparkle: 'M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 17l.7 1.8 1.8.7-1.8.7L19 22l-.7-1.8-1.8-.7 1.8-.7z',
+  building: 'M4 21V4h10v17M14 9h6v12M2 21h20M7 8h2M7 12h2M7 16h2M17 13h.01M17 17h.01',
+  map: 'M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v14M15 6v14',
+  layers: 'M12 3l9 5-9 5-9-5zM3 13l9 5 9-5M3 17.5l9 5 9-5',
+  send: 'M21 3L3 10.5l7 3 3 7zM10 13.5L21 3',
+  calculator: 'M6 3h12v18H6zM9 7h6M9 12h.01M12 12h.01M15 12h.01M9 16h.01M12 16h.01M15 16h.01',
 } as const;
 
 const shopify: ServicePageGraphics = {
   logo: si('shopify'),
-  colors: ['#C3E88D', '#95BF47'],
-  forWhom: [PATHS.diamond, PATHS.globe, PATHS.repeat, PATHS.boxes],
+  // Без зеленого градієнта Shopify — як і на Google Ads, акценти беруть фірмовий помаранчевий сайту
+  // Нові бренди, діючі магазини, виробники, B2B, нові ринки, системний розвиток
+  forWhom: [PATHS.sparkle, PATHS.cart, PATHS.boxes, PATHS.building, PATHS.map, PATHS.layers],
+  // Аналіз, структура, дизайн, каталог, картка товару, оплата й доставка,
+  // інтеграції, аналітика, мобільна версія, тести й запуск, передача
   included: [
+    PATHS.target,
     PATHS.grid,
     PATHS.brush,
-    PATHS.code,
+    PATHS.list,
+    PATHS.tag,
     PATHS.card,
-    PATHS.truck,
     PATHS.nodes,
-    PATHS.gauge,
-    PATHS.trend,
+    PATHS.chart,
+    PATHS.monitor,
+    PATHS.checkCircle,
+    PATHS.user,
   ],
-  steps: [PATHS.search, PATHS.brush, PATHS.code, PATHS.nodes, PATHS.rocket],
-  related: [PATHS.store, PATHS.target, PATHS.search, PATHS.mega],
-  stack: [
-    ['Shopify', si('shopify')],
-    ['Stripe', si('stripe')],
-    ['PayPal', si('paypal')],
-    ['Klarna', si('klarna')],
-    ['Google Analytics', si('googleanalytics')],
-    ['Google Tag Manager', si('googletagmanager')],
-    ['Meta', si('meta')],
-    ['Mailchimp', si('mailchimp')],
-  ],
+  // Заявка, консультація, оцінка й план, розробка і запуск
+  steps: [PATHS.send, PATHS.phone, PATHS.calculator, PATHS.rocket],
+  // Google Ads, доопрацювання, B2B, CRO-аудит, SEO, контакти
+  related: [PATHS.mega, PATHS.code, PATHS.boxes, PATHS.gauge, PATHS.search, PATHS.phone],
+  sections: {
+    // Платформа, магазин під ваш бізнес, готовність до продажів
+    'ready-to-sell': [PATHS.store, PATHS.target, PATHS.checkCircle],
+    // Готова тема, кастомізація теми, індивідуальна розробка
+    variants: [PATHS.grid, PATHS.brush, PATHS.code],
+    // Каталог, навігація, картка товару, кошик, оплата й доставка, мобільна версія, аналітика, SEO
+    readiness: [
+      PATHS.grid,
+      PATHS.list,
+      PATHS.tag,
+      PATHS.cart,
+      PATHS.truck,
+      PATHS.monitor,
+      PATHS.chart,
+      PATHS.search,
+    ],
+  },
+  // Конкретні сервіси оплати, доставки й CRM підбираємо під проєкт — логотипів не показуємо
+  stack: [],
 };
 
 const googleAds: ServicePageGraphics = {

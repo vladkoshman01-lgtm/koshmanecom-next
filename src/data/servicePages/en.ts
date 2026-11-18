@@ -1,180 +1,571 @@
 import type { ServicePage } from './types';
 
-/** English copy for single-service pages. Draft — worth a native read-through. */
+/**
+ * English copy for single-service pages.
+ *
+ * Shopify store development, English version of the UA page (same section order
+ * and ids, so icons in icons.ts line up). No case studies, prices, timelines or
+ * guarantees; specific payment, shipping and CRM providers are not named.
+ */
 const shopify: ServicePage = {
   slug: 'shopify',
   category: 'Shopify development',
   categoryKey: 'shopify-dev',
   short: 'Shopify store development',
-  metaTitle: 'Shopify Store Development Agency — Koshman Ecom',
+  metaTitle: 'Shopify Store Development Agency | Koshman Ecom',
   metaDescription:
-    'Full-service Shopify store development: catalogue, custom theme, payments, shipping, integrations and launch. For brands in the EU, the UK and the US.',
-  h1: 'Shopify store development, end to end',
-  lead: 'Koshman Ecom builds Shopify stores for brands across Europe, the UK and the US: catalogue structure, custom theme design, payments, shipping, integrations and analytics. You get a store ready to take orders and a team that knows what comes next.',
+    'Shopify store design and development for ecommerce brands. Setup, custom themes, integrations, migration, analytics and launch support.',
+  h1: 'Shopify Store Development for Ecommerce Brands',
+  lead: 'Launch a Shopify store built around your products, customers and sales process—not just its appearance.',
+  leadExtra:
+    'We plan the store structure, design and customise the theme, organise your catalogue, configure suitable payment and shipping options, connect essential systems, and test the customer journey before launch. Koshman Ecom is an international ecommerce agency working with clients in Europe and the US, helping ecommerce brands, D2C businesses, manufacturers and B2B companies launch, improve and expand their online stores.',
+  sectionLabels: false,
+  stepsAccent: true,
+  stepsCta: 'Discuss your Shopify project',
+  heroCta: { primary: 'Discuss your Shopify project', secondary: 'Book a consultation' },
   facts: [
-    ['Format', 'End to end'],
-    ['Launch time', 'from 4 weeks'],
-    ['Platform', 'Shopify and Shopify Plus'],
-    ['Markets', 'EU, UK, US'],
-    ['After launch', 'support and growth'],
+    ['Delivery', 'End-to-end development within an agreed scope'],
+    ['Platform', 'Shopify'],
+    ['For', 'B2C, B2B and D2C businesses'],
+    ['Core setup', 'Catalogue, payments, shipping, analytics and integrations'],
   ],
   areaServed: ['EU', 'GB', 'US'],
-  updated: '28 October 2026',
-  tldr: [
-    'Shopify is a hosted e-commerce platform: hosting, security, payments and updates are handled by the platform.',
-    'We take care of catalogue structure, theme design and build, payments, shipping, integrations and launch.',
-    'The store is built for conversion: speed, a clear path to the cart and a proper mobile experience.',
-    'After launch you can run the store yourself in the Shopify admin, or leave growth to us.',
-  ],
-  forTitle: 'Who a Shopify store fits',
+  updated: '18 November 2026',
+  forTitle: 'Who is Shopify store development for?',
   forWhom: [
     [
-      'Brands with their own product',
-      'When you need a store that looks like your brand, not like a marketplace template.',
+      'New brands',
+      'Launch your first online store with a clear structure, an organised catalogue and a foundation for future marketing.',
     ],
     [
-      'Marketplace sellers',
-      'Etsy or Amazon sales already work, and it is time to own a channel without platform fees.',
+      'Established ecommerce businesses',
+      'Move to Shopify, refresh your design, improve the customer experience or develop an existing store without rebuilding everything.',
     ],
     [
-      'Stores on an old platform',
-      'The site is slow, hard to update and loses traffic — we move the catalogue and orders to Shopify.',
+      'Manufacturers and D2C brands',
+      'Sell directly to customers, develop your own customer relationships and reduce reliance on marketplaces.',
     ],
     [
-      'Wholesale companies',
-      'A B2B store with a gated catalogue, customer-specific pricing and payment by invoice.',
+      'B2B companies',
+      'Explore wholesale ordering, customer-specific catalogues and pricing, company accounts and connections to internal systems. The appropriate Shopify B2B setup depends on your requirements, plan and available solutions.',
+    ],
+    [
+      'Businesses entering new markets',
+      'Prepare for international sales with suitable language, currency, content and operational settings. We assess Shopify Markets and other localisation options against your target countries, business entity, payments and logistics.',
+    ],
+    [
+      'Businesses planning their next stage of growth',
+      'Build a store that supports advertising, SEO, customer retention, measurement and future development.',
     ],
   ],
-  includedTitle: 'What store development includes',
+  forWhomNote:
+    'Shopify does not replace a strong product, a clear offer or a marketing strategy. Before development, we review your business, product range, markets, logistics and goals to identify the features your store actually needs.',
+  includedTitle: 'What is included in Shopify store development?',
+  includedIntro:
+    'Our Shopify ecommerce development service brings together the customer-facing store and the systems needed to operate it. The final deliverables are defined in the project scope.',
   included: [
-    ['Structure and catalogue', 'Categories, filters, product variants, collections and navigation for your range.'],
-    ['Store design', 'Design in your brand style: home, catalogue, product page, cart and checkout.'],
-    ['Theme development', 'A Shopify theme with custom sections you can edit later without a developer.'],
-    ['Payments', 'Shopify Payments, Stripe, PayPal, local acquiring and cash on delivery.'],
-    ['Shipping', 'Shipping zones and rates, carriers, live cost calculation in the cart.'],
-    ['Integrations', 'CRM, inventory, ERP, carriers, email platforms, Pinterest and Google Merchant Center.'],
-    ['Speed and mobile', 'Image and script optimisation, Core Web Vitals, testing on real phones.'],
-    ['Analytics and launch', 'GA4, Consent Mode, cart and purchase events, domain transfer, final QA.'],
+    [
+      'Business and requirements analysis',
+      'We review your products, audience, catalogue, sales model, target markets, competitors and priorities.',
+    ],
+    [
+      'Store structure',
+      'We plan navigation, the homepage, collections, product pages, information pages and the route from browsing to checkout.',
+    ],
+    [
+      'Shopify design and theme development',
+      'We select and configure a suitable theme, customise it to match your brand or develop bespoke components where needed. The approach depends on your requirements, budget and project complexity.',
+    ],
+    [
+      'Catalogue and product data',
+      'We configure products, variants, collections, filters, prices and inventory settings. Product imports and content population can be included where required.',
+    ],
+    [
+      'Product pages',
+      'We structure product pages to explain the offer clearly, present specifications and options, and make delivery, returns and purchasing conditions easy to find.',
+    ],
+    [
+      'Payments and shipping',
+      'We assess and configure suitable payment providers, shipping options, rates and checkout settings. Availability depends on your country, business entity, Shopify plan and third-party services.',
+    ],
+    [
+      'Apps and integrations',
+      'We assess and implement the Shopify integrations needed for your operations, such as CRM, ERP, inventory, accounting or marketing connections. Compatibility, data flows and technical limitations are reviewed before implementation.',
+    ],
+    [
+      'Analytics',
+      'We configure agreed measurement tools and ecommerce events, such as product views, add-to-cart actions, checkout starts and purchases. Implementation depends on the technical setup, consent requirements and platform capabilities.',
+    ],
+    [
+      'Mobile experience',
+      'We check navigation, collections, product pages, the cart, forms and checkout across relevant mobile and tablet screen sizes.',
+    ],
+    [
+      'Testing and launch',
+      'We test products, prices, navigation, payment and shipping scenarios, forms, analytics and order flows before launch.',
+    ],
+    [
+      'Handover and training',
+      'We provide the agreed access, explain essential product and order management tasks, and share recommendations for the next stage of development.',
+    ],
   ],
-  stepsTitle: 'How we build a Shopify store',
+  // The seven-stage build process is its own section above; this is the short start
+  stepsTitle: 'How to start working with Koshman Ecom',
   steps: [
-    ['Week 1', 'Brief and structure', 'We study the product, the buyers and competitors, then map the catalogue.'],
-    ['Week 2', 'Design', 'We design the key pages and agree on how the store will look.'],
-    ['Weeks 3–4', 'Development', 'We build the theme, fill the catalogue, set up payments and shipping.'],
-    ['Week 5', 'Integrations and QA', 'Services are connected, orders tested end to end, details polished.'],
-    ['Launch', 'Go live', 'Domain transfer, analytics switched on, store handed over with instructions.'],
-  ],
-  compareTitle: 'A template on your own, or a store with an agency',
-  compareColumns: ['On your own, on a template', 'With Koshman Ecom'],
-  compare: [
+    ['Step 1', 'Tell us about your project', 'Share your business, products, markets and the work you need.'],
     [
-      'Time to launch',
-      'Months of learning the platform and apps',
-      'A clear plan and a working store in a few weeks',
+      'Step 2',
+      'Book a short consultation',
+      'We clarify whether the priority is a new store, migration, improvements, a B2B solution or an audit.',
     ],
     [
-      'How the store looks',
-      'A stock theme that looks like hundreds of others',
-      'Brand design and a theme built around it',
+      'Step 3',
+      'Review the estimate and plan',
+      'We propose the scope, delivery stages, priorities, expected timeline and estimated cost.',
     ],
     [
-      'Conversion',
-      'A path to the cart that just happened',
-      'Product page, cart and checkout built for buying',
-    ],
-    [
-      'Apps and running costs',
-      'A dozen paid apps bought just in case',
-      'Only the services you need; the rest lives in the theme code',
-    ],
-    [
-      'SEO and AI search',
-      'Duplicate pages, empty meta tags, no structured data',
-      'Structure, meta tags, Schema.org and a sitemap from day one',
+      'Step 4',
+      'Develop and launch',
+      'We build or improve your store, test the agreed customer journeys and prepare it for operation.',
     ],
   ],
-  priceTitle: 'How much a Shopify store costs',
+  priceTitle: 'How much does Shopify store development cost?',
   priceText:
-    'The price depends on the number of products, the complexity of the design and the set of integrations. We quote after a short brief, usually within one working day. The first consultation is free.',
-  priceFactorsTitle: 'What the price depends on',
+    'There is no single price for every Shopify project. The cost depends on the design approach, number of pages and products, catalogue complexity, integrations, markets, migration requirements and custom functionality. We separate agency work from platform and third-party costs so you can understand the full project budget. After a short brief, we prepare a project estimate based on the actual requirements rather than an arbitrary starting price.',
+  priceCta: 'Get a project estimate',
+  priceFactorsTitle: 'What makes up the budget',
   priceFactors: [
-    'Number of products, variants and categories',
-    'Design from scratch or an adapted theme',
-    'Integrations: CRM, inventory, carriers, payments',
-    'Number of store languages and currencies',
-    'Support and growth after launch',
+    'Shopify plan fees: your subscription, payment processing and transaction charges are paid separately from agency fees',
+    'Agency services: the agreed analysis, planning, design, development, configuration, integrations, testing and launch work',
+    'Paid themes and apps: one-off or recurring charges, identified during planning',
+    'Integrations and technical complexity: CRM or ERP connections, external APIs, migration, B2B workflows and eligible checkout customisations can increase the scope',
+    'Post-launch work: additional development, maintenance, CRO, SEO and advertising can be commissioned separately',
   ],
   expert: {
     name: 'Liza Koshman',
-    role: 'Head of Shopify',
-    bio: 'Co-owner of Koshman Ecom and head of the Shopify practice. Leads store development and growth projects for brands across Europe and the US.',
+    role: 'Co-owner, Koshman Ecom',
+    bio: 'A strategic manager working with ecommerce brands and head of the Shopify ecosystem team. Helps define what your store needs and leads it from brief to launch.',
     image: '/team/Liza.png',
   },
-  faqTitle: 'Shopify FAQ',
+  faqTitle: 'Frequently asked questions',
   faq: [
     [
-      'How much does Shopify itself cost per month?',
-      'Shopify is a subscription with several plans, from the basic one up to Shopify Plus for large stores. Current prices are on the Shopify pricing page and depend on your country and billing period. That fee goes to the platform and is not part of development — we help pick a plan that matches your order volume.',
+      'How much does Shopify store development cost?',
+      'The estimate depends on design, catalogue size, integrations, migration, target markets and functionality. Shopify plan fees, paid themes, apps and third-party services are separate from agency fees. We provide an estimate after reviewing your brief.',
     ],
     [
-      'Which payment methods can you connect?',
-      'Shopify Payments where your country supports it, plus Apple Pay, Google Pay, Stripe, PayPal, Klarna and local acquiring or bank transfer. The mix depends on where the business is registered and where your buyers are — we set it up during development.',
+      'How long does it take to build a Shopify store?',
+      'Timing depends on the scope, content readiness, product data, integrations and approval process. We agree on a realistic delivery plan after the initial consultation.',
     ],
     [
-      'How long does development take?',
-      'Usually from four weeks. It depends on the number of products, whether photos and copy are ready, and how many integrations are needed. We give an exact date after the brief.',
+      'Can you build a Shopify store from scratch?',
+      'Yes. We can handle store planning, design, theme configuration or custom development, catalogue setup, suitable payment and shipping options, analytics, testing and launch within an agreed scope.',
     ],
     [
-      'Can you migrate a store from another platform?',
-      'Yes. We move products, categories, customers and orders from WooCommerce, Magento, PrestaShop, BigCommerce or a custom site, and keep old URLs with redirects so you do not lose Google rankings.',
+      'Can you migrate an existing store to Shopify?',
+      'Yes, subject to an assessment of your current platform and data. We review products, customers, orders, content, URLs, SEO requirements and integrations, then identify what can be transferred and how.',
     ],
     [
-      'Will I be able to edit the store myself?',
-      'Yes, that is the main reason to choose Shopify. Products, prices, copy and homepage blocks are edited in the admin without a developer — we make theme sections editable and hand over a short video guide.',
+      'Is Shopify suitable for international businesses?',
+      'It can be, but suitability depends on your business entity, target countries, payment providers, logistics and localisation needs. We assess Shopify Markets, languages, currencies and relevant integrations for your project. The same applies to businesses operating from Ukraine or other markets with specific local requirements.',
     ],
     [
-      'Do you build multilingual stores?',
-      'Yes. Shopify Markets gives you several languages and currencies in one store: buyers see prices in their currency, and each language gets its own URLs and hreflang for Google.',
+      'Do you work with Shopify B2B stores?',
+      'Yes. We assess company accounts, customer-specific catalogues and pricing, wholesale conditions, ordering rules and internal system integrations. Available features depend on the Shopify plan and chosen implementation.',
     ],
     [
-      'Does Shopify work for wholesale B2B?',
-      'Yes. We set up a gated catalogue for approved customers, customer-specific price lists, minimum order quantities and payment by invoice. Shopify Plus also has dedicated B2B features.',
+      'Do I need a custom Shopify theme?',
+      'Not necessarily. A well-configured existing theme may meet your needs. Custom development is appropriate when the standard options cannot support important brand or business requirements.',
     ],
     [
-      'Do you handle SEO and ads after launch?',
-      'Yes. The store ships with a technical SEO foundation, and from there we can take on SEO, AI-search optimisation, Google Ads and Meta Ads — separate services that often follow development directly.',
+      'Can I commission improvements to an existing Shopify store?',
+      'Yes. We can scope theme updates, additional features, integrations, bug fixes, performance improvements or maintenance without committing you to a full rebuild.',
+    ],
+    [
+      'Do you prepare Shopify stores for advertising and SEO?',
+      'We account for catalogue structure, product pages, mobile usability, agreed analytics and basic technical SEO. Feed preparation can be included in the scope. Ongoing SEO and advertising management are separate services.',
+    ],
+    [
+      'Will I receive store access and training after launch?',
+      'Yes. We hand over the agreed access and explain essential store, product and order management tasks. Any additional training or support is defined in the project scope.',
     ],
   ],
   relatedTitle: 'Related services',
   related: [
     [
+      'Advertising',
+      'Google Ads for ecommerce',
+      'Search, Shopping and Performance Max for a store with purchase tracking in place.',
+      '/services/google-ads',
+    ],
+    [
       'Shopify development',
       'Shopify improvements',
-      'New sections, integrations, speed and bug fixes for an existing store.',
+      'New sections, integrations, performance and bug fixes for a store that is already live.',
+      '/services#shopify-dev',
+    ],
+    [
+      'Shopify development',
+      'Shopify B2B',
+      'Wholesale selling: company catalogues, customer-specific pricing and ordering rules.',
       '/services#shopify-dev',
     ],
     [
       'Strategy and growth plan',
       'Shopify CRO audit',
-      'We find where the store loses buyers and build a plan to grow conversion.',
+      'A review of the funnel, UX and checkout: where the store loses customers.',
       '/services#strategy',
     ],
     [
       'SEO',
-      'SEO services',
-      'Growing organic traffic in Google and visibility in AI search.',
+      'Ecommerce SEO',
+      'Organic visibility for your catalogue, collections and products in Google.',
       '/services#seo',
     ],
     [
-      'Advertising',
-      'Google Ads and Meta Ads',
-      'Traffic to the new store with a focus on return on ad spend.',
-      '/services#ads',
+      'Contacts',
+      'Get in touch',
+      'Telegram, WhatsApp, phone or email: choose the channel that suits you.',
+      '/contacts',
     ],
   ],
-  leadTitle: 'Let us build your Shopify store',
+  extraSections: [
+    {
+      id: 'what-is-shopify',
+      tone: 'light',
+      placement: 'after-tldr',
+      title: 'What is a Shopify store?',
+      intro:
+        'Shopify is an ecommerce platform for building an online store and managing products, orders, customers and sales from one admin area.\n\nThe platform provides the technical foundation. Your store still needs a structure, catalogue, design and operational setup that fit your business. Customers need to find products, understand the offer and complete an order using the payment and delivery options available to them.\n\nOur Shopify website development process connects these elements—from business requirements and store planning to testing, launch and agreed next steps.',
+      variant: 'cards',
+    },
+    {
+      id: 'ready-to-sell',
+      tone: 'grey',
+      placement: 'after-tldr',
+      title: 'What does a Shopify store need to be ready to sell?',
+      variant: 'cards',
+      items: [
+        [
+          'A configured platform',
+          'Shopify provides the core tools for products, collections, orders, customer records and store management. These tools need to be configured for your sales model, market and day-to-day operations.',
+        ],
+        [
+          'A store built around your business',
+          'The theme, navigation, content, filters, product pages and integrations should reflect your products and how customers buy them. Checkout configuration and customisation depend on the Shopify plan and available capabilities.',
+        ],
+        [
+          'A complete buying journey',
+          'A store needs more than a strong visual identity. Customers should be able to browse comfortably on mobile, understand pricing and delivery, and place an order without avoidable friction. Analytics and a sound technical foundation help you assess and improve that journey after launch.',
+        ],
+      ],
+    },
+    {
+      id: 'process',
+      marker: 'numbered',
+      tone: 'light',
+      placement: 'after-included',
+      title: 'How we build your Shopify store',
+      intro:
+        'Seven stages from the first enquiry to launch. Each one ends with an agreed result, so you can see what has been done and what comes next.',
+      variant: 'list',
+      items: [
+        [
+          'Initial enquiry',
+          'Tell us about your business, products, target markets, current website or platform, and what you want to achieve.',
+        ],
+        [
+          'Consultation and brief',
+          'We clarify the catalogue, required features, integrations, budget, deadlines and preferred store setup.',
+        ],
+        [
+          'Structure and project plan',
+          'We define the store architecture, deliverables, priority pages, technical approach and launch sequence.',
+        ],
+        [
+          'Design and theme configuration',
+          'We work on brand styling, page layouts, navigation, catalogue presentation and the main customer journeys.',
+        ],
+        [
+          'Development and integrations',
+          'We configure Shopify, products, collections, payments, shipping, apps, analytics and the agreed system connections.',
+        ],
+        [
+          'Testing',
+          'We review the buying journey on relevant devices and test ordering, payments, delivery options and data transfer.',
+        ],
+        [
+          'Launch and next steps',
+          'We publish the store, complete the agreed launch checks and handover, and identify priorities such as advertising, SEO, conversion optimisation, email marketing, CRM or international expansion.',
+        ],
+      ],
+      cta: 'Discuss your Shopify project',
+    },
+    {
+      id: 'variants',
+      tone: 'grey',
+      placement: 'after-included',
+      title: 'Shopify development options',
+      variant: 'cards',
+      items: [
+        [
+          'Theme-based store setup',
+          'A practical option for a straightforward catalogue or a more focused budget. We configure an existing theme’s colours, typography, sections, pages and product presentation to suit your brand.',
+        ],
+        [
+          'Shopify theme customization',
+          'For stores that need more than the theme’s standard features. We can create additional sections, adjust layouts, improve mobile usability and develop specific interface elements.',
+        ],
+        [
+          'Custom Shopify development',
+          'For more complex requirements, such as specialised buying journeys, product configurators, larger catalogues or custom integrations. We assess feasibility and platform constraints before agreeing on a solution.',
+        ],
+      ],
+      outro:
+        'Not every business needs a bespoke theme. Equally, an off-the-shelf theme may not meet every requirement. We recommend the approach after reviewing the project.',
+    },
+    {
+      id: 'ecommerce',
+      marker: 'check',
+      tone: 'dark',
+      placement: 'after-included',
+      title: 'Shopify for ecommerce stores',
+      intro:
+        'A successful store needs more than a well-designed homepage.\n\nYour catalogue, product pages, stock information, delivery options, payments and orders need to work together.',
+      variant: 'list',
+      items: [
+        [
+          'Catalogue and collections',
+          'We organise products around how customers browse and search, helping them find the right category, variant or item.',
+        ],
+        [
+          'Product feeds and advertising readiness',
+          'Where included in the scope, we prepare catalogue data and assess feed requirements for channels such as Google Shopping and Meta. Channel setup and product eligibility depend on the relevant platform policies and account requirements.',
+        ],
+        [
+          'Purchase and revenue measurement',
+          'We configure agreed ecommerce events so you can analyse orders and revenue alongside traffic, subject to consent settings and technical limitations.',
+        ],
+        [
+          'Clear delivery and payment information',
+          'We make delivery options, costs, timing and payment information easier to understand before checkout, helping customers make informed decisions.',
+        ],
+        [
+          'Mobile shopping',
+          'We review menus, search, filters, product pages, the cart and checkout on mobile devices—not just the desktop layout.',
+        ],
+        [
+          'A foundation for conversion optimisation',
+          'We build a store structure that can be measured and improved after launch, from product discovery through to completed purchases.',
+        ],
+      ],
+      cta: 'Discuss your Shopify project',
+      actions: [{ label: 'Google Ads for ecommerce', href: '/services/google-ads' }],
+    },
+    {
+      id: 'b2b',
+      marker: 'check',
+      tone: 'light',
+      placement: 'after-included',
+      title: 'Shopify for B2B and wholesale',
+      intro:
+        'Shopify can support wholesale and business purchasing as well as direct-to-consumer sales.\n\nFor manufacturers, distributors and wholesale businesses, we can assess requirements such as these.',
+      variant: 'list',
+      items: [
+        ['Customer-specific catalogues', ''],
+        ['Negotiated or company-specific pricing', ''],
+        ['Wholesale price lists', ''],
+        ['Company accounts', ''],
+        ['Multiple buyers within a company account', ''],
+        ['Minimum order quantities and quantity rules', ''],
+        ['Payment terms', ''],
+        ['Faster repeat ordering', ''],
+        ['CRM and ERP connections', ''],
+      ],
+      outro:
+        'These features are not available in the same way on every Shopify plan. The solution may involve native B2B capabilities, apps or custom development, depending on your requirements.\n\nIf you need a dedicated wholesale store or a combined B2C and B2B operation, explore the specialist B2B Shopify service.',
+      actions: [
+        { label: 'Explore Shopify B2B', href: '/services#shopify-dev' },
+        { label: 'Discuss a B2B store', service: 'Shopify B2B' },
+      ],
+    },
+    {
+      id: 'existing-store',
+      marker: 'check',
+      tone: 'grey',
+      placement: 'after-included',
+      title: 'Already have a Shopify store?',
+      intro:
+        'You may not need a new build.\n\nWe can assess your existing store and define a focused improvement project. This can include the following.',
+      variant: 'list',
+      items: [
+        ['Developing additional functionality', ''],
+        ['Updating or replacing the theme', ''],
+        ['Adding new sections', ''],
+        ['Connecting a new integration', ''],
+        ['Resolving technical issues', ''],
+        ['Improving the mobile experience', ''],
+        ['Addressing performance bottlenecks', ''],
+        ['Redesigning key pages or the wider store', ''],
+        ['Preparing the store for advertising', ''],
+        ['Investigating conversion barriers', ''],
+      ],
+      outro: 'A Shopify CRO audit can provide a separate review of the buying journey, user experience and checkout.',
+      actions: [
+        { label: 'Discuss Shopify improvements', service: 'Shopify improvements' },
+        { label: 'Request a Shopify CRO audit', service: 'Shopify CRO audit' },
+      ],
+    },
+    {
+      id: 'migration',
+      marker: 'check',
+      tone: 'light',
+      placement: 'after-included',
+      title: 'Shopify migration',
+      intro:
+        'If your store runs on another platform, we can assess whether moving to Shopify is the right next step and plan the migration.\n\nA Shopify migration involves more than transferring products. It may also require customer and order data, content, URLs, metadata, integrations, analytics and the existing SEO structure. Depending on the source platform and agreed scope, we can help with the following.',
+      variant: 'list',
+      items: [
+        ['Reviewing the current platform and data', ''],
+        ['Preparing a migration plan', ''],
+        ['Moving products and catalogue information', ''],
+        ['Transferring customer and order records', 'Where the source platform and scope support it.'],
+        ['Mapping existing URLs to their new equivalents', ''],
+        ['Implementing appropriate 301 redirects', ''],
+        ['Transferring page metadata and content', ''],
+        ['Configuring a new theme or redesign', ''],
+        ['Testing payment and delivery scenarios', ''],
+        ['Checking analytics', ''],
+        ['Launching the store and completing agreed post-launch checks', ''],
+      ],
+      outro:
+        'We identify data limitations before migration, including information that cannot be transferred directly or may need a different approach.\n\nMigration planning can reduce SEO risk, but it cannot guarantee that all rankings or traffic will remain unchanged. Results depend on the existing site, data quality, URL mapping, technical implementation and how search engines process the new store.',
+      cta: 'Discuss your Shopify migration',
+    },
+    {
+      id: 'integrations',
+      marker: 'dot',
+      tone: 'grey',
+      placement: 'after-included',
+      title: 'Shopify integrations',
+      intro:
+        'Your store may need to work with a wider business system rather than operate as a standalone website.\n\nWe can assess connections with the following.',
+      variant: 'list',
+      items: [
+        ['CRM platforms', ''],
+        ['ERP systems', ''],
+        ['Accounting software', ''],
+        ['Warehouse and inventory systems', ''],
+        ['Product information management systems', ''],
+        ['Email marketing platforms', ''],
+        ['Payment services', ''],
+        ['Shipping and fulfilment providers', ''],
+        ['Analytics tools', ''],
+        ['External APIs', ''],
+      ],
+      outro:
+        'The implementation method depends on the service, country, documentation, API access, subscription plans and platform limitations.\n\nBefore development, we review compatibility, required data flows, synchronisation rules and error handling to determine a suitable approach.',
+    },
+    {
+      id: 'readiness',
+      marker: 'tiles',
+      tone: 'light',
+      placement: 'after-included',
+      title: 'How we assess launch readiness',
+      intro:
+        'A store is not ready simply because its pages load.\n\nBefore launch, we test the agreed scope against practical selling and operational requirements.',
+      variant: 'list',
+      items: [
+        ['Catalogue', 'Products, variants, prices, stock information, images and collections display as expected.'],
+        ['Navigation', 'Customers can find relevant products without unnecessary steps or confusing category structures.'],
+        [
+          'Product pages',
+          'Essential product information, purchase conditions, delivery details and returns information are accessible.',
+        ],
+        [
+          'Cart and checkout',
+          'Customers can add products, change quantities and complete the available checkout steps. We test the fields and configurations relevant to the project.',
+        ],
+        ['Payments and shipping', 'Available methods, rates and conditions appear correctly for the tested scenarios.'],
+        [
+          'Mobile experience',
+          'The catalogue, product pages, cart and forms are usable on the devices and screen sizes covered by testing.',
+        ],
+        [
+          'Analytics',
+          'Agreed events and purchase data are checked against the measurement configuration, including relevant consent behaviour.',
+        ],
+        [
+          'SEO foundations',
+          'We review key page accessibility, basic metadata, indexing settings and obvious technical issues. For migrations, this also includes the agreed redirect checks.',
+        ],
+      ],
+    },
+    {
+      id: 'after-launch',
+      marker: 'check',
+      tone: 'grey',
+      placement: 'after-included',
+      title: 'What happens after launch?',
+      intro: 'Once the store is live, further development can focus on these areas.',
+      variant: 'list',
+      items: [
+        ['Google Ads', ''],
+        ['Meta Ads', ''],
+        ['SEO', ''],
+        ['Email marketing', ''],
+        ['CRM', ''],
+        ['Shopify CRO audits', ''],
+        ['Repeat purchases and customer lifetime value', ''],
+        ['International expansion', ''],
+        ['B2B sales', ''],
+        ['Analytics and conversion optimisation', ''],
+      ],
+      outro:
+        'Launch gives your business a working foundation. Marketing, customer acquisition and store improvements are the next stage—not automatic outcomes of development.\n\nOngoing support, maintenance and growth services can be scoped separately according to your priorities.',
+      actions: [
+        { label: 'Google Ads for ecommerce', href: '/services/google-ads' },
+        { label: 'Explore our ecommerce services', href: '/services' },
+      ],
+    },
+    {
+      id: 'why-no-sales',
+      marker: 'problem',
+      tone: 'dark',
+      placement: 'after-included',
+      title: 'Why might a Shopify store struggle to convert?',
+      intro:
+        'Even a technically functioning store can lose customers between the first visit and the completed order.\n\nDuring planning and consultation, we look for issues such as these.',
+      variant: 'list',
+      items: [
+        ['A catalogue structure that does not match how customers search', ''],
+        ['Product pages that fail to explain the offer or its value', ''],
+        ['Difficult mobile navigation', ''],
+        ['Unclear pricing, delivery costs or return conditions', ''],
+        ['Avoidable friction in the checkout journey', ''],
+        ['Advertising that sends visitors to an irrelevant page', ''],
+        ['Missing or inaccurate ecommerce measurement', ''],
+        ['Product data that is not ready for shopping campaigns', ''],
+        ['Slow-loading pages', ''],
+        ['Design or content that weakens trust', ''],
+        ['No clear route to repeat purchasing', ''],
+        ['B2B buyers being unable to access relevant prices or terms', ''],
+      ],
+      outro:
+        'As a Shopify development agency, we consider the store as part of your wider sales funnel—not just a collection of pages.',
+      cta: 'Discuss your Shopify project',
+    },
+  ],
+  schema: {
+    name: 'Shopify Store Development for Ecommerce Brands',
+    serviceType: 'Shopify store development',
+    // No confirmed price on the page, so no Offer or hasOfferCatalog
+    offers: false,
+  },
+  leadTitle: 'Let’s build a Shopify store ready to take orders',
   leadText:
-    'Tell us about the product and the market — we will propose a structure, a timeline and a price.',
+    'Tell us about your products, target markets and goals. We’ll help you choose the right development approach, define the scope and identify a practical starting point.',
+  leadSubmit: 'Discuss your Shopify project',
 };
 
 /**
@@ -458,14 +849,8 @@ const googleAds: ServicePage = {
   },
 };
 
-/**
- * Сторінку Shopify знято з сайту (рішення від 13.11.2026). Текст лишається тут
- * чернеткою: щоб повернути — додати `[draftShopify.slug]: draftShopify` у мапу нижче
- * і `'shopify-dev|Shopify': 'shopify'` у SERVICE_PAGE_BY_ITEM (index.ts).
- */
-export const draftShopify = shopify;
-
 export const enServicePages: Record<string, ServicePage> = {
+  [shopify.slug]: shopify,
   [googleAds.slug]: googleAds,
 };
 

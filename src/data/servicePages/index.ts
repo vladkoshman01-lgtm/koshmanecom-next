@@ -36,6 +36,7 @@ export function getServicePage(locale: Locale, slug: string): ServicePage | unde
  * Ключ — `${категорія}|${назва}` з `SERVICES`, як у решті мап.
  */
 export const SERVICE_PAGE_BY_ITEM: Record<string, string> = {
+  'shopify-dev|Shopify': 'shopify',
   'ads|Google Ads': 'google-ads',
 };
 

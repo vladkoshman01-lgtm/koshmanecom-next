@@ -124,11 +124,52 @@ function ExtraSection({
     </>
   );
 
-  const cta = section.cta ? (
-    <div className="mt-8 flex md:mt-10">
-      <AnimatedButton variant="primary" onClick={() => openLead(page.short, page.category)}>
-        {section.cta}
-      </AnimatedButton>
+  /**
+   * Основна кнопка відкриває заявку на послугу сторінки. Додаткові дії ведуть
+   * до суміжних послуг, тож це текстові посилання — щоб не відволікати від головної дії.
+   */
+  const actions = section.actions ?? [];
+  const linkClass = `group inline-flex items-center gap-2 text-left text-base font-semibold underline decoration-1 underline-offset-[6px] transition-colors md:text-[1.0625rem] ${
+    dark
+      ? 'text-white decoration-white/35 hover:text-brand-orange hover:decoration-brand-orange'
+      : 'text-[#222222] decoration-[#222222]/30 hover:text-brand-orange hover:decoration-brand-orange'
+  }`;
+  const arrow = (
+    <span className="text-brand-orange transition-transform duration-200 group-hover:translate-x-1" aria-hidden>
+      →
+    </span>
+  );
+  const cta = section.cta || actions.length ? (
+    <div className="mt-8 flex flex-col gap-6 md:mt-10 md:gap-7">
+      {section.cta ? (
+        <div className="flex">
+          <AnimatedButton variant="primary" onClick={() => openLead(page.short, page.category)}>
+            {section.cta}
+          </AnimatedButton>
+        </div>
+      ) : null}
+      {actions.length ? (
+        <div className="flex flex-col items-start gap-4 md:flex-row md:flex-wrap md:gap-x-9 md:gap-y-3">
+          {actions.map((action) =>
+            action.href ? (
+              <Link key={action.label} href={action.href} className={linkClass}>
+                {action.label}
+                {arrow}
+              </Link>
+            ) : (
+              <button
+                key={action.label}
+                type="button"
+                className={linkClass}
+                onClick={() => openLead(action.service ?? page.short, page.category)}
+              >
+                {action.label}
+                {arrow}
+              </button>
+            ),
+          )}
+        </div>
+      ) : null}
     </div>
   ) : null;
 
@@ -176,8 +217,15 @@ function ExtraSection({
       <section id={section.id} className={t.section}>
         <div className="shell py-16 md:py-28">
           <div className="max-w-[52rem]">{heading}</div>
+          {section.itemsTitle ? (
+            <h3 className={`m-0 mt-10 text-[1.25rem] font-bold leading-[1.25] md:mt-14 md:text-[1.75rem] ${t.title}`}>
+              {section.itemsTitle}
+            </h3>
+          ) : null}
+          {/* Секція може бути лише текстом — тоді без порожньої сітки карток */}
+          {items.length ? (
           <ul
-            className={`m-0 mt-10 grid list-none gap-4 p-0 md:mt-14 md:gap-6 ${
+            className={`m-0 grid list-none gap-4 p-0 md:gap-6 ${section.itemsTitle ? 'mt-6 md:mt-8' : 'mt-10 md:mt-14'} ${
               items.length % 3 === 0 || items.length > 4 ? 'md:grid-cols-3' : 'md:grid-cols-2'
             }`}
           >
@@ -200,10 +248,11 @@ function ExtraSection({
                 <h3 className={`m-0 mt-2 text-[1.25rem] font-bold leading-[1.25] md:text-[1.5rem] ${t.title}`}>
                   {title}
                 </h3>
-                <p className={`m-0 text-[0.9375rem] leading-[1.65] md:text-base ${t.text}`}>{text}</p>
+                {text ? <p className={`m-0 text-[0.9375rem] leading-[1.65] md:text-base ${t.text}`}>{text}</p> : null}
               </li>
             ))}
           </ul>
+          ) : null}
           {outro}
           {cta}
         </div>
@@ -222,8 +271,11 @@ function ExtraSection({
             <ul className="m-0 grid list-none gap-3 p-0 sm:grid-cols-2 md:gap-4">
               {items.map(([title, text], i) => (
                 <li key={title} className={`flex gap-4 px-5 py-5 md:px-6 ${t.card}`}>
+                  {/* Іконка — у заповненому помаранчевому квадраті, як у картках решти блоків */}
                   <span
-                    className={`flex h-11 w-11 flex-none items-center justify-center rounded-md ${t.badge}`}
+                    className={`flex h-11 w-11 flex-none items-center justify-center rounded-md ${
+                      icons?.[i] ? 'bg-brand-orange text-white' : t.badge
+                    }`}
                     aria-hidden
                   >
                     {icons?.[i] ? <Icon d={icons[i]} size={22} /> : String(i + 1).padStart(2, '0')}
@@ -274,7 +326,7 @@ function ExtraSection({
                   )}
                   <span className="flex flex-col gap-1.5">
                     <span className={`text-base font-semibold leading-[1.35] md:text-lg ${t.title}`}>{title}</span>
-                    <span className={`text-[0.9375rem] leading-[1.6] md:text-base ${t.text}`}>{text}</span>
+                    {text ? <span className={`text-[0.9375rem] leading-[1.6] md:text-base ${t.text}`}>{text}</span> : null}
                   </span>
                 </li>
               ))}
@@ -317,6 +369,8 @@ export default function ServicePageView({
   /** Шість карток лягають у три колонки, чотири — у чотири. */
   const forWhomCols = page.forWhom.length >= 6 ? 'md:grid-cols-3' : 'md:grid-cols-4';
   const stepsCols = page.steps.length === 4 ? 'md:grid-cols-4' : 'md:grid-cols-5';
+  /** Шість пов'язаних послуг — у дві лінії по три, чотири — в одну. */
+  const relatedCols = page.related.length % 3 === 0 ? 'md:grid-cols-3' : 'md:grid-cols-4';
 
   return (
     <>
@@ -493,8 +547,9 @@ export default function ServicePageView({
                 className="group flex flex-col gap-3 bg-[#F6F6F6] px-6 py-6 transition-colors duration-300 hover:bg-[#141414] md:min-h-[14.5rem] md:px-[1.625rem] md:py-7"
               >
                 <span className="flex items-center justify-between">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-md bg-white text-brand-orange transition-colors duration-300 group-hover:bg-brand-orange group-hover:text-white">
-                    <Icon d={g?.forWhom[i] ?? ''} />
+                  {/* Заповнений помаранчевий квадрат — як іконки в решті блоків, щоб їх було видно */}
+                  <span className="flex h-12 w-12 items-center justify-center rounded-md bg-brand-orange text-white">
+                    <Icon d={g?.forWhom[i] ?? ''} size={24} />
                   </span>
                 </span>
                 <h3 className="mt-auto text-[1.125rem] font-bold leading-[1.25] text-[#222222] transition-colors duration-300 group-hover:text-white md:text-[1.3125rem]">
@@ -702,7 +757,7 @@ export default function ServicePageView({
                 variant="primary"
                 onClick={() => openLead(page.short, page.category)}
               >
-                {t.servicePage.priceCta}
+                {page.priceCta ?? t.servicePage.priceCta}
               </AnimatedButton>
             </div>
           </div>
@@ -726,7 +781,7 @@ export default function ServicePageView({
         </div>
       </section>
 
-      {leadAfterPrice ? lead : null}
+      {leadAfterPrice ? <React.Fragment key="lead">{lead}</React.Fragment> : null}
 
       {/* Експерт послуги */}
       {page.expert ? (
@@ -832,7 +887,7 @@ export default function ServicePageView({
         <div className="shell py-14 md:py-24">
           {showLabels ? <div className={label}>{t.servicePage.related}</div> : null}
           <h2 className="fs-44 mob-26 mt-4 font-bold text-[#222222]">{page.relatedTitle}</h2>
-          <div className="mt-7 grid gap-2.5 md:mt-10 md:grid-cols-4 md:gap-[0.9375rem]">
+          <div className={`mt-7 grid gap-2.5 md:mt-10 md:gap-[0.9375rem] ${relatedCols}`}>
             {page.related.map(([category, title, text, href], i) => (
               <Link
                 key={title}
@@ -840,7 +895,7 @@ export default function ServicePageView({
                 className="group flex flex-col gap-3 bg-[#F6F6F6] px-6 py-6 text-[#222222] transition-colors duration-200 hover:bg-brand-orange hover:text-white md:min-h-[13.125rem]"
               >
                 <span className="flex items-center justify-between">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-md bg-white text-brand-orange transition-colors duration-200 group-hover:bg-white/20 group-hover:text-white">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-md bg-brand-orange text-white transition-colors duration-200 group-hover:bg-white group-hover:text-brand-orange">
                     <Icon d={g?.related[i] ?? ''} />
                   </span>
                   <span className="text-base transition-transform duration-200 group-hover:translate-x-1" aria-hidden>
@@ -862,7 +917,8 @@ export default function ServicePageView({
           </div>
         </div>
       </section>
-      {leadAfterPrice ? null : lead}
+      {/* Форма приходить із серверного компонента: в обгортці, щоб React не вимагав для неї key */}
+      {leadAfterPrice ? null : <React.Fragment key="lead">{lead}</React.Fragment>}
     </>
   );
 }
