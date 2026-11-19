@@ -392,8 +392,6 @@ const en: Record<string, string> = {
   Імʼя: 'Name',
   'Вкажіть імʼя та контакт, щоб ми могли звʼязатися.':
     'Please add your name and contact so we can get back to you.',
-  'Натискаючи кнопку, ви погоджуєтесь на обробку персональних даних.':
-    'By clicking the button you agree to the processing of personal data.',
   'Дякуємо за заявку!': 'Thank you for your request!',
   'Заявку прийнято': 'Request received',
   'Менеджер звʼяжеться з вами протягом робочого дня, уточнить задачу й назве вартість.':
@@ -464,7 +462,7 @@ const en: Record<string, string> = {
     'We ask briefly about the product, market and goals.',
   'Надішлемо пропозицію': 'We send a proposal',
   'План робіт, строки та вартість.': 'Scope of work, timelines and pricing.',
-  'Оновлено 15 жовтня 2026': 'Updated 15 October 2026',
+  'Оновлено 19 листопада 2026': 'Updated 19 November 2026',
   // --- Умови використання ---
   'Загальні положення': 'General provisions',
   'Ці умови регулюють користування сайтом Koshman Ecom та безкоштовними інструментами на ньому. Відкриваючи сайт, ви погоджуєтесь з умовами.':
@@ -507,10 +505,6 @@ const en: Record<string, string> = {
   'Ми можемо оновлювати ці умови. Нова редакція діє з моменту публікації на цій сторінці.':
     'We may update these terms. A new version takes effect once published on this page.',
   'Застосовне право': 'Governing law',
-  'Умови регулюються законодавством України. Для користувачів з ЄС також застосовуються обовʼязкові норми законодавства ЄС.':
-    'The terms are governed by the laws of Ukraine. For users in the EU, mandatory provisions of EU law also apply.',
-  'Спори вирішуємо шляхом переговорів, а якщо домовитися не вдалося — у суді за місцем реєстрації виконавця.':
-    'We resolve disputes through negotiation and, if no agreement is reached, in the court at the contractor’s place of registration.',
   'Надіслати відгук': 'Send application',
   Контент: 'Content',
   'Надсилаючи заявку, ви підтверджуєте, що вказали достовірні дані та погоджуєтесь на їх обробку згідно з':
@@ -519,56 +513,6 @@ const en: Record<string, string> = {
   'Політика конфіденційності': 'Privacy policy',
   'Як Koshman Ecom збирає, використовує та захищає дані відвідувачів сайту й клієнтів.':
     'How Koshman Ecom collects, uses and protects the data of site visitors and clients.',
-  'Хто ми': 'Who we are',
-  'Koshman Ecom — маркетинг-агенція для e-commerce бізнесів з офісами в Києві (Україна) та Кошицях (Словаччина). Ми є володільцем персональних даних, які ви передаєте через цей сайт.':
-    'Koshman Ecom is a marketing agency for e-commerce businesses with offices in Kyiv (Ukraine) and Košice (Slovakia). We are the controller of the personal data you submit through this site.',
-  'З питань обробки даних пишіть на': 'For data processing questions write to',
-  'Які дані ми збираємо': 'What data we collect',
-  'Дані, які ви вказуєте у формах: імʼя, телефон або Telegram, email, коментар до заявки, обрані послуги.':
-    'Data you provide in the forms: name, phone or Telegram, email, the comment in your request and the services you selected.',
-  'Технічні дані: IP-адреса, тип браузера й пристрою, сторінки, які ви переглядали, джерело переходу. Їх збирають файли cookie та сервіси аналітики.':
-    'Technical data: IP address, browser and device type, the pages you viewed and the referral source. These are collected by cookies and analytics services.',
-  'Навіщо ми їх використовуємо': 'Why we use it',
-  'Щоб звʼязатися з вами щодо заявки, уточнити задачу й підготувати пропозицію.':
-    'To contact you about your request, clarify the task and prepare a proposal.',
-  'Щоб виконувати договір, якщо ви стали нашим клієнтом.':
-    'To perform the contract if you become our client.',
-  'Щоб аналізувати відвідуваність і покращувати сайт.':
-    'To analyse traffic and improve the website.',
-  'Ми не надсилаємо рекламні розсилки без вашої окремої згоди.':
-    'We do not send marketing emails without your separate consent.',
-  'Правові підстави': 'Legal grounds',
-  'Ми обробляємо дані відповідно до Закону України «Про захист персональних даних» та Загального регламенту ЄС про захист даних (GDPR).':
-    'We process data under the Ukrainian Law “On Personal Data Protection” and the EU General Data Protection Regulation (GDPR).',
-  'Підстави обробки: ваша згода, укладення й виконання договору, наш законний інтерес у роботі та безпеці сайту.':
-    'The grounds for processing: your consent, entering into and performing a contract, and our legitimate interest in the operation and security of the site.',
-  'Файли cookie': 'Cookies',
-  'Сайт використовує необхідні cookie для роботи сторінок і аналітичні cookie для статистики відвідувань.':
-    'The site uses necessary cookies to make pages work and analytics cookies for visit statistics.',
-  'Ви можете вимкнути або видалити cookie в налаштуваннях браузера. Частина функцій сайту після цього може працювати некоректно.':
-    'You can disable or delete cookies in your browser settings. Some site features may then stop working correctly.',
-  'Передача третім особам': 'Sharing with third parties',
-  'Ми не продаємо й не передаємо ваші дані для маркетингу інших компаній.':
-    'We do not sell or share your data for other companies’ marketing.',
-  'Дані можуть оброблятися нашими підрядниками: хостинг, CRM, сервіси аналітики та месенджери. Вони отримують лише те, що потрібно для їхньої роботи, і зобовʼязані захищати ці дані.':
-    'Data may be processed by our contractors: hosting, CRM, analytics services and messengers. They receive only what they need for their work and are obliged to protect that data.',
-  'Ми розкриваємо дані державним органам лише у випадках, передбачених законом.':
-    'We disclose data to public authorities only in cases provided for by law.',
-  'Строк зберігання': 'Retention period',
-  'Дані із заявок зберігаємо до 3 років після останнього контакту або до відкликання згоди.':
-    'We keep request data for up to 3 years after the last contact or until consent is withdrawn.',
-  'Дані клієнтів зберігаємо протягом строку дії договору та строку, встановленого законодавством для бухгалтерських документів.':
-    'We keep client data for the term of the contract and the period required by law for accounting records.',
-  'Ваші права': 'Your rights',
-  'Ви можете в будь-який момент запросити доступ до своїх даних, їх виправлення, видалення або обмеження обробки, а також відкликати згоду.':
-    'At any time you can request access to your data, its correction, deletion or restriction of processing, and withdraw your consent.',
-  'Щоб скористатися правом, напишіть нам на email. Відповідаємо протягом 30 днів.':
-    'To exercise a right, write to us by email. We reply within 30 days.',
-  'Ви також маєте право подати скаргу до Уповноваженого Верховної Ради України з прав людини або до наглядового органу країни ЄС.':
-    'You also have the right to lodge a complaint with the Ukrainian Parliament Commissioner for Human Rights or with the supervisory authority of an EU country.',
-  'Зміни до політики': 'Changes to this policy',
-  'Ми можемо оновлювати цю політику. Актуальна версія завжди доступна на цій сторінці, дата оновлення вказана вгорі.':
-    'We may update this policy. The current version is always available on this page and the update date is shown at the top.',
 };
 
 export default en;

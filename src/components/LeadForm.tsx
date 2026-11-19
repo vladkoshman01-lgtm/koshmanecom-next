@@ -6,6 +6,7 @@ import { CATEGORY_NAMES } from '@/data/services';
 import { fill, useT, useTr } from '@/i18n/LocaleProvider';
 import { readHoneypot, sendLead } from '@/lib/contact';
 import HoneypotField from '@/components/HoneypotField';
+import { FormConsentNote } from '@/components/legal/LegalText';
 
 /**
  * Лід-форма. Повторюється на більшості сторінок, тому винесена окремо
@@ -223,9 +224,7 @@ export default function LeadForm({
                   {sending ? t.lead.sending : (submitLabel ?? t.lead.submit)}
                 </AnimatedButton>
               </div>
-              <span className={`text-[0.8125rem] leading-[1.4] ${mutedColor}`}>
-                {t.lead.consent}
-              </span>
+              <FormConsentNote className={`text-[0.8125rem] leading-[1.4] ${mutedColor}`} />
             </div>
           </form>
         )}

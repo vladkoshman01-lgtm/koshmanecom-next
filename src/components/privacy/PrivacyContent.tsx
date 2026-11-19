@@ -1,98 +1,65 @@
 'use client';
 
 import React from 'react';
-import { useTr } from '@/i18n/LocaleProvider';
-import { contacts } from '@/lib/nav';
+import { useLocale, useTr } from '@/i18n/LocaleProvider';
+import { privacyDocs, type Block } from './privacyDocs';
 
 /**
  * Політика конфіденційності за прототипом Privacy.dc.html — та сама
  * структура, що й в «Умовах використання»: темний перший екран,
  * липкий зміст ліворуч і розділи праворуч.
+ *
+ * Тексти для кожної мови — у privacyDocs.tsx.
  */
 
-/** Дата останнього оновлення документа — як у макеті. */
-const UPDATED = 'Оновлено 15 жовтня 2026';
+const textClass = 'mob-15 max-w-[47.5rem] text-base leading-[1.65] text-[#444444] md:text-[1.0625rem]';
 
-const SECTIONS: { id: string; title: string; paragraphs: string[] }[] = [
-  {
-    id: 'who',
-    title: 'Хто ми',
-    paragraphs: [
-      'Koshman Ecom — маркетинг-агенція для e-commerce бізнесів з офісами в Києві (Україна) та Кошицях (Словаччина). Ми є володільцем персональних даних, які ви передаєте через цей сайт.',
-      'З питань обробки даних пишіть на',
-    ],
-  },
-  {
-    id: 'data',
-    title: 'Які дані ми збираємо',
-    paragraphs: [
-      'Дані, які ви вказуєте у формах: імʼя, телефон або Telegram, email, коментар до заявки, обрані послуги.',
-      'Технічні дані: IP-адреса, тип браузера й пристрою, сторінки, які ви переглядали, джерело переходу. Їх збирають файли cookie та сервіси аналітики.',
-    ],
-  },
-  {
-    id: 'purpose',
-    title: 'Навіщо ми їх використовуємо',
-    paragraphs: [
-      'Щоб звʼязатися з вами щодо заявки, уточнити задачу й підготувати пропозицію.',
-      'Щоб виконувати договір, якщо ви стали нашим клієнтом.',
-      'Щоб аналізувати відвідуваність і покращувати сайт.',
-      'Ми не надсилаємо рекламні розсилки без вашої окремої згоди.',
-    ],
-  },
-  {
-    id: 'legal',
-    title: 'Правові підстави',
-    paragraphs: [
-      'Ми обробляємо дані відповідно до Закону України «Про захист персональних даних» та Загального регламенту ЄС про захист даних (GDPR).',
-      'Підстави обробки: ваша згода, укладення й виконання договору, наш законний інтерес у роботі та безпеці сайту.',
-    ],
-  },
-  {
-    id: 'cookies',
-    title: 'Файли cookie',
-    paragraphs: [
-      'Сайт використовує необхідні cookie для роботи сторінок і аналітичні cookie для статистики відвідувань.',
-      'Ви можете вимкнути або видалити cookie в налаштуваннях браузера. Частина функцій сайту після цього може працювати некоректно.',
-    ],
-  },
-  {
-    id: 'share',
-    title: 'Передача третім особам',
-    paragraphs: [
-      'Ми не продаємо й не передаємо ваші дані для маркетингу інших компаній.',
-      'Дані можуть оброблятися нашими підрядниками: хостинг, CRM, сервіси аналітики та месенджери. Вони отримують лише те, що потрібно для їхньої роботи, і зобовʼязані захищати ці дані.',
-      'Ми розкриваємо дані державним органам лише у випадках, передбачених законом.',
-    ],
-  },
-  {
-    id: 'storage',
-    title: 'Строк зберігання',
-    paragraphs: [
-      'Дані із заявок зберігаємо до 3 років після останнього контакту або до відкликання згоди.',
-      'Дані клієнтів зберігаємо протягом строку дії договору та строку, встановленого законодавством для бухгалтерських документів.',
-    ],
-  },
-  {
-    id: 'rights',
-    title: 'Ваші права',
-    paragraphs: [
-      'Ви можете в будь-який момент запросити доступ до своїх даних, їх виправлення, видалення або обмеження обробки, а також відкликати згоду.',
-      'Щоб скористатися правом, напишіть нам на email. Відповідаємо протягом 30 днів.',
-      'Ви також маєте право подати скаргу до Уповноваженого Верховної Ради України з прав людини або до наглядового органу країни ЄС.',
-    ],
-  },
-  {
-    id: 'changes',
-    title: 'Зміни до політики',
-    paragraphs: [
-      'Ми можемо оновлювати цю політику. Актуальна версія завжди доступна на цій сторінці, дата оновлення вказана вгорі.',
-    ],
-  },
-];
+function BlockView({ block }: { block: Block }) {
+  if ('p' in block) return <p className={textClass}>{block.p}</p>;
+  if ('ul' in block) {
+    return (
+      <ul className={`${textClass} flex list-disc flex-col gap-2 pl-5 marker:text-brand-orange`}>
+        {block.ul.map((item, i) => (
+          <li key={i}>{item}</li>
+        ))}
+      </ul>
+    );
+  }
+  return (
+    <div className="max-w-[47.5rem] overflow-x-auto">
+      <table className="w-full min-w-[32rem] border-collapse text-left text-[0.875rem] leading-[1.5] text-[#444444] md:text-[0.9375rem]">
+        <thead>
+          <tr>
+            {block.table.head.map((cell) => (
+              <th
+                key={cell}
+                className="border-b-[1.5px] border-[#222222] py-2.5 pr-4 align-bottom text-[0.8125rem] font-bold uppercase tracking-[0.06em] text-[#222222]"
+              >
+                {cell}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {block.table.rows.map((row, i) => (
+            <tr key={i}>
+              {row.map((cell, j) => (
+                <td key={j} className="border-b border-[#E4E4E4] py-2.5 pr-4 align-top">
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
 
 export default function PrivacyContent() {
   const tr = useTr();
+  const doc = privacyDocs[useLocale()];
+  const SECTIONS = doc.sections;
 
   return (
     <div className="bg-white">
@@ -103,7 +70,7 @@ export default function PrivacyContent() {
           </div>
           <div className="mt-4 grid gap-4 md:mt-[1.125rem] md:grid-cols-[minmax(0,1fr)_27.5rem] md:items-end md:gap-20">
             <h1 className="fs-64 mob-32 font-bold text-white">
-              {tr('Політика конфіденційності')}
+              {doc.title}
             </h1>
             <p className="mob-16 text-base leading-[1.55] text-[#CFCFCF] md:text-[1.125rem]">
               {tr(
@@ -112,7 +79,7 @@ export default function PrivacyContent() {
             </p>
           </div>
           <div className="mt-8 border-t border-[#2C2C2C] pt-5 text-[0.8125rem] text-[#8A8A8A] md:mt-12 md:pt-6 md:text-sm">
-            {tr(UPDATED)}
+            {doc.updated}
           </div>
         </div>
       </section>
@@ -133,7 +100,7 @@ export default function PrivacyContent() {
                 <span className="w-[1.375rem] flex-none font-semibold text-[#8A8A8A]">
                   {String(i + 1).padStart(2, '0')}
                 </span>
-                <span>{tr(section.title)}</span>
+                <span>{section.title}</span>
               </a>
             ))}
           </nav>
@@ -150,29 +117,11 @@ export default function PrivacyContent() {
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <h2 className="mob-23 text-2xl font-bold leading-[1.15] text-[#222222] md:text-[2rem]">
-                    {tr(section.title)}
+                    {section.title}
                   </h2>
                 </div>
-                {section.paragraphs.map((text) => (
-                  <p
-                    key={text}
-                    className="mob-15 max-w-[47.5rem] text-base leading-[1.65] text-[#444444] md:text-[1.0625rem]"
-                  >
-                    {tr(text)}
-                    {/* Пошта підставляється з даних, щоб не розходилася з футером */}
-                    {text.endsWith('пишіть на') ? (
-                      <>
-                        {' '}
-                        <a
-                          href={`mailto:${contacts.email}`}
-                          className="text-brand-orange underline underline-offset-2"
-                        >
-                          {contacts.email}
-                        </a>
-                        .
-                      </>
-                    ) : null}
-                  </p>
+                {section.blocks.map((block, j) => (
+                  <BlockView key={j} block={block} />
                 ))}
               </section>
             ))}

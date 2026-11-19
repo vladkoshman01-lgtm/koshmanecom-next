@@ -4,6 +4,7 @@ import React, { createContext, useCallback, useContext, useEffect, useMemo, useS
 import { fill, useT, useTr } from '@/i18n/LocaleProvider';
 import { readHoneypot, sendLead } from '@/lib/contact';
 import HoneypotField from '@/components/HoneypotField';
+import { FormConsentNote } from '@/components/legal/LegalText';
 
 /**
  * Попап заявки на конкретну послугу (як у хендоффі).
@@ -188,6 +189,7 @@ function LeadDialog({ target, onClose }: { target: Target; onClose: () => void }
               >
                 {sending ? t.lead.sending : t.lead.submit}
               </button>
+              <FormConsentNote className="text-[0.8125rem] leading-[1.4] text-[#555555]" />
             </form>
           </>
         )}

@@ -7,6 +7,7 @@ import { useLocale, useT } from '@/i18n/LocaleProvider';
 import { openConsentSettings } from '@/lib/consent';
 import FooterLogo from './FooterLogo';
 import SocialLinks from './SocialLinks';
+import { FooterLegal } from '@/components/legal/LegalText';
 
 /**
  * Футер. Десктоп — п'ять колонок (логотип + Навігація, Компанія,
@@ -136,11 +137,12 @@ export default function SiteFooter({ showConsentSettings = true }: { showConsent
         </div>
       </div>
 
+      {/* --- Реквізити (тексти й дані — з lib/legal-entities) --- */}
+      <FooterLegal className="mt-8 flex flex-col gap-1 border-t border-[#3A3A3A] pt-[1.125rem] text-[0.8125rem] leading-[1.5] text-[#8A8A8A] md:mt-[2.625rem] md:border-[#5A5A5A] md:pt-[1.375rem] md:text-sm" />
+
       {/* --- Нижній рядок --- */}
-      <div className="mt-8 flex flex-col gap-2.5 border-t border-[#3A3A3A] pt-[1.125rem] text-[0.8125rem] text-[#8A8A8A] md:mt-[2.625rem] md:flex-row md:justify-between md:border-[#5A5A5A] md:pt-[1.375rem] md:text-sm">
-        <span>
-          © {new Date().getFullYear()} Koshman Ecom. {t.footer.rights}
-        </span>
+      <div className="mt-5 flex flex-col gap-2.5 text-[0.8125rem] text-[#8A8A8A] md:mt-6 md:flex-row md:justify-between md:text-sm">
+        <span>© {new Date().getFullYear()} Koshman Ecom</span>
         <div className="flex flex-col gap-2.5 md:flex-row md:gap-7">
           {legalLinks.map((link) => (
             <LocaleLink

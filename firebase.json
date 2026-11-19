@@ -22,6 +22,9 @@
       ],
       "cleanUrls": true,
       "trailingSlash": false,
+      "i18n": {
+        "root": "/localized-files"
+      },
       "headers": [
         {
           "regex": "^[^.]*$",
@@ -71,6 +74,15 @@
               "value": "public, max-age=86400"
             }
           ]
+        },
+        {
+          "source": "**/geo.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "private, no-store"
+            }
+          ]
         }
       ],
       "redirects": [
@@ -106,6 +118,9 @@
       ],
       "cleanUrls": true,
       "trailingSlash": false,
+      "i18n": {
+        "root": "/localized-files"
+      },
       "headers": [
         {
           "regex": "^[^.]*$",
@@ -162,6 +177,15 @@
             {
               "key": "X-Robots-Tag",
               "value": "noindex, nofollow"
+            }
+          ]
+        },
+        {
+          "source": "**/geo.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "private, no-store"
             }
           ]
         }

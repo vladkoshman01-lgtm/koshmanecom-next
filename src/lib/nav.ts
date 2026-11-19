@@ -1,4 +1,5 @@
 import type { Locale } from './i18n';
+import { CONTACT_EMAIL, PHONE_SK, PHONE_SK_RAW, PHONE_UA, PHONE_UA_RAW } from './legal-entities';
 
 /**
  * Єдине джерело навігації для хедера й футера.
@@ -76,11 +77,12 @@ export const footerColumns: {
 
 // Посилання звірені з прототипом (там вони ведуть на справжні акаунти)
 export const contacts = {
-  email: 'hello@koshmanecom.com',
-  phone: '+380 66 197 09 69',
-  phoneRaw: '+380661970969',
-  phoneSk: '+421 952 208 617',
-  phoneSkRaw: '+421952208617',
+  // Пошта й телефони — з реквізитів, щоб не розходилися з політиками
+  email: CONTACT_EMAIL,
+  phone: PHONE_UA,
+  phoneRaw: PHONE_UA_RAW,
+  phoneSk: PHONE_SK,
+  phoneSkRaw: PHONE_SK_RAW,
   telegram: 'https://t.me/koshmanecom_channel',
   telegramManager: 'https://t.me/+380661970969',
   whatsapp: 'https://wa.me/380661970969',

@@ -2,11 +2,13 @@
 
 import React from 'react';
 import Link from '@/components/ui/LocaleLink';
-import { useT, useTr } from '@/i18n/LocaleProvider';
+import NextLink from 'next/link';
+import { useLocale, useT, useTr } from '@/i18n/LocaleProvider';
+import { fop, fopDetailsSuffix, sro } from '@/lib/legal-entities';
 
 
 /** Дата останнього оновлення документа — як у макеті. */
-const UPDATED = 'Оновлено 15 жовтня 2026';
+const UPDATED = 'Оновлено 19 листопада 2026';
 
 type Section = { id: string; title: string; paragraphs: React.ReactNode[] };
 
@@ -15,6 +17,34 @@ type Section = { id: string; title: string; paragraphs: React.ReactNode[] };
 export default function TermsContent() {
   const t = useT();
   const tr = useTr();
+  const locale = useLocale();
+
+  /* Розділи 01 і 09 залежать від того, хто надає послуги: на українській
+     версії — ФОП, на словацькій і англійській — Koshman s. r. o. Це не
+     переклади одного тексту, тому вони тут окремо для кожної мови. */
+  const operator =
+    locale === 'sk'
+      ? `Slovenskú a anglickú verziu webu Koshman Ecom prevádzkuje spoločnosť ${sro.name}, ${sro.street}, ${sro.postalCode} ${sro.city}, IČO ${sro.companyId}, zapísaná v Obchodnom registri Mestského súdu Bratislava III, oddiel ${sro.registerSection}, vložka č. ${sro.registerFile} („prevádzkovateľ“).`
+      : locale === 'en'
+        ? `The Slovak and English versions of the Koshman Ecom website are operated by ${sro.name}, ${sro.street}, ${sro.postalCode} ${sro.city}, Slovakia, Company ID ${sro.companyId}, registered in the Commercial Register of the Bratislava III Municipal Court, Section ${sro.registerSection}, File No. ${sro.registerFile} (the “Operator”).`
+        : `Українську версію сайту Koshman Ecom та послуги в Україні надає ФОП ${fop.name}${fopDetailsSuffix()} («Виконавець»).`;
+
+  const law: React.ReactNode =
+    locale === 'sk' ? (
+      'Tieto podmienky sa riadia právom Slovenskej republiky. Spory riešime prednostne dohodou, inak ich rozhodne príslušný súd Slovenskej republiky. Spotrebiteľom zostáva ochrana podľa záväzných predpisov krajiny ich bydliska.'
+    ) : locale === 'en' ? (
+      'These terms are governed by the laws of the Slovak Republic. We first try to settle disputes by negotiation; otherwise they are decided by the competent court of the Slovak Republic. Consumers keep the protection of the mandatory laws of their country of residence.'
+    ) : (
+      <>
+        Ці умови регулюються законодавством України. Спори ми спершу вирішуємо шляхом переговорів, а якщо це не
+        вдалося — у суді України за законом. Послуги для клієнтів з ЄС та інших країн надає {sro.name} за умовами
+        на{' '}
+        <NextLink href="/en/terms" className="text-brand-orange underline underline-offset-2">
+          koshmanecom.com/en/terms
+        </NextLink>
+        .
+      </>
+    );
 
   // Секції тримаємо в компоненті: у них є переклад і посилання
   const SECTIONS: Section[] = [
@@ -22,6 +52,7 @@ export default function TermsContent() {
       id: 'general',
       title: 'Загальні положення',
       paragraphs: [
+        <React.Fragment key="operator">{operator}</React.Fragment>,
         'Ці умови регулюють користування сайтом Koshman Ecom та безкоштовними інструментами на ньому. Відкриваючи сайт, ви погоджуєтесь з умовами.',
         'Якщо ви не згодні з умовами, будь ласка, не користуйтеся сайтом.',
       ],
@@ -92,10 +123,7 @@ export default function TermsContent() {
     {
       id: 'law',
       title: 'Застосовне право',
-      paragraphs: [
-        'Умови регулюються законодавством України. Для користувачів з ЄС також застосовуються обовʼязкові норми законодавства ЄС.',
-        'Спори вирішуємо шляхом переговорів, а якщо домовитися не вдалося — у суді за місцем реєстрації виконавця.',
-      ],
+      paragraphs: [law],
     },
   ];
 

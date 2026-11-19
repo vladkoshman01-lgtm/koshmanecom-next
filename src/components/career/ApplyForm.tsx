@@ -7,6 +7,7 @@ import AnimatedButton from '@/components/ui/AnimatedButton';
 import { useT, useTr } from '@/i18n/LocaleProvider';
 import { readHoneypot, sendLead } from '@/lib/contact';
 import HoneypotField from '@/components/HoneypotField';
+import { FormConsentNote } from '@/components/legal/LegalText';
 
 /**
  * Форма відгуку на вакансію за прототипом Careers.dc.html:
@@ -154,7 +155,7 @@ export default function ApplyForm({ defaultRole }: { defaultRole?: string }) {
               <AnimatedButton variant="primary" type="submit" disabled={sending}>
                 {sending ? t.lead.sending : tr('Надіслати відгук')}
               </AnimatedButton>
-              <span className="text-[0.8125rem] leading-[1.45] text-[#8A8A8A]">{tr('Натискаючи кнопку, ви погоджуєтесь на обробку персональних даних.')}</span>
+              <FormConsentNote className="text-[0.8125rem] leading-[1.45] text-[#8A8A8A]" />
             </div>
           </form>
         )}

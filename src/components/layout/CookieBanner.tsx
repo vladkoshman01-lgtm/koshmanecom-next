@@ -3,7 +3,15 @@
 import React, { useEffect, useState } from 'react';
 import Link from '@/components/ui/LocaleLink';
 import { useT } from '@/i18n/LocaleProvider';
-import { applyConsent, readConsent, type Consent } from '@/lib/consent';
+import { useLocale } from '@/i18n/LocaleProvider';
+import {
+  applyAutoConsent,
+  applyConsent,
+  readConsent,
+  resolveCountry,
+  revokeAutoConsent,
+  type Consent,
+} from '@/lib/consent';
 
 /**
  * Банер згоди на cookie (Google Consent Mode v2 + Clarity).
@@ -11,17 +19,41 @@ import { applyConsent, readConsent, type Consent } from '@/lib/consent';
  * До вибору аналітика й реклама вимкнені. «Прийняти всі» вмикає їх одразу,
  * «Лише необхідні» лишає вимкненими. Вибір можна змінити посиланням
  * «Налаштування cookie» у футері — банер відкриється знову.
+ *
+ * Українська версія + країна за IP = Україна і ще немає явного вибору:
+ * банер не показуємо, згоду передаємо автоматично (див. lib/consent).
  */
 export default function CookieBanner() {
   const t = useT();
+  const locale = useLocale();
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    if (!readConsent()) setShow(true);
     const reopen = () => setShow(true);
     window.addEventListener('kc-open-consent', reopen);
     return () => window.removeEventListener('kc-open-consent', reopen);
   }, []);
+
+  useEffect(() => {
+    if (readConsent()) return;
+    let cancelled = false;
+    // /en і /sk — завжди банер, країну навіть не визначаємо
+    const country = locale === 'uk' ? resolveCountry() : Promise.resolve('');
+    country.then((code) => {
+      if (cancelled || readConsent()) return;
+      if (code === 'UA') {
+        applyAutoConsent();
+        setShow(false);
+      } else {
+        // Автозгоду з української версії знімаємо, якщо вона була
+        revokeAutoConsent();
+        setShow(true);
+      }
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [locale]);
 
   const decide = (value: Consent) => {
     applyConsent(value);

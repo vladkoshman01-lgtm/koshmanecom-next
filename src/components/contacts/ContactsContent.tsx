@@ -3,7 +3,8 @@
 import React from 'react';
 import { CARD_GRADIENTS } from '@/data/services';
 import { contacts } from '@/lib/nav';
-import { useT, useTr } from '@/i18n/LocaleProvider';
+import { useLocale, useT, useTr } from '@/i18n/LocaleProvider';
+import { companyDetailsRows } from '@/components/legal/LegalText';
 
 /** Сторінка «Контакти» за прототипом Contacts.dc.html. */
 
@@ -98,6 +99,7 @@ function Icon({ d, size = 24 }: { d: string; size?: number }) {
 export default function ContactsContent() {
   const t = useT();
   const tr = useTr();
+  const locale = useLocale();
   return (
     <section className="bg-[#141414]">
       <div className="shell py-14 md:pb-[7.5rem] md:pt-[6.875rem]">
@@ -157,6 +159,23 @@ export default function ContactsContent() {
             </a>
           ))}
         </div>
+
+        {/* Реквізити s. r. o. — лише на словацькій і англійській версіях */}
+        {locale === 'sk' || locale === 'en' ? (
+          <div className="mt-2.5 bg-[#1F1F1F] px-5 py-5 text-white md:mt-[0.9375rem] md:px-[1.625rem] md:py-6">
+            <h2 className="text-[0.8125rem] font-bold uppercase tracking-[0.12em] text-[#8A8A8A]">
+              {locale === 'sk' ? 'Fakturačné údaje' : 'Company details'}
+            </h2>
+            <dl className="mt-4 grid gap-x-8 gap-y-3 md:grid-cols-2 xl:grid-cols-3">
+              {companyDetailsRows(locale).map(([label, value]) => (
+                <div key={label} className="flex flex-col gap-1">
+                  <dt className="text-[0.8125rem] text-[#8A8A8A]">{label}</dt>
+                  <dd className="text-[0.9375rem] font-semibold leading-[1.35] md:text-base">{value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        ) : null}
 
         {/* Соцмережі */}
         <div className="mt-10 flex flex-col gap-4 border-t border-[#2C2C2C] pt-7 md:mt-14 md:flex-row md:items-center md:justify-between md:gap-8 md:pt-8">
