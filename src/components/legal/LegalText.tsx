@@ -22,9 +22,6 @@ export function FooterLegal({ className = '' }: { className?: string }) {
           Послуги під брендом Koshman Ecom в Україні надає ФОП {fop.name}
           {fopDetailsSuffix()}.
         </p>
-        <p>
-          Послуги для клієнтів з ЄС та інших країн надає {sro.name}, IČO {sro.companyId} (Словаччина).
-        </p>
       </div>
     );
   }
