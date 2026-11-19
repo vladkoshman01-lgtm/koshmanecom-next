@@ -717,6 +717,7 @@ const googleAds: ServicePage = {
           'Objednávky, leady, tržby, zisk a noví zákazníci. Reklama privedie relevantnú návštevu, no výsledok ovplyvňuje aj ponuka, web, cena, doprava, platba, checkout a spracovanie dopytov.',
         ],
       ],
+      actions: [{ label: 'Ako funguje reklama Google Ads', href: '/blog/google-ads-pre-firmy' }],
     },
     {
       id: 'management',

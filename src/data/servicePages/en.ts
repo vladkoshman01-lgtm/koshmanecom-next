@@ -712,6 +712,7 @@ const googleAds: ServicePage = {
           'Sales, qualified leads, revenue and profit. Ads can bring a qualified visit, but the result also depends on the offer, website, pricing, checkout, delivery, sales process and measurement.',
         ],
       ],
+      actions: [{ label: 'How Google Ads works for business', href: '/blog/google-ads-for-business' }],
     },
     {
       id: 'management',

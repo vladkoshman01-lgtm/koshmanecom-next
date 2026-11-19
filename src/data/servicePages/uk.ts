@@ -774,6 +774,7 @@ const googleAds: ServicePage = {
           'Залежить не тільки від реклами, а й від пропозиції, сайту, ціни, доставки, оплати та обробки лідів. Тому рекламу, аналітику й сайт ми покращуємо разом.',
         ],
       ],
+      actions: [{ label: 'Як працює контекстна реклама Google Ads', href: '/blog/kontekstna-reklama-google-ads' }],
     },
     {
       id: 'management',
