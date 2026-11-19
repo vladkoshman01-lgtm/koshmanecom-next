@@ -15,7 +15,7 @@ import { getDictionary } from '@/i18n/getDictionary';
 import { localePath, type Locale } from '@/lib/i18n';
 import { siteUrl } from '@/lib/seo';
 import { contacts } from '@/lib/nav';
-import { breadcrumbs, faq } from '@/lib/jsonld';
+import { breadcrumbs, faq, teamMemberId } from '@/lib/jsonld';
 
 /**
  * Сторінка статті за макетом Blog.dc.html (екран «Blog article»):
@@ -73,6 +73,7 @@ export default async function ArticleView({ article, locale }: { article: Articl
         : article.author
         ? {
             '@type': 'Person',
+            '@id': teamMemberId(article.author.name),
             name: article.author.name,
             jobTitle: article.author.role ?? undefined,
             url: `${siteUrl}${localePath(locale, '/about')}`,

@@ -4,10 +4,22 @@ import { activeLocales, localePath, type Locale } from './i18n';
 export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://koshmanecom.com';
 
 /**
+ * Мова для x-default — версія для тих, чия мова не збігається з жодною з наших.
+ * Це іноземна аудиторія, тож англійська, а не українська.
+ */
+export const xDefaultLocale: Locale = 'en';
+
+/** x-default для сторінки, що існує мовами `only`: англійська, а без неї — українська. */
+function xDefault(path: string, only: readonly Locale[]): string {
+  const target = only.includes(xDefaultLocale) ? xDefaultLocale : only.includes('uk') ? 'uk' : only[0];
+  return `${siteUrl}${localePath(target, path)}`;
+}
+
+/**
  * Canonical + hreflang для сторінки, яка існує всіма мовами.
  *
  * `path` — шлях без префікса мови ('/services'). Українська лишається
- * в корені, тож вона ж і x-default.
+ * в корені; x-default — англійська (див. `xDefaultLocale`).
  */
 export function alternatesFor(
   locale: Locale,
@@ -18,7 +30,7 @@ export function alternatesFor(
   for (const l of activeLocales.filter((x) => only.includes(x))) {
     languages[l] = `${siteUrl}${localePath(l, path)}`;
   }
-  if (only.includes('uk')) languages['x-default'] = `${siteUrl}${localePath('uk', path)}`;
+  languages['x-default'] = xDefault(path, only);
 
   return {
     canonical: `${siteUrl}${localePath(locale, path)}`,

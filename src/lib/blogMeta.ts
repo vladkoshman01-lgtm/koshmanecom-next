@@ -3,7 +3,7 @@ import { getTranslations, type Article, type ArticleSummary } from './blog';
 import { defaultLocale, localePath, type Locale } from './i18n';
 import { breadcrumbs } from './jsonld';
 import { getDictionary } from '@/i18n/getDictionary';
-import { buildMetadata, siteUrl } from './seo';
+import { buildMetadata, siteUrl, xDefaultLocale } from './seo';
 
 /**
  * Метадані сторінки статті будь-якою мовою: title, опис, canonical,
@@ -28,9 +28,8 @@ export function articleMetadata(article: Article): Metadata {
   for (const tr of translations) {
     languages[tr.locale] = `${siteUrl}${localePath(tr.locale, `/blog/${tr.slug}`)}`;
   }
-  // x-default — українська версія, якщо вона є, інакше сама стаття
-  const fallback = translations.find((tr) => tr.locale === defaultLocale);
-  languages['x-default'] = fallback ? languages[defaultLocale] : url;
+  // x-default — англійська версія, без неї — українська, інакше сама стаття
+  languages['x-default'] = languages[xDefaultLocale] ?? languages[defaultLocale] ?? url;
 
   const image = article.ogImage
     ? [{ url: article.ogImage, width: 1200, height: 630, alt: article.cover?.alternativeText ?? article.title }]

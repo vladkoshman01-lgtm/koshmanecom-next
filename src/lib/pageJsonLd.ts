@@ -2,7 +2,7 @@ import { CATEGORY_KEYS, CATEGORY_NAMES, SERVICES } from '@/data/services';
 import { getContent } from '@/i18n/content';
 import { getDictionary } from '@/i18n/getDictionary';
 import type { Locale } from './i18n';
-import { breadcrumbs, organization, webPage } from './jsonld';
+import { breadcrumbs, organization, team, webPage } from './jsonld';
 
 /** Переклад рядка з даних мовою сторінки (з відкотом на українську). */
 function translator(locale: Locale) {
@@ -36,6 +36,8 @@ export function pageJsonLd(locale: Locale, key: PageKey) {
   ];
   // На «Контактах» — повна картка агенції з адресами й телефоном
   if (key === 'contacts') blocks.push(organization(locale, t.pages.home.metaDescription));
+  // На «Про нас» — агенція разом із засновниками, на яких посилається її `founder`
+  if (key === 'about') blocks.push(organization(locale, t.pages.home.metaDescription), ...team(locale));
   return blocks;
 }
 

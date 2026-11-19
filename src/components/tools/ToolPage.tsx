@@ -9,7 +9,7 @@ import { getDictionary } from '@/i18n/getDictionary';
 import { activeLocales, localePath, type Locale } from '@/lib/i18n';
 import { breadcrumbs, faq } from '@/lib/jsonld';
 import { contacts } from '@/lib/nav';
-import { buildMetadata, siteUrl } from '@/lib/seo';
+import { buildMetadata, siteUrl, xDefaultLocale } from '@/lib/seo';
 
 /**
  * Каркас сторінки інструмента для будь-якої мови. Сам калькулятор —
@@ -31,7 +31,7 @@ export function toolMetadata(locale: Locale, copy: ToolPageCopy, paths: Paths): 
   // Slug у кожної мови свій, тож hreflang збираємо вручну
   const languages: Record<string, string> = {};
   for (const l of activeLocales) languages[l] = urlFor(paths, l);
-  languages['x-default'] = urlFor(paths, 'uk');
+  languages['x-default'] = urlFor(paths, xDefaultLocale);
   return { ...meta, alternates: { canonical: urlFor(paths, locale), languages } };
 }
 

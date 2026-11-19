@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from '@/components/ui/LocaleLink';
 import { CARD_GRADIENTS } from '@/data/services';
+import { TEAM } from '@/data/team';
 import { useServiceLead } from '@/components/ServiceLeadProvider';
 import AnimatedButton from '@/components/ui/AnimatedButton';
 import { useT, useTr } from '@/i18n/LocaleProvider';
@@ -48,22 +49,6 @@ const DOING: [string, string, string][] = [
   ],
 ];
 
-const TEAM = [
-  {
-    name: 'Влад Кошман',
-    role: 'Засновник',
-    image: '/team/Vlad.png',
-    description:
-      'Спеціаліст з міжнародного e-commerce. Відповідає за стратегію, запуск продажів та AI-впровадження у бізнес-процеси.',
-  },
-  {
-    name: 'Ліза Кошман',
-    role: 'Співвласниця',
-    image: '/team/Liza.png',
-    description:
-      'Стратегічна менеджерка в роботі з брендами в Ecommerce. Керівниця відділу роботи з Shopify-екосистемою.',
-  },
-];
 
 export default function AboutContent() {
   const t = useT();

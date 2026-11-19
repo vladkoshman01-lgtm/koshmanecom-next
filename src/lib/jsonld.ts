@@ -1,3 +1,5 @@
+import { TEAM } from '@/data/team';
+import { getContent } from '@/i18n/content';
 import { contacts } from './nav';
 import { localePath, type Locale } from './i18n';
 import { siteUrl } from './seo';
@@ -9,6 +11,57 @@ import { siteUrl } from './seo';
  */
 
 const ORG_ID = `${siteUrl}/#organization`;
+
+/**
+ * Профілі агенції в каталогах і соцмережах. `sameAs` пов'язує їх з сайтом
+ * в одну сутність — так Google і ШІ-асистенти впевненіше знають, хто ми.
+ * Нові профілі (Clutch, Google Business Profile) додавати сюди.
+ */
+const PROFILES = [
+  contacts.instagram,
+  contacts.linkedin,
+  contacts.telegram,
+  contacts.youtube,
+  'https://themanifest.com/company/koshman-ecom',
+  'https://www.sortlist.com/agency/koshmanecom',
+];
+
+const personId = (id: string) => `${siteUrl}/about#${id}`;
+
+/** Рядок з даних мовою сторінки (з відкотом на українську). */
+function translate(locale: Locale) {
+  const squash = (text: string) => text.replace(/\s+/g, ' ').trim();
+  const map: Record<string, string> = {};
+  for (const [key, value] of Object.entries(getContent(locale))) map[squash(key)] = value;
+  return (uk: string) => map[squash(uk)] ?? uk;
+}
+
+/**
+ * `@id` людини з команди за її ім'ям будь-якою мовою ('Влад Кошман' / 'Vlad Koshman').
+ * Так автор статті й засновник агенції — одна й та сама сутність у розмітці.
+ */
+export function teamMemberId(name: string): string | undefined {
+  const person = TEAM.find((p) =>
+    (['uk', 'en', 'sk'] as const).some((l) => translate(l)(p.name) === name),
+  );
+  return person ? personId(person.id) : undefined;
+}
+
+/** Засновники агенції як Person — для E-E-A-T: за агенцією стоять реальні люди. */
+export function team(locale: Locale) {
+  const tr = translate(locale);
+  return TEAM.map((person) => ({
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': personId(person.id),
+    name: tr(person.name),
+    jobTitle: tr(person.role),
+    description: tr(person.description),
+    image: `${siteUrl}${person.image}`,
+    url: `${siteUrl}${localePath(locale, '/about')}`,
+    worksFor: { '@id': ORG_ID },
+  }));
+}
 
 /** Агенція: назва, контакти, офіси, соцмережі. */
 export function organization(locale: Locale, description: string) {
@@ -29,7 +82,8 @@ export function organization(locale: Locale, description: string) {
       { '@type': 'PostalAddress', addressLocality: 'Kyiv', addressCountry: 'UA' },
       { '@type': 'PostalAddress', addressLocality: 'Košice', addressCountry: 'SK' },
     ],
-    sameAs: [contacts.instagram, contacts.linkedin, contacts.telegram, contacts.youtube],
+    founder: TEAM.map((person) => ({ '@id': personId(person.id) })),
+    sameAs: PROFILES,
   };
 }
 

@@ -3,55 +3,52 @@ import { getArticles } from "@/lib/blog";
 import { intlLocales, localePath, localizedSlugs, locales } from "@/lib/i18n";
 import { hasServicePage, servicePageSlugs } from "@/data/servicePages";
 import { caseStudySlugs } from "@/data/caseStudies";
-
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+import { siteUrl } from "@/lib/seo";
 
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date().toISOString();
-  const articles = getArticles();
+  // lastModified ставимо лише там, де знаємо справжню дату зміни (статті).
+  // Дата збірки на кожній сторінці щодеплою «оновлює» весь сайт, і Google
+  // перестає довіряти цьому полю — краще не вказувати його зовсім.
+  const latestArticle = (locale: (typeof locales)[number]) => {
+    const dates = getArticles(locale).map((a) => a.updatedAt).sort();
+    return dates[dates.length - 1];
+  };
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: `${siteUrl}/`,
-      lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 1,
     },
     {
       url: `${siteUrl}/about`,
-      lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
       url: `${siteUrl}/services`,
-      lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.9,
     },
     {
       url: `${siteUrl}/blog`,
-      lastModified: articles[0]?.publishedAt ?? now,
+      lastModified: latestArticle("uk"),
       changeFrequency: "weekly" as const,
       priority: 0.7,
     },
     {
       url: `${siteUrl}/career`,
-      lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.5,
     },
     {
       url: `${siteUrl}/contacts`,
-      lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.5,
     },
     {
       url: `${siteUrl}/tools`,
-      lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.7,
     },
@@ -61,8 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         .filter((locale) => hasServicePage(locale, slug))
         .map((locale) => ({
           url: `${siteUrl}${localePath(locale, `/services/${slug}`)}`,
-          lastModified: now,
-          changeFrequency: "monthly" as const,
+              changeFrequency: "monthly" as const,
           priority: 0.8,
         })),
     ),
@@ -70,8 +66,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...caseStudySlugs.flatMap((slug) =>
       locales.map((locale) => ({
         url: `${siteUrl}${localePath(locale, `/cases/${slug}`)}`,
-        lastModified: now,
-        changeFrequency: "monthly" as const,
+          changeFrequency: "monthly" as const,
         priority: 0.7,
       })),
     ),
@@ -79,8 +74,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...Object.values(localizedSlugs).flatMap((paths) =>
       locales.map((locale) => ({
         url: `${siteUrl}${localePath(locale, paths[locale])}`,
-        lastModified: now,
-        changeFrequency: "monthly" as const,
+          changeFrequency: "monthly" as const,
         priority: 0.8,
       })),
     ),
@@ -110,8 +104,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const intlPages: MetadataRoute.Sitemap = intlLocales.flatMap((locale) =>
     translatedPaths.map((path) => ({
       url: `${siteUrl}${localePath(locale, path)}`,
-      lastModified: now,
       changeFrequency: "monthly" as const,
+      ...(path === "/blog" ? { lastModified: latestArticle(locale) } : {}),
       priority: path === "/" ? 0.9 : 0.7,
     })),
   );
