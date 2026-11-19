@@ -50,7 +50,7 @@ type CookieRow = [React.ReactNode, string, string, string, string];
 function cookieRows(locale: Locale): CookieRow[] {
   if (locale === 'sk') {
     return [
-      [<>localStorage, kľúč <Code>{CONSENT_KEY}</Code></>, 'koshmanecom.com', 'Nevyhnutné', 'Pamätá si vašu voľbu v cookie lište', 'Bez obmedzenia (do vymazania údajov prehliadača)'],
+      [<>localStorage, kľúč <Code>{CONSENT_KEY}</Code></>, 'koshmanecom.com', 'Nevyhnutné', 'Pamätá si vašu voľbu v cookie lište', 'localStorage, 6 mesiacov'],
       [<Code key="ga">_ga</Code>, 'Google Analytics', 'Analytické', 'Rozlišuje návštevníkov', '2 roky'],
       [<Code key="gas">_ga_LEC5E52YML</Code>, 'Google Analytics', 'Analytické', 'Uchováva stav relácie', '2 roky'],
       [<Code key="clck">_clck</Code>, 'Microsoft Clarity', 'Analytické', 'Rozlišuje návštevníkov', '1 rok'],
@@ -62,7 +62,7 @@ function cookieRows(locale: Locale): CookieRow[] {
   }
   if (locale === 'en') {
     return [
-      [<>localStorage, key <Code>{CONSENT_KEY}</Code></>, 'koshmanecom.com', 'Strictly necessary', 'Remembers your choice in the cookie banner', 'No expiry (until you clear your browser data)'],
+      [<>localStorage, key <Code>{CONSENT_KEY}</Code></>, 'koshmanecom.com', 'Strictly necessary', 'Remembers your choice in the cookie banner', 'localStorage, 6 months'],
       [<Code key="ga">_ga</Code>, 'Google Analytics', 'Analytics', 'Distinguishes visitors', '2 years'],
       [<Code key="gas">_ga_LEC5E52YML</Code>, 'Google Analytics', 'Analytics', 'Keeps the session state', '2 years'],
       [<Code key="clck">_clck</Code>, 'Microsoft Clarity', 'Analytics', 'Distinguishes visitors', '1 year'],
@@ -73,7 +73,7 @@ function cookieRows(locale: Locale): CookieRow[] {
     ];
   }
   return [
-    [<>localStorage, ключ <Code>{CONSENT_KEY}</Code></>, 'koshmanecom.com', 'Необхідні', 'Запамʼятовує ваш вибір у cookie-банері', 'Без обмеження строку (до очищення даних браузера)'],
+    [<>localStorage, ключ <Code>{CONSENT_KEY}</Code></>, 'koshmanecom.com', 'Необхідні', 'Запамʼятовує ваш вибір у cookie-банері', 'localStorage, 6 місяців'],
     // Країну визначаємо лише на українській версії — тому рядок є тільки тут
     [<>sessionStorage, ключ <Code>{GEO_KEY}</Code></>, 'koshmanecom.com', 'Необхідні', 'Запамʼятовує країну, визначену за IP-адресою, щоб не визначати її на кожній сторінці', 'До закриття вкладки'],
     [<Code key="ga">_ga</Code>, 'Google Analytics', 'Аналітичні', 'Розрізняє відвідувачів', '2 роки'],
@@ -308,7 +308,8 @@ const sk: PrivacyDoc = {
             'Google Ireland Ltd. – Google Analytics 4, Google Ads;',
             'Microsoft Ireland Operations Ltd. – Microsoft Clarity;',
             'Firebase Hosting (Google) – prevádzka webu;',
-            'Telegram (bot na dopyty) a Google Cloud Firestore – evidencia dopytov;',
+            'Telegram – doručovanie nových dopytov z formulára (vrátane údajov, ktoré v ňom uvediete);',
+            'Google Cloud Firestore – evidencia dopytov;',
             'Zoho Mail – komunikácia;',
             'Telegram, WhatsApp – ak nás kontaktujete cez tieto aplikácie;',
             'účtovník a orgány verejnej moci, ak to vyžaduje zákon.',
@@ -321,7 +322,10 @@ const sk: PrivacyDoc = {
       title: 'Prenos mimo EÚ',
       blocks: [
         {
-          ul: ['USA: Google a Microsoft sú certifikované v rámci EU–US Data Privacy Framework.'],
+          ul: [
+            'USA: Google a Microsoft sú certifikované v rámci EU–US Data Privacy Framework.',
+            'Telegram: dopyty z formulára sa doručujú cez Telegram, ktorého servery sa môžu nachádzať mimo EÚ. Prenos je nevyhnutný na vybavenie vášho dopytu (čl. 49 ods. 1 písm. b) GDPR).',
+          ],
         },
       ],
     },
@@ -442,7 +446,8 @@ const en: PrivacyDoc = {
             'Google Ireland Ltd. – Google Analytics 4, Google Ads;',
             'Microsoft Ireland Operations Ltd. – Microsoft Clarity;',
             'Firebase Hosting (Google) – running the website;',
-            'Telegram (request bot) and Google Cloud Firestore – managing requests;',
+            'Telegram – delivery of new requests from the form (including the details you provide);',
+            'Google Cloud Firestore – managing requests;',
             'Zoho Mail – communication;',
             'Telegram, WhatsApp – if you contact us there;',
             'our accountant and public authorities where the law requires it.',
@@ -454,7 +459,12 @@ const en: PrivacyDoc = {
       id: 'transfers',
       title: 'Transfers outside the EU',
       blocks: [
-        { ul: ['USA: Google and Microsoft are certified under the EU–US Data Privacy Framework.'] },
+        {
+          ul: [
+            'USA: Google and Microsoft are certified under the EU–US Data Privacy Framework.',
+            'Telegram: form requests are delivered via Telegram, whose servers may be located outside the EU. The transfer is necessary to handle your request (Art. 49(1)(b) GDPR).',
+          ],
+        },
       ],
     },
     {

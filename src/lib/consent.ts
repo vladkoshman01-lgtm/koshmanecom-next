@@ -13,8 +13,13 @@
  * важливіший за автоматичну згоду.
  */
 
-/** Явний вибір у банері (localStorage). */
+/**
+ * Явний вибір у банері (localStorage): JSON `{ "value": "all" | "necessary",
+ * "date": "<ISO-дата рішення>" }`. Вибір діє CONSENT_MONTHS місяців, потім
+ * вважається, що згоди немає, і банер показується знову.
+ */
 export const CONSENT_KEY = 'kc-cookie-consent';
+export const CONSENT_MONTHS = 6;
 /** Країна, визначена за IP (sessionStorage) — щоб не питати хостинг на кожній сторінці. */
 export const GEO_KEY = 'kc-geo';
 export const CLARITY_ID = 'ut3p6kx3xo';
@@ -30,10 +35,34 @@ export type Consent = 'all' | 'necessary';
 
 type Fn = (...args: unknown[]) => void;
 
+/** Чи минуло з дати рішення більше CONSENT_MONTHS місяців. */
+function isExpired(decidedAt: number, now = Date.now()): boolean {
+  const until = new Date(decidedAt);
+  until.setMonth(until.getMonth() + CONSENT_MONTHS);
+  return now > until.getTime();
+}
+
+/**
+ * Чинний явний вибір або null. Прострочений вибір і старий формат без дати
+ * (просто 'all' / 'necessary') видаляємо — людину треба спитати знову.
+ */
 export function readConsent(): Consent | null {
   try {
-    const value = localStorage.getItem(CONSENT_KEY);
-    return value === 'all' || value === 'necessary' ? value : null;
+    const raw = localStorage.getItem(CONSENT_KEY);
+    if (raw === null) return null;
+    let parsed: { value?: unknown; date?: unknown } | null = null;
+    try {
+      parsed = JSON.parse(raw);
+    } catch {
+      parsed = null;
+    }
+    const value = parsed?.value;
+    const decidedAt = typeof parsed?.date === 'string' ? Date.parse(parsed.date) : NaN;
+    if ((value === 'all' || value === 'necessary') && !Number.isNaN(decidedAt) && !isExpired(decidedAt)) {
+      return value;
+    }
+    localStorage.removeItem(CONSENT_KEY);
+    return null;
   } catch {
     return null;
   }
@@ -61,7 +90,7 @@ function signal(granted: boolean) {
 /** Зберігає вибір і одразу застосовує його до Google та Clarity. */
 export function applyConsent(value: Consent) {
   try {
-    localStorage.setItem(CONSENT_KEY, value);
+    localStorage.setItem(CONSENT_KEY, JSON.stringify({ value, date: new Date().toISOString() }));
   } catch {
     // приватний режим — згода діятиме лише до перезавантаження
   }
@@ -172,7 +201,16 @@ gtag('set', 'url_passthrough', true);
 (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${CLARITY_ID}");
 var kcGranted = false;
 try {
-  var kcChoice = localStorage.getItem('${CONSENT_KEY}');
+  var kcChoice = null;
+  try {
+    var kcSaved = JSON.parse(localStorage.getItem('${CONSENT_KEY}'));
+    var kcUntil = new Date(Date.parse(kcSaved.date));
+    kcUntil.setMonth(kcUntil.getMonth() + ${CONSENT_MONTHS});
+    if ((kcSaved.value === 'all' || kcSaved.value === 'necessary') && Date.now() <= kcUntil.getTime()) {
+      kcChoice = kcSaved.value;
+    }
+  } catch (e) {}
+  if (kcChoice === null) localStorage.removeItem('${CONSENT_KEY}');
   if (kcChoice === 'all') {
     kcGranted = true;
   } else if (kcChoice !== 'necessary' && !/^\\/(en|sk)(\\/|$)/.test(location.pathname)) {
