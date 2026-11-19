@@ -42,30 +42,56 @@ function isExpired(decidedAt: number, now = Date.now()): boolean {
   return now > until.getTime();
 }
 
-/**
- * Чинний явний вибір або null. Прострочений вибір і старий формат без дати
- * (просто 'all' / 'necessary') видаляємо — людину треба спитати знову.
- */
-export function readConsent(): Consent | null {
+/** Збережений вибір: значення й чи він уже прострочений. */
+function readStored(): { value: Consent; expired: boolean } | null {
   try {
     const raw = localStorage.getItem(CONSENT_KEY);
     if (raw === null) return null;
-    let parsed: { value?: unknown; date?: unknown } | null = null;
-    try {
-      parsed = JSON.parse(raw);
-    } catch {
-      parsed = null;
-    }
+    // Старий формат без дати ('all' / 'necessary') вважаємо простроченим
+    if (raw === 'all' || raw === 'necessary') return { value: raw, expired: true };
+    const parsed = JSON.parse(raw) as { value?: unknown; date?: unknown } | null;
     const value = parsed?.value;
+    if (value !== 'all' && value !== 'necessary') return null;
     const decidedAt = typeof parsed?.date === 'string' ? Date.parse(parsed.date) : NaN;
-    if ((value === 'all' || value === 'necessary') && !Number.isNaN(decidedAt) && !isExpired(decidedAt)) {
-      return value;
-    }
-    localStorage.removeItem(CONSENT_KEY);
-    return null;
+    return { value, expired: Number.isNaN(decidedAt) || isExpired(decidedAt) };
   } catch {
     return null;
   }
+}
+
+/**
+ * Чинний явний вибір або null.
+ *
+ * Прострочену згоду ('all') видаляємо — людину треба спитати знову.
+ * Прострочену відмову ('necessary') лишаємо в сховищі: вона вже не діє,
+ * але блокує автозгоду для України (див. `hadExpiredRefusal`), доки
+ * людина не зробить новий вибір у банері.
+ */
+export function readConsent(): Consent | null {
+  const stored = readStored();
+  if (!stored) {
+    try {
+      localStorage.removeItem(CONSENT_KEY);
+    } catch {
+      // сховище недоступне — нічого прибирати
+    }
+    return null;
+  }
+  if (!stored.expired) return stored.value;
+  if (stored.value === 'all') {
+    try {
+      localStorage.removeItem(CONSENT_KEY);
+    } catch {
+      // сховище недоступне — нічого прибирати
+    }
+  }
+  return null;
+}
+
+/** Людина колись відмовилася, і ця відмова вже прострочена — банер замість автозгоди. */
+export function hadExpiredRefusal(): boolean {
+  const stored = readStored();
+  return stored !== null && stored.expired && stored.value === 'necessary';
 }
 
 /** Українська версія сайту — усе, крім /en і /sk. */
@@ -202,18 +228,36 @@ gtag('set', 'url_passthrough', true);
 var kcGranted = false;
 try {
   var kcChoice = null;
-  try {
-    var kcSaved = JSON.parse(localStorage.getItem('${CONSENT_KEY}'));
-    var kcUntil = new Date(Date.parse(kcSaved.date));
-    kcUntil.setMonth(kcUntil.getMonth() + ${CONSENT_MONTHS});
-    if ((kcSaved.value === 'all' || kcSaved.value === 'necessary') && Date.now() <= kcUntil.getTime()) {
-      kcChoice = kcSaved.value;
+  var kcRefused = false;
+  var kcRaw = localStorage.getItem('${CONSENT_KEY}');
+  if (kcRaw !== null) {
+    var kcValue = null;
+    var kcFresh = false;
+    if (kcRaw === 'all' || kcRaw === 'necessary') {
+      kcValue = kcRaw;
+    } else {
+      try {
+        var kcSaved = JSON.parse(kcRaw);
+        if (kcSaved && (kcSaved.value === 'all' || kcSaved.value === 'necessary')) {
+          kcValue = kcSaved.value;
+          var kcUntil = new Date(Date.parse(kcSaved.date));
+          kcUntil.setMonth(kcUntil.getMonth() + ${CONSENT_MONTHS});
+          kcFresh = Date.now() <= kcUntil.getTime();
+        }
+      } catch (e) {}
     }
-  } catch (e) {}
-  if (kcChoice === null) localStorage.removeItem('${CONSENT_KEY}');
+    if (kcFresh) {
+      kcChoice = kcValue;
+    } else if (kcValue === 'necessary') {
+      // Прострочена відмова: не діє, але й автозгоду для України не вмикає
+      kcRefused = true;
+    } else {
+      localStorage.removeItem('${CONSENT_KEY}');
+    }
+  }
   if (kcChoice === 'all') {
     kcGranted = true;
-  } else if (kcChoice !== 'necessary' && !/^\\/(en|sk)(\\/|$)/.test(location.pathname)) {
+  } else if (kcChoice === null && !kcRefused && !/^\\/(en|sk)(\\/|$)/.test(location.pathname)) {
     var kcGeo = null;
     try { kcGeo = sessionStorage.getItem('${GEO_KEY}'); } catch (e) {}
     kcGranted = kcGeo === 'UA';

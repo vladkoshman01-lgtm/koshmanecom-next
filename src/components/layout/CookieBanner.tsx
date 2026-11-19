@@ -7,6 +7,7 @@ import { useLocale } from '@/i18n/LocaleProvider';
 import {
   applyAutoConsent,
   applyConsent,
+  hadExpiredRefusal,
   readConsent,
   resolveCountry,
   revokeAutoConsent,
@@ -37,8 +38,9 @@ export default function CookieBanner() {
   useEffect(() => {
     if (readConsent()) return;
     let cancelled = false;
-    // /en і /sk — завжди банер, країну навіть не визначаємо
-    const country = locale === 'uk' ? resolveCountry() : Promise.resolve('');
+    // /en і /sk — завжди банер, країну навіть не визначаємо. Так само, якщо
+    // людина колись відмовилася і відмова прострочилася — питаємо знову
+    const country = locale === 'uk' && !hadExpiredRefusal() ? resolveCountry() : Promise.resolve('');
     country.then((code) => {
       if (cancelled || readConsent()) return;
       if (code === 'UA') {
