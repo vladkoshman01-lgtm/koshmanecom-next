@@ -15,13 +15,16 @@ const ORG_ID = `${siteUrl}/#organization`;
 /**
  * Профілі агенції в каталогах і соцмережах. `sameAs` пов'язує їх з сайтом
  * в одну сутність — так Google і ШІ-асистенти впевненіше знають, хто ми.
- * Нові профілі (Clutch, Google Business Profile) додавати сюди.
+ * Нові профілі додавати сюди.
  */
 const PROFILES = [
   contacts.instagram,
   contacts.linkedin,
   contacts.telegram,
   contacts.youtube,
+  'https://clutch.co/profile/koshman-ecom',
+  // Google Business Profile — посилання на сам профіль, без /review
+  'https://g.page/r/CR22__zZd769ECE',
   'https://themanifest.com/company/koshman-ecom',
   'https://www.sortlist.com/agency/koshmanecom',
 ];
