@@ -58,6 +58,8 @@ V každom kroku časť ľudí odíde. Ak je reklama dobre nastavená, ale produk
 
 Reklama a web preto musia fungovať ako jeden systém. Reklamný rozpočet len zvyšuje počet ľudí v konverznom lieviku. Nevyrieši pomalý web, nečakanú cenu dopravy, chýbajúci spôsob platby ani nedôveru voči značke.
 
+Ako funguje samotná reklama v Google a čo treba, aby sa kliky menili na predaje, nájdete v článku [ako funguje reklama Google Ads](/sk/blog/google-ads-pre-firmy). Ak potrebujete kampane nastaviť alebo skontrolovať, pozrite si našu [službu Google Ads](/sk/services/google-ads).
+
 ## Koľko e-shop reálne stráca?
 
 Pozrime sa na jednoduchý príklad.

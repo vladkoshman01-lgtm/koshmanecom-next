@@ -687,7 +687,7 @@ const googleAds: ServicePage = {
   relatedTitle: 'Súvisiace služby',
   related: [
     ['Reklama', 'Meta, TikTok, Pinterest a YouTube', 'Reklama v ďalších kanáloch: spustenie kampaní, kreatívy a optimalizácia pre váš produkt.', '/services#ads'],
-    ['Vývoj na Shopify', 'E-shop na Shopify', 'Technický základ pre reklamu: katalóg, rýchlosť, platby a doprava.', '/services#shopify-dev'],
+    ['Vývoj na Shopify', 'E-shop na Shopify', 'Technický základ pre reklamu: katalóg, rýchlosť, platby a doprava.', '/services/shopify'],
     ['Blog', 'Opustené košíky a stratená návštevnosť', 'Kde e-shop stráca návštevníkov, za ktorých už zaplatil, a čo opraviť ako prvé.', '/blog/opustene-kosiky-stratena-reklamna-navstevnost'],
     ['O nás', 'Ako pracujeme', 'Tím, prístup a prehľadný proces pri e-commerce projektoch.', '/about'],
   ],
@@ -846,6 +846,7 @@ const googleAds: ServicePage = {
         'Nestráca web používateľov na produktovej stránke alebo v checkoute?',
         'Zodpovedá výsledok marži a ekonomike biznisu?',
       ],
+      note: 'Problém často vzniká až po kliknutí — medzi košíkom a platbou. Viac v článku [prečo zákazníci opúšťajú košík](/blog/opustene-kosiky-stratena-reklamna-navstevnost).',
       cta: 'Začať auditom Google Ads',
     },
   ],

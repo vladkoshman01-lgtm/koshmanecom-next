@@ -257,6 +257,8 @@ Pri kontrole môžete postupovať takto:
 
 V takejto situácii nie je vždy potrebné hneď zvyšovať rozpočet. Najskôr treba zistiť, v ktorom bode zákazník odchádza.
 
+Kde presne e-shop stráca zákazníkov medzi košíkom a platbou, podrobne rozoberáme v článku [prečo zákazníci opúšťajú košík](/sk/blog/opustene-kosiky-stratena-reklamna-navstevnost).
+
 ## Koľko stojí Google Ads
 
 Cena Google Ads sa skladá z viacerých častí:

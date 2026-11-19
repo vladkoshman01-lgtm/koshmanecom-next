@@ -133,7 +133,8 @@ const googleAds: ServicePageGraphics = {
   ],
   // Заявка, консультація, аудит і план, запуск або оптимізація
   steps: [PATHS.mail, PATHS.chat, PATHS.clipboard, PATHS.trend],
-  related: [PATHS.mega, PATHS.store, PATHS.trend, PATHS.target],
+  // П'ята — картка статті про кошики (лише UA)
+  related: [PATHS.mega, PATHS.store, PATHS.trend, PATHS.target, PATHS.cart],
   sections: {
     // Search, Shopping, Performance Max, ремаркетинг, Display і YouTube
     'campaign-types': [PATHS.search, PATHS.tag, PATHS.zap, PATHS.repeat, PATHS.play],

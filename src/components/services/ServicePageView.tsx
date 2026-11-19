@@ -212,6 +212,26 @@ function ExtraSection({
     </div>
   ) : null;
 
+  /** Завершальне речення: текст із посиланнями `[текст](/адреса)`. */
+  const note = section.note ? (
+    <p className={`m-0 mt-8 text-base leading-[1.65] md:mt-10 md:text-lg ${t.text}`}>
+      {section.note.split(/(\[[^\]]+\]\([^)]+\))/).map((part, i) => {
+        const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+        return link ? (
+          <Link
+            key={i}
+            href={link[2]}
+            className={`font-semibold underline decoration-1 underline-offset-4 transition-colors hover:text-brand-orange hover:decoration-brand-orange ${t.title}`}
+          >
+            {link[1]}
+          </Link>
+        ) : (
+          part
+        );
+      })}
+    </p>
+  ) : null;
+
   if (section.variant === 'cards') {
     return (
       <section id={section.id} className={t.section}>
@@ -254,6 +274,7 @@ function ExtraSection({
           </ul>
           ) : null}
           {outro}
+          {note}
           {cta}
         </div>
       </section>
@@ -333,6 +354,7 @@ function ExtraSection({
             </ul>
           )}
           {outro}
+          {note}
           {cta}
         </div>
       </div>
@@ -370,7 +392,13 @@ export default function ServicePageView({
   const forWhomCols = page.forWhom.length >= 6 ? 'md:grid-cols-3' : 'md:grid-cols-4';
   const stepsCols = page.steps.length === 4 ? 'md:grid-cols-4' : 'md:grid-cols-5';
   /** Шість пов'язаних послуг — у дві лінії по три, чотири — в одну. */
-  const relatedCols = page.related.length % 3 === 0 ? 'md:grid-cols-3' : 'md:grid-cols-4';
+  // П'ять карток — 3 + 2 на планшеті й один ряд на широкому екрані, щоб остання не стояла сама
+  const relatedCols =
+    page.related.length % 3 === 0
+      ? 'md:grid-cols-3'
+      : page.related.length === 5
+        ? 'md:grid-cols-3 lg:grid-cols-5'
+        : 'md:grid-cols-4';
 
   return (
     <>

@@ -257,6 +257,8 @@ A useful troubleshooting sequence is:
 
 In this situation, increasing the budget straight away is not always the answer. First, find out where potential customers are dropping off.
 
+We look at where stores lose buyers between the cart and payment in [why shoppers abandon their carts](/en/blog/abandoned-carts-lost-paid-traffic).
+
 ## How much does Google Ads cost?
 
 Google Ads cost can include several components:

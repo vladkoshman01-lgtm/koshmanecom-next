@@ -58,6 +58,8 @@ Some people drop off at every stage. If the advertising is well configured but t
 
 That’s why advertising and the website need to work as one system. Your ad budget simply brings more people into the funnel. It doesn’t fix a slow site, unexpected shipping costs, missing payment options, or a lack of trust in the brand.
 
+For how Google Ads itself works and what it takes to turn clicks into sales, see [how Google Ads works for business](/en/blog/google-ads-for-business). If your campaigns need setting up or reviewing, take a look at our [Google Ads services](/en/services/google-ads).
+
 ## How Much Is Your Store Really Losing?
 
 Let’s look at a simple example.

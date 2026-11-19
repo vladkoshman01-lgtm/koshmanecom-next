@@ -682,7 +682,7 @@ const googleAds: ServicePage = {
   relatedTitle: 'Related services',
   related: [
     ['Advertising', 'Meta, TikTok, Pinterest and YouTube', 'Paid social and video: campaign launch, creatives and optimization for your product.', '/services#ads'],
-    ['Shopify development', 'Shopify store', 'The technical base for paid traffic: catalogue, speed, payments and delivery.', '/services#shopify-dev'],
+    ['Shopify development', 'Shopify store', 'The technical base for paid traffic: catalogue, speed, payments and delivery.', '/services/shopify'],
     ['Blog', 'Abandoned carts and lost paid traffic', 'Where stores lose visitors they already paid for — and what to fix first.', '/blog/abandoned-carts-lost-paid-traffic'],
     ['About us', 'How we work', 'The team, our approach and a transparent process for e-commerce projects.', '/about'],
   ],
@@ -840,6 +840,7 @@ const googleAds: ServicePage = {
         'Is the landing page or checkout losing users?',
         'Does the result make sense for the business margin and sales model?',
       ],
+      note: 'Often the problem starts after the click — between the cart and payment. Read more in [why shoppers abandon their carts](/blog/abandoned-carts-lost-paid-traffic).',
       cta: 'Start with a Google Ads audit',
     },
   ],
