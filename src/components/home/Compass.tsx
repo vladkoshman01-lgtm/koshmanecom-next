@@ -5,6 +5,10 @@ import Link from '@/components/ui/LocaleLink';
 import Script from 'next/script';
 import { useT } from '@/i18n/LocaleProvider';
 
+/** Знижка з пасхалки і промокод до неї — змінювати разом. */
+const DISCOUNT = '−10%';
+const PROMO_CODE = 'COMPASS10';
+
 /**
  * Анімований компас із героя. Веб-компонент лежить у public/vendor/ —
  * самодостатній, без залежностей: 13-секундний безшовний цикл, пауза поза
@@ -12,7 +16,7 @@ import { useT } from '@/i18n/LocaleProvider';
  *
  * Пасхалка: якщо покрутити циферблат три повні оберти (за годинниковою,
  * проти, і знову за), компонент кидає подію `koshman-unlock` — тоді
- * показуємо вікно з промокодом COMPASS15.
+ * показуємо вікно з промокодом PROMO_CODE.
  */
 export default function Compass({ className = '' }: { className?: string }) {
   const t = useT();
@@ -97,17 +101,17 @@ export default function Compass({ className = '' }: { className?: string }) {
             <div className="text-[0.8125rem] font-bold uppercase tracking-[0.14em] text-brand-orange">
               {t.easter.compassEyebrow}
             </div>
-            <div className="text-[2.75rem] font-bold leading-[1] text-[#141414]">−15%</div>
+            <div className="text-[2.75rem] font-bold leading-[1] text-[#141414]">{DISCOUNT}</div>
             <div className="text-base text-[#555555]">{t.easter.discountFor}</div>
 
             <div className="flex items-center gap-2.5">
               <span className="flex h-12 flex-1 items-center justify-center border-[1.5px] border-dashed border-[#DCDCDC] text-lg font-bold tracking-[0.08em] text-[#141414]">
-                COMPASS15
+                {PROMO_CODE}
               </span>
               <button
                 type="button"
                 onClick={() => {
-                  navigator.clipboard?.writeText('COMPASS15').catch(() => {});
+                  navigator.clipboard?.writeText(PROMO_CODE).catch(() => {});
                   setCopied(true);
                 }}
                 className="h-12 bg-[#141414] px-5 text-sm font-bold uppercase tracking-[0.02em] text-white"
