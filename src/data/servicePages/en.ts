@@ -1136,9 +1136,8 @@ const etsy: ServicePage = {
     serviceType: 'Etsy shop setup and optimization',
     offers: false,
   },
-  leadTitle: 'Launch an Etsy shop ready for international customers',
-  leadText:
-    'Tell us about your product, range and business goal — we will recommend the right Etsy setup, optimization or management format and explain where to start.',
+  leadTitle: 'Let’s launch your Etsy shop',
+  leadText: 'Tell us what you sell — we’ll suggest where to start.',
   leadSubmit: 'Send request',
   leadTopics: ['Etsy store setup', 'Etsy store management', 'Etsy SEO and listings', 'Etsy shop audit', 'Etsy Ads'],
   leadCommentPlaceholder: 'Tell us what you sell, how many products you have and whether you already have an Etsy shop.',

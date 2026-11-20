@@ -1143,9 +1143,8 @@ const etsy: ServicePage = {
     serviceType: 'Etsy shop setup and optimization',
     offers: false,
   },
-  leadTitle: 'Vytvoríme Etsy obchod pripravený na predaj do zahraničia',
-  leadText:
-    'Opíšte nám produkt, sortiment a cieľ — navrhneme, aký rozsah Etsy obchodu potrebujete a s čím je najlepšie začať.',
+  leadTitle: 'Spustíme váš Etsy obchod',
+  leadText: 'Napíšte, čo predávate — poradíme, s čím začať.',
   leadSubmit: 'Odoslať dopyt',
   leadTopics: ['Obchod na Etsy — vytvorenie a nastavenie', 'Správa Etsy', 'Etsy SEO a listingy', 'Audit Etsy obchodu', 'Etsy Ads'],
   leadCommentPlaceholder: 'Opíšte, čo predávate, koľko produktov máte a či už Etsy obchod existuje.',
