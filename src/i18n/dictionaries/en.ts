@@ -159,6 +159,8 @@ const en: Dictionary = {
     bookCall: 'Book a consultation',
     compassControl: 'Control the compass',
     compassDone: 'Done',
+    compassHint: 'Tap the compass to spin it',
+    compassHintActive: 'Spin it with your finger',
     petMars: 'Pet Mars the cat',
     marsPhrases: [
       'Meow!',

@@ -161,6 +161,8 @@ const sk: Dictionary = {
     bookCall: 'Objednať konzultáciu',
     compassControl: 'Ovládať kompas',
     compassDone: 'Hotovo',
+    compassHint: 'Ťuknite na kompas a roztočte ho',
+    compassHintActive: 'Krúťte prstom po kruhu',
     petMars: 'Pohladkať mačku Mars',
     marsPhrases: [
       'Mňau!',

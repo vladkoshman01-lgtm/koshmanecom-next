@@ -43,7 +43,7 @@ export default function Hero() {
         <Compass />
       </div>
 
-      <div className="mt-6 flex flex-col items-stretch gap-4 md:col-start-1 md:row-start-3 md:mt-10 md:flex-row md:flex-wrap md:items-start md:gap-3">
+      <div className="mt-11 flex flex-col items-stretch gap-4 md:col-start-1 md:row-start-3 md:mt-10 md:flex-row md:flex-wrap md:items-start md:gap-3">
         {/* Телефон: одна широка кнопка і текстове посилання під нею */}
         <button
           type="button"

@@ -78,6 +78,14 @@ export default function Compass({ className = '' }: { className?: string }) {
         </button>
       )}
 
+      {/* Телефон: підказка під компасом — без неї свайп просто гортає сторінку */}
+      <p
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap text-[0.8125rem] text-[#8A8A8A] md:hidden"
+      >
+        {dial ? t.easter.compassHintActive : t.easter.compassHint}
+      </p>
+
       {promo ? (
         <div
           className="mars-fade fixed inset-0 z-[130] flex items-center justify-center bg-[rgba(15,15,15,.78)] p-5"

@@ -161,6 +161,8 @@ const uk = {
     bookCall: 'Записатися на консультацію',
     compassControl: 'Керувати компасом',
     compassDone: 'Готово',
+    compassHint: 'Торкніться компаса, щоб покрутити',
+    compassHintActive: 'Крутіть пальцем по колу',
     petMars: 'Погладити кота Марса',
     marsPhrases: [
       'Мяу!',
