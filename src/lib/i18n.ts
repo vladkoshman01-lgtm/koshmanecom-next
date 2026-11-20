@@ -89,7 +89,7 @@ const TRANSLATED = /^\/(?:services(?:\/[a-z0-9-]+)?|cases\/[a-z0-9-]+|about|cont
  */
 // Формат запису: '/services/<slug>': ['en'] — сторінка є українською й англійською.
 // Порожній список — сторінка лише українською.
-// Зараз порожньо: Google Ads і Shopify перекладені всіма мовами.
+// Зараз порожньо: Google Ads, Shopify та Etsy перекладені всіма мовами.
 export const PARTIAL_TRANSLATIONS: Readonly<Record<string, readonly Locale[]>> = {};
 
 /** Чи є в сторінки версія мовою `locale` (без мови — чи перекладена вона взагалі). */

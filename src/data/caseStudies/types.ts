@@ -153,6 +153,11 @@ export type CaseStudy = {
   quote: { text: string; author: string; role: string } | null;
   /** Немає — блок «Висновок» не показуємо, а форма заявки стає на його місце. */
   conclusion?: { title: string; text: string; ctaLabel: string };
+  /**
+   * Посилання на сторінку послуги, яку ілюструє кейс, — смуга перед висновком.
+   * Адреса без мовного префікса; мовам, де сторінки немає, поле не задаємо.
+   */
+  serviceLink?: { text: string; label: string; href: string };
   faqTitle: string;
   faq: [string, string][];
   leadTitle: string;

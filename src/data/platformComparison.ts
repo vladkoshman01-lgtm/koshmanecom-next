@@ -65,6 +65,7 @@ const uk: ComparisonCopy = {
     bandTitle: 'Обрали платформу? Запустимо магазин',
     bandText:
       'Відкриваємо й ведемо магазини на Etsy, Amazon, eBay і Shopify: реєстрація, лістинги з SEO, реклама. Допоможемо поєднати кілька майданчиків, щоб не залежати від одного.',
+    serviceLink: { label: 'Запуск Etsy-магазину під ключ', href: '/services/etsy' },
   },
   guide: {
     eyebrow: 'Комісії платформ у 2026',
@@ -210,6 +211,7 @@ const en: ComparisonCopy = {
     bandTitle: 'Picked a platform? We will launch your shop',
     bandText:
       'We open and run shops on Etsy, Amazon, eBay and Shopify: setup, SEO listings and ads. We can also combine several channels so you never depend on just one.',
+    serviceLink: { label: 'Etsy shop setup', href: '/services/etsy' },
   },
   guide: {
     eyebrow: 'Platform fees in 2026',
@@ -354,6 +356,7 @@ const sk: ComparisonCopy = {
     bandTitle: 'Vybrali ste platformu? Spustíme obchod',
     bandText:
       'Otvárame a spravujeme obchody na Etsy, Amazone, eBay a Shopify: registrácia, listingy so SEO, reklama. Pomôžeme skombinovať viac kanálov, aby ste nezáviseli od jedného.',
+    serviceLink: { label: 'Vytvorenie Etsy obchodu na kľúč', href: '/services/etsy' },
   },
   guide: {
     eyebrow: 'Poplatky platforiem v roku 2026',

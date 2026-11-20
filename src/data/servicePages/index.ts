@@ -38,6 +38,7 @@ export function getServicePage(locale: Locale, slug: string): ServicePage | unde
 export const SERVICE_PAGE_BY_ITEM: Record<string, string> = {
   'shopify-dev|Shopify': 'shopify',
   'ads|Google Ads': 'google-ads',
+  'marketplaces|Etsy магазин': 'etsy',
 };
 
 /** Мови, якими сторінка послуги існує (українська — завжди). Для hreflang. */

@@ -22,17 +22,23 @@ export default function LeadForm({
   title,
   subtitle,
   submitLabel,
+  topics: customTopics,
+  commentPlaceholder,
 }: {
   theme?: 'dark' | 'light';
   title?: string;
   subtitle?: string;
   /** Власний підпис кнопки відправки — напр. «Обговорити Shopify-магазин». */
   submitLabel?: string;
+  /** Власні варіанти «Що вас цікавить» замість категорій; «Не знаю» додається в кінець. */
+  topics?: string[];
+  /** Власний плейсхолдер коментаря. */
+  commentPlaceholder?: string;
 }) {
   const t = useT();
   const tr = useTr();
   // Чипи: «не знаю, з чого почати» плюс назви категорій послуг
-  const topics = [t.lead.dontKnow, ...CATEGORY_NAMES];
+  const topics = customTopics?.length ? [...customTopics, t.lead.dontKnow] : [t.lead.dontKnow, ...CATEGORY_NAMES];
   const [name, setName] = useState('');
   const [contact, setContact] = useState('');
   const [topic, setTopic] = useState<string | null>(null);
@@ -197,7 +203,7 @@ export default function LeadForm({
                 onChange={(e) => setNote(e.target.value)}
                   maxLength={1500}
                 rows={4}
-                placeholder={t.lead.commentPlaceholder}
+                placeholder={commentPlaceholder ?? t.lead.commentPlaceholder}
                 className={`min-h-[8rem] border-[1.5px] p-4 text-base font-normal outline-none transition-colors md:flex-1 ${fieldClass}`}
               />
             </label>

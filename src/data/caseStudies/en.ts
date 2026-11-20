@@ -325,6 +325,11 @@ export const enCaseStudies: Record<string, CaseStudy> = {
 
   'etsy-jewelry-shop-seo': {
     ...etsy,
+    serviceLink: {
+      text: 'Don’t have an Etsy shop yet, or want to launch it properly from day one?',
+      label: 'Etsy shop setup',
+      href: '/services/etsy',
+    },
     metaTitle: 'Etsy Case Study: $14,300 in Jewellery Sales in 7 Months | Koshman Ecom',
     metaDescription:
       'How we doubled traffic for an existing Etsy jewellery shop: +103% visits, 161 orders and $14,300 in revenue in 7 months. Etsy SEO, listings, automated uploads.',

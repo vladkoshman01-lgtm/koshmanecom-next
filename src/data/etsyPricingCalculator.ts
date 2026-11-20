@@ -64,6 +64,7 @@ const uk: PricingCalcCopy = {
     bandTitle: 'Не впевнені, що ціна конкурентна?',
     bandText:
       'Проаналізуємо конкурентів у вашій ніші, перевіримо ціни й собівартість і підкажемо, де можна заробляти більше без втрати продажів.',
+    serviceLink: { label: 'Запуск Etsy-магазину під ключ', href: '/services/etsy' },
   },
   guide: {
     eyebrow: 'Ціноутворення на Etsy',
@@ -191,6 +192,7 @@ const en: PricingCalcCopy = {
     bandTitle: 'Not sure your price is competitive?',
     bandText:
       'We will review competitors in your niche, check your pricing and costs, and show you where you can earn more without losing sales.',
+    serviceLink: { label: 'Etsy shop setup', href: '/services/etsy' },
   },
   guide: {
     eyebrow: 'Etsy pricing',
@@ -318,6 +320,7 @@ const sk: PricingCalcCopy = {
     bandTitle: 'Nie ste si istí, či je cena konkurencieschopná?',
     bandText:
       'Preveríme konkurenciu vo vašej nike, ceny aj náklady a ukážeme, kde môžete zarobiť viac bez straty predajov.',
+    serviceLink: { label: 'Vytvorenie Etsy obchodu na kľúč', href: '/services/etsy' },
   },
   guide: {
     eyebrow: 'Cenotvorba na Etsy',

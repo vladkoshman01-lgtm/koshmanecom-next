@@ -66,6 +66,19 @@ const PATHS = {
   layers: 'M12 3l9 5-9 5-9-5zM3 13l9 5 9-5M3 17.5l9 5 9-5',
   send: 'M21 3L3 10.5l7 3 3 7zM10 13.5L21 3',
   calculator: 'M6 3h12v18H6zM9 7h6M9 12h.01M12 12h.01M15 12h.01M9 16h.01M12 16h.01M15 16h.01',
+  image: 'M4 5h16v14H4zM4 16l5-5 4 4 3-3 4 4M15 9h.01',
+  // Клубок ниток зі спицею — handmade
+  yarn: 'M11 5a7 7 0 1 0 0 14a7 7 0 1 0 0-14M5.5 9c3.5.5 7 3.5 8 9.5M9 5.3c3 2 5 5.5 5.5 9.5M4.5 13.5c2.5-.5 5.5 1 7 5M16 16l5 5',
+  // Знак якості / бейдж бренду
+  badge: 'M12 3l2.4 1.8 3-.2.9 2.8 2.5 1.7-1 2.9 1 2.9-2.5 1.7-.9 2.8-3-.2L12 21l-2.4-1.8-3 .2-.9-2.8-2.5-1.7 1-2.9-1-2.9 2.5-1.7.9-2.8 3 .2zM8.5 12l2.5 2.5 4.5-5',
+  // Файл зі стрілкою завантаження — цифрові товари
+  fileDown: 'M6 3h8l4 4v14H6zM14 3v4h4M12 10v6.5M9 13.5l3 3 3-3',
+  // Вітрина з плюсом — новий магазин
+  storeNew: 'M4 9l1.5-5h13L20 9M4 9h16M4 9v11h9M20 9v4M17.5 15.5v6M14.5 18.5h6',
+  // Вітрина з графіком — діючий магазин, який треба підтягнути
+  storeGrow: 'M4 9l1.5-5h13L20 9M4 9h16M4 9v11h16V9M8 17l3-3 2 2 3.5-3.5',
+  // Літак — продажі за кордон
+  plane: 'M21 4L3 11l6 2.5L19 6l-8 9v5l3-3.5 4 2.5z',
 } as const;
 
 const shopify: ServicePageGraphics = {
@@ -148,7 +161,40 @@ const googleAds: ServicePageGraphics = {
   ],
 };
 
+const etsy: ServicePageGraphics = {
+  logo: si('etsy'),
+  // Без кольорів платформи — акценти фірмові, як на Shopify і Google Ads
+  // Handmade, бренди, цифрові товари, нові продавці, діючі магазини, вихід за кордон
+  forWhom: [PATHS.yarn, PATHS.badge, PATHS.fileDown, PATHS.storeNew, PATHS.storeGrow, PATHS.plane],
+  // Аналіз, позиціонування, оформлення, акаунт і політики, лістинги, Etsy SEO,
+  // товарний контент, доставка, перевірка, передача
+  included: [
+    PATHS.target,
+    PATHS.grid,
+    PATHS.brush,
+    PATHS.clipboard,
+    PATHS.tag,
+    PATHS.search,
+    PATHS.image,
+    PATHS.truck,
+    PATHS.checkCircle,
+    PATHS.user,
+  ],
+  // Заявка, консультація, оцінка й план, підготовка і запуск
+  steps: [PATHS.send, PATHS.phone, PATHS.calculator, PATHS.rocket],
+  // Ведення, аудит, кейс, Etsy Ads, Pinterest, калькулятор прибутку
+  related: [PATHS.repeat, PATHS.gauge, PATHS.trend, PATHS.mega, PATHS.image, PATHS.calculator],
+  sections: {
+    // Магазин і бренд, товари й лістинги, продаж за кордон
+    'what-is-etsy': [PATHS.badge, PATHS.tag, PATHS.plane],
+    // Запуск, лістинги й SEO, аудит, ведення
+    formats: [PATHS.rocket, PATHS.tag, PATHS.gauge, PATHS.repeat],
+  },
+  stack: [],
+};
+
 export const SERVICE_PAGE_GRAPHICS: Record<string, ServicePageGraphics> = {
   shopify,
   'google-ads': googleAds,
+  etsy,
 };

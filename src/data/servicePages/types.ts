@@ -65,6 +65,9 @@ export type ServicePage = {
   short: string;
   metaTitle: string;
   metaDescription: string;
+  /** Окремі OG-заголовок і опис для соцмереж; без полів — metaTitle і metaDescription. */
+  ogTitle?: string;
+  ogDescription?: string;
   h1: string;
   lead: string;
   /** Другий абзац героя — коротке доповнення до основного тексту. */
@@ -132,4 +135,11 @@ export type ServicePage = {
   leadText: string;
   /** Підпис кнопки відправки лід-форми; без поля — загальний. */
   leadSubmit?: string;
+  /**
+   * Власні варіанти «Що вас цікавить» у лід-формі сторінки — замість категорій.
+   * «Не знаю, з чого почати» додається автоматично в кінець.
+   */
+  leadTopics?: string[];
+  /** Плейсхолдер коментаря в лід-формі сторінки. */
+  leadCommentPlaceholder?: string;
 };

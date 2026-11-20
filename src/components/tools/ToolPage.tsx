@@ -198,6 +198,14 @@ export default function ToolPage({
           <div className="max-w-[47rem]">
             <h2 className="fs-44 mob-26 font-bold text-white">{c.cta.bandTitle}</h2>
             <p className="mob-16 mt-4 text-base leading-[1.55] text-white/90 md:text-[1.125rem]">{c.cta.bandText}</p>
+            {c.cta.serviceLink ? (
+              <Link
+                href={c.cta.serviceLink.href}
+                className="mt-5 inline-flex text-base font-bold uppercase tracking-[0.02em] text-white underline-offset-4 hover:underline"
+              >
+                {c.cta.serviceLink.label} <span aria-hidden className="ml-1.5">→</span>
+              </Link>
+            ) : null}
           </div>
           <div className="flex flex-none flex-col gap-3">
             <AnimatedButton variant="light" href="#lead" className="md:w-full">

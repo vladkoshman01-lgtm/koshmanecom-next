@@ -768,6 +768,23 @@ export default function CaseStudyView({ study, leadForm }: { study: CaseStudy; l
         </div>
       </section>
 
+      {/* Посилання на сторінку послуги, яку ілюструє кейс */}
+      {study.serviceLink ? (
+        <section className="bg-white">
+          <div className="shell pb-14 md:pb-20">
+            <div className="flex flex-col items-start gap-5 border-l-[3px] border-brand-orange bg-[#F6F6F6] px-6 py-6 md:flex-row md:items-center md:justify-between md:gap-10 md:px-10 md:py-8">
+              <p className="m-0 text-base leading-[1.55] text-[#222222] md:text-lg">{study.serviceLink.text}</p>
+              <Link
+                href={study.serviceLink.href}
+                className="flex-none text-base font-bold uppercase tracking-[0.02em] text-brand-orange hover:underline"
+              >
+                {study.serviceLink.label} <span aria-hidden>→</span>
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       {/* Висновок */}
       {study.conclusion ? (
       <section className="bg-[#141414]">

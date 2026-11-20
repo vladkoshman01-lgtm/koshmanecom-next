@@ -857,9 +857,304 @@ const googleAds: ServicePage = {
   },
 };
 
+/**
+ * Vytvorenie a nastavenie Etsy obchodu — slovenská verzia pre slovenský trh.
+ * Rovnaké poradie a id sekcií ako v UA, aby ikony v icons.ts sedeli.
+ * Bez záruk predajov, pozícií a schválenia účtu, bez orientačných cien.
+ * Platby a dane len s upozornením: dostupnosť funkcií Etsy závisí od krajiny a pravidiel.
+ */
+const etsy: ServicePage = {
+  slug: 'etsy',
+  category: 'Medzinárodné marketplace',
+  categoryKey: 'marketplaces',
+  short: 'Obchod na Etsy',
+  metaTitle: 'Vytvorenie a nastavenie Etsy obchodu | Koshman Ecom',
+  metaDescription:
+    'Pomáhame slovenským predajcom vytvoriť a nastaviť Etsy obchod: dizajn, listingy, Etsy SEO, kľúčové slová, pravidlá obchodu, doprava a predaj do zahraničia.',
+  ogTitle: 'Vytvorenie Etsy obchodu na kľúč pre slovenských predajcov',
+  ogDescription:
+    'Spustíme váš Etsy obchod: štruktúra, vzhľad, listingy, Etsy SEO, pravidlá a príprava na predaj zákazníkom v Európe aj vo svete.',
+  h1: 'Vytvorenie a nastavenie Etsy obchodu na kľúč',
+  lead: 'Pomáhame slovenským predajcom vytvoriť Etsy obchod, pripraviť listingy, nastaviť Etsy SEO, pravidlá, dopravu a obsah pre predaj zákazníkom doma aj v zahraničí.',
+  leadExtra: 'Prípravu berieme na seba — dostanete obchod, ktorý môže predávať do zahraničia.',
+  sectionLabels: false,
+  stepsAccent: true,
+  stepsCta: 'Prebrať váš Etsy obchod',
+  heroCta: { primary: 'Prebrať váš Etsy obchod', secondary: 'Nezáväzná konzultácia' },
+  facts: [
+    ['Formát', 'Vytvorenie a nastavenie'],
+    ['Platforma', 'Etsy'],
+    ['Pre koho', 'Handmade, digitálne produkty a značky'],
+    ['Cieľ', 'Predaj na Slovensku aj v zahraničí'],
+  ],
+  areaServed: ['SK', 'CZ', 'EU'],
+  updated: '20. novembra 2026',
+  forTitle: 'Pre koho je vytvorenie Etsy obchodu vhodné?',
+  forWhom: [
+    ['Handmade tvorcovia', 'Pre autorov šperkov, dekorácií, keramiky, doplnkov, sviečok a darčekov.'],
+    ['Slovenské značky', 'Pre značky, ktoré už predávajú na Slovensku alebo majú vlastný web a chcú pridať medzinárodný marketplace.'],
+    ['Predajcovia digitálnych produktov', 'Pre autorov šablón, printov, ilustrácií, plánovačov a ďalších digitálnych súborov.'],
+    ['Začínajúci predajcovia', 'Pre tých, ktorí Etsy obchod ešte nemajú a nechcú začať bez štruktúry a stratégie.'],
+    ['Existujúce obchody', 'Pre predajcov, ktorí potrebujú zlepšiť vzhľad obchodu, listingy, SEO alebo konverziu.'],
+    ['Firmy smerujúce do zahraničia', 'Pre slovenské podniky, ktoré chcú predávať v Európe a na ďalších trhoch.'],
+  ],
+  forWhomNote:
+    'Predaj na Etsy stojí na kvalitnom produkte, konkurencieschopnej cene, dobrých fotografiách a spoľahlivom zákazníckom servise — samotný obchod to nenahradí. Preto pred začiatkom preveríme sortiment, obsah, logistiku a obchodné ciele.',
+  includedTitle: 'Čo zahŕňa vytvorenie a nastavenie Etsy obchodu',
+  includedIntro:
+    'Vytvorenie Etsy obchodu nie je len registrácia účtu. Postupujeme krok za krokom: od analýzy produktu až po kontrolu obchodu pred zverejnením.',
+  included: [
+    ['Analýza produktu a cieľov', 'Analyzujeme sortiment, cieľových zákazníkov, konkurenciu, maržu, typ produktov a krajiny, do ktorých chcete predávať.'],
+    ['Pozicionovanie a štruktúra', 'Určíme, čo obchod ponúka, komu je určený, aké sekcie potrebuje a ako má byť značka prezentovaná.'],
+    ['Vzhľad a branding', 'Pripravíme názov, popis obchodu, banner, logo, sekciu About, vizuálny štýl a základné prvky storefrontu.'],
+    ['Nastavenia a pravidlá', 'Pomôžeme pripraviť pravidlá obchodu, vrátenie, dopravu, čas spracovania objednávok a informácie pre zákazníkov.'],
+    ['Produktové listingy', 'Pripravíme názvy, popisy, tagy, kategórie, atribúty, varianty a personalizáciu pre dohodnutý počet produktov.'],
+    ['Etsy SEO', 'Analyzujeme kľúčové slová a konkurenciu a optimalizujeme listingy tak, aby boli zrozumiteľné pre vyhľadávanie Etsy aj pre kupujúcich.'],
+    ['Produktový obsah', 'Štruktúrujeme fotografie, video, materiály, rozmery, spôsob použitia, starostlivosť a ďalšie informácie potrebné na nákupné rozhodnutie.'],
+    ['Doprava a medzinárodný predaj', 'Pripravíme krajiny doručenia, ceny a časy dopravy, podmienky vrátenia a informácie pre zahraničných kupujúcich.'],
+    ['Kontrola pred spustením', 'Skontrolujeme štruktúru, listingy, pravidlá, ceny, dopravu, mobilné zobrazenie a celkovú pripravenosť obchodu.'],
+    ['Odovzdanie a ďalší plán', 'Odovzdáme dohodnuté prístupy, vysvetlíme základnú správu obchodu a odporučíme ďalšie kroky: Etsy SEO, správu, Etsy Ads alebo Pinterest.'],
+  ],
+  stepsTitle: 'Ako začať spoluprácu s Koshman Ecom',
+  steps: [
+    ['Krok 1', 'Dopyt', 'Napíšte, čo predávate, koľko produktov máte a či už Etsy obchod existuje.'],
+    ['Krok 2', 'Krátka konzultácia', 'Upresníme, čo potrebujete: nový obchod, listingy a SEO, audit existujúceho obchodu alebo správu.'],
+    ['Krok 3', 'Odhad a plán', 'Navrhneme rozsah práce, počet listingov, podklady od vás, termín a orientačný rozpočet.'],
+    ['Krok 4', 'Príprava a spustenie', 'Pripravíme obchod, listingy a pravidlá, všetko skontrolujeme pred zverejnením a odovzdáme prístupy.'],
+  ],
+  priceTitle: 'Koľko stojí vytvorenie Etsy obchodu?',
+  priceText:
+    'Jednotná cena pre všetky Etsy obchody neexistuje. Cena závisí od počtu produktov, rozsahu obsahu, dizajnu, počtu listingov, hĺbky SEO, pripravenosti fotografií, jazykov, dopravy a potreby následnej správy. Presný odhad pripravíme po krátkom briefingu.',
+  priceCta: 'Vypočítať cenu',
+  priceFactorsTitle: 'Čo ovplyvňuje cenu',
+  priceFactors: [
+    'Analýza produktu, trhu a konkurencie',
+    'Branding a vzhľad storefrontu',
+    'Počet nových alebo optimalizovaných listingov',
+    'Copywriting, preklad a výskum kľúčových slov',
+    'Fotografie, video a grafické materiály — ak ich treba vytvoriť',
+    'Pravidlá, doprava a nastavenia',
+    'Etsy Ads, analytika a pravidelná správa — samostatne po spustení',
+  ],
+  expert: {
+    name: 'Vlad Koshman',
+    role: 'Zakladateľ Koshman Ecom',
+    bio: 'Špecialista na medzinárodný e-commerce. Zodpovedá za stratégiu a spúšťanie predaja: pomáha určiť, aký Etsy obchod firma potrebuje, aké podklady pripraviť na štart a ako prepojiť marketplace s ďalšou propagáciou.',
+    image: '/team/Vlad.png',
+  },
+  faqTitle: 'Časté otázky o vytvorení Etsy obchodu',
+  faq: [
+    [
+      'Koľko stojí vytvorenie Etsy obchodu?',
+      'Cena závisí od rozsahu práce, počtu produktov, dizajnu, SEO, textov, prekladov, fotografií, dopravy a následnej správy. Po krátkej konzultácii pripravíme konkrétny rozsah a odhad.',
+    ],
+    [
+      'Ako dlho trvá vytvorenie Etsy obchodu?',
+      'Závisí to od počtu produktov, pripravenosti fotografií a textov, náročnosti dizajnu, potreby prekladu a rýchlosti schvaľovania podkladov. Reálny plán určíme po briefingu.',
+    ],
+    [
+      'Pomáhate aj predajcom zo Slovenska?',
+      'Áno. Pomáhame slovenským predajcom pripraviť Etsy obchod, listingy, obsah, SEO, dopravu a základ pre predaj zahraničným zákazníkom. Dostupnosť platobných možností a overenia účtu závisí od aktuálnych pravidiel Etsy a údajov predajcu.',
+    ],
+    [
+      'Potrebujem mať produkty pripravené?',
+      'Odporúčame mať pripravený sortiment, fotografie, ceny, materiály, rozmery, varianty a informácie o výrobe či dodaní. Ak sortiment ešte len vzniká, môžeme začať konzultáciou a analýzou.',
+    ],
+    [
+      'Robíte Etsy SEO?',
+      'Áno. Etsy SEO môže zahŕňať výskum kľúčových slov, analýzu konkurencie a optimalizáciu názvov, popisov, tagov, kategórií a atribútov.',
+    ],
+    [
+      'Garantujete prvé pozície alebo predaje?',
+      'Nie. Výsledky závisia od dopytu, konkurencie, ceny, produktu, fotografií, dopravy, recenzií, konverzie a zmien algoritmov Etsy. Zodpovedáme za kvalitu prípravy, no konkrétnu pozíciu ani počet objednávok garantovať nemožno.',
+    ],
+    [
+      'Viete viesť Etsy obchod aj po spustení?',
+      'Áno. Po spustení môžeme zabezpečiť pravidelnú správu: optimalizáciu listingov, Etsy SEO, sledovanie ukazovateľov, aktualizáciu obsahu, odporúčania k sortimentu a dohodnuté reklamné aktivity.',
+    ],
+    [
+      'Môžem si objednať iba audit existujúceho obchodu?',
+      'Áno. Audit môže zahŕňať storefront, listingy, SEO, konkurenciu, obsah, dopravu a plán prioritných zmien.',
+    ],
+  ],
+  relatedTitle: 'Čo môžete využiť po spustení Etsy obchodu',
+  related: [
+    ['Medzinárodné marketplace', 'Správa Etsy', 'Pravidelná optimalizácia listingov, Etsy SEO, reklama a analytika po spustení.', '/services#marketplaces'],
+    ['Stratégia a plán rozvoja', 'Audit Etsy', 'Analýza obchodu, konkurencie a plán ďalšieho rastu na Etsy.', '/services#strategy'],
+    ['Prípadová štúdia', 'Etsy obchod s módnymi šperkami', 'Príklad práce s existujúcim Etsy obchodom, listingami, SEO a štruktúrou obchodu.', '/cases/etsy-jewelry-shop-seo'],
+    ['Reklama', 'Reklama na marketplace', 'Etsy Ads a ďalšie reklamné aktivity — po príprave listingov.', '/services#ads'],
+    ['Pinterest', 'Pinterest pre Etsy', 'Externá návštevnosť na Etsy obchod cez piny, nástenky a reklamu.', '/services#pinterest'],
+    ['Nástroje', 'Kalkulačka zisku na Etsy', 'Koľko vám zostane z predaja po poplatkoch Etsy, doprave a nákladoch.', '/kalkulyator-prybutku-etsy'],
+  ],
+  extraSections: [
+    {
+      id: 'what-is-etsy',
+      tone: 'light',
+      placement: 'after-tldr',
+      title: 'Čo je Etsy obchod a čo je potrebné na jeho spustenie?',
+      intro:
+        'Etsy je medzinárodný marketplace pre handmade, autorské, vintage, personalizované a digitálne produkty. Samotná registrácia však ešte nevytvorí predajný kanál.\n\nNa spustenie treba pripraviť tri veci.',
+      variant: 'cards',
+      items: [
+        ['Obchod a značka', 'Názov a pozicionovanie, sekcie, banner, logo, sekcia About a pravidlá obchodu.'],
+        ['Produkty a listingy', 'Sortiment, fotografie, názvy, popisy, tagy, kategórie, atribúty, ceny, varianty a personalizácia.'],
+        ['Podmienky predaja do zahraničia', 'Doprava a čas spracovania, pravidlá vrátenia a komunikácie, nastavenie platieb a bankových údajov.'],
+      ],
+      outro:
+        'Prevedieme vás od prvotnej analýzy a štruktúry obchodu až po pripravené listingy, základné Etsy SEO, kontrolu nastavení a spustenie obchodu.',
+    },
+    {
+      id: 'etsy-seo',
+      marker: 'check',
+      tone: 'grey',
+      placement: 'after-included',
+      title: 'Etsy SEO začína kvalitnými listingami',
+      intro:
+        'Aj pekný obchod potrebuje správne názvy, relevantné tagy, kategórie, atribúty, popisy a fotografie, aby ho kupujúci dokázali nájsť a pochopiť.\n\nPri príprave listingov pracujeme s týmito prvkami.',
+      variant: 'list',
+      items: [
+        ['Výskum kľúčových slov', 'Ako kupujúci hľadajú váš produkt na Etsy a aké výrazy používajú.'],
+        ['Analýza konkurencie a kategórie', 'Čo sa v nike už predáva, ako vyzerajú silné listingy a kde je voľné miesto.'],
+        ['Štruktúra názvov produktov', 'Názov hneď vysvetlí, o aký produkt ide, a zodpovedá tomu, čo ľudia hľadajú.'],
+        ['Relevantné Etsy tagy', 'Konkrétne frázy súvisiace s produktom namiesto príliš všeobecných slov.'],
+        ['Kategórie a atribúty', 'Vyplnené polia, podľa ktorých Etsy produkt chápe a zobrazuje ho vo filtroch.'],
+        ['Popisy pre kupujúcich', 'Materiály, rozmery, varianty, starostlivosť, čas výroby a doručenia.'],
+        ['Fotografie a hlavný obrázok', 'Prvá fotografia vysvetlí, čo predávate; ďalšie ukážu detaily, mierku a použitie.'],
+        ['Varianty a personalizácia', 'Zrozumiteľné možnosti a polia na personalizáciu bez zmätku pre kupujúceho.'],
+        ['Obsah pre Etsy Search a Google', 'Texty obchodu a listingov, ktoré sa dajú nájsť nielen v rámci Etsy.'],
+      ],
+      outro:
+        'Etsy SEO môže zlepšiť relevantnosť a viditeľnosť listingov, ale negarantuje konkrétnu pozíciu, návštevnosť ani počet predajov. Výsledok ovplyvňuje dopyt, konkurencia, cena, fotografie, doprava, recenzie, konverzia a zákaznícky servis.',
+      note: 'Ako vyzerá systematická práca s listingami v praxi — v [prípadovej štúdii Etsy obchodu so šperkami](/cases/etsy-jewelry-shop-seo).',
+    },
+    {
+      id: 'ukrainian-sellers',
+      marker: 'check',
+      tone: 'dark',
+      placement: 'after-included',
+      title: 'Etsy zo Slovenska: predaj do Európy a zahraničia',
+      intro:
+        'Zahraničný kupujúci musí hneď pochopiť, čo kupuje, koľko to stojí aj s dopravou a kedy mu zásielka príde.\n\nTo pre vás pripravíme.',
+      variant: 'list',
+      items: [
+        ['Obchod v angličtine', 'Názov, popis, About a pravidlá obchodu v prirodzenej angličtine, nie v doslovnom preklade.'],
+        ['Popisy pre zahraničných zákazníkov', 'Rozmery, materiály, starostlivosť a obsah balenia — to, na čo sa kupujúci z inej krajiny pýta ako prvé.'],
+        ['Cena so zohľadnením dopravy', 'Cenu nastavíme tak, aby poplatky Etsy a doprava do zahraničia nezjedli váš zisk.'],
+        ['Doprava podľa krajín', 'Nastavíme, kam posielate, koľko to stojí a ako dlho zásielka ide — v EÚ aj mimo nej.'],
+        ['Vrátenie a lehoty', 'Zrozumiteľné pravidlá vrátenia s ohľadom na zákazníkov v EÚ a reálny čas výroby a odoslania.'],
+        ['Platby a výplaty', 'Pomôžeme skontrolovať, aké údaje Etsy potrebuje na platby a výplaty na váš bankový účet.'],
+      ],
+      outro:
+        'Dostupnosť Etsy Payments, bankových možností, dopravy a jednotlivých funkcií závisí od krajiny, typu predajcu a aktuálnych pravidiel Etsy. Daňové, právne a účtovné otázky — napríklad DPH či živnosť — je potrebné overiť s príslušným odborníkom.',
+      cta: 'Prebrať váš Etsy obchod',
+    },
+    {
+      id: 'process',
+      marker: 'numbered',
+      tone: 'light',
+      placement: 'after-included',
+      title: 'Sedem krokov od nápadu k pripravenému Etsy obchodu',
+      intro: 'Každá etapa končí dohodnutým výsledkom, aby ste vedeli, čo je hotové a čo bude nasledovať.',
+      variant: 'list',
+      items: [
+        ['Dopyt', 'Opíšete nám produkt, sortiment, aktuálny stav a cieľ predaja.'],
+        ['Konzultácia a brief', 'Upresníme produkty, počet listingov, fotografie, jazyky, dopravu, platby, termín a rozpočet.'],
+        ['Analýza a plán', 'Vyhodnotíme sortiment, konkurenciu, kľúčové slová a štruktúru obchodu.'],
+        ['Pozicionovanie a vzhľad', 'Pripravíme názov, popis, banner, logo, sekcie, About a základné pravidlá.'],
+        ['Listingy a Etsy SEO', 'Vytvoríme alebo optimalizujeme dohodnutý počet listingov vrátane názvov, popisov, tagov, kategórií a atribútov.'],
+        ['Nastavenie a kontrola', 'Skontrolujeme dopravu, platby, pravidlá, ceny, mobilné zobrazenie a pripravenosť na zverejnenie.'],
+        ['Spustenie a ďalší rozvoj', 'Obchod spustíme alebo odovzdáme pripravené podklady a odporučíme ďalšie kroky: správu, Etsy Ads, SEO alebo Pinterest.'],
+      ],
+      cta: 'Prebrať rozsah práce',
+    },
+    {
+      id: 'formats',
+      tone: 'grey',
+      placement: 'after-included',
+      title: 'Ako môžeme pracovať s vaším Etsy obchodom',
+      variant: 'cards',
+      items: [
+        ['Vytvorenie nového obchodu', 'Pre predajcov, ktorí Etsy obchod ešte nemajú. Zahŕňa analýzu, štruktúru, vzhľad, nastavenia, pravidlá, dohodnuté listingy a prípravu na spustenie.'],
+        ['Listingy a Etsy SEO', 'Pre existujúce obchody, ktoré potrebujú vytvoriť alebo optimalizovať produkty. Zahŕňa výskum kľúčových slov, názvy, popisy, tagy, kategórie, atribúty a odporúčania k fotografiám.'],
+        ['Audit Etsy obchodu', 'Pre obchody s nízkou viditeľnosťou, slabými listingami alebo stagnujúcimi výsledkami. Zahŕňa analýzu storefrontu, listingov, SEO, konkurencie, obsahu a plán priorít.'],
+        ['Správa a rozvoj', 'Pre predajcov, ktorí potrebujú pravidelnú prácu: optimalizáciu listingov, Etsy SEO, sledovanie ukazovateľov, odporúčania k sortimentu a dohodnuté marketingové aktivity.'],
+      ],
+      outroTitle: 'Vytvorenie a správa sú rôzne služby',
+      outro:
+        'Vytvorenie obchodu je jednorazová príprava a spustenie: štruktúra, vzhľad, pravidlá, prvé listingy, základ SEO, doprava a zverejnenie.\n\nSpráva Etsy obchodu je pravidelná práca po spustení: aktualizácie, SEO, analýza, reklama a rozvoj. Jej rozsah určujeme samostatným balíkom.',
+      actions: [
+        { label: 'Správa Etsy', href: '/services#marketplaces' },
+        { label: 'Objednať audit Etsy', service: 'Audit Etsy' },
+      ],
+    },
+    {
+      id: 'client-materials',
+      marker: 'dot',
+      tone: 'light',
+      placement: 'after-included',
+      title: 'Čo potrebujeme od vás',
+      intro:
+        'Obchod pripravíme my, no faktické údaje o produkte môže dodať len predajca.\n\nNa začiatok budeme potrebovať tieto podklady.',
+      variant: 'list',
+      items: [
+        ['Fotografie a videá produktov', ''],
+        ['Vlastnosti, materiály a rozmery', ''],
+        ['Ceny a náklady', ''],
+        ['Čas výroby', ''],
+        ['Podmienky dopravy', ''],
+        ['Pravidlá vrátenia', ''],
+        ['Údaje na overenie identity a bankového účtu v Etsy', ''],
+      ],
+      outro:
+        'Výroba produktov, balenie a odosielanie objednávok, komunikácia so zákazníkmi (ak nie je objednaná správa) a podnikateľské, daňové a právne povinnosti zostávajú na strane predajcu. Negarantujeme schválenie účtu Etsy ani dostupnosť všetkých platobných funkcií. Fotenie produktov je možné doplniť len v samostatne dohodnutom rozsahu.',
+    },
+    {
+      id: 'why-no-sales',
+      marker: 'problem',
+      tone: 'dark',
+      placement: 'after-included',
+      title: 'Prečo Etsy obchod nemusí získavať návštevy a predaje',
+      intro: 'Zverejnený obchod ešte neznamená predaje.\n\nPri audite a príprave sledujeme tieto dôvody.',
+      variant: 'list',
+      items: [
+        ['Obchod nemá jasné pozicionovanie', ''],
+        ['Názov produktu nezodpovedá tomu, čo kupujúci hľadajú', ''],
+        ['Tagy sú príliš všeobecné alebo nerelevantné', ''],
+        ['Chýbajú kategórie a atribúty', ''],
+        ['Hlavná fotografia nevysvetľuje produkt', ''],
+        ['Popis neodpovedá na otázky kupujúceho', ''],
+        ['Chýbajú rozmery, materiály alebo varianty', ''],
+        ['Cena nezohľadňuje dopravu, poplatky a maržu', ''],
+        ['Doprava a čas spracovania nie sú jasné', ''],
+        ['Pravidlá obchodu sú neúplné', ''],
+        ['Listingy nie sú prispôsobené zahraničným zákazníkom', ''],
+        ['Reklama sa spúšťa skôr, než sú listingy pripravené', ''],
+        ['Neexistuje pravidelná analýza údajov', ''],
+        ['Predajca očakáva výsledky iba od samotného zverejnenia obchodu', ''],
+      ],
+      outro:
+        'Na Etsy obchod sa pozeráme ako na predajný systém: od vyhľadávania a prvého obrázka až po dôveru, objednávku, dopravu a ďalší rast.',
+      note: 'Či cena pokryje poplatky, si overíte v [kalkulačke zisku na Etsy](/kalkulyator-prybutku-etsy).',
+      cta: 'Prebrať váš Etsy obchod',
+    },
+  ],
+  schema: {
+    name: 'Vytvorenie a nastavenie Etsy obchodu na kľúč',
+    serviceType: 'Etsy shop setup and optimization',
+    offers: false,
+  },
+  leadTitle: 'Vytvoríme Etsy obchod pripravený na predaj do zahraničia',
+  leadText:
+    'Opíšte nám produkt, sortiment a cieľ — navrhneme, aký rozsah Etsy obchodu potrebujete a s čím je najlepšie začať.',
+  leadSubmit: 'Odoslať dopyt',
+  leadTopics: ['Obchod na Etsy — vytvorenie a nastavenie', 'Správa Etsy', 'Etsy SEO a listingy', 'Audit Etsy obchodu', 'Etsy Ads'],
+  leadCommentPlaceholder: 'Opíšte, čo predávate, koľko produktov máte a či už Etsy obchod existuje.',
+};
+
 export const skServicePages: Record<string, ServicePage> = {
   [shopify.slug]: shopify,
   [googleAds.slug]: googleAds,
+  [etsy.slug]: etsy,
 };
 
 export default skServicePages;

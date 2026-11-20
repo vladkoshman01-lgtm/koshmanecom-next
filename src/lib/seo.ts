@@ -53,6 +53,8 @@ export function buildMetadata({
   type = 'website',
   translated = true,
   locales: only,
+  ogTitle,
+  ogDescription,
 }: {
   locale: Locale;
   path: string;
@@ -64,6 +66,9 @@ export function buildMetadata({
   translated?: boolean;
   /** Мови, якими сторінка існує, — hreflang лише на них. Без поля — усі активні. */
   locales?: readonly Locale[];
+  /** Окремі заголовок і опис для соцмереж; без них — title і description. */
+  ogTitle?: string;
+  ogDescription?: string;
 }): Metadata {
   const url = `${siteUrl}${localePath(locale, path)}`;
   const langs = only ?? activeLocales;
@@ -75,8 +80,8 @@ export function buildMetadata({
     description,
     alternates: translated ? alternatesFor(locale, path, langs) : { canonical: url },
     openGraph: {
-      title,
-      description,
+      title: ogTitle ?? title,
+      description: ogDescription ?? description,
       url,
       siteName: 'Koshman Ecom',
       locale: OG_LOCALE[locale],
@@ -85,7 +90,7 @@ export function buildMetadata({
         : {}),
       type,
     },
-    twitter: { card: 'summary_large_image', title, description },
+    twitter: { card: 'summary_large_image', title: ogTitle ?? title, description: ogDescription ?? description },
     ...(noindex ? { robots: { index: false, follow: true } } : {}),
   };
 }

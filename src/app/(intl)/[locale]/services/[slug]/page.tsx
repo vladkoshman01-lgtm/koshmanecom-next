@@ -31,6 +31,8 @@ export async function generateMetadata({
     path: `/services/${page.slug}`,
     title: page.metaTitle,
     description: page.metaDescription,
+    ogTitle: page.ogTitle,
+    ogDescription: page.ogDescription,
     locales: servicePageLocales(page.slug),
   });
 }
@@ -52,7 +54,14 @@ export default async function Page({
       <JsonLd data={servicePageJsonLd(lang, page)} />
       <ServicePageView
         page={page}
-        lead={<LeadForm theme="light" title={page.leadTitle} subtitle={page.leadText} submitLabel={page.leadSubmit} />}
+        lead={<LeadForm
+            theme="light"
+            title={page.leadTitle}
+            subtitle={page.leadText}
+            submitLabel={page.leadSubmit}
+            topics={page.leadTopics}
+            commentPlaceholder={page.leadCommentPlaceholder}
+          />}
       />
     </div>
   );

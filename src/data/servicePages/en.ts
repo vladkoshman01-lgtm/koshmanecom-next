@@ -851,9 +851,303 @@ const googleAds: ServicePage = {
   },
 };
 
+/**
+ * Etsy shop setup — English version for international sellers.
+ * Same section order and ids as UA/SK so the icons in icons.ts line up.
+ * No country in the H1, no guaranteed rankings, sales or account approval, no starting price.
+ */
+const etsy: ServicePage = {
+  slug: 'etsy',
+  category: 'International marketplaces',
+  categoryKey: 'marketplaces',
+  short: 'Etsy store setup',
+  metaTitle: 'Etsy Shop Setup and SEO Services | Koshman Ecom',
+  metaDescription:
+    'Launch and optimize your Etsy shop with professional setup, branding, product listings, Etsy SEO, keyword research, shop policies and growth support for global sellers.',
+  ogTitle: 'Etsy Shop Setup and Optimization for Global Sellers',
+  ogDescription:
+    'Set up your Etsy shop, optimize your listings and prepare your store for international customers with Koshman Ecom.',
+  h1: 'Etsy Shop Setup and Optimization',
+  lead: 'We help sellers launch and improve Etsy shops with professional storefront setup, product listings, Etsy SEO, branding, shop policies and preparation for international sales.',
+  leadExtra: 'We handle the preparation — you get a shop that is ready to sell to buyers worldwide.',
+  sectionLabels: false,
+  stepsAccent: true,
+  stepsCta: 'Discuss your Etsy shop',
+  heroCta: { primary: 'Discuss your Etsy shop', secondary: 'Get a consultation' },
+  facts: [
+    ['Format', 'Setup, optimization and ongoing support'],
+    ['Platform', 'Etsy'],
+    ['For', 'Handmade, digital products and independent brands'],
+    ['Goal', 'A shop ready for international customers'],
+  ],
+  areaServed: ['EU', 'GB', 'US'],
+  updated: '20 November 2026',
+  forTitle: 'Who is Etsy shop setup and optimization for?',
+  forWhom: [
+    ['Handmade sellers', 'For makers of jewelry, home decor, ceramics, textiles, candles, gifts and other original products.'],
+    ['Independent brands', 'For brands that want to add Etsy as a sales channel and reach new international customers.'],
+    ['Digital product sellers', 'For creators of templates, planners, printables, artwork, illustrations and downloadable files.'],
+    ['New Etsy sellers', 'For sellers who want to launch with a clear structure instead of opening an unfinished shop and fixing it later.'],
+    ['Existing Etsy shops', 'For shop owners who need better listings, stronger SEO, clearer branding or a structured improvement plan.'],
+    ['Global sellers', 'For businesses that need English-language content, international shipping information and a storefront ready for buyers from different markets.'],
+  ],
+  forWhomNote:
+    'Sales on Etsy depend on a strong product, a fair price, good photos and reliable customer service — the shop itself cannot replace them. That is why we review your product range, content readiness, shipping model and business goals before we start.',
+  includedTitle: 'What is included in Etsy shop setup and optimization?',
+  includedIntro:
+    'Setting up an Etsy shop is more than opening an account. We work through a structured process, from product analysis to a final check before the shop goes live.',
+  included: [
+    ['Business and product analysis', 'We review your product range, target buyers, competitors, pricing logic, product format and intended markets.'],
+    ['Positioning and shop structure', 'We define what the shop sells, who it is for, how products should be grouped and how the brand should be presented.'],
+    ['Storefront branding', 'We help prepare or refine the shop name, description, banner, logo, About section, visual direction and storefront layout.'],
+    ['Shop settings and policies', 'We organize shipping information, processing times, returns, exchanges and buyer-facing policies. Legal and tax requirements depend on your location and business model.'],
+    ['Product listings', 'We create or improve an agreed number of listings, including titles, descriptions, tags, categories, attributes, variations and personalization options.'],
+    ['Etsy SEO', 'We research keywords and competitors and optimize listing content for Etsy search and for buyers.'],
+    ['Product content', 'We structure materials, dimensions, use cases, care instructions, variations and the other details buyers need before ordering.'],
+    ['International selling preparation', 'We set up shipping destinations, costs and delivery times, plus buyer-facing information in clear English.'],
+    ['Pre-launch review', 'We check the storefront, listings, policies, prices, shipping, mobile display and overall readiness before publication.'],
+    ['Handover and next steps', 'We hand over the agreed access, explain the basic shop workflow and recommend what to do next: management, Etsy SEO, Etsy Ads or Pinterest.'],
+  ],
+  stepsTitle: 'How to start working with Koshman Ecom',
+  steps: [
+    ['Step 1', 'Enquiry', 'Tell us what you sell, how many products you have and whether you already have an Etsy shop.'],
+    ['Step 2', 'Short consultation', 'We clarify what you need: a new shop, listings and SEO, an audit of an existing shop or ongoing management.'],
+    ['Step 3', 'Estimate and plan', 'We propose the scope, number of listings, materials needed from you, timeline and an estimated budget.'],
+    ['Step 4', 'Setup and launch', 'We prepare the shop, listings and policies, check everything before publication and hand over access.'],
+  ],
+  priceTitle: 'How much does Etsy shop setup cost?',
+  priceText:
+    'There is no single price for every Etsy shop. The cost depends on the number of products, content scope, storefront design, number of listings, SEO depth, photography readiness, languages, shipping requirements and the need for ongoing management. We prepare an estimate after a short brief.',
+  priceCta: 'Get a project estimate',
+  priceFactorsTitle: 'What affects the price',
+  priceFactors: [
+    'Product, market and competitor analysis',
+    'Storefront branding and design direction',
+    'Number of new or optimized listings',
+    'Copywriting, localization and keyword research',
+    'Photography, video and graphic assets — if they need to be created',
+    'Policies, shipping and shop settings',
+    'Etsy Ads, analytics and ongoing management — separately after launch',
+  ],
+  expert: {
+    name: 'Vlad Koshman',
+    role: 'Founder of Koshman Ecom',
+    bio: 'International ecommerce specialist responsible for strategy and sales launches. Helps sellers decide what kind of Etsy shop they need, what to prepare before launch and how to connect the marketplace with further promotion.',
+    image: '/team/Vlad.png',
+  },
+  faqTitle: 'Frequently asked questions about Etsy shop setup',
+  faq: [
+    [
+      'How much does it cost to set up an Etsy shop?',
+      'The cost depends on the scope of work, number of products, storefront design, listings, SEO, copywriting, localization, images, shipping and ongoing support. After a short consultation, we prepare a clear scope and estimate.',
+    ],
+    [
+      'How long does it take to launch an Etsy shop?',
+      'The timeline depends on your product range, how ready your photos and copy are, the design scope, localization needs and how quickly materials are approved. We agree a realistic plan after the brief.',
+    ],
+    [
+      'Can you help sellers from any country?',
+      'We work with international sellers and brands. The exact setup depends on your country, Etsy availability, payment options, shipping model and business requirements.',
+    ],
+    [
+      'Do I need products ready before we start?',
+      'It is best to have a defined product range, photos, prices, materials, dimensions, variations and production or delivery information. If your range is still being developed, we can start with a consultation and market review.',
+    ],
+    [
+      'Do you provide Etsy SEO services?',
+      'Yes. Etsy SEO may include keyword research, competitor analysis and optimization of titles, descriptions, tags, categories and attributes.',
+    ],
+    [
+      'Do you guarantee first-page rankings or sales?',
+      'No. Results depend on demand, competition, product quality, pricing, images, shipping, reviews, conversion, customer service and changes to Etsy search. We guarantee the agreed work, not a specific business result.',
+    ],
+    [
+      'Can you manage the shop after launch?',
+      'Yes. Ongoing management may include listing optimization, Etsy SEO, performance monitoring, content updates, product recommendations and agreed advertising activities.',
+    ],
+    [
+      'Can I order only an Etsy shop audit?',
+      'Yes. An audit can cover the storefront, listings, SEO, competitors, content, shipping information and a prioritized improvement plan.',
+    ],
+  ],
+  relatedTitle: 'What can you add after launching your Etsy shop?',
+  related: [
+    ['International marketplaces', 'Etsy store management', 'Ongoing listing optimization, Etsy SEO, ads and analytics after launch.', '/services#marketplaces'],
+    ['Strategy and growth plan', 'Etsy shop audit', 'Shop and competitor analysis with a plan for further growth.', '/services#strategy'],
+    ['Case study', 'Etsy jewelry shop SEO', 'An example of our work with an existing Etsy shop, its listings, SEO and structure.', '/cases/etsy-jewelry-shop-seo'],
+    ['Advertising', 'Marketplace advertising', 'Etsy Ads and other marketplace advertising — once your listings are ready.', '/services#ads'],
+    ['Pinterest', 'Pinterest for Etsy', 'External traffic to your Etsy shop through pins, boards and ads.', '/services#pinterest'],
+    ['Tools', 'Etsy profit calculator', 'What you keep from each sale after Etsy fees, shipping and costs.', '/kalkulyator-prybutku-etsy'],
+  ],
+  extraSections: [
+    {
+      id: 'what-is-etsy',
+      tone: 'light',
+      placement: 'after-tldr',
+      title: 'What does it take to launch an Etsy shop?',
+      intro:
+        'Etsy is a global marketplace for handmade, designed, vintage, personalized and digital products. Opening an account is only the first step.\n\nTo start selling, you need to prepare three things.',
+      variant: 'cards',
+      items: [
+        ['Shop and brand', 'Shop name and positioning, sections, banner, logo, About section and shop policies.'],
+        ['Products and listings', 'Product range, photos, titles, descriptions, tags, categories, attributes, prices, variations and personalization.'],
+        ['Selling terms for global buyers', 'Shipping and processing times, returns, buyer communication, payment and bank details.'],
+      ],
+      outro:
+        'We help you move from an idea or an unfinished shop to a structured Etsy storefront with prepared listings, an SEO foundation and a clear plan for the next stage of growth.',
+    },
+    {
+      id: 'etsy-seo',
+      marker: 'check',
+      tone: 'grey',
+      placement: 'after-included',
+      title: 'Etsy SEO starts with well-prepared listings',
+      intro:
+        'An attractive shop still needs clear titles, relevant tags, accurate categories, useful attributes, strong descriptions and good images to help buyers find and understand the products.\n\nWhen preparing listings, we work on the following.',
+      variant: 'list',
+      items: [
+        ['Keyword research', 'How buyers search for your product on Etsy and which phrases they use.'],
+        ['Competitor and category analysis', 'What already sells in your niche, how strong listings look and where there is room for you.'],
+        ['Title structure', 'The title says right away what the product is and matches what buyers are searching for.'],
+        ['Relevant tags', 'Specific phrases tied to the product instead of broad, generic words.'],
+        ['Categories and attributes', 'Complete fields that help Etsy understand the product and show it in filters.'],
+        ['Descriptions that answer questions', 'Materials, dimensions, variations, care, production and delivery times.'],
+        ['Primary images and visuals', 'The first photo shows what you sell; the rest show details, scale and use.'],
+        ['Variations and personalization', 'Clear options and personalization fields that do not confuse buyers.'],
+        ['Content for Etsy and Google search', 'Shop and listing copy that can be found outside Etsy too.'],
+      ],
+      outro:
+        'Etsy SEO can improve relevance and visibility, but it cannot guarantee a specific ranking, amount of traffic or number of sales. Results also depend on demand, competition, pricing, product quality, images, shipping, reviews, conversion and customer service.',
+      note: 'See how this works in practice in our [Etsy jewelry shop case study](/cases/etsy-jewelry-shop-seo).',
+    },
+    {
+      id: 'ukrainian-sellers',
+      marker: 'check',
+      tone: 'dark',
+      placement: 'after-included',
+      title: 'Prepare your Etsy shop for international customers',
+      intro:
+        'A buyer from another country should understand straight away what they are buying, what it costs with shipping and when it will arrive.\n\nHere is what we prepare for that.',
+      variant: 'list',
+      items: [
+        ['Shop content in clear English', 'Shop name, description, About section and policies written in natural English, not a word-for-word translation.'],
+        ['Localized titles and descriptions', 'Dimensions, materials, care and what is in the box — the details international buyers ask about first.'],
+        ['Pricing that covers shipping', 'Prices set so that Etsy fees, currency differences and international shipping do not eat your margin.'],
+        ['Shipping by destination', 'Where you ship, how much it costs and how long delivery takes — for Europe and other markets.'],
+        ['Returns and timelines', 'Clear return and exchange rules and realistic production and dispatch times.'],
+        ['Communication with buyers', 'Ready answers to common questions so international buyers get clear replies.'],
+      ],
+      outro:
+        'Etsy Payments, banking options, shipping services and marketplace features may vary by country, seller type and current Etsy rules. Legal, tax and accounting questions should be checked with a qualified professional.',
+      cta: 'Discuss your Etsy shop',
+    },
+    {
+      id: 'process',
+      marker: 'numbered',
+      tone: 'light',
+      placement: 'after-included',
+      title: 'Seven steps from idea to a ready-to-sell Etsy shop',
+      intro: 'Each stage ends with an agreed deliverable, so you know what has been completed and what happens next.',
+      variant: 'list',
+      items: [
+        ['Enquiry', 'You tell us about your product, product range, current shop and business goal.'],
+        ['Consultation and brief', 'We clarify the products, number of listings, photography, languages, shipping, payments, timeline and budget.'],
+        ['Analysis and plan', 'We review the niche, competitors, product range, keywords and shop structure and define the work required.'],
+        ['Positioning and storefront', 'We prepare the shop structure, description, banner, logo, sections, About content and basic policies.'],
+        ['Listings and Etsy SEO', 'We create or optimize the agreed number of listings, including titles, descriptions, tags, categories, attributes and visual recommendations.'],
+        ['Setup and quality check', 'We review shipping, payment information, policies, pricing, mobile display, product data and readiness for publication.'],
+        ['Launch and next steps', 'We publish or hand over the prepared shop and recommend the next stage: management, Etsy Ads, SEO, Pinterest or external traffic.'],
+      ],
+      cta: 'Discuss the scope of work',
+    },
+    {
+      id: 'formats',
+      tone: 'grey',
+      placement: 'after-included',
+      title: 'How we can support your Etsy business',
+      variant: 'cards',
+      items: [
+        ['New shop setup', 'For sellers who do not have an Etsy shop yet. Includes analysis, structure, storefront direction, basic settings, policies, agreed listings and launch preparation.'],
+        ['Listings and Etsy SEO', 'For existing shops that need new listings or better visibility. Includes keyword research, titles, descriptions, tags, categories, attributes and image recommendations.'],
+        ['Etsy shop audit', 'For shops with low visibility, weak listings or stalled performance. Includes storefront, listing, SEO, competitor and content analysis with a prioritized plan.'],
+        ['Management and growth', 'For sellers who need recurring work: listing updates, Etsy SEO, performance monitoring, product recommendations, agreed marketing activity and monthly priorities.'],
+      ],
+      outroTitle: 'What happens after your Etsy shop goes live?',
+      outro:
+        'Launch is the starting point. Etsy shop setup is a one-time project: structure, storefront, policies, first listings, an SEO foundation, shipping and publication.\n\nEtsy shop management is recurring work after launch: listing optimization, keyword and competitor reviews, testing titles and tags, Etsy Ads support, performance monitoring and monthly priorities. We agree its scope as a separate package.',
+      actions: [
+        { label: 'Etsy store management', href: '/services#marketplaces' },
+        { label: 'Order an Etsy shop audit', service: 'Etsy shop audit' },
+      ],
+    },
+    {
+      id: 'client-materials',
+      marker: 'dot',
+      tone: 'light',
+      placement: 'after-included',
+      title: 'What we need from you',
+      intro:
+        'We prepare the shop, but only the seller can provide the facts about the product.\n\nTo get started, we will need the following.',
+      variant: 'list',
+      items: [
+        ['Product photos and videos', ''],
+        ['Specifications, materials and dimensions', ''],
+        ['Prices and costs', ''],
+        ['Production times', ''],
+        ['Shipping terms', ''],
+        ['Return policy', ''],
+        ['Details for Etsy identity and bank verification', ''],
+      ],
+      outro:
+        'Making or sourcing products, packing and shipping orders, customer communication (unless management is included), legal and tax obligations and compliance with Etsy’s rules remain the seller’s responsibility. We do not guarantee Etsy account approval or payment availability in every country. Product photography can be added only as a separately agreed scope.',
+    },
+    {
+      id: 'why-no-sales',
+      marker: 'problem',
+      tone: 'dark',
+      placement: 'after-included',
+      title: 'Why an Etsy shop may not be getting views or sales',
+      intro: 'A published shop does not mean sales.\n\nDuring audits and setup, we look for these issues.',
+      variant: 'list',
+      items: [
+        ['The shop has no clear positioning', ''],
+        ['Titles do not match buyer search intent', ''],
+        ['Tags are too broad or irrelevant', ''],
+        ['Categories and attributes are incomplete', ''],
+        ['The first image does not explain the product', ''],
+        ['Descriptions do not answer buyer questions', ''],
+        ['Materials, dimensions or variations are missing', ''],
+        ['Pricing does not account for fees, shipping and margin', ''],
+        ['Shipping and processing times are unclear', ''],
+        ['Shop policies are incomplete', ''],
+        ['Listings are not adapted for international buyers', ''],
+        ['Advertising starts before listings are ready', ''],
+        ['There is no regular performance analysis', ''],
+        ['The seller expects sales simply because the shop is published', ''],
+      ],
+      outro:
+        'We look at an Etsy shop as a sales system: from the search query and first image to trust, checkout, delivery and the next purchase.',
+      note: 'Check whether your price covers Etsy fees with our [Etsy profit calculator](/kalkulyator-prybutku-etsy).',
+      cta: 'Discuss your Etsy shop',
+    },
+  ],
+  schema: {
+    name: 'Etsy Shop Setup and Optimization',
+    serviceType: 'Etsy shop setup and optimization',
+    offers: false,
+  },
+  leadTitle: 'Launch an Etsy shop ready for international customers',
+  leadText:
+    'Tell us about your product, range and business goal — we will recommend the right Etsy setup, optimization or management format and explain where to start.',
+  leadSubmit: 'Send request',
+  leadTopics: ['Etsy store setup', 'Etsy store management', 'Etsy SEO and listings', 'Etsy shop audit', 'Etsy Ads'],
+  leadCommentPlaceholder: 'Tell us what you sell, how many products you have and whether you already have an Etsy shop.',
+};
+
 export const enServicePages: Record<string, ServicePage> = {
   [shopify.slug]: shopify,
   [googleAds.slug]: googleAds,
+  [etsy.slug]: etsy,
 };
 
 export default enServicePages;

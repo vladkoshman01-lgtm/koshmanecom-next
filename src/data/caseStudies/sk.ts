@@ -323,6 +323,11 @@ export const skCaseStudies: Record<string, CaseStudy> = {
 
   'etsy-jewelry-shop-seo': {
     ...etsy,
+    serviceLink: {
+      text: 'Ešte nemáte obchod na Etsy alebo ho chcete od prvého dňa spustiť správne?',
+      label: 'Vytvorenie Etsy obchodu na kľúč',
+      href: '/services/etsy',
+    },
     metaTitle: 'Prípadová štúdia Etsy: 14 300 $ predajov šperkov za 7 mesiacov | Koshman Ecom',
     metaDescription:
       'Ako sme zdvojnásobili návštevnosť existujúceho Etsy obchodu so šperkami: +103 % návštev, 161 objednávok a 14 300 $ tržieb za 7 mesiacov. SEO, listingy, automatizácia.',

@@ -13,7 +13,13 @@ export type ToolPageCopy = {
   crumbs: { home: string; tools: string; page: string };
   hero: { eyebrow: string; title: string; subtitle: string; checked: string };
   chips: [string, string][];
-  cta: { calculate: string; bandTitle: string; bandText: string };
+  cta: {
+    calculate: string;
+    bandTitle: string;
+    bandText: string;
+    /** Посилання на сторінку послуги під текстом смуги; адреса без мовного префікса. */
+    serviceLink?: { label: string; href: string };
+  };
   guide: {
     eyebrow: string;
     title: string;

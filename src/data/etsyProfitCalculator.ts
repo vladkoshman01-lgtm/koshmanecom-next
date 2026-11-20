@@ -236,6 +236,7 @@ const uk: ProfitCalcCopy = {
     calculate: 'Порахувати прибуток',
     bandTitle: 'Хочете, щоб магазин на Etsy заробляв більше?',
     bandText: 'Запускаємо магазини під ключ, переписуємо лістинги під пошук Etsy і налаштовуємо рекламу так, щоб вона окупалась. Покажемо, як підняти маржу саме у вашій ніші.',
+    serviceLink: { label: 'Запуск Etsy-магазину під ключ', href: '/services/etsy' },
   },
   lead: {
     title: 'Хочете більше прибутку з Etsy?',
@@ -410,6 +411,7 @@ const en: ProfitCalcCopy = {
     calculate: 'Calculate profit',
     bandTitle: 'Want your Etsy shop to earn more?',
     bandText: 'We launch shops end to end, rewrite listings for Etsy search and set up ads that pay for themselves. We will show you how to raise the margin in your niche.',
+    serviceLink: { label: 'Etsy shop setup', href: '/services/etsy' },
   },
   lead: {
     title: 'Want more profit from Etsy?',
@@ -585,6 +587,7 @@ const sk: ProfitCalcCopy = {
     calculate: 'Vypočítať zisk',
     bandTitle: 'Chcete, aby váš obchod na Etsy zarábal viac?',
     bandText: 'Spúšťame obchody na kľúč, prepisujeme listingy pre vyhľadávanie Etsy a nastavujeme reklamu, ktorá sa zaplatí. Ukážeme, ako zvýšiť maržu práve vo vašej nike.',
+    serviceLink: { label: 'Vytvorenie Etsy obchodu na kľúč', href: '/services/etsy' },
   },
   lead: {
     title: 'Chcete z Etsy viac zisku?',
